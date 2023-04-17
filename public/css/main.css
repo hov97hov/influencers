@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@font-face {
+    font-family: arialAum;
+    src: url('/fonts/arnamu.ttf');
+}
+
+@font-face {
+    font-family: arialAumBold;
+    src: url('/fonts/arnamu_bold.ttf');
+}
+
+@font-face {
+    font-family: arialAumItalic;
+    src: url('/fonts/arnamu_italic.ttf');
+}
+
+@font-face {
+    font-family: arialAumItalicBlod;
+    src: url('/fonts/arnamu_italic_bold.ttf');
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1160px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.vs__search {
+    display: none !important;
+}
+
+.vs__dropdown-toggle {
+    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;
+    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7) !important;
+    border-radius: 20px !important;
+    padding: 0 12px !important;
+    height: 56px !important;
+}
+.vs__dropdown-toggle .vs__selected {
+    font-family: 'Rubik', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 24px !important;
+    line-height: 28px !important;
+    letter-spacing: 0.02em !important;
+    color: #595656 !important;
+}
+.vs--single.vs--loading .vs__selected, .vs--single.vs--open .vs__selected {
+    opacity: 1 !important;
+    position: relative !important;
+}
+.vs__clear {
+    display: none !important;
+}
+.vs__dropdown-menu {
+    top: 87px !important;
+    padding: 32px 22px !important;
+    border-radius: 25px !important;
+}
+.vs__dropdown-option--highlight {
+    background: #FEFDFF !important;
+}
+.vs__dropdown-menu li {
+    padding: 12px 0 !important;
+    text-align: center !important;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #000000;
+}
+.vs--open .vs__dropdown-toggle  {
+    border: 0 !important;
+}
+.vs__dropdown-toggle {
+    border: 0 !important;
+}
+.vs__dropdown-menu  li:hover {
+    background: #E9EDF0 !important;
+    border-radius: 10px !important;
+    color: #000000 !important;
+
+}
+.vs__dropdown-menu  li.active {
+    background: red !important;
+}
+
+
+.checkbox-container {
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    padding-left: 22px;
+    padding-right: 13px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    color: #625F60;
+    border-radius: 10px;
+}
+
+.checkbox-container:hover {
+    background: #F4EFF3;
+    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    height: 25px;
+    width: 25px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #E9ECF2;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    background: #F4EFF3;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #E9ECF2;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid #8B8989;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
