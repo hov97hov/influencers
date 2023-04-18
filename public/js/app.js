@@ -5956,6 +5956,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5966,6 +6008,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      activeBtnCountLeft: null,
+      activeBtnCountRight: null,
+      searchNotSelectedCategories: '',
       defaultData: {
         accountType: '',
         location: '',
@@ -5973,7 +6018,9 @@ __webpack_require__.r(__webpack_exports__);
         age: '',
         numberFollowers: '',
         numberPosts: '',
-        lastPost: ''
+        lastPost: '',
+        searchFollowerCountLeft: '',
+        searchFollowerCountRight: ''
       },
       notSelectedCategories: ['ccc', 'ddd', 'eeee', 'fff'],
       selectedCategories: ['aaa', 'bbb'],
@@ -5983,6 +6030,14 @@ __webpack_require__.r(__webpack_exports__);
       options: ["foo", "bar", "baz", "test test"]
     };
   },
+  computed: {
+    filterNotSelectedCategories: function filterNotSelectedCategories() {
+      var self = this;
+      return self.notSelectedCategories.filter(function (val) {
+        return val.indexOf(self.searchNotSelectedCategories) !== -1;
+      });
+    }
+  },
   methods: {
     hideTransitionPlatform: function hideTransitionPlatform() {
       this.transitionPlatform = false;
@@ -5990,8 +6045,72 @@ __webpack_require__.r(__webpack_exports__);
     hideTransitionCategory: function hideTransitionCategory() {
       this.transitionCategory = false;
     },
-    hidenNmberFollowers: function hidenNmberFollowers() {
+    hideNmberFollowers: function hideNmberFollowers() {
       this.numberFollowers = false;
+    },
+    followerCountLeft: function followerCountLeft(count) {
+      this.activeBtnCountLeft = count;
+      this.defaultData.searchFollowerCountLeft = '';
+
+      if (count === "1k") {
+        this.defaultData.searchFollowerCountLeft = 1000;
+      }
+
+      if (count === "5k") {
+        this.defaultData.searchFollowerCountLeft = 5000;
+      }
+
+      if (count === "10k") {
+        this.defaultData.searchFollowerCountLeft = 10000;
+      }
+
+      if (count === "20k") {
+        this.defaultData.searchFollowerCountLeft = 20000;
+      }
+
+      if (count === "100k") {
+        this.defaultData.searchFollowerCountLeft = 100000;
+      }
+
+      if (count === "500k") {
+        this.defaultData.searchFollowerCountLeft = 500000;
+      }
+
+      if (count === "1M") {
+        this.defaultData.searchFollowerCountLeft = 1000000;
+      }
+    },
+    followerCountRight: function followerCountRight(count) {
+      this.defaultData.searchFollowerCountRight = '';
+      this.activeBtnCountRight = count;
+
+      if (count === "1k") {
+        this.defaultData.searchFollowerCountRight = 1000;
+      }
+
+      if (count === "5k") {
+        this.defaultData.searchFollowerCountRight = 5000;
+      }
+
+      if (count === "10k") {
+        this.defaultData.searchFollowerCountRight = 10000;
+      }
+
+      if (count === "20k") {
+        this.defaultData.searchFollowerCountRight = 20000;
+      }
+
+      if (count === "100k") {
+        this.defaultData.searchFollowerCountRight = 100000;
+      }
+
+      if (count === "500k") {
+        this.defaultData.searchFollowerCountRight = 500000;
+      }
+
+      if (count === "1M") {
+        this.defaultData.searchFollowerCountRight = 1000000;
+      }
     },
     selectedCategory: function selectedCategory(value) {
       var index = this.notSelectedCategories.indexOf(value);
@@ -36800,10 +36919,31 @@ var render = function () {
                                 { staticClass: "search-category-content" },
                                 [
                                   _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.searchNotSelectedCategories,
+                                        expression:
+                                          "searchNotSelectedCategories",
+                                      },
+                                    ],
                                     staticClass: "search-input",
                                     attrs: {
                                       type: "text",
                                       placeholder: "Choose category",
+                                    },
+                                    domProps: {
+                                      value: _vm.searchNotSelectedCategories,
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.searchNotSelectedCategories =
+                                          $event.target.value
+                                      },
                                     },
                                   }),
                                 ]
@@ -36855,7 +36995,7 @@ var render = function () {
                                 "div",
                                 { staticClass: "category-list" },
                                 _vm._l(
-                                  _vm.notSelectedCategories,
+                                  _vm.filterNotSelectedCategories,
                                   function (item) {
                                     return _c("div", { key: item }, [
                                       _c(
@@ -36952,10 +37092,31 @@ var render = function () {
                                 { staticClass: "search-category-content" },
                                 [
                                   _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.searchNotSelectedCategories,
+                                        expression:
+                                          "searchNotSelectedCategories",
+                                      },
+                                    ],
                                     staticClass: "search-input",
                                     attrs: {
                                       type: "text",
                                       placeholder: "Choose category",
+                                    },
+                                    domProps: {
+                                      value: _vm.searchNotSelectedCategories,
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.searchNotSelectedCategories =
+                                          $event.target.value
+                                      },
                                     },
                                   }),
                                 ]
@@ -37007,7 +37168,7 @@ var render = function () {
                                 "div",
                                 { staticClass: "category-list" },
                                 _vm._l(
-                                  _vm.notSelectedCategories,
+                                  _vm.filterNotSelectedCategories,
                                   function (item) {
                                     return _c("div", { key: item }, [
                                       _c(
@@ -37168,8 +37329,8 @@ var render = function () {
                                 {
                                   name: "click-outside",
                                   rawName: "v-click-outside",
-                                  value: _vm.hidenNmberFollowers,
-                                  expression: "hidenNmberFollowers",
+                                  value: _vm.hideNmberFollowers,
+                                  expression: "hideNmberFollowers",
                                 },
                               ],
                               staticClass: "transition-select",
@@ -37180,49 +37341,286 @@ var render = function () {
                                 { staticClass: "transition-search-content" },
                                 [
                                   _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value:
+                                          _vm.defaultData
+                                            .searchFollowerCountLeft,
+                                        expression:
+                                          "defaultData.searchFollowerCountLeft",
+                                      },
+                                    ],
                                     staticClass: "search-input",
                                     attrs: { type: "text" },
+                                    domProps: {
+                                      value:
+                                        _vm.defaultData.searchFollowerCountLeft,
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.defaultData,
+                                          "searchFollowerCountLeft",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
                                   }),
                                   _vm._v(" "),
                                   _c("span", [_vm._v("-")]),
                                   _vm._v(" "),
                                   _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value:
+                                          _vm.defaultData
+                                            .searchFollowerCountRight,
+                                        expression:
+                                          "defaultData.searchFollowerCountRight",
+                                      },
+                                    ],
                                     staticClass: "search-input",
                                     attrs: { type: "text" },
+                                    domProps: {
+                                      value:
+                                        _vm.defaultData
+                                          .searchFollowerCountRight,
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.defaultData,
+                                          "searchFollowerCountRight",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
                                   }),
                                 ]
                               ),
                               _vm._v(" "),
                               _c("div", { staticClass: "followers-count" }, [
-                                _c("div", [_vm._v("1k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "1k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("1k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("1k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("1k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "1k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("1k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("1k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "active" }, [
-                                  _vm._v("5k"),
-                                ]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "5k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("5k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("5k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("5k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "5k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("5k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("5k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("10k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "10k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("10k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("10k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("10k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "10k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("10k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("10k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("20k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "20k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("20k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("20k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("20k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "20k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("20k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("20k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("100k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "100k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("100k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("100k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("100k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active:
+                                        _vm.activeBtnCountRight === "100k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("100k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("100k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("500k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "500k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("500k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("500k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("500k")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active:
+                                        _vm.activeBtnCountRight === "500k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("500k")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("500k")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("1M")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "1M",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("1M")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("1M")]
+                                ),
                                 _vm._v(" "),
-                                _c("div", [_vm._v("1M")]),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "1M",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("1M")
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("1M")]
+                                ),
                               ]),
                             ]
                           )

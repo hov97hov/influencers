@@ -38,7 +38,7 @@
                                 <transition name="slide">
                                     <div class="transition-select" v-click-outside="hideTransitionPlatform"  v-if="transitionPlatform">
                                         <div class="search-category-content">
-                                            <input class="search-input" type="text" placeholder="Choose category">
+                                            <input v-model="searchNotSelectedCategories" class="search-input" type="text" placeholder="Choose category">
                                         </div>
                                         <div class="selected-category-content">
                                             <p>Selected:</p>
@@ -51,7 +51,7 @@
                                             </div>
                                         </div>
                                         <div class="category-list">
-                                            <div v-for="item in notSelectedCategories" :key="item">
+                                            <div v-for="item in filterNotSelectedCategories" :key="item">
                                                 <label class="checkbox-container">
                                                     <span>{{ item }}</span>
                                                     <input type="checkbox" @change="selectedCategory(item)">
@@ -73,7 +73,7 @@
                                 <transition name="slide">
                                     <div class="transition-select" v-click-outside="hideTransitionCategory" v-if="transitionCategory">
                                         <div class="search-category-content">
-                                            <input class="search-input" type="text" placeholder="Choose category">
+                                            <input v-model="searchNotSelectedCategories" class="search-input" type="text" placeholder="Choose category">
                                         </div>
                                         <div class="selected-category-content">
                                             <p>Selected:</p>
@@ -86,7 +86,7 @@
                                             </div>
                                         </div>
                                         <div class="category-list">
-                                            <div v-for="item in notSelectedCategories" :key="item">
+                                            <div v-for="item in filterNotSelectedCategories" :key="item">
                                                 <label class="checkbox-container">
                                                     <span>{{ item }}</span>
                                                     <input type="checkbox" @change="selectedCategory(item)">
@@ -122,27 +122,69 @@
                                     <img :class="{active : numberFollowers}" src="/images/icons/dropdown.svg" alt="">
                                 </button>
                                 <transition name="slide">
-                                    <div class="transition-select" v-click-outside="hidenNmberFollowers" v-if="numberFollowers">
+                                    <div class="transition-select" v-click-outside="hideNmberFollowers" v-if="numberFollowers">
                                         <div class="transition-search-content">
-                                            <input class="search-input" type="text">
+                                            <input v-model="defaultData.searchFollowerCountLeft" class="search-input" type="text">
                                             <span>-</span>
-                                            <input class="search-input" type="text">
+                                            <input v-model="defaultData.searchFollowerCountRight" class="search-input" type="text">
                                         </div>
                                         <div class="followers-count">
-                                            <div>1k</div>
-                                            <div>1k</div>
-                                            <div class="active">5k</div>
-                                            <div>5k</div>
-                                            <div>10k</div>
-                                            <div>10k</div>
-                                            <div>20k</div>
-                                            <div>20k</div>
-                                            <div>100k</div>
-                                            <div>100k</div>
-                                            <div>500k</div>
-                                            <div>500k</div>
-                                            <div>1M</div>
-                                            <div>1M</div>
+                                            <div
+                                                :class="{active : activeBtnCountLeft === '1k'}"
+                                                @click="followerCountLeft('1k')"
+                                            >1k</div>
+                                            <div
+                                                :class="{active : activeBtnCountRight === '1k'}"
+                                                @click="followerCountRight('1k')"
+                                            >1k</div>
+                                            <div
+                                                :class="{active : activeBtnCountLeft === '5k'}"
+                                                @click="followerCountLeft('5k')"
+                                            >5k</div>
+                                            <div
+                                                :class="{active : activeBtnCountRight === '5k'}"
+                                                @click="followerCountRight('5k')"
+                                            >5k</div>
+                                            <div
+                                                :class="{active : activeBtnCountLeft === '10k'}"
+                                                @click="followerCountLeft('10k')"
+                                            >10k</div>
+                                            <div
+                                                :class="{active : activeBtnCountRight === '10k'}"
+                                                @click="followerCountRight('10k')"
+                                            >10k</div>
+                                            <div
+                                                :class="{active : activeBtnCountLeft === '20k'}"
+                                                @click="followerCountLeft('20k')"
+                                            >20k</div>
+                                            <div
+                                                :class="{active : activeBtnCountRight === '20k'}"
+                                                @click="followerCountRight('20k')"
+                                            >20k</div>
+                                            <div
+                                                :class="{active : activeBtnCountLeft === '100k'}"
+                                                @click="followerCountLeft('100k')"
+                                            >100k</div>
+                                            <div
+                                                :class="{active : activeBtnCountRight === '100k'}"
+                                                @click="followerCountRight('100k')"
+                                            >100k</div>
+                                            <div
+                                                :class="{active : activeBtnCountLeft === '500k'}"
+                                                @click="followerCountLeft('500k')"
+                                            >500k</div>
+                                            <div
+                                                :class="{active : activeBtnCountRight === '500k'}"
+                                                @click="followerCountRight('500k')"
+                                            >500k</div>
+                                            <div
+                                                :class="{active : activeBtnCountLeft === '1M'}"
+                                                @click="followerCountLeft('1M')"
+                                            >1M</div>
+                                            <div
+                                                :class="{active : activeBtnCountRight === '1M'}"
+                                                @click="followerCountRight('1M')"
+                                            >1M</div>
                                         </div>
                                     </div>
                                 </transition>
@@ -410,6 +452,9 @@ export default {
     components: {Footer},
     data() {
         return {
+            activeBtnCountLeft: null,
+            activeBtnCountRight: null,
+            searchNotSelectedCategories: '',
             defaultData: {
                 accountType: '',
                 location: '',
@@ -418,25 +463,91 @@ export default {
                 numberFollowers: '',
                 numberPosts: '',
                 lastPost: '',
+                searchFollowerCountLeft: '',
+                searchFollowerCountRight: '',
             },
             notSelectedCategories: ['ccc', 'ddd', 'eeee', 'fff'],
             selectedCategories: ['aaa', 'bbb'],
             numberFollowers: false,
             transitionPlatform: false,
             transitionCategory: false,
-            options: ["foo", "bar", "baz", "test test"]
+            options: ["foo", "bar", "baz", "test test"],
+        }
+    },
+    computed:{
+        filterNotSelectedCategories:function(){
+            var self = this;
+            return self.notSelectedCategories.filter(function(val){
+                return val.indexOf(self.searchNotSelectedCategories)!== -1;
+            })
         }
     },
     methods: {
         hideTransitionPlatform () {
             this.transitionPlatform = false
         },
+
         hideTransitionCategory () {
             this.transitionCategory = false
         },
-        hidenNmberFollowers () {
+
+        hideNmberFollowers () {
             this.numberFollowers = false
         },
+
+        followerCountLeft (count) {
+            this.activeBtnCountLeft = count
+            this.defaultData.searchFollowerCountLeft = ''
+            if (count === "1k") {
+                this.defaultData.searchFollowerCountLeft = 1000
+            }
+            if (count === "5k") {
+                this.defaultData.searchFollowerCountLeft = 5000
+            }
+            if (count === "10k") {
+                this.defaultData.searchFollowerCountLeft = 10000
+            }
+            if (count === "20k") {
+                this.defaultData.searchFollowerCountLeft = 20000
+            }
+            if (count === "100k") {
+                this.defaultData.searchFollowerCountLeft = 100000
+            }
+            if (count === "500k") {
+                this.defaultData.searchFollowerCountLeft = 500000
+            }
+            if (count === "1M") {
+                this.defaultData.searchFollowerCountLeft = 1000000
+            }
+        },
+
+        followerCountRight (count) {
+            this.defaultData.searchFollowerCountRight = ''
+            this.activeBtnCountRight = count
+
+            if (count === "1k") {
+                this.defaultData.searchFollowerCountRight = 1000
+            }
+            if (count === "5k") {
+                this.defaultData.searchFollowerCountRight = 5000
+            }
+            if (count === "10k") {
+                this.defaultData.searchFollowerCountRight = 10000
+            }
+            if (count === "20k") {
+                this.defaultData.searchFollowerCountRight = 20000
+            }
+            if (count === "100k") {
+                this.defaultData.searchFollowerCountRight = 100000
+            }
+            if (count === "500k") {
+                this.defaultData.searchFollowerCountRight = 500000
+            }
+            if (count === "1M") {
+                this.defaultData.searchFollowerCountRight = 1000000
+            }
+        },
+
         selectedCategory(value) {
             let index = this.notSelectedCategories.indexOf(value);
             if (index !== -1) {
