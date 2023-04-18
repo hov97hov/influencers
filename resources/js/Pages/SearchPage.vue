@@ -33,6 +33,10 @@
                             <div>
                                 <p>Platform</p>
                                 <button class="select-btn" @click.stop="transitionPlatform = true">
+                                    {{selectedCategories[0]}}
+                                    {{selectedCategories[1] ? `,` : ``}}
+                                    {{selectedCategories[1]}}
+                                    {{selectedCategories.length > 2 ? `...` : ``}}
                                     <img :class="{active : transitionPlatform}" src="/images/icons/dropdown.svg" alt="">
                                 </button>
                                 <transition name="slide">
@@ -68,6 +72,10 @@
                             <div>
                                 <p>Category</p>
                                 <button class="select-btn" @click.stop="transitionCategory = true">
+                                    {{selectedCategories[0]}}
+                                    {{selectedCategories[1] ? `,` : ``}}
+                                    {{selectedCategories[1]}}
+                                    {{selectedCategories.length > 2 ? `...` : ``}}
                                     <img :class="{active : transitionCategory}" src="/images/icons/dropdown.svg" alt="">
                                 </button>
                                 <transition name="slide">
@@ -119,6 +127,9 @@
                             <div>
                                 <p>Number of followers</p>
                                 <button  class="select-btn" @click.stop="numberFollowers = true">
+                                    {{defaultData.searchFollowerCountLeft}}
+                                    {{defaultData.searchFollowerCountLeft ? `>` : ``}}
+                                    {{defaultData.searchFollowerCountRight}}
                                     <img :class="{active : numberFollowers}" src="/images/icons/dropdown.svg" alt="">
                                 </button>
                                 <transition name="slide">
@@ -466,8 +477,8 @@ export default {
                 searchFollowerCountLeft: '',
                 searchFollowerCountRight: '',
             },
-            notSelectedCategories: ['ccc', 'ddd', 'eeee', 'fff'],
-            selectedCategories: ['aaa', 'bbb'],
+            notSelectedCategories: ['aaa', 'bbb', 'ccc', 'ddd', 'eeee', 'fff'],
+            selectedCategories: [],
             numberFollowers: false,
             transitionPlatform: false,
             transitionCategory: false,
@@ -792,6 +803,7 @@ export default {
                             position: absolute;
                             right: 20px;
                             transition: 0.25s ease;
+                            top: 25px;
 
                             &.active {
 
