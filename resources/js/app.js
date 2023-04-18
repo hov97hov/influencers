@@ -1,15 +1,22 @@
-import Vue from "vue";
-import App from './App.vue'
-import router from "./router";
-import Vuex from 'vuex'
+require('./bootstrap');
+
+// Import modules...
+import Vue from 'vue';
+import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 import vSelect from "vue-select";
 
 Vue.component("v-select", vSelect);
+Vue.use(InertiaPlugin);
 
-Vue.use(Vuex)
+const app = document.getElementById('app');
 
-const app = new Vue({
-    el: '#app',
-    router,
-    render: h => h(App)
-});
+new Vue({
+    render: (h) =>
+        h(InertiaApp, {
+            props: {
+                initialPage: JSON.parse(app.dataset.page),
+                resolveComponent: (name) => require(`./Pages/${name}`).default,
+            },
+        }),
+}).$mount(app);
+

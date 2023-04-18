@@ -1,4 +1,3 @@
-"use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_SearchPage_vue"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/SearchPage.vue?vue&type=script&lang=js&":
@@ -7,12 +6,15 @@
   \************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Footer.vue */ "./resources/js/components/Footer.vue");
 /* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
+/* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-click-outside */ "./node_modules/vue-click-outside/index.js");
+/* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_click_outside__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -342,6 +344,80 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -370,6 +446,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    hideTransitionPlatform: function hideTransitionPlatform() {
+      this.transitionPlatform = false;
+    },
+    hideTransitionCategory: function hideTransitionCategory() {
+      this.transitionCategory = false;
+    },
+    hidenNmberFollowers: function hidenNmberFollowers() {
+      this.numberFollowers = false;
+    },
     selectedCategory: function selectedCategory(value) {
       var index = this.notSelectedCategories.indexOf(value);
       if (index !== -1) {
@@ -377,7 +462,18 @@ __webpack_require__.r(__webpack_exports__);
         this.selectedCategories.push(value);
         this.selectedCategories.sort();
       }
+    },
+    notSelectedCategory: function notSelectedCategory(value) {
+      var index = this.selectedCategories.indexOf(value);
+      if (index !== -1) {
+        this.selectedCategories.splice(index, 1);
+        this.notSelectedCategories.push(value);
+        this.notSelectedCategories.sort();
+      }
     }
+  },
+  directives: {
+    ClickOutside: (vue_click_outside__WEBPACK_IMPORTED_MODULE_2___default())
   }
 });
 
@@ -389,6 +485,7 @@ __webpack_require__.r(__webpack_exports__);
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -412,6 +509,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".vs__dropdown-toggle[data-v-4c663994] 
   \*************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -435,6 +533,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --vs-colors--lightest: rg
   \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -464,6 +563,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -487,12 +587,93 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 /***/ }),
 
+/***/ "./node_modules/vue-click-outside/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/vue-click-outside/index.js ***!
+  \*************************************************/
+/***/ ((module, exports) => {
+
+function validate(binding) {
+  if (typeof binding.value !== 'function') {
+    console.warn('[Vue-click-outside:] provided expression', binding.expression, 'is not a function.')
+    return false
+  }
+
+  return true
+}
+
+function isPopup(popupItem, elements) {
+  if (!popupItem || !elements)
+    return false
+
+  for (var i = 0, len = elements.length; i < len; i++) {
+    try {
+      if (popupItem.contains(elements[i])) {
+        return true
+      }
+      if (elements[i].contains(popupItem)) {
+        return false
+      }
+    } catch(e) {
+      return false
+    }
+  }
+
+  return false
+}
+
+function isServer(vNode) {
+  return typeof vNode.componentInstance !== 'undefined' && vNode.componentInstance.$isServer
+}
+
+exports = module.exports = {
+  bind: function (el, binding, vNode) {
+    if (!validate(binding)) return
+
+    // Define Handler and cache it on the element
+    function handler(e) {
+      if (!vNode.context) return
+
+      // some components may have related popup item, on which we shall prevent the click outside event handler.
+      var elements = e.path || (e.composedPath && e.composedPath())
+      elements && elements.length > 0 && elements.unshift(e.target)
+
+      if (el.contains(e.target) || isPopup(vNode.context.popupItem, elements)) return
+
+      el.__vueClickOutside__.callback(e)
+    }
+
+    // add Event Listeners
+    el.__vueClickOutside__ = {
+      handler: handler,
+      callback: binding.value
+    }
+    const clickHandler = 'ontouchstart' in document.documentElement ? 'touchstart' : 'click';
+    !isServer(vNode) && document.addEventListener(clickHandler, handler)
+  },
+
+  update: function (el, binding) {
+    if (validate(binding)) el.__vueClickOutside__.callback = binding.value
+  },
+
+  unbind: function (el, binding, vNode) {
+    // Remove Event Listeners
+    const clickHandler = 'ontouchstart' in document.documentElement ? 'touchstart' : 'click';
+    !isServer(vNode) && el.__vueClickOutside__ && document.removeEventListener(clickHandler, el.__vueClickOutside__.handler)
+    delete el.__vueClickOutside__
+  }
+}
+
+
+/***/ }),
+
 /***/ "./resources/js/views/SearchPage.vue":
 /*!*******************************************!*\
   !*** ./resources/js/views/SearchPage.vue ***!
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -533,6 +714,7 @@ component.options.__file = "resources/js/views/SearchPage.vue"
   \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -548,6 +730,7 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchPage_vue_vue_type_style_index_0_id_4c663994_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchPage.vue?vue&type=style&index=0&id=4c663994&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/SearchPage.vue?vue&type=style&index=0&id=4c663994&scoped=true&lang=scss&");
 
@@ -560,6 +743,7 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchPage_vue_vue_type_template_id_4c663994_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
@@ -576,6 +760,7 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* binding */ render),
@@ -708,7 +893,8 @@ var render = function () {
                         staticClass: "select-btn",
                         on: {
                           click: function ($event) {
-                            _vm.transitionPlatform = !_vm.transitionPlatform
+                            $event.stopPropagation()
+                            _vm.transitionPlatform = true
                           },
                         },
                       },
@@ -722,100 +908,126 @@ var render = function () {
                     _vm._v(" "),
                     _c("transition", { attrs: { name: "slide" } }, [
                       _vm.transitionPlatform
-                        ? _c("div", { staticClass: "transition-select" }, [
-                            _c(
-                              "div",
-                              { staticClass: "search-category-content" },
-                              [
-                                _c("input", {
-                                  staticClass: "search-input",
-                                  attrs: {
-                                    type: "text",
-                                    placeholder: "Choose category",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "selected-category-content" },
-                              [
-                                _c("p", [_vm._v("Selected:")]),
-                                _vm._v(" "),
-                                _vm._l(_vm.selectedCategories, function (item) {
-                                  return _c("div", [
-                                    _c(
-                                      "label",
-                                      { staticClass: "checkbox-container" },
-                                      [
-                                        _c("span", [_vm._v(_vm._s(item))]),
-                                        _vm._v(" "),
-                                        _c("input", {
-                                          attrs: {
-                                            type: "checkbox",
-                                            checked: "",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("span", {
-                                          staticClass: "checkmark",
-                                        }),
-                                      ]
-                                    ),
-                                  ])
-                                }),
-                              ],
-                              2
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "category-list" },
-                              _vm._l(
-                                _vm.notSelectedCategories,
-                                function (item) {
-                                  return _c("div", { key: item }, [
-                                    _c(
-                                      "label",
-                                      { staticClass: "checkbox-container" },
-                                      [
-                                        _c("span", [_vm._v(_vm._s(item))]),
-                                        _vm._v(" "),
-                                        _c("input", {
-                                          attrs: { type: "checkbox" },
-                                          on: {
-                                            change: function ($event) {
-                                              return _vm.selectedCategory(item)
-                                            },
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("span", {
-                                          staticClass: "checkmark",
-                                        }),
-                                      ]
-                                    ),
-                                  ])
-                                }
-                              ),
-                              0
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "cancel" }, [
-                              _c(
-                                "span",
+                        ? _c(
+                            "div",
+                            {
+                              directives: [
                                 {
-                                  on: {
-                                    click: function ($event) {
-                                      _vm.transitionPlatform = false
+                                  name: "click-outside",
+                                  rawName: "v-click-outside",
+                                  value: _vm.hideTransitionPlatform,
+                                  expression: "hideTransitionPlatform",
+                                },
+                              ],
+                              staticClass: "transition-select",
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "search-category-content" },
+                                [
+                                  _c("input", {
+                                    staticClass: "search-input",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Choose category",
+                                    },
+                                  }),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "selected-category-content" },
+                                [
+                                  _c("p", [_vm._v("Selected:")]),
+                                  _vm._v(" "),
+                                  _vm._l(
+                                    _vm.selectedCategories,
+                                    function (item) {
+                                      return _c("div", [
+                                        _c(
+                                          "label",
+                                          { staticClass: "checkbox-container" },
+                                          [
+                                            _c("span", [_vm._v(_vm._s(item))]),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              attrs: {
+                                                type: "checkbox",
+                                                checked: "",
+                                              },
+                                              on: {
+                                                change: function ($event) {
+                                                  return _vm.notSelectedCategory(
+                                                    item
+                                                  )
+                                                },
+                                              },
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", {
+                                              staticClass: "checkmark",
+                                            }),
+                                          ]
+                                        ),
+                                      ])
+                                    }
+                                  ),
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "category-list" },
+                                _vm._l(
+                                  _vm.notSelectedCategories,
+                                  function (item) {
+                                    return _c("div", { key: item }, [
+                                      _c(
+                                        "label",
+                                        { staticClass: "checkbox-container" },
+                                        [
+                                          _c("span", [_vm._v(_vm._s(item))]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            attrs: { type: "checkbox" },
+                                            on: {
+                                              change: function ($event) {
+                                                return _vm.selectedCategory(
+                                                  item
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("span", {
+                                            staticClass: "checkmark",
+                                          }),
+                                        ]
+                                      ),
+                                    ])
+                                  }
+                                ),
+                                0
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "cancel" }, [
+                                _c(
+                                  "span",
+                                  {
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.transitionPlatform = false
+                                      },
                                     },
                                   },
-                                },
-                                [_vm._v("Cancel")]
-                              ),
-                            ]),
-                          ])
+                                  [_vm._v("Cancel")]
+                                ),
+                              ]),
+                            ]
+                          )
                         : _vm._e(),
                     ]),
                   ],
@@ -833,7 +1045,8 @@ var render = function () {
                         staticClass: "select-btn",
                         on: {
                           click: function ($event) {
-                            _vm.transitionCategory = !_vm.transitionCategory
+                            $event.stopPropagation()
+                            _vm.transitionCategory = true
                           },
                         },
                       },
@@ -847,179 +1060,126 @@ var render = function () {
                     _vm._v(" "),
                     _c("transition", { attrs: { name: "slide" } }, [
                       _vm.transitionCategory
-                        ? _c("div", { staticClass: "transition-select" }, [
-                            _c(
-                              "div",
-                              { staticClass: "search-category-content" },
-                              [
-                                _c("input", {
-                                  staticClass: "search-input",
-                                  attrs: {
-                                    type: "text",
-                                    placeholder: "Choose category",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "selected-category-content" },
-                              [
-                                _c("p", [_vm._v("Selected:")]),
-                                _vm._v(" "),
-                                _c("div", [
-                                  _c(
-                                    "label",
-                                    { staticClass: "checkbox-container" },
-                                    [
-                                      _c("span", [_vm._v("Business")]),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        attrs: {
-                                          type: "checkbox",
-                                          checked: "",
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _c("span", { staticClass: "checkmark" }),
-                                    ]
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("div", [
-                                  _c(
-                                    "label",
-                                    { staticClass: "checkbox-container" },
-                                    [
-                                      _c("span", [_vm._v("Business")]),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        attrs: {
-                                          type: "checkbox",
-                                          checked: "",
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _c("span", { staticClass: "checkmark" }),
-                                    ]
-                                  ),
-                                ]),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "category-list" }, [
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  { staticClass: "checkbox-container" },
-                                  [
-                                    _c("span", [_vm._v("Business")]),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      attrs: { type: "checkbox" },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "checkmark" }),
-                                  ]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  { staticClass: "checkbox-container" },
-                                  [
-                                    _c("span", [_vm._v("Business")]),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      attrs: { type: "checkbox" },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "checkmark" }),
-                                  ]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  { staticClass: "checkbox-container" },
-                                  [
-                                    _c("span", [_vm._v("Business")]),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      attrs: { type: "checkbox" },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "checkmark" }),
-                                  ]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  { staticClass: "checkbox-container" },
-                                  [
-                                    _c("span", [_vm._v("Business")]),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      attrs: { type: "checkbox" },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "checkmark" }),
-                                  ]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  { staticClass: "checkbox-container" },
-                                  [
-                                    _c("span", [_vm._v("Business")]),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      attrs: { type: "checkbox" },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "checkmark" }),
-                                  ]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  { staticClass: "checkbox-container" },
-                                  [
-                                    _c("span", [_vm._v("Business")]),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      attrs: { type: "checkbox" },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "checkmark" }),
-                                  ]
-                                ),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "cancel" }, [
-                              _c(
-                                "span",
+                        ? _c(
+                            "div",
+                            {
+                              directives: [
                                 {
-                                  on: {
-                                    click: function ($event) {
-                                      _vm.transitionCategory = false
+                                  name: "click-outside",
+                                  rawName: "v-click-outside",
+                                  value: _vm.hideTransitionCategory,
+                                  expression: "hideTransitionCategory",
+                                },
+                              ],
+                              staticClass: "transition-select",
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "search-category-content" },
+                                [
+                                  _c("input", {
+                                    staticClass: "search-input",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Choose category",
+                                    },
+                                  }),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "selected-category-content" },
+                                [
+                                  _c("p", [_vm._v("Selected:")]),
+                                  _vm._v(" "),
+                                  _vm._l(
+                                    _vm.selectedCategories,
+                                    function (item) {
+                                      return _c("div", [
+                                        _c(
+                                          "label",
+                                          { staticClass: "checkbox-container" },
+                                          [
+                                            _c("span", [_vm._v(_vm._s(item))]),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              attrs: {
+                                                type: "checkbox",
+                                                checked: "",
+                                              },
+                                              on: {
+                                                change: function ($event) {
+                                                  return _vm.notSelectedCategory(
+                                                    item
+                                                  )
+                                                },
+                                              },
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", {
+                                              staticClass: "checkmark",
+                                            }),
+                                          ]
+                                        ),
+                                      ])
+                                    }
+                                  ),
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "category-list" },
+                                _vm._l(
+                                  _vm.notSelectedCategories,
+                                  function (item) {
+                                    return _c("div", { key: item }, [
+                                      _c(
+                                        "label",
+                                        { staticClass: "checkbox-container" },
+                                        [
+                                          _c("span", [_vm._v(_vm._s(item))]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            attrs: { type: "checkbox" },
+                                            on: {
+                                              change: function ($event) {
+                                                return _vm.selectedCategory(
+                                                  item
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("span", {
+                                            staticClass: "checkmark",
+                                          }),
+                                        ]
+                                      ),
+                                    ])
+                                  }
+                                ),
+                                0
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "cancel" }, [
+                                _c(
+                                  "span",
+                                  {
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.transitionCategory = false
+                                      },
                                     },
                                   },
-                                },
-                                [_vm._v("Cancel")]
-                              ),
-                            ]),
-                          ])
+                                  [_vm._v("Cancel")]
+                                ),
+                              ]),
+                            ]
+                          )
                         : _vm._e(),
                     ]),
                   ],
@@ -1113,7 +1273,8 @@ var render = function () {
                         staticClass: "select-btn",
                         on: {
                           click: function ($event) {
-                            _vm.numberFollowers = !_vm.numberFollowers
+                            $event.stopPropagation()
+                            _vm.numberFollowers = true
                           },
                         },
                       },
@@ -1127,57 +1288,71 @@ var render = function () {
                     _vm._v(" "),
                     _c("transition", { attrs: { name: "slide" } }, [
                       _vm.numberFollowers
-                        ? _c("div", { staticClass: "transition-select" }, [
-                            _c(
-                              "div",
-                              { staticClass: "transition-search-content" },
-                              [
-                                _c("input", {
-                                  staticClass: "search-input",
-                                  attrs: { type: "text" },
-                                }),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("-")]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  staticClass: "search-input",
-                                  attrs: { type: "text" },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "followers-count" }, [
-                              _c("div", [_vm._v("1k")]),
+                        ? _c(
+                            "div",
+                            {
+                              directives: [
+                                {
+                                  name: "click-outside",
+                                  rawName: "v-click-outside",
+                                  value: _vm.hidenNmberFollowers,
+                                  expression: "hidenNmberFollowers",
+                                },
+                              ],
+                              staticClass: "transition-select",
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "transition-search-content" },
+                                [
+                                  _c("input", {
+                                    staticClass: "search-input",
+                                    attrs: { type: "text" },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", [_vm._v("-")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    staticClass: "search-input",
+                                    attrs: { type: "text" },
+                                  }),
+                                ]
+                              ),
                               _vm._v(" "),
-                              _c("div", [_vm._v("1k")]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "active" }, [
-                                _vm._v("5k"),
+                              _c("div", { staticClass: "followers-count" }, [
+                                _c("div", [_vm._v("1k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("1k")]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "active" }, [
+                                  _vm._v("5k"),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("5k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("10k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("10k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("20k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("20k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("100k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("100k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("500k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("500k")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("1M")]),
+                                _vm._v(" "),
+                                _c("div", [_vm._v("1M")]),
                               ]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("5k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("10k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("10k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("20k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("20k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("100k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("100k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("500k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("500k")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("1M")]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("1M")]),
-                            ]),
-                          ])
+                            ]
+                          )
                         : _vm._e(),
                     ]),
                   ],
@@ -1390,6 +1565,274 @@ var staticRenderFns = [
             ]),
           ]),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v("Iveta Mukuchyan "),
+                _c("img", {
+                  attrs: { src: "/images/icons/done.png", alt: "" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v("iveta.mukuchyan"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [_vm._v("Beauty")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("281.4K")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("19")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Armenia")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+              }),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v("Iveta Mukuchyan "),
+                _c("img", {
+                  attrs: { src: "/images/icons/done.png", alt: "" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v("iveta.mukuchyan"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [_vm._v("Beauty")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("281.4K")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("19")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Armenia")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+              }),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v("Iveta Mukuchyan "),
+                _c("img", {
+                  attrs: { src: "/images/icons/done.png", alt: "" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v("iveta.mukuchyan"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [_vm._v("Beauty")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("281.4K")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("19")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Armenia")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+              }),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v("Iveta Mukuchyan "),
+                _c("img", {
+                  attrs: { src: "/images/icons/done.png", alt: "" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v("iveta.mukuchyan"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [_vm._v("Beauty")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("281.4K")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("19")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Armenia")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+              }),
+            ]),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "items-mobile" }, [
@@ -1523,6 +1966,93 @@ var staticRenderFns = [
                   alt: "",
                 },
               }),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v("Iveta Mukuchyan "),
+                _c("img", {
+                  attrs: { src: "/images/icons/done.png", alt: "" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v("iveta.mukuchyan"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+              }),
+              _c("span", [_vm._v("Beauty")]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+              }),
+              _c("span", [_vm._v("Armenia")]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+              }),
+              _c("span", [_vm._v("281.4K")]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+              }),
+              _c("span", [_vm._v("19")]),
             ]),
           ]),
         ]),

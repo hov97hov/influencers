@@ -28,10 +28,9 @@
 }
 
 .container {
-    max-width: 1160px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 15px;
+    max-width: 1160px !important;
+    margin: 0 auto !important;
+    padding: 15px !important;
 }
 
 .vs__search {
