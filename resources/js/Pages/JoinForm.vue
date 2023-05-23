@@ -171,14 +171,14 @@ export default {
         font-family: 'Rubik', sans-serif !important;
         font-style: normal !important;
         font-weight: 400 !important;
-        font-size: 28px !important;
-        line-height: 33px !important;
+        font-size: 22px !important;
+        line-height: 26px !important;
         letter-spacing: 0.02em !important;
         color: #8B8989 !important;
         padding: 0 !important;
     }
     .vs__dropdown-toggle {
-        height: 70px !important;
+        height: 60px !important;
         background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;
         box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;
         border-radius: 40px !important;
@@ -224,25 +224,26 @@ export default {
                             font-family: 'Rubik', sans-serif;
                             font-style: normal;
                             font-weight: 400;
-                            font-size: 28px;
-                            line-height: 33px;
+                            font-size: 26px;
+                            line-height: 31px;
                             letter-spacing: 0.02em;
                             color: #8B8989;
                             margin-bottom: 10px;
                         }
                         input {
                             width: 100%;
+                            height: 60px;
+                            padding: 0 40px;
                             border: 0;
                             background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                             box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                             border-radius: 40px;
-                            padding: 20px 40px;
                             outline: 0;
                             font-family: 'Rubik', sans-serif;
                             font-style: normal;
                             font-weight: 400;
-                            font-size: 28px;
-                            line-height: 33px;
+                            font-size: 22px;
+                            line-height: 26px;
                             letter-spacing: 0.02em;
                             color: #8B8989;
                         }
@@ -257,8 +258,8 @@ export default {
                             font-family: 'Rubik', sans-serif;
                             font-style: normal;
                             font-weight: 400;
-                            font-size: 28px;
-                            line-height: 33px;
+                            font-size: 26px;
+                            line-height: 31px;
                             letter-spacing: 0.02em;
                             color: #8B8989;
                             margin-bottom: 10px;
@@ -266,40 +267,42 @@ export default {
                         input {
                             width: 100%;
                             border: 0;
+                            height: 60px;
+                            padding: 0 40px;
                             background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                             box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                             border-radius: 40px;
-                            padding: 20px 40px;
                             outline: 0;
                             font-family: 'Rubik', sans-serif;
                             font-style: normal;
                             font-weight: 400;
-                            font-size: 28px;
-                            line-height: 33px;
+                            font-size: 22px;
+                            line-height: 26px;
                             letter-spacing: 0.02em;
                             color: #8B8989;
                         }
                         button {
                             width: 100%;
                             border: 0;
+                            height: 60px;
+                            padding: 0 40px;
                             background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                             box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                             border-radius: 40px;
-                            padding: 20px 40px;
                             outline: 0;
                             font-family: 'Rubik', sans-serif;
                             font-style: normal;
                             font-weight: 400;
-                            font-size: 28px;
-                            line-height: 33px;
+                            font-size: 22px;
+                            line-height: 26px;
                             letter-spacing: 0.02em;
                             color: #8B8989;
                             text-align: left;
                             position: relative;
                             img {
                                 position: absolute;
-                                right: 32px;
-                                top: 32px;
+                                right: 47px;
+                                top: 30px;
                                 transition: 0.25s ease;
                                 &.active {
                                     transform: rotate(180deg);
@@ -308,10 +311,10 @@ export default {
                         }
                         .transition-select {
                             background: #FEFDFF;
-                            box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);
+                            box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);
                             border-radius: 25px;
                             position: absolute;
-                            top: 146px;
+                            top: 125px;
                             width: 100%;
                             padding: 30px 22px;
                             z-index: 9;
@@ -406,8 +409,8 @@ export default {
                             font-family: 'Rubik', sans-serif;
                             font-style: normal;
                             font-weight: 400;
-                            font-size: 28px;
-                            line-height: 33px;
+                            font-size: 22px;
+                            line-height: 26px;
                             letter-spacing: 0.02em;
                             color: #8B8989;
                             border: 0;
@@ -437,12 +440,13 @@ export default {
                     }
                 }
                 .form-title {
-                    margin: 40px 0;
+                    margin-top: 60px;
+                    margin-bottom: 42px;
                     font-family: 'Rubik', sans-serif;
                     font-style: normal;
                     font-weight: 400;
-                    font-size: 28px;
-                    line-height: 33px;
+                    font-size: 26px;
+                    line-height: 31px;
                     letter-spacing: 0.02em;
                     text-align: center;
                     color: #8B8989;
@@ -451,26 +455,13 @@ export default {
         }
     }
 
+
     @media screen and (max-width: 1280px) {
         .join-form-content {
             padding-bottom: 150px;
+            padding-right: 60px;
+            padding-left: 60px;
             background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);
-            .content {
-                > .title {
-                    font-family: 'Rubik', sans-serif;
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 64px;
-                    line-height: 76px;
-                    letter-spacing: 0.02em;
-                    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                    text-fill-color: transparent;
-                    margin-bottom: 33px;
-                }
-            }
         }
     }
 
@@ -479,17 +470,17 @@ export default {
             font-family: 'Rubik', sans-serif !important;
             font-style: normal !important;
             font-weight: 400 !important;
-            font-size: 24px !important;
-            line-height: 28px !important;
+            font-size: 21px !important;
+            line-height: 25px !important;
             letter-spacing: 0.02em !important;
             color: #8B8989 !important;
             padding: 0 !important;
         }
         .vs__dropdown-toggle {
-            height: 65px !important;
+            height: 55px !important;
             background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;
             box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;
-            border-radius: 40px !important;
+            border-radius: 35px !important;
             .vs__search {
                 visibility: hidden;
             }
@@ -499,7 +490,7 @@ export default {
         }
         //
         .join-form-content {
-            padding-bottom: 150px;
+            padding-bottom: 100px;
             padding-left: 40px;
             padding-right: 40px;
             background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);
@@ -522,7 +513,7 @@ export default {
                     background: #E9EDF0;
                     box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);
                     border-radius: 40.5321px;
-                    padding: 70px 60px 40px;
+                    padding: 62px 60px 45px;
                     .fields {
                         display: flex;
                         justify-content: space-between;
@@ -533,8 +524,8 @@ export default {
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 23px;
+                                line-height: 27px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 margin-bottom: 10px;
@@ -542,19 +533,19 @@ export default {
                             input {
                                 width: 100%;
                                 border: 0;
+                                height: 55px;
+                                padding: 0 40px;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                                 border-radius: 40px;
-                                padding: 20px 40px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 21px;
+                                line-height: 25px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
-
                             }
                         }
                     }
@@ -567,8 +558,8 @@ export default {
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 23px;
+                                line-height: 27px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 margin-bottom: 10px;
@@ -576,39 +567,41 @@ export default {
                             input {
                                 width: 100%;
                                 border: 0;
+                                height: 55px;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                                 border-radius: 40px;
-                                padding: 20px 40px;
+                                padding: 0 40px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 21px;
+                                line-height: 25px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                             }
                             button {
                                 width: 100%;
                                 border: 0;
+                                height: 55px;
+                                padding: 0 40px;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                                 border-radius: 40px;
-                                padding: 20px 40px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 21px;
+                                line-height: 25px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 text-align: left;
                                 position: relative;
                                 img {
                                     position: absolute;
-                                    right: 32px;
-                                    top: 32px;
+                                    right: 47px;
+                                    top: 25px;
                                     transition: 0.25s ease;
                                     &.active {
                                         transform: rotate(180deg);
@@ -706,14 +699,14 @@ export default {
                             textarea {
                                 width: 100%;
                                 padding: 20px 40px;
-                                height: 203px;
+                                height: 140px;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                                 border-radius: 40px;
                                 font-family: 'Rubik', sans-serif;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 21px;
+                                line-height: 25px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 border: 0;
@@ -743,12 +736,13 @@ export default {
                         }
                     }
                     .form-title {
-                        margin: 40px 0;
+                        margin-bottom: 40px;
+                        margin-top: 50px;
                         font-family: 'Rubik', sans-serif;
                         font-style: normal;
                         font-weight: 400;
-                        font-size: 28px;
-                        line-height: 33px;
+                        font-size: 23px;
+                        line-height: 27px;
                         letter-spacing: 0.02em;
                         text-align: center;
                         color: #8B8989;
@@ -764,18 +758,18 @@ export default {
             font-family: 'Rubik', sans-serif !important;
             font-style: normal !important;
             font-weight: 400 !important;
-            font-size: 24px !important;
-            line-height: 28px !important;
+            font-size: 21px !important;
+            line-height: 25px !important;
             letter-spacing: 0.02em !important;
             color: #8B8989 !important;
             padding: 0 !important;
         }
         .vs__dropdown-toggle {
-            height: 60px !important;
+            height: 55px !important;
             background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;
             box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;
             border-radius: 40px !important;
-            padding: 0 40px !important;
+            padding: 0 35px !important;
             .vs__search {
                 visibility: hidden;
             }
@@ -785,9 +779,9 @@ export default {
         }
         //
         .join-form-content {
-            padding-bottom: 150px;
-            padding-left: 40px;
-            padding-right: 40px;
+            padding-bottom: 100px;
+            padding-left: 25px;
+            padding-right: 25px;
             background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);
             .content {
                 > .title {
@@ -803,6 +797,7 @@ export default {
                     background-clip: text;
                     text-fill-color: transparent;
                     margin-bottom: 46px;
+                    text-align: center;
                 }
                 > .form {
                     background: #E9EDF0;
@@ -824,8 +819,8 @@ export default {
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 23px;
+                                line-height: 27px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 margin-bottom: 10px;
@@ -836,13 +831,14 @@ export default {
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                                 border-radius: 40px;
-                                padding: 15px 40px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 21px;
+                                line-height: 25px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
 
@@ -858,8 +854,8 @@ export default {
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 23px;
+                                line-height: 27px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 margin-bottom: 10px;
@@ -871,13 +867,14 @@ export default {
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                                 border-radius: 40px;
-                                padding: 15px 40px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 21px;
+                                line-height: 25px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                             }
@@ -887,20 +884,21 @@ export default {
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                                 border-radius: 40px;
-                                padding: 15px 40px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 21px;
+                                line-height: 25px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 text-align: left;
                                 position: relative;
                                 img {
                                     position: absolute;
-                                    right: 32px;
-                                    top: 26px;
+                                    right: 41px;
+                                    top: 25px;
                                     transition: 0.25s ease;
                                     &.active {
                                         transform: rotate(180deg);
@@ -998,15 +996,15 @@ export default {
                             }
                             textarea {
                                 width: 100%;
-                                padding: 23px 25px;
-                                height: 203px;
+                                padding: 20px 35px;
+                                height: 140px;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
                                 border-radius: 40px;
                                 font-family: 'Rubik', sans-serif;
                                 font-weight: 400;
-                                font-size: 24px;
-                                line-height: 28px;
+                                font-size: 21px;
+                                line-height: 25px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 border: 0;
@@ -1039,11 +1037,11 @@ export default {
                         margin: 15px 0;
                         font-family: 'Rubik', sans-serif;
                         font-style: normal;
+                        text-align: center;
                         font-weight: 400;
                         font-size: 24px;
                         line-height: 28px;
                         letter-spacing: 0.02em;
-                        text-align: left;
                         color: #8B8989;
                     }
                 }
@@ -1057,18 +1055,18 @@ export default {
             font-family: 'Rubik', sans-serif !important;
             font-style: normal !important;
             font-weight: 400 !important;
-            font-size: 20px !important;
-            line-height: 24px !important;
+            font-size: 18px !important;
+            line-height: 21px !important;
             letter-spacing: 0.02em !important;
             color: #8B8989 !important;
             padding: 0 !important;
         }
         .vs__dropdown-toggle {
-            height: 60px !important;
+            height: 55px !important;
             background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;
             box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;
             border-radius: 40px !important;
-            padding: 0 40px !important;
+            padding: 0 35px !important;
             .vs__search {
                 visibility: hidden;
             }
@@ -1078,7 +1076,7 @@ export default {
         }
         //
         .join-form-content {
-            padding-bottom: 150px;
+            padding-bottom: 100px;
             padding-left: 20px;
             padding-right: 20px;
             background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);
@@ -1102,7 +1100,7 @@ export default {
                     background: #E9EDF0;
                     box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);
                     border-radius: 40.5321px;
-                    padding: 35px;
+                    padding: 40px 22px;
                     .fields {
                         display: flex;
                         justify-content: space-between;
@@ -1129,14 +1127,15 @@ export default {
                                 border: 0;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
-                                border-radius: 40px;
-                                padding: 15px 40px;
+                                border-radius: 35px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 20px;
-                                line-height: 24px;
+                                font-size: 18px;
+                                line-height: 21px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                             }
@@ -1163,14 +1162,15 @@ export default {
                                 border: 0;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
-                                border-radius: 40px;
-                                padding: 15px 40px;
+                                border-radius: 35px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 20px;
-                                line-height: 24px;
+                                font-size: 18px;
+                                line-height: 21px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                             }
@@ -1179,20 +1179,21 @@ export default {
                                 border: 0;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
-                                border-radius: 40px;
-                                padding: 15px 40px;
+                                border-radius: 35px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-weight: 400;
-                                font-size: 20px;
-                                line-height: 24px;
+                                font-size: 18px;
+                                line-height: 21px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 text-align: left;
                                 position: relative;
                                 img {
                                     position: absolute;
-                                    right: 46px;
+                                    right: 42px;
                                     top: 25px;
                                     transition: 0.25s ease;
                                     &.active {
@@ -1294,11 +1295,11 @@ export default {
                                 height: 203px;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
-                                border-radius: 40px;
+                                border-radius: 35px;
                                 font-family: 'Rubik', sans-serif;
                                 font-weight: 400;
-                                font-size: 20px;
-                                line-height: 24px;
+                                font-size: 18px;
+                                line-height: 21px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 border: 0;
@@ -1332,8 +1333,8 @@ export default {
                         font-family: 'Rubik', sans-serif;
                         font-style: normal;
                         font-weight: 400;
-                        font-size: 20px;
-                        line-height: 24px;
+                        font-size: 18px;
+                        line-height: 21px;
                         letter-spacing: 0.02em;
                         text-align: left;
                         color: #8B8989;
@@ -1349,18 +1350,18 @@ export default {
             font-family: 'Rubik', sans-serif !important;
             font-style: normal !important;
             font-weight: 400 !important;
-            font-size: 16px !important;
-            line-height: 18px !important;
+            font-size: 18px !important;
+            line-height: 21px !important;
             letter-spacing: 0.02em !important;
             color: #8B8989 !important;
             padding: 0 !important;
         }
         .vs__dropdown-toggle {
-            height: 50px !important;
+            height: 55px !important;
             background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;
             box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;
             border-radius: 40px !important;
-            padding: 0 15px !important;
+            padding: 0 35px !important;
             .vs__search {
                 visibility: hidden;
             }
@@ -1370,7 +1371,7 @@ export default {
         }
         //
         .join-form-content {
-            padding-bottom: 150px;
+            padding-bottom: 100px;
             padding-left: 20px;
             padding-right: 20px;
             background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);
@@ -1394,7 +1395,7 @@ export default {
                     background: #E9EDF0;
                     box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);
                     border-radius: 40.5321px;
-                    padding: 35px;
+                    padding: 40px 22px;
                     .fields {
                         display: flex;
                         justify-content: space-between;
@@ -1410,8 +1411,8 @@ export default {
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 16px;
-                                line-height: 18px;
+                                font-size: 20px;
+                                line-height: 24px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 margin-bottom: 10px;
@@ -1421,14 +1422,15 @@ export default {
                                 border: 0;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
-                                border-radius: 40px;
-                                padding: 15px 15px;
+                                border-radius: 35px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 16px;
-                                line-height: 18px;
+                                font-size: 18px;
+                                line-height: 21px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                             }
@@ -1443,8 +1445,8 @@ export default {
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 16px;
-                                line-height: 18px;
+                                font-size: 20px;
+                                line-height: 24px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 margin-bottom: 10px;
@@ -1455,14 +1457,15 @@ export default {
                                 border: 0;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
-                                border-radius: 40px;
-                                padding: 15px 15px;
+                                border-radius: 35px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-style: normal;
                                 font-weight: 400;
-                                font-size: 16px;
-                                line-height: 18px;
+                                font-size: 18px;
+                                line-height: 21px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                             }
@@ -1471,21 +1474,22 @@ export default {
                                 border: 0;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
-                                border-radius: 40px;
-                                padding: 15px 15px;
+                                border-radius: 35px;
+                                height: 55px;
+                                padding: 0 35px;
                                 outline: 0;
                                 font-family: 'Rubik', sans-serif;
                                 font-weight: 400;
-                                font-size: 16px;
-                                line-height: 18px;
+                                font-size: 18px;
+                                line-height: 21px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 text-align: left;
                                 position: relative;
                                 img {
                                     position: absolute;
-                                    right: 20px;
-                                    top: 22px;
+                                    right: 42px;
+                                    top: 25px;
                                     transition: 0.25s ease;
                                     &.active {
                                         transform: rotate(180deg);
@@ -1508,7 +1512,6 @@ export default {
                                         background: #E9EDF0;
                                         border-radius: 10px;
                                     }
-
                                     .form-checkbox-container {
                                         display: flex;
                                         justify-content: flex-start;
@@ -1583,15 +1586,15 @@ export default {
                             }
                             textarea {
                                 width: 100%;
-                                padding: 15px 15px;
+                                padding: 23px 25px;
                                 height: 203px;
                                 background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
                                 box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);
-                                border-radius: 40px;
+                                border-radius: 35px;
                                 font-family: 'Rubik', sans-serif;
                                 font-weight: 400;
-                                font-size: 16px;
-                                line-height: 18px;
+                                font-size: 18px;
+                                line-height: 21px;
                                 letter-spacing: 0.02em;
                                 color: #8B8989;
                                 border: 0;
@@ -1614,8 +1617,8 @@ export default {
                             font-family: 'Lato',sans-serif;
                             font-style: normal;
                             font-weight: 400;
-                            font-size: 16px;
-                            line-height: 18px;
+                            font-size: 20px;
+                            line-height: 24px;
                             letter-spacing: 0.02em;
                             color: #686868;
                         }
@@ -1625,8 +1628,8 @@ export default {
                         font-family: 'Rubik', sans-serif;
                         font-style: normal;
                         font-weight: 400;
-                        font-size: 16px;
-                        line-height: 18px;
+                        font-size: 18px;
+                        line-height: 21px;
                         letter-spacing: 0.02em;
                         text-align: left;
                         color: #8B8989;
