@@ -4,7 +4,8 @@ require('./bootstrap');
 import Vue from 'vue';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 import vSelect from "vue-select";
-
+import Paginate from 'vuejs-paginate'
+Vue.component('paginate', Paginate)
 Vue.component("v-select", vSelect);
 Vue.use(InertiaPlugin);
 

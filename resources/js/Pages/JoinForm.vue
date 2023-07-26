@@ -113,7 +113,7 @@
                         <div class="field">
                             <div>
                                 <p>Birthday *</p>
-                                <v-select :options="options"></v-select>
+                                <date-picker v-model="defaultData.birthday"></date-picker>
                             </div>
                         </div>
                         <div class="field">
@@ -143,15 +143,21 @@
 import Footer from "../components/Footer.vue";
 import "vue-select/dist/vue-select.css";
 import ClickOutside from "vue-click-outside";
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
 export default {
     name: "JoinForm",
     components: {
-        Footer
+        Footer,
+        DatePicker
     },
     data() {
         return {
             selectCategory: false,
-            options: ["foo", "bar", "baz"]
+            options: ["foo", "bar", "baz"],
+            defaultData: {
+                birthday: ''
+            }
         }
     },
     methods: {

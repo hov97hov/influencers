@@ -119,6 +119,17 @@
     border-radius: 10px;
 }
 
+.mx-datepicker {
+    width: 100% !important;
+}
+.mx-icon-calendar {
+    right: 45px!important;
+}
+
+.mx-icon-clear {
+    right: 45px!important;
+}
+
 .checkbox-container:hover {
     background: #F4EFF3;
     box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8);
@@ -182,4 +193,51 @@
     transform: rotate(45deg);
 }
 
+.search-paginate {
+    display: flex;
+    justify-content: space-between;
+    width: 451px;
+    margin: 100px auto 50px;
+    list-style: none;
+}
+.search-paginate li {
+    padding: 5px;
+}
+.search-paginate li.active {
+    display: block;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.search-paginate li a  {
+    color: #000000;
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .mx-icon-calendar {
+        right: 43px!important;
+    }
+
+    .mx-icon-clear {
+        right: 43px!important;
+    }
+}
+@media screen and (max-width: 992px) {
+    .mx-icon-calendar {
+        right: 40px!important;
+    }
+
+    .mx-icon-clear {
+        right: 40px!important;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .search-paginate {
+        width: 100%;
+        margin: 50px auto 50px;
+    }
+}
 

@@ -447,6 +447,12 @@
                         </div>
                     </div>
                 </div>
+                <paginate
+                    :page-count="20"
+                    :prev-text="'<'"
+                    :next-text="'>'"
+                    :container-class="'search-paginate'">
+                </paginate>
             </div>
         </div>
         <Footer/>
@@ -583,6 +589,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .vs__dropdown-toggle {
     background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;
     box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7) !important;

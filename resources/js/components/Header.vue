@@ -2,12 +2,22 @@
     <div>
         <div class="header">
             <div class="container">
-                <div class="menu">
-                    <div class="btn-content">
-                        <a href="/join">Join as an Influencer</a>
-                        <img src="/images/icons/accardion.png" alt="">
-                    </div>
-                </div>
+               <div class="header-wrapper">
+                   <div class="logo">
+                       <img src="/images/header/logo.svg" alt="">
+                   </div>
+                   <div class="menu">
+                       <div class="btn-content">
+                           <a href="/join">Join as an Influencer</a>
+                           <img src="/images/icons/accardion.png" alt="">
+                       </div>
+                       <select id="languageSwitch">
+                           <option value="">ENG</option>
+                           <option value="">RUS</option>
+                           <option value="">ARM</option>
+                       </select>
+                   </div>
+               </div>
             </div>
         </div>
     </div>
@@ -15,11 +25,20 @@
 
 <script>
 export default {
-    name: "Header"
+    name: "Header",
+    data() {
+        return {
+        }
+    },
 }
 </script>
 
 <style scoped lang="scss">
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .header {
     background: transparent;
     width: 100%;
@@ -48,6 +67,28 @@ export default {
                 display: none;
             }
         }
+        #languageSwitch {
+            background: transparent;
+            color: #ffffff;
+            font-family: arialAum;
+            border: none;
+            outline: 0;
+            margin-left: 13px;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 21px;
+            letter-spacing: 0.02em;
+            text-align: center;
+            appearance: none;
+            padding-left: 5px;
+            padding-right: 5px;
+            cursor: pointer;
+            option {
+                background: #E9EDF0;
+                color: #000000;
+            }
+
+        }
     }
 }
 
@@ -59,6 +100,9 @@ export default {
             margin-top: 20px;
             display: flex;
             justify-content: flex-end;
+            #languageSwitch {
+                display: none;
+            }
             .btn-content {
                 a {
                     display: none;
