@@ -16,6 +16,9 @@
                            <option value="">RUS</option>
                            <option value="">ARM</option>
                        </select>
+                       <div>
+                           <button @click="loginWithFacebook">Login with Facebook</button>
+                       </div>
                    </div>
                </div>
             </div>
@@ -30,6 +33,14 @@ export default {
         return {
         }
     },
+    created() {
+        console.log(this.$page.props.user, 'dsadasdas')
+    },
+    methods: {
+        loginWithFacebook() {
+            window.location.href = '/login/facebook';
+        }
+    }
 }
 </script>
 

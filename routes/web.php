@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JoinController;
 use App\Http\Controllers\SearchController;
@@ -18,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [SearchController::class, 'index']);
 Route::get('/join', [JoinController::class, 'index']);
+
+Route::get('/test', [LoginController::class, 'test']);
+Route::get('/login/facebook', [LoginController::class, 'redirectToFacebook']);
+Route::get('/login/facebook/callback',  [LoginController::class, 'handleFacebookCallback']);
