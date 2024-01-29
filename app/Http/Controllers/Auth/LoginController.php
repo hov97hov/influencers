@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use Inertia\Response;
 use Laravel\Socialite\Facades\Socialite;
@@ -10,13 +12,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class LoginController extends Controller
 {
-
-    public function test()
-    {
-        $app_token = file_get_contents('https://graph.facebook.com/oauth/access_token?client_id=293649753711357&client_secret=3d7c51b4e9ab9edc0b1760dd04cf8c1c&grant_type=client_credentials');
-
-        dd($app_token);
-    }
 
     /**
      * @return \Illuminate\Http\RedirectResponse|RedirectResponse
@@ -31,11 +26,25 @@ class LoginController extends Controller
      */
     public function handleFacebookCallback(): Response
     {
-        $user = Socialite::driver('facebook')->user();
 
-        return Inertia::render('Home', [
-            'user' => $user
-        ]);
+        try {
+            $user = Socialite::driver('facebook')->user();
+
+//            $userId = $user->id;
+//            $accessToken = $user->token;
+//            $url = 'https://graph.facebook.com/' . $userId . '?fields=email&access_token=' . $accessToken;
+//            $data = file_get_contents($url);
+//            dd(json_decode($data));
+
+
+            return Inertia::render('Home', [
+                'user' => $user
+            ]);
+
+
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
     }
 
 }

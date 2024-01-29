@@ -20,6 +20,5 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [SearchController::class, 'index']);
 Route::get('/join', [JoinController::class, 'index']);
 
-Route::get('/test', [LoginController::class, 'test']);
 Route::get('/login/facebook', [LoginController::class, 'redirectToFacebook']);
 Route::get('/login/facebook/callback',  [LoginController::class, 'handleFacebookCallback']);
