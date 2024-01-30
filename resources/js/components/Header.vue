@@ -18,6 +18,8 @@
                        </select>
                        <div>
                            <button @click="loginWithFacebook">Login with Facebook</button>
+                           <button @click="loginWithTikTok">Login with TikTok</button>
+                           <button @click="loginWithInstagram">Login with Instagram</button>
                        </div>
                    </div>
                </div>
@@ -40,6 +42,12 @@ export default {
     methods: {
         loginWithFacebook() {
             window.location.href = '/login/facebook';
+        },
+        loginWithTikTok() {
+            window.location.href = '/login/tiktok';
+        },
+        loginWithInstagram() {
+            window.location.href = '/login/instagram';
         }
     }
 }

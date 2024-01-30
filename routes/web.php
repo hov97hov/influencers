@@ -22,3 +22,9 @@ Route::get('/join', [JoinController::class, 'index']);
 
 Route::get('/login/facebook', [LoginController::class, 'redirectToFacebook']);
 Route::get('/login/facebook/callback',  [LoginController::class, 'handleFacebookCallback']);
+
+Route::get('/login/tiktok', [LoginController::class, 'redirectToTikTok']);
+Route::get('/login/tiktok/callback', [LoginController::class, 'handleTikTokCallback']);
+
+Route::get('login/instagram', [LoginController::class, 'redirectToInstagram']);
+Route::get('login/instagram/callback', [LoginController::class, 'handleInstagramCallback']);

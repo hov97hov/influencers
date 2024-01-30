@@ -6297,6 +6297,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
   data: function data() {
@@ -6308,6 +6310,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     loginWithFacebook: function loginWithFacebook() {
       window.location.href = '/login/facebook';
+    },
+    loginWithTikTok: function loginWithTikTok() {
+      window.location.href = '/login/tiktok';
+    },
+    loginWithInstagram: function loginWithInstagram() {
+      window.location.href = '/login/instagram';
     }
   }
 });
@@ -39515,6 +39523,14 @@ var render = function () {
             _c("div", [
               _c("button", { on: { click: _vm.loginWithFacebook } }, [
                 _vm._v("Login with Facebook"),
+              ]),
+              _vm._v(" "),
+              _c("button", { on: { click: _vm.loginWithTikTok } }, [
+                _vm._v("Login with TikTok"),
+              ]),
+              _vm._v(" "),
+              _c("button", { on: { click: _vm.loginWithInstagram } }, [
+                _vm._v("Login with Instagram"),
               ]),
             ]),
           ]),

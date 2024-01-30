@@ -36,4 +36,17 @@ return [
         'redirect' => env('FACEBOOK_REDIRECT'),
     ],
 
+    'tiktok' => [
+        'client_id' => env('TIKTOK_CLIENT_ID'),
+        'client_secret' => env('TIKTOK_CLIENT_SECRET'),
+        'client_key' => env('TIKTOK_CLIENT_KEY'),
+        'redirect' => env('TIKTOK_REDIRECT_URI')
+    ],
+
+    'instagram' => [
+        'client_id' => env('INSTAGRAM_CLIENT_ID'),
+        'client_secret' => env('INSTAGRAM_CLIENT_SECRET'),
+        'redirect' => env('INSTAGRAM_REDIRECT_URI')
+    ],
+
 ];
