@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Exception;
-use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use Inertia\Response;
 use Laravel\Socialite\Facades\Socialite;
@@ -30,12 +29,8 @@ class LoginController extends Controller
         try {
             $user = Socialite::driver('facebook')->user();
 
-//            $userId = $user->id;
-//            $accessToken = $user->token;
-//            $url = 'https://graph.facebook.com/' . $userId . '?fields=email&access_token=' . $accessToken;
-//            $data = file_get_contents($url);
-//            dd(json_decode($data));
 
+            dd($user);
 
             return Inertia::render('Home', [
                 'user' => $user
@@ -46,5 +41,4 @@ class LoginController extends Controller
             dd($e->getMessage());
         }
     }
-
 }

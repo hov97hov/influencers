@@ -6303,7 +6303,7 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   created: function created() {
-    console.log(this.$page.props.user, 'dsadasdas');
+    console.log(this.$page.props.user, 'facebook login user data');
   },
   methods: {
     loginWithFacebook: function loginWithFacebook() {

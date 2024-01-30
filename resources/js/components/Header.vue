@@ -31,10 +31,11 @@ export default {
     name: "Header",
     data() {
         return {
+
         }
     },
     created() {
-        console.log(this.$page.props.user, 'dsadasdas')
+        console.log(this.$page.props.user, 'facebook login user data')
     },
     methods: {
         loginWithFacebook() {
