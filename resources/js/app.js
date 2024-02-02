@@ -7,6 +7,9 @@ import vSelect from "vue-select";
 import Paginate from 'vuejs-paginate'
 Vue.component('paginate', Paginate)
 Vue.component("v-select", vSelect);
+import VueI18n from 'vue-i18n'
+
+Vue.use(VueI18n)
 Vue.use(InertiaPlugin);
 
 const app = document.getElementById('app');
