@@ -20,6 +20,7 @@
                            <button @click="loginWithFacebook">Login with Facebook</button>
                            <button @click="loginWithTikTok">Login with TikTok</button>
                            <button @click="loginWithInstagram">Login with Instagram</button>
+                           <button @click="loginWithTwitter">Login with Twitter</button>
                        </div>
                    </div>
                </div>
@@ -37,7 +38,7 @@ export default {
         }
     },
     created() {
-        console.log(this.$page.props.user, 'facebook login user data')
+        console.log(this.$page.props.data, '1111')
     },
     methods: {
         loginWithFacebook() {
@@ -48,6 +49,9 @@ export default {
         },
         loginWithInstagram() {
             window.location.href = '/login/instagram';
+        },
+        loginWithTwitter() {
+            window.location.href = '/login/twitter';
         }
     }
 }

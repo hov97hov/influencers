@@ -6299,13 +6299,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
   data: function data() {
     return {};
   },
   created: function created() {
-    console.log(this.$page.props.user, 'facebook login user data');
+    console.log(this.$page.props.data, '1111');
   },
   methods: {
     loginWithFacebook: function loginWithFacebook() {
@@ -6316,6 +6317,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     loginWithInstagram: function loginWithInstagram() {
       window.location.href = '/login/instagram';
+    },
+    loginWithTwitter: function loginWithTwitter() {
+      window.location.href = '/login/twitter';
     }
   }
 });
@@ -39531,6 +39535,10 @@ var render = function () {
               _vm._v(" "),
               _c("button", { on: { click: _vm.loginWithInstagram } }, [
                 _vm._v("Login with Instagram"),
+              ]),
+              _vm._v(" "),
+              _c("button", { on: { click: _vm.loginWithTwitter } }, [
+                _vm._v("Login with Twitter"),
               ]),
             ]),
           ]),

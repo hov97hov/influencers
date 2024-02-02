@@ -2,6 +2,14 @@
 
 return [
 
+    'rapid_api_key' => env('RAPID_API_KEY'),
+
+    'instagram_host' => env('INSTAGRAM_HOST'),
+    'instagram_profile_url' => env('INSTAGRAM_PROFILE_URL'),
+
+    'twitter_host' => env('TWITTER_HOST'),
+    'twitter_profile_url' => env('TWITTER_PROFILE_URL'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -161,7 +169,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -177,6 +184,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         \SocialiteProviders\Manager\ServiceProvider::class,
+//        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -231,8 +239,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+//        'Image' => Intervention\Image\Facades\Image::class,
+
     ],
 
 ];
