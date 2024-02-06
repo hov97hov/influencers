@@ -17,6 +17,9 @@ class Kernel extends ConsoleKernel
     {
          $schedule->command('instagram:update')->everyMinute();
          $schedule->command('twitter:update')->everyMinute();
+         $schedule->command('youtube:update')->everyMinute();
+         $schedule->command('telegram:update')->everyMinute();
+         $schedule->command('tiktok:update')->everyMinute();
     }
 
     /**

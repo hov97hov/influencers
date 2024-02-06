@@ -21,6 +21,7 @@ class CreateTwitterTable extends Migration
             $table->bigInteger('followed_by')->nullable();
             $table->bigInteger('follow')->nullable();
             $table->bigInteger('account_id')->nullable();
+            $table->text('profile_url')->nullable();
 
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')

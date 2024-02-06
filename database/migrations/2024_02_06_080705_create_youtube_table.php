@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstagramTable extends Migration
+class CreateYoutubeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateInstagramTable extends Migration
      */
     public function up()
     {
-        Schema::create('instagram', function (Blueprint $table) {
+        Schema::create('youtube', function (Blueprint $table) {
             $table->id();
+
             $table->string('full_name')->nullable();
             $table->string('username')->nullable();
+            $table->text('description')->nullable();
             $table->text('image')->nullable();
             $table->bigInteger('followed_by')->nullable();
             $table->bigInteger('follow')->nullable();
-            $table->bigInteger('account_id')->nullable();
+            $table->string('channel_id')->nullable();
             $table->text('profile_url')->nullable();
 
             $table->unsignedBigInteger('user_id')->nullable();
@@ -40,6 +42,6 @@ class CreateInstagramTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instagram');
+        Schema::dropIfExists('youtube');
     }
 }

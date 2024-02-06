@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstagramTable extends Migration
+class CreateTiktokTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateInstagramTable extends Migration
      */
     public function up()
     {
-        Schema::create('instagram', function (Blueprint $table) {
+        Schema::create('tiktok', function (Blueprint $table) {
             $table->id();
+
             $table->string('full_name')->nullable();
             $table->string('username')->nullable();
             $table->text('image')->nullable();
@@ -40,6 +41,6 @@ class CreateInstagramTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instagram');
+        Schema::dropIfExists('tiktok');
     }
 }

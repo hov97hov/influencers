@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::post('/register/user', [LoginController::class, 'registerUser']);
+
 Route::get('/search', [SearchController::class, 'index']);
 Route::get('/join', [JoinController::class, 'index']);
 
@@ -34,4 +37,5 @@ Route::get('login/twitter/callback', [LoginController::class, 'handleTwitterCall
 
 Route::get('/login/google', [LoginController::class, 'redirectToGoogle']);
 Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+
 

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Twitter extends Model
+class TikTok extends Model
 {
     use HasFactory;
 
-    protected $table = 'twitter';
+    protected $table = 'tiktok';
 
     protected $fillable = [
         'full_name',
@@ -17,9 +17,8 @@ class Twitter extends Model
         'image',
         'followed_by',
         'follow',
-        'user_id',
         'account_id',
+        'user_id',
         'profile_url',
     ];
-
 }

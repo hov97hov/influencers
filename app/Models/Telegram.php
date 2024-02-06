@@ -5,21 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Twitter extends Model
+class Telegram extends Model
 {
     use HasFactory;
 
-    protected $table = 'twitter';
+    protected $table = 'telegram',
 
-    protected $fillable = [
+    $fillable = [
         'full_name',
         'username',
+        'description',
         'image',
-        'followed_by',
         'follow',
-        'user_id',
         'account_id',
+        'user_id',
         'profile_url',
     ];
-
 }

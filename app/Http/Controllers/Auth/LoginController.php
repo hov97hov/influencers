@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterUserRequest;
 use App\Interface\LoginInterface;
 use App\Interface\RapidApiInterface;
 use Exception;
@@ -20,6 +21,14 @@ class LoginController extends Controller
     {
         $this->rapidApiService = $rapidApiService;
         $this->loginService = $loginService;
+    }
+
+    /**
+     * @param RegisterUserRequest $request
+     */
+    public function registerUser(RegisterUserRequest $request)
+    {
+        return $this->loginService->registerUser($request->all());
     }
 
     /**
@@ -123,10 +132,10 @@ class LoginController extends Controller
                 'user_id' => $user->id,
             ];
 
-            $userInfo = $this->rapidApiService->post(
+            $userInfo = $this->rapidApiService->rapidApiDataWithParams(
                 config('app.twitter_host'),
                 config('app.twitter_profile_url'),
-                config('app.rapid_api_key'), $details
+                config('app.rapid_api_key'), $details, 'post'
             );
             $result = $this->loginService->createTwitterUser($userInfo);
 

@@ -19,5 +19,6 @@ class Instagram extends Model
         'follow',
         'user_id',
         'account_id',
+        'profile_url',
     ];
 }

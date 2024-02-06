@@ -10,6 +10,15 @@ return [
     'twitter_host' => env('TWITTER_HOST'),
     'twitter_profile_url' => env('TWITTER_PROFILE_URL'),
 
+    'youtube_host' => env('YOUTUBE_HOST'),
+    'youtube_profile_url' => env('YOUTUBE_PROFILE_URL'),
+
+    'telegram_host' => env('TELEGRAM_HOST'),
+    'telegram_profile_url' => env('TELEGRAM_PROFILE_URL'),
+
+    'tiktok_host' => env('TIKTOK_HOST'),
+    'tiktok_profile_url' => env('TIKTOK_PROFILE_URL'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

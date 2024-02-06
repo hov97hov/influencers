@@ -16,12 +16,12 @@ class RapidApiService implements RapidApiInterface
         ])->get($url)->json();
     }
 
-    public function post(string $host, string $url, string $key, array $data)
+    public function rapidApiDataWithParams(string $host, string $url, string $key, array $data, $method)
     {
         return Http::withHeaders([
             'x-rapidapi-host' => $host,
             'x-rapidapi-key' => $key,
             'content-type' => 'application/json',
-        ])->post($url, $data)->json();
+        ])->$method($url, $data)->json();
     }
 }

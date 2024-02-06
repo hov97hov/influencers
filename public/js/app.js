@@ -41839,73 +41839,43 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "header" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "header-wrapper" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "menu" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c("div", [
-              _c("button", { on: { click: _vm.loginWithFacebook } }, [
-                _vm._v("Login with Facebook"),
-              ]),
-              _vm._v(" "),
-              _c("button", { on: { click: _vm.loginWithTikTok } }, [
-                _vm._v("Login with TikTok"),
-              ]),
-              _vm._v(" "),
-              _c("button", { on: { click: _vm.loginWithInstagram } }, [
-                _vm._v("Login with Instagram"),
-              ]),
-              _vm._v(" "),
-              _c("button", { on: { click: _vm.loginWithTwitter } }, [
-                _vm._v("Login with Twitter"),
-              ]),
-              _vm._v(" "),
-              _c("button", { on: { click: _vm.loginWithYoutube } }, [
-                _vm._v("Login with Youtube"),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]),
-    ]),
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "logo" }, [
-      _c("img", { attrs: { src: "/images/header/logo.svg", alt: "" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "btn-content" }, [
-      _c("a", { attrs: { href: "/join" } }, [_vm._v("Join as an Influencer")]),
-      _vm._v(" "),
-      _c("img", { attrs: { src: "/images/icons/accardion.png", alt: "" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { attrs: { id: "languageSwitch" } }, [
-      _c("option", { attrs: { value: "" } }, [_vm._v("ENG")]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "" } }, [_vm._v("RUS")]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "" } }, [_vm._v("ARM")]),
+    return _c("div", [
+      _c("div", { staticClass: "header" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "header-wrapper" }, [
+            _c("div", { staticClass: "logo" }, [
+              _c("img", { attrs: { src: "/images/header/logo.svg", alt: "" } }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "menu" }, [
+              _c("div", { staticClass: "btn-content" }, [
+                _c("a", { attrs: { href: "/join" } }, [
+                  _vm._v("Join as an Influencer"),
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: { src: "/images/icons/accardion.png", alt: "" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("select", { attrs: { id: "languageSwitch" } }, [
+                _c("option", { attrs: { value: "" } }, [_vm._v("ENG")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "" } }, [_vm._v("RUS")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "" } }, [_vm._v("ARM")]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
     ])
   },
 ]
