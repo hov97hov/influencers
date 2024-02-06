@@ -59,7 +59,6 @@ class LoginService implements LoginInterface
      */
     public function createTwitterUser(array $data): array
     {
-        dd($data);
         $user = Twitter::where('account_id', $data['user_id'])->first();
 
         if ($user) {
