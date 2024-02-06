@@ -22,7 +22,6 @@ class LoginService implements LoginInterface
      */
     public function createInstagramUser(array $data): array
     {
-        dd($data);
         $user = Instagram::where('account_id', $data['id'])->first();
 
         if ($user) {
