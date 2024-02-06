@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Interface\LoginInterface;
 use App\Interface\RapidApiInterface;
 use Exception;
+use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use Inertia\Response;
 use Laravel\Socialite\Facades\Socialite;
@@ -36,7 +37,13 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::driver('facebook')->user();
-            dd($user);
+
+            $response = Http::get("https://graph.facebook.com/v19.0/{$user->id}", [
+                'access_token' => $user->token,
+            ])->json();
+
+
+            dd($response);
             return Inertia::render('Home', [
                 'user' => $user
             ]);
@@ -134,4 +141,18 @@ class LoginController extends Controller
         }
     }
 
+    /**
+     * @return RedirectResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function redirectToGoogle(): RedirectResponse|\Illuminate\Http\RedirectResponse
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        $user = Socialite::driver('google')->user();
+
+        dd($user);
+    }
 }

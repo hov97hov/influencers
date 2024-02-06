@@ -31,3 +31,7 @@ Route::get('login/instagram/callback', [LoginController::class, 'handleInstagram
 
 Route::get('login/twitter', [LoginController::class, 'redirectToTwitter']);
 Route::get('login/twitter/callback', [LoginController::class, 'handleTwitterCallback']);
+
+Route::get('/login/google', [LoginController::class, 'redirectToGoogle']);
+Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+

@@ -6300,6 +6300,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
   data: function data() {
@@ -6320,6 +6321,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     loginWithTwitter: function loginWithTwitter() {
       window.location.href = '/login/twitter';
+    },
+    loginWithYoutube: function loginWithYoutube() {
+      window.location.href = '/login/google';
     }
   }
 });
@@ -41861,6 +41865,10 @@ var render = function () {
               _vm._v(" "),
               _c("button", { on: { click: _vm.loginWithTwitter } }, [
                 _vm._v("Login with Twitter"),
+              ]),
+              _vm._v(" "),
+              _c("button", { on: { click: _vm.loginWithYoutube } }, [
+                _vm._v("Login with Youtube"),
               ]),
             ]),
           ]),

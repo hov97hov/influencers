@@ -21,6 +21,7 @@
                            <button @click="loginWithTikTok">Login with TikTok</button>
                            <button @click="loginWithInstagram">Login with Instagram</button>
                            <button @click="loginWithTwitter">Login with Twitter</button>
+                           <button @click="loginWithYoutube">Login with Youtube</button>
                        </div>
                    </div>
                </div>
@@ -52,6 +53,9 @@ export default {
         },
         loginWithTwitter() {
             window.location.href = '/login/twitter';
+        },
+        loginWithYoutube() {
+            window.location.href = '/login/google';
         }
     }
 }

@@ -22,6 +22,7 @@ class LoginService implements LoginInterface
      */
     public function createInstagramUser(array $data): array
     {
+        dd($data);
         $user = Instagram::where('account_id', $data['id'])->first();
 
         if ($user) {
@@ -90,6 +91,9 @@ class LoginService implements LoginInterface
         ];
     }
 
+    /**
+     * @return string
+     */
     public function updateInstagramUsers(): string
     {
         $instagramUsers = Instagram::query()->get();
@@ -114,6 +118,9 @@ class LoginService implements LoginInterface
         return 'Instagram Users updated';
     }
 
+    /**
+     * @return string
+     */
     public function updateTwitterUsers(): string
     {
         $twitterUsers = Twitter::query()->get();
