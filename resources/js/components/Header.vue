@@ -16,13 +16,6 @@
                            <option value="">RUS</option>
                            <option value="">ARM</option>
                        </select>
-<!--                       <div>-->
-<!--                           <button @click="loginWithFacebook">Login with Facebook</button>-->
-<!--                           <button @click="loginWithTikTok">Login with TikTok</button>-->
-<!--                           <button @click="loginWithInstagram">Login with Instagram</button>-->
-<!--                           <button @click="loginWithTwitter">Login with Twitter</button>-->
-<!--                           <button @click="loginWithYoutube">Login with Youtube</button>-->
-<!--                       </div>-->
                    </div>
                </div>
             </div>
@@ -38,25 +31,8 @@ export default {
 
         }
     },
-    created() {
-        console.log(this.$page.props.data, '1111')
-    },
     methods: {
-        loginWithFacebook() {
-            window.location.href = '/login/facebook';
-        },
-        loginWithTikTok() {
-            window.location.href = '/login/tiktok';
-        },
-        loginWithInstagram() {
-            window.location.href = '/login/instagram';
-        },
-        loginWithTwitter() {
-            window.location.href = '/login/twitter';
-        },
-        loginWithYoutube() {
-            window.location.href = '/login/google';
-        }
+
     }
 }
 </script>

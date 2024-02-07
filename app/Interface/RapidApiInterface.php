@@ -20,4 +20,29 @@ interface RapidApiInterface
      * @param $method
      */
     public function rapidApiDataWithParams(string $host, string $url, string $key, array $data, $method);
+
+    /**
+     * @param $data
+     */
+    public function instagramApi($data);
+
+    /**
+     * @param $data
+     */
+    public function twitterApi($data);
+
+    /**
+     * @param $data
+     */
+    public function telegramApi($data);
+
+    /**
+     * @param $data
+     */
+    public function youtubeApi($data);
+
+    /**
+     * @param $data
+     */
+    public function tiktokApi($data);
 }

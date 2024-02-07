@@ -13,6 +13,7 @@ use App\Models\UserDetail;
 use App\Models\Youtube;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
+use Mockery\Exception;
 
 class LoginService implements LoginInterface
 {
@@ -25,30 +26,106 @@ class LoginService implements LoginInterface
 
     /**
      * @param array $data
-     * @return string
+     * @return array
      */
-    public function registerUser(array $data): string
+    public function registerUser(array $data): array
     {
-
         $user = User::where('email', Arr::get($data, 'email'))->first();
 
         if ($user) {
-            return 'There is already a user in this email';
+            return [
+                'status' => false,
+                'message' => 'There is already a user in this email'
+            ];
         }
 
-        $createNewUser = User::create([
-            'name' => Arr::get($data, 'first_name'). ' ' .  Arr::get($data, 'last_name'),
+        try {
+            $createNewUser = $this->createNewUser($data);
+            $createUserDetail = $this->createUserDetail($data, $createNewUser->id);
+            $this->createUserSocialMedia($createUserDetail);
+
+            return [
+                'status' => true,
+                'message' => 'Registration has been completed successfully'
+            ];
+
+        } catch (Exception $exception) {
+
+            return [
+                'status' => false,
+                'message' => $exception->getMessage()
+            ];
+        }
+    }
+
+    /**
+     * @param $userDetail
+     * @return bool
+     */
+    public function createUserSocialMedia($userDetail): bool
+    {
+        $socialMediaPlatforms = ['instagram', 'twitter', 'telegram', 'youtube', 'tiktok'];
+
+        foreach ($socialMediaPlatforms as $platform) {
+            if ($userDetail->$platform) {
+                $details = [];
+
+                switch ($platform) {
+                    case 'instagram':
+                        $details = $userDetail;
+                        break;
+                    case 'twitter':
+                        $details['username'] = $userDetail->twitter;
+                        break;
+                    case 'telegram':
+                        $details['user'] = $userDetail->telegram;
+                        break;
+                    case 'youtube':
+                        $details = [
+                            'id' => $userDetail->youtube,
+                            'hl' => 'en',
+                            'gl' => 'US',
+                        ];
+                        break;
+                    case 'tiktok':
+                        $details['username'] = $userDetail->tiktok;
+                        break;
+                }
+
+                $userInfo = $this->rapidApiService->{$platform . 'Api'}($details);
+                if (!isset($userInfo['error'])) {
+                    $methodName = 'create' . ucfirst($platform) . 'User';
+                    $this->$methodName($userInfo, $userDetail->user_id);
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * @param $data
+     * @return mixed
+     */
+    public function createNewUser($data): mixed
+    {
+        return User::create([
+            'name' => Arr::get($data, 'first_name') . ' ' . Arr::get($data, 'last_name'),
             'email' => Arr::get($data, 'email'),
         ]);
+    }
 
-        if (!$createNewUser) {
-            return 'Registration failed, an error occurred!';
-        }
-
+    /**
+     * @param $data
+     * @param $userId
+     * @return mixed
+     */
+    public function createUserDetail($data, $userId): mixed
+    {
         $date = Carbon::createFromFormat('d/m/Y', Arr::get($data, 'birthday'))->format('d/m/Y');
 
-        $createUSerDetail = UserDetail::create([
-            'first_name' =>Arr::get($data, 'first_name'),
+        return UserDetail::create([
+            'first_name' => Arr::get($data, 'first_name'),
             'last_name' => Arr::get($data, 'last_name'),
             'phone' => Arr::get($data, 'phone'),
             'influencer_name' => Arr::get($data, 'influencer_name'),
@@ -63,107 +140,21 @@ class LoginService implements LoginInterface
             'birthday' => $date,
             'language' => Arr::get($data, 'language'),
             'additional_information' => Arr::get($data, 'additional_information'),
-            'user_id' =>  $createNewUser->id,
+            'user_id' => $userId,
         ]);
-
-        if (!$createUSerDetail) {
-            User::find($createNewUser->id)->delete();
-
-            return 'Registration failed, an error occurred!';
-        }
-
-        if ($createUSerDetail->instagram != '') {
-            $InstagramUserInfo = $this->rapidApiService->get(
-                config('app.instagram_host'),
-                config('app.instagram_profile_url').'?username='.$createUSerDetail->instagram,
-                config('app.rapid_api_key'));
-
-            if ($InstagramUserInfo) {
-                $this->createInstagramUser($InstagramUserInfo, $createNewUser->id);
-            }
-        }
-
-        if ($createUSerDetail->twitter != '') {
-            $twitterDetails = [
-                'username' => $createUSerDetail->twitter,
-            ];
-
-            $twitterUserInfo = $this->rapidApiService->rapidApiDataWithParams(
-                config('app.twitter_host'),
-                config('app.twitter_profile_url'),
-                config('app.rapid_api_key'), $twitterDetails, 'post'
-            );
-
-            if ($twitterUserInfo) {
-                $this->createTwitterUser($twitterUserInfo, $createNewUser->id);
-            }
-        }
-
-        if ($createUSerDetail->telegram != '') {
-            $telegramDetails = [
-                'user' => $createUSerDetail->telegram,
-            ];
-
-            $telegramUserInfo = $this->rapidApiService->rapidApiDataWithParams(
-                config('app.telegram_host'),
-                config('app.telegram_profile_url'),
-                config('app.rapid_api_key'),
-                $telegramDetails, 'get');
-
-            if (!isset($telegramUserInfo['error'])) {
-                $this->createTelegramUser($telegramUserInfo, $createNewUser->id);
-            }
-        }
-
-        if ($createUSerDetail->youtube != '') {
-            $details = [
-                'id' => $createUSerDetail->youtube,
-                'hl' => 'en',
-                'gl' => 'US',
-            ];
-            $YoutubeChannelInfo = $this->rapidApiService->rapidApiDataWithParams(
-                config('app.youtube_host'),
-                config('app.youtube_profile_url'),
-                config('app.rapid_api_key'),
-                $details, 'get');
-
-            if ($YoutubeChannelInfo) {
-                $this->createYoutubeChanel($YoutubeChannelInfo, $createNewUser->id);
-            }
-        }
-
-        if ($createUSerDetail->tiktok != '') {
-            $details = [
-                'username' => $createUSerDetail->tiktok,
-            ];
-            $tiktokUserInfo = $this->rapidApiService->rapidApiDataWithParams(
-                config('app.tiktok_host'),
-                config('app.tiktok_profile_url'),
-                config('app.rapid_api_key'),
-                $details, 'get');
-
-            if (!isset($tiktokUserInfo['error'])) {
-                $this->createTiktokUser($tiktokUserInfo, $createNewUser->id);
-            }
-        }
-
-        return 'Registration has been completed successfully';
     }
 
     /**
      * @param array $data
      * @param $userId
-     * @return array
+     * @return bool
      */
-    public function createInstagramUser(array $data, $userId = null): array
+    public function createInstagramUser(array $data, $userId = null): bool
     {
         $user = Instagram::where('account_id', Arr::get($data,'id'))->first();
 
         if ($user) {
-            return [
-                'status' => false,
-                'message' => 'The user of this Instagram is already registered'
-            ];
+            return false;
         }
 
         $createNewInstagramUser = Instagram::create([
@@ -178,32 +169,23 @@ class LoginService implements LoginInterface
         ]);
 
         if (!$createNewInstagramUser) {
-            return [
-                'status' => false,
-                'message' => 'an error has occurred, the user is not registering'
-            ];
+            return false;
         }
 
-        return [
-            'status' => true,
-            'message' => 'The user of this Instagram has been successfully registered'
-        ];
+        return true;
     }
 
     /**
      * @param array $data
      * @param $userId
-     * @return array
+     * @return bool
      */
-    public function createTwitterUser(array $data, $userId = null): array
+    public function createTwitterUser(array $data, $userId = null): bool
     {
         $user = Twitter::where('account_id', Arr::get($data, 'user_id'))->first();
 
         if ($user) {
-            return [
-                'status' => false,
-                'message' => 'The user of this Twitter is already registered'
-            ];
+            return false;
         }
 
         $createNewInstagramUser = Twitter::create([
@@ -218,16 +200,10 @@ class LoginService implements LoginInterface
         ]);
 
         if (!$createNewInstagramUser) {
-            return [
-                'status' => false,
-                'message' => 'an error has occurred, the user is not registering'
-            ];
+            return false;
         }
 
-        return [
-            'status' => true,
-            'message' => 'The user of this Twitter has been successfully registered'
-        ];
+        return true;
     }
 
     /**
@@ -298,17 +274,14 @@ class LoginService implements LoginInterface
     /**
      * @param array $data
      * @param $userId
-     * @return array
+     * @return bool
      */
-    public function createYoutubeChanel(array $data, $userId = null): array
+    public function createYoutubeUser(array $data, $userId = null): bool
     {
         $YoutubeUser = Youtube::where('channel_id',  Arr::get($data, 'channelId'))->first();
 
         if ($YoutubeUser) {
-            return [
-                'status' => false,
-                'message' => 'The channel of this Youtube is already registered'
-            ];
+            return false;
         }
 
         $createNewYoutubeChannel = Youtube::create([
@@ -323,22 +296,16 @@ class LoginService implements LoginInterface
         ]);
 
         if (!$createNewYoutubeChannel) {
-            return [
-                'status' => false,
-                'message' => 'an error has occurred, the user is not registering'
-            ];
+            return false;
         }
 
-        return [
-            'status' => true,
-            'message' => 'The channel of this Youtube has been successfully registered'
-        ];
+        return true;
     }
 
     /**
      * @return string
      */
-    public function updateYoutubeChanel(): string
+    public function updateYoutubeUser(): string
     {
         $youtubeChannels = Youtube::query()->get();
 
@@ -415,7 +382,7 @@ class LoginService implements LoginInterface
     /**
      * @return string
      */
-    public function updateTelegramChanel(): string
+    public function updateTelegramUser(): string
     {
         $telegramChannels = Telegram::query()->get();
 

@@ -24,7 +24,14 @@ class RegisterUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'influencer_name' => 'required',
+            'gender' => 'required',
+            'birthday' => 'required',
+            'language' => 'required',
+            'additional_information' => 'required',
         ];
     }
 }

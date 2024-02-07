@@ -7,20 +7,10 @@ interface LoginInterface
 {
     /**
      * @param array $data
-     */
-    public function registerUser(array $data);
-
-    /**
-     * @param array $data
      * @return array
      */
-    public function createInstagramUser(array $data): array;
+    public function registerUser(array $data): array;
 
-    /**
-     * @param array $data
-     * @return array
-     */
-    public function createTwitterUser(array $data): array;
 
     /**
      * @return string
@@ -35,12 +25,12 @@ interface LoginInterface
     /**
      * @return string
      */
-    public function updateYoutubeChanel(): string;
+    public function updateYoutubeUser(): string;
 
     /**
      * @return string
      */
-    public function updateTelegramChanel(): string;
+    public function updateTelegramUser(): string;
 
     /**
      * @return string
