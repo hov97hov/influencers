@@ -5374,6 +5374,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_click_outside__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue2_datepicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-datepicker */ "./node_modules/vue2-datepicker/index.esm.js");
 /* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-datepicker/index.css */ "./node_modules/vue2-datepicker/index.css");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5528,16 +5620,97 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      isLoader: false,
       selectCategory: false,
       options: ["foo", "bar", "baz"],
       defaultData: {
-        birthday: ''
+        first_name: 'Valod',
+        last_name: 'Valodyan',
+        phone: '37455969696',
+        influencer_name: 'es shat gidem inch',
+        facebook: '',
+        instagram: 'hov97mkrtchyan',
+        tiktok: 'therock',
+        youtube: 'UCmqqdbEjzhryi3R-_qHPExg',
+        twitter: 'Hovo1543569',
+        telegram: 'kalalaallala',
+        account_type: 'esim',
+        gender: '',
+        birthday: '',
+        language: '',
+        additional_information: 'text',
+        email: 'example@emample.com'
+      },
+      errors: {
+        defaultErrorData: {
+          first_name: '',
+          last_name: '',
+          phone: '',
+          influencer_name: '',
+          facebook: '',
+          instagram: '',
+          tiktok: '',
+          youtube: '',
+          twitter: '',
+          telegram: '',
+          account_type: '',
+          gender: '',
+          birthday: '',
+          language: '',
+          additional_information: '',
+          email: ''
+        }
       }
     };
   },
   methods: {
     hideSelectCategory: function hideSelectCategory() {
       this.selectCategory = false;
+    },
+    checkErrors: function checkErrors(obj, field) {
+      console.log(55);
+
+      if (obj) {
+        this.errors[obj][field] = '';
+      } else {
+        this.errors[field] = '';
+      }
+    },
+    registerUser: function registerUser() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.isLoader = true;
+                _context.next = 3;
+                return axios.post('/register/user', _this.defaultData).then(function (response) {
+                  console.log(response);
+                  _this.isLoader = false;
+                })["catch"](function (error) {
+                  _this.isLoader = false;
+
+                  _this.$notify({
+                    group: 'foo',
+                    title: 'ERROR',
+                    text: 'An error has occurred',
+                    type: 'error',
+                    duration: 1000,
+                    speed: 1000
+                  });
+
+                  _this.errors.defaultErrorData = Object.assign(_this.errors.defaultErrorData, error.response.data.errors);
+                });
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   },
   directives: {
@@ -6294,38 +6467,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
   data: function data() {
     return {};
   },
-  created: function created() {
-    console.log(this.$page.props.data, '1111');
-  },
-  methods: {
-    loginWithFacebook: function loginWithFacebook() {
-      window.location.href = '/login/facebook';
-    },
-    loginWithTikTok: function loginWithTikTok() {
-      window.location.href = '/login/tiktok';
-    },
-    loginWithInstagram: function loginWithInstagram() {
-      window.location.href = '/login/instagram';
-    },
-    loginWithTwitter: function loginWithTwitter() {
-      window.location.href = '/login/twitter';
-    },
-    loginWithYoutube: function loginWithYoutube() {
-      window.location.href = '/login/google';
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -6344,7 +6491,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuejs-paginate */ "./node_modules/vuejs-paginate/dist/index.js");
 /* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuejs_paginate__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-i18n */ "./node_modules/vue-i18n/dist/vue-i18n.esm.js");
+/* harmony import */ var vue_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-i18n */ "./node_modules/vue-i18n/dist/vue-i18n.esm.js");
+/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-notification */ "./node_modules/vue-notification/dist/index.js");
+/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_notification__WEBPACK_IMPORTED_MODULE_4__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Import modules...
 
 
@@ -6355,7 +6504,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Import
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('paginate', (vuejs_paginate__WEBPACK_IMPORTED_MODULE_2___default()));
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].component("v-select", (vue_select__WEBPACK_IMPORTED_MODULE_1___default()));
 
-vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(vue_i18n__WEBPACK_IMPORTED_MODULE_4__["default"]);
+
+vue__WEBPACK_IMPORTED_MODULE_3__["default"].use((vue_notification__WEBPACK_IMPORTED_MODULE_4___default()));
+vue__WEBPACK_IMPORTED_MODULE_3__["default"].use((vue_notification__WEBPACK_IMPORTED_MODULE_4___default()));
+vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(vue_i18n__WEBPACK_IMPORTED_MODULE_5__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.plugin);
 var app = document.getElementById('app');
 new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
@@ -11767,7 +11919,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vs__dropdown-toggle .vs__selected {\n  font-family: \"Rubik\", sans-serif !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  font-size: 22px !important;\n  line-height: 26px !important;\n  letter-spacing: 0.02em !important;\n  color: #8B8989 !important;\n  padding: 0 !important;\n}\n.vs__dropdown-toggle {\n  height: 60px !important;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n  border-radius: 40px !important;\n  padding: 0 40px !important;\n}\n.vs__dropdown-toggle .vs__search {\n  visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n  display: none !important;\n}\n.join-form-content {\n  padding-bottom: 150px;\n  background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 700;\n  font-size: 64px;\n  line-height: 76px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n  margin-bottom: 37px;\n}\n.join-form-content .content > .form {\n  background: #E9EDF0;\n  box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n  border-radius: 40.5321px;\n  padding: 70px 60px 40px;\n}\n.join-form-content .content > .form .fields {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 40px;\n}\n.join-form-content .content > .form .fields > div {\n  width: calc(100% / 2 - 50px);\n}\n.join-form-content .content > .form .fields > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n  width: 100%;\n  height: 60px;\n  padding: 0 40px;\n  border: 0;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n}\n.join-form-content .content > .form .field {\n  margin-bottom: 40px;\n}\n.join-form-content .content > .form .field > div {\n  position: relative;\n  width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n  width: 100%;\n  border: 0;\n  height: 60px;\n  padding: 0 40px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n  width: 100%;\n  border: 0;\n  height: 60px;\n  padding: 0 40px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  text-align: left;\n  position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n  position: absolute;\n  right: 47px;\n  top: 30px;\n  transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n  transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n  background: #FEFDFF;\n  box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n  position: absolute;\n  top: 125px;\n  width: 100%;\n  padding: 30px 22px;\n  z-index: 9;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  /* Hide the browser's default checkbox */\n  /* Create a custom checkbox */\n  /* On mouse-over, add a grey background color */\n  /* When the checkbox is checked, add a blue background */\n  /* Create the checkmark/indicator (hidden when not checked) */\n  /* Show the checkmark when checked */\n  /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n  background: #E9EDF0;\n  border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n  display: flex;\n  justify-content: flex-start;\n  width: 100%;\n  position: relative;\n  cursor: pointer;\n  padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n  position: absolute;\n  opacity: 0;\n  cursor: pointer;\n  height: 0;\n  width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n  border: 1px solid #595656;\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  height: 22px;\n  width: 22px;\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n  display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n  left: 7px;\n  top: 3px;\n  width: 5px;\n  height: 10px;\n  border: solid #595656;\n  border-width: 0 2px 2px 0;\n  transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n  width: 100%;\n  padding: 20px 40px;\n  height: 203px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  border: 0;\n  outline: none;\n  resize: none;\n}\n.join-form-content .content > .form .btn-content {\n  display: flex;\n  justify-content: center;\n  padding-top: 70px;\n}\n.join-form-content .content > .form .btn-content button {\n  width: 268px;\n  height: 66px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n  border-radius: 32.9846px;\n  border: 0;\n  font-family: \"Lato\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 23px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.join-form-content .content > .form .form-title {\n  margin-top: 60px;\n  margin-bottom: 42px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  color: #8B8989;\n}\n@media screen and (max-width: 1280px) {\n.join-form-content {\n    padding-bottom: 150px;\n    padding-right: 60px;\n    padding-left: 60px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n}\n@media screen and (max-width: 1024px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 21px !important;\n    line-height: 25px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 40px;\n    padding-right: 40px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 56px;\n    line-height: 66px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 33px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 62px 60px 45px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 40px;\n}\n.join-form-content .content > .form .fields > div {\n    width: calc(100% / 2 - 15px);\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    padding: 0 40px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 40px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    padding: 0 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    padding: 0 40px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 47px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 20px 40px;\n    height: 140px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: center;\n    padding-top: 70px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 66px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin-bottom: 40px;\n    margin-top: 50px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    text-align: center;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 992px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 21px !important;\n    line-height: 25px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 25px;\n    padding-right: 25px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 45px;\n    line-height: 53px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n    text-align: center;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 70px 60px 40px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 41px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 20px 35px;\n    height: 140px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 15px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    text-align: center;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 580px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 18px !important;\n    line-height: 21px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-align: center;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 40px 22px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 42px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 23px 25px;\n    height: 203px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 10px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    text-align: left;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 480px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 18px !important;\n    line-height: 21px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-align: center;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 40px 22px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 42px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 23px 25px;\n    height: 203px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 10px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    text-align: left;\n    color: #8B8989;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loader-overly {\n  position: fixed;\n  width: 100%;\n  height: 100vh;\n  overflow: hidden;\n  top: 0;\n  left: 0;\n  background: #00000069;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.loader-overly .lds-dual-ring {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n}\n.loader-overly .lds-dual-ring:after {\n  content: \" \";\n  display: block;\n  width: 64px;\n  height: 64px;\n  margin: 8px;\n  border-radius: 50%;\n  border: 6px solid #fff;\n  border-color: #fff transparent #fff transparent;\n  -webkit-animation: lds-dual-ring 1.2s linear infinite;\n          animation: lds-dual-ring 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.field-error-message {\n  color: red;\n  margin-top: 10px;\n  display: block;\n}\n.vs__dropdown-toggle .vs__selected {\n  font-family: \"Rubik\", sans-serif !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  font-size: 22px !important;\n  line-height: 26px !important;\n  letter-spacing: 0.02em !important;\n  color: #8B8989 !important;\n  padding: 0 !important;\n}\n.vs__dropdown-toggle {\n  height: 60px !important;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n  border-radius: 40px !important;\n  padding: 0 40px !important;\n}\n.vs__dropdown-toggle .vs__search {\n  visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n  display: none !important;\n}\n.join-form-content {\n  padding-bottom: 150px;\n  background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 700;\n  font-size: 64px;\n  line-height: 76px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n  margin-bottom: 37px;\n}\n.join-form-content .content > .form {\n  background: #E9EDF0;\n  box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n  border-radius: 40.5321px;\n  padding: 70px 60px 40px;\n}\n.join-form-content .content > .form .fields {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 40px;\n}\n.join-form-content .content > .form .fields > div {\n  width: calc(100% / 2 - 50px);\n}\n.join-form-content .content > .form .fields > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n  width: 100%;\n  height: 60px;\n  padding: 0 40px;\n  border: 0;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n}\n.join-form-content .content > .form .field {\n  margin-bottom: 40px;\n}\n.join-form-content .content > .form .field > div {\n  position: relative;\n  width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n  width: 100%;\n  border: 0;\n  height: 60px;\n  padding: 0 40px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n  width: 100%;\n  border: 0;\n  height: 60px;\n  padding: 0 40px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  text-align: left;\n  position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n  position: absolute;\n  right: 47px;\n  top: 30px;\n  transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n  transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n  background: #FEFDFF;\n  box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n  position: absolute;\n  top: 125px;\n  width: 100%;\n  padding: 30px 22px;\n  z-index: 9;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  /* Hide the browser's default checkbox */\n  /* Create a custom checkbox */\n  /* On mouse-over, add a grey background color */\n  /* When the checkbox is checked, add a blue background */\n  /* Create the checkmark/indicator (hidden when not checked) */\n  /* Show the checkmark when checked */\n  /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n  background: #E9EDF0;\n  border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n  display: flex;\n  justify-content: flex-start;\n  width: 100%;\n  position: relative;\n  cursor: pointer;\n  padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n  position: absolute;\n  opacity: 0;\n  cursor: pointer;\n  height: 0;\n  width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n  border: 1px solid #595656;\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  height: 22px;\n  width: 22px;\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n  display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n  left: 7px;\n  top: 3px;\n  width: 5px;\n  height: 10px;\n  border: solid #595656;\n  border-width: 0 2px 2px 0;\n  transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n  width: 100%;\n  padding: 20px 40px;\n  height: 203px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  border: 0;\n  outline: none;\n  resize: none;\n}\n.join-form-content .content > .form .btn-content {\n  display: flex;\n  justify-content: center;\n  padding-top: 70px;\n}\n.join-form-content .content > .form .btn-content button {\n  width: 268px;\n  height: 66px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n  border-radius: 32.9846px;\n  border: 0;\n  font-family: \"Lato\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 23px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.join-form-content .content > .form .form-title {\n  margin-top: 60px;\n  margin-bottom: 42px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  color: #8B8989;\n}\n@media screen and (max-width: 1280px) {\n.join-form-content {\n    padding-bottom: 150px;\n    padding-right: 60px;\n    padding-left: 60px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n}\n@media screen and (max-width: 1024px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 21px !important;\n    line-height: 25px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 40px;\n    padding-right: 40px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 56px;\n    line-height: 66px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 33px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 62px 60px 45px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 40px;\n}\n.join-form-content .content > .form .fields > div {\n    width: calc(100% / 2 - 15px);\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    padding: 0 40px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 40px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    padding: 0 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    padding: 0 40px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 47px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 20px 40px;\n    height: 140px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: center;\n    padding-top: 70px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 66px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin-bottom: 40px;\n    margin-top: 50px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    text-align: center;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 992px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 21px !important;\n    line-height: 25px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 25px;\n    padding-right: 25px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 45px;\n    line-height: 53px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n    text-align: center;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 70px 60px 40px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 41px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 20px 35px;\n    height: 140px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 15px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    text-align: center;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 580px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 18px !important;\n    line-height: 21px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-align: center;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 40px 22px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 42px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 23px 25px;\n    height: 203px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 10px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    text-align: left;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 480px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 18px !important;\n    line-height: 21px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-align: center;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 40px 22px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 42px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 23px 25px;\n    height: 203px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 10px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    text-align: left;\n    color: #8B8989;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39573,21 +39725,429 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form" }, [
-              _vm._m(0),
+              _c("div", { staticClass: "fields" }, [
+                _c("div", [
+                  _c("p", [_vm._v("First name *")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.first_name,
+                        expression: "defaultData.first_name",
+                      },
+                    ],
+                    attrs: {
+                      type: "text",
+                      placeholder: "Only you can see this name",
+                    },
+                    domProps: { value: _vm.defaultData.first_name },
+                    on: {
+                      input: [
+                        function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.defaultData,
+                            "first_name",
+                            $event.target.value
+                          )
+                        },
+                        function ($event) {
+                          return _vm.checkErrors(
+                            "defaultErrorData",
+                            "first_name"
+                          )
+                        },
+                      ],
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "field-error-message" }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm.errors.defaultErrorData.first_name
+                          ? _vm.errors.defaultErrorData.first_name[0]
+                          : ""
+                      )
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [_vm._v("First name *")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.last_name,
+                        expression: "defaultData.last_name",
+                      },
+                    ],
+                    attrs: {
+                      type: "text",
+                      placeholder: "Only you can see this name",
+                    },
+                    domProps: { value: _vm.defaultData.last_name },
+                    on: {
+                      input: [
+                        function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.defaultData,
+                            "last_name",
+                            $event.target.value
+                          )
+                        },
+                        function ($event) {
+                          return _vm.checkErrors(
+                            "defaultErrorData",
+                            "last_name"
+                          )
+                        },
+                      ],
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "field-error-message" }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm.errors.defaultErrorData.last_name
+                          ? _vm.errors.defaultErrorData.last_name[0]
+                          : ""
+                      )
+                    ),
+                  ]),
+                ]),
+              ]),
               _vm._v(" "),
-              _vm._m(1),
+              _c("div", { staticClass: "fields" }, [
+                _c("div", [
+                  _c("p", [_vm._v("Email address *")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.email,
+                        expression: "defaultData.email",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "myname@example.com" },
+                    domProps: { value: _vm.defaultData.email },
+                    on: {
+                      input: [
+                        function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.defaultData,
+                            "email",
+                            $event.target.value
+                          )
+                        },
+                        function ($event) {
+                          return _vm.checkErrors("defaultErrorData", "email")
+                        },
+                      ],
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "field-error-message" }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm.errors.defaultErrorData.email
+                          ? _vm.errors.defaultErrorData.email[0]
+                          : ""
+                      )
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [_vm._v("Phone number *")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.phone,
+                        expression: "defaultData.phone",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "0XX XX-XX-XX" },
+                    domProps: { value: _vm.defaultData.phone },
+                    on: {
+                      input: [
+                        function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.defaultData,
+                            "phone",
+                            $event.target.value
+                          )
+                        },
+                        function ($event) {
+                          return _vm.checkErrors("defaultErrorData", "phone")
+                        },
+                      ],
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "field-error-message" }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm.errors.defaultErrorData.phone
+                          ? _vm.errors.defaultErrorData.phone[0]
+                          : ""
+                      )
+                    ),
+                  ]),
+                ]),
+              ]),
               _vm._v(" "),
-              _vm._m(2),
+              _c("div", { staticClass: "field" }, [
+                _c("div", [
+                  _c("p", [_vm._v("Influencer name *")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.influencer_name,
+                        expression: "defaultData.influencer_name",
+                      },
+                    ],
+                    attrs: {
+                      type: "text",
+                      placeholder: "This will be shown on your profile",
+                    },
+                    domProps: { value: _vm.defaultData.influencer_name },
+                    on: {
+                      input: [
+                        function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.defaultData,
+                            "influencer_name",
+                            $event.target.value
+                          )
+                        },
+                        function ($event) {
+                          return _vm.checkErrors(
+                            "defaultErrorData",
+                            "influencer_name"
+                          )
+                        },
+                      ],
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "field-error-message" }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm.errors.defaultErrorData.influencer_name
+                          ? _vm.errors.defaultErrorData.influencer_name[0]
+                          : ""
+                      )
+                    ),
+                  ]),
+                ]),
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-title" }, [
                 _vm._v("Choose your social medias profiles (at least one)"),
               ]),
               _vm._v(" "),
-              _vm._m(3),
+              _c("div", { staticClass: "fields" }, [
+                _c("div", [
+                  _c("p", [_vm._v("Facebook")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.facebook,
+                        expression: "defaultData.facebook",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "Your Facebook URL" },
+                    domProps: { value: _vm.defaultData.facebook },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.defaultData,
+                          "facebook",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [_vm._v("YouTube")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.youtube,
+                        expression: "defaultData.youtube",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "Your YouTube URL" },
+                    domProps: { value: _vm.defaultData.youtube },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.defaultData,
+                          "youtube",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
               _vm._v(" "),
-              _vm._m(4),
+              _c("div", { staticClass: "fields" }, [
+                _c("div", [
+                  _c("p", [_vm._v("Instagram")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.instagram,
+                        expression: "defaultData.instagram",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "Your Instagram URL" },
+                    domProps: { value: _vm.defaultData.instagram },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.defaultData,
+                          "instagram",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [_vm._v("Twitter")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.twitter,
+                        expression: "defaultData.twitter",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "Your Twitter URL" },
+                    domProps: { value: _vm.defaultData.twitter },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.defaultData,
+                          "twitter",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
               _vm._v(" "),
-              _vm._m(5),
+              _c("div", { staticClass: "fields" }, [
+                _c("div", [
+                  _c("p", [_vm._v("TikTok")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.tiktok,
+                        expression: "defaultData.tiktok",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "Your TikTok URL" },
+                    domProps: { value: _vm.defaultData.tiktok },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.defaultData, "tiktok", $event.target.value)
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [_vm._v("Telegram")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.telegram,
+                        expression: "defaultData.telegram",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "Your Telegram URL" },
+                    domProps: { value: _vm.defaultData.telegram },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.defaultData,
+                          "telegram",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "field" }, [
                 _c(
@@ -39704,7 +40264,34 @@ var render = function () {
                   [
                     _c("p", [_vm._v("Account type *")]),
                     _vm._v(" "),
-                    _c("v-select", { attrs: { options: _vm.options } }),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      on: {
+                        input: function ($event) {
+                          return _vm.checkErrors(
+                            "defaultErrorData",
+                            "account_type"
+                          )
+                        },
+                      },
+                      model: {
+                        value: _vm.defaultData.account_type,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "account_type", $$v)
+                        },
+                        expression: "defaultData.account_type",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "field-error-message" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm.errors.defaultErrorData.account_type
+                            ? _vm.errors.defaultErrorData.account_type[0]
+                            : ""
+                        )
+                      ),
+                    ]),
                   ],
                   1
                 ),
@@ -39716,7 +40303,31 @@ var render = function () {
                   [
                     _c("p", [_vm._v("Gender *")]),
                     _vm._v(" "),
-                    _c("v-select", { attrs: { options: _vm.options } }),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      on: {
+                        input: function ($event) {
+                          return _vm.checkErrors("defaultErrorData", "gender")
+                        },
+                      },
+                      model: {
+                        value: _vm.defaultData.gender,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "gender", $$v)
+                        },
+                        expression: "defaultData.gender",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "field-error-message" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm.errors.defaultErrorData.gender
+                            ? _vm.errors.defaultErrorData.gender[0]
+                            : ""
+                        )
+                      ),
+                    ]),
                   ],
                   1
                 ),
@@ -39729,6 +40340,11 @@ var render = function () {
                     _c("p", [_vm._v("Birthday *")]),
                     _vm._v(" "),
                     _c("date-picker", {
+                      on: {
+                        input: function ($event) {
+                          return _vm.checkErrors("defaultErrorData", "birthday")
+                        },
+                      },
                       model: {
                         value: _vm.defaultData.birthday,
                         callback: function ($$v) {
@@ -39737,6 +40353,16 @@ var render = function () {
                         expression: "defaultData.birthday",
                       },
                     }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "field-error-message" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm.errors.defaultErrorData.birthday
+                            ? _vm.errors.defaultErrorData.birthday[0]
+                            : ""
+                        )
+                      ),
+                    ]),
                   ],
                   1
                 ),
@@ -39748,177 +40374,115 @@ var render = function () {
                   [
                     _c("p", [_vm._v("Language *")]),
                     _vm._v(" "),
-                    _c("v-select", { attrs: { options: _vm.options } }),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      on: {
+                        input: function ($event) {
+                          return _vm.checkErrors("defaultErrorData", "language")
+                        },
+                      },
+                      model: {
+                        value: _vm.defaultData.language,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "language", $$v)
+                        },
+                        expression: "defaultData.language",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "field-error-message" }, [
+                      _vm._v(
+                        "\n                                " +
+                          _vm._s(
+                            _vm.errors.defaultErrorData.language
+                              ? _vm.errors.defaultErrorData.language[0]
+                              : ""
+                          ) +
+                          "\n                            "
+                      ),
+                    ]),
                   ],
                   1
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(6),
+              _c("div", { staticClass: "field" }, [
+                _c("div", [
+                  _c("p", [_vm._v("Additional information *")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.defaultData.additional_information,
+                        expression: "defaultData.additional_information",
+                      },
+                    ],
+                    attrs: {
+                      placeholder:
+                        "Provide additional information about your activity and contact information",
+                    },
+                    domProps: { value: _vm.defaultData.additional_information },
+                    on: {
+                      input: [
+                        function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.defaultData,
+                            "additional_information",
+                            $event.target.value
+                          )
+                        },
+                        function ($event) {
+                          return _vm.checkErrors(
+                            "defaultErrorData",
+                            "additional_information"
+                          )
+                        },
+                      ],
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "field-error-message" }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm.errors.defaultErrorData.additional_information != ""
+                          ? _vm.errors.defaultErrorData
+                              .additional_information[0]
+                          : ""
+                      )
+                    ),
+                  ]),
+                ]),
+              ]),
               _vm._v(" "),
-              _vm._m(7),
+              _c("div", { staticClass: "btn-content" }, [
+                _c("button", { on: { click: _vm.registerUser } }, [
+                  _vm._v("Submit"),
+                ]),
+              ]),
             ]),
           ]),
         ]),
       ]),
+      _vm._v(" "),
+      _vm.isLoader
+        ? _c("div", { staticClass: "loader-overly" }, [
+            _c("div", { staticClass: "lds-dual-ring" }),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("notifications", { attrs: { group: "foo" } }),
       _vm._v(" "),
       _c("Footer"),
     ],
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "fields" }, [
-      _c("div", [
-        _c("p", [_vm._v("First name *")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Only you can see this name" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("p", [_vm._v("First name *")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Only you can see this name" },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "fields" }, [
-      _c("div", [
-        _c("p", [_vm._v("Email address *")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "myname@example.com" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("p", [_vm._v("Phone number *")]),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "text", placeholder: "0XX XX-XX-XX" } }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field" }, [
-      _c("div", [
-        _c("p", [_vm._v("Influencer name *")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "text",
-            placeholder: "This will be shown on your profile",
-          },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "fields" }, [
-      _c("div", [
-        _c("p", [_vm._v("Facebook")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Your Facebook URL" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("p", [_vm._v("YouTube")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Your YouTube URL" },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "fields" }, [
-      _c("div", [
-        _c("p", [_vm._v("Instagram")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Your Instagram URL" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("p", [_vm._v("Twitter")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Your Twitter URL" },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "fields" }, [
-      _c("div", [
-        _c("p", [_vm._v("TikTok")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Your TikTok URL" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("p", [_vm._v("Telegram")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", placeholder: "Your Telegram URL" },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field" }, [
-      _c("div", [
-        _c("p", [_vm._v("Additional information *")]),
-        _vm._v(" "),
-        _c("textarea", {
-          attrs: {
-            placeholder:
-              "Provide additional information about your activity and contact information",
-          },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "btn-content" }, [
-      _c("button", [_vm._v("Submit")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -41995,6 +42559,1173 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-notification/dist/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/vue-notification/dist/index.js ***!
+  \*****************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"));
+	else {}
+})(this, function(__WEBPACK_EXTERNAL_MODULE_20__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_629__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_629__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__nested_webpack_require_629__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__nested_webpack_require_629__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__nested_webpack_require_629__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__nested_webpack_require_629__.d = function(exports, name, getter) {
+/******/ 		if(!__nested_webpack_require_629__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__nested_webpack_require_629__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__nested_webpack_require_629__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__nested_webpack_require_629__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__nested_webpack_require_629__.p = "/dist/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __nested_webpack_require_629__(__nested_webpack_require_629__.s = 2);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  scopeId,
+  cssModules
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  // inject cssModules
+  if (cssModules) {
+    var computed = Object.create(options.computed || null)
+    Object.keys(cssModules).forEach(function (key) {
+      var module = cssModules[key]
+      computed[key] = function () { return module }
+    })
+    options.computed = computed
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __nested_webpack_require_4417__) {
+
+"use strict";
+/* harmony export (binding) */ __nested_webpack_require_4417__.d(__webpack_exports__, "a", function() { return events; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __nested_webpack_require_4417__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __nested_webpack_require_4417__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+var events = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({ name: 'vue-notification' });
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __nested_webpack_require_4937__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Notifications_vue__ = __nested_webpack_require_4937__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Notifications_vue___default = __nested_webpack_require_4937__.n(__WEBPACK_IMPORTED_MODULE_0__Notifications_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__events__ = __nested_webpack_require_4937__(1);
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+
+
+
+var Notify = {
+  install: function install(Vue) {
+    var args = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    if (this.installed) {
+      return;
+    }
+
+    this.installed = true;
+    this.params = args;
+
+    Vue.component(args.componentName || 'notifications', __WEBPACK_IMPORTED_MODULE_0__Notifications_vue___default.a);
+
+    var notify = function notify(params) {
+      if (typeof params === 'string') {
+        params = { title: '', text: params };
+      }
+
+      if ((typeof params === 'undefined' ? 'undefined' : _typeof(params)) === 'object') {
+        __WEBPACK_IMPORTED_MODULE_1__events__["a" /* events */].$emit('add', params);
+      }
+    };
+
+    notify.close = function (id) {
+      __WEBPACK_IMPORTED_MODULE_1__events__["a" /* events */].$emit('close', id);
+    };
+
+    var name = args.name || 'notify';
+
+    Vue.prototype['$' + name] = notify;
+    Vue[name] = notify;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Notify);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __nested_webpack_require_6716__) {
+
+
+/* styles */
+__nested_webpack_require_6716__(17)
+
+var Component = __nested_webpack_require_6716__(0)(
+  /* script */
+  __nested_webpack_require_6716__(5),
+  /* template */
+  __nested_webpack_require_6716__(15),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'CssGroup',
+  props: ['name']
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __nested_webpack_require_7343__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __nested_webpack_require_7343__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__events__ = __nested_webpack_require_7343__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __nested_webpack_require_7343__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__defaults__ = __nested_webpack_require_7343__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__VelocityGroup_vue__ = __nested_webpack_require_7343__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__VelocityGroup_vue___default = __nested_webpack_require_7343__.n(__WEBPACK_IMPORTED_MODULE_4__VelocityGroup_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__CssGroup_vue__ = __nested_webpack_require_7343__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__CssGroup_vue___default = __nested_webpack_require_7343__.n(__WEBPACK_IMPORTED_MODULE_5__CssGroup_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__parser__ = __nested_webpack_require_7343__(8);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+var STATE = {
+  IDLE: 0,
+  DESTROYED: 2
+};
+
+var Component = {
+  name: 'Notifications',
+  components: {
+    VelocityGroup: __WEBPACK_IMPORTED_MODULE_4__VelocityGroup_vue___default.a,
+    CssGroup: __WEBPACK_IMPORTED_MODULE_5__CssGroup_vue___default.a
+  },
+  props: {
+    group: {
+      type: String,
+      default: ''
+    },
+
+    width: {
+      type: [Number, String],
+      default: 300
+    },
+
+    reverse: {
+      type: Boolean,
+      default: false
+    },
+
+    position: {
+      type: [String, Array],
+      default: function _default() {
+        return __WEBPACK_IMPORTED_MODULE_3__defaults__["a" /* default */].position;
+      }
+    },
+
+    classes: {
+      type: String,
+      default: 'vue-notification'
+    },
+
+    animationType: {
+      type: String,
+      default: 'css',
+      validator: function validator(value) {
+        return value === 'css' || value === 'velocity';
+      }
+    },
+
+    animation: {
+      type: Object,
+      default: function _default() {
+        return __WEBPACK_IMPORTED_MODULE_3__defaults__["a" /* default */].velocityAnimation;
+      }
+    },
+
+    animationName: {
+      type: String,
+      default: __WEBPACK_IMPORTED_MODULE_3__defaults__["a" /* default */].cssAnimation
+    },
+
+    speed: {
+      type: Number,
+      default: 300
+    },
+
+    cooldown: {
+      type: Number,
+      default: 0
+    },
+
+    duration: {
+      type: Number,
+      default: 3000
+    },
+
+    delay: {
+      type: Number,
+      default: 0
+    },
+
+    max: {
+      type: Number,
+      default: Infinity
+    },
+
+    ignoreDuplicates: {
+      type: Boolean,
+      default: false
+    },
+
+    closeOnClick: {
+      type: Boolean,
+      default: true
+    }
+  },
+  data: function data() {
+    return {
+      list: [],
+      velocity: __WEBPACK_IMPORTED_MODULE_0__index__["default"].params.velocity
+    };
+  },
+  mounted: function mounted() {
+    __WEBPACK_IMPORTED_MODULE_1__events__["a" /* events */].$on('add', this.addItem);
+    __WEBPACK_IMPORTED_MODULE_1__events__["a" /* events */].$on('close', this.closeItem);
+  },
+
+  computed: {
+    actualWidth: function actualWidth() {
+      return __nested_webpack_require_7343__.i(__WEBPACK_IMPORTED_MODULE_6__parser__["a" /* default */])(this.width);
+    },
+    isVA: function isVA() {
+      return this.animationType === 'velocity';
+    },
+    componentName: function componentName() {
+      return this.isVA ? 'VelocityGroup' : 'CssGroup';
+    },
+    styles: function styles() {
+      var _listToDirection = __nested_webpack_require_7343__.i(__WEBPACK_IMPORTED_MODULE_2__util__["a" /* listToDirection */])(this.position),
+          x = _listToDirection.x,
+          y = _listToDirection.y;
+
+      var width = this.actualWidth.value;
+      var suffix = this.actualWidth.type;
+
+      var styles = _defineProperty({
+        width: width + suffix
+      }, y, '0px');
+
+      if (x === 'center') {
+        styles['left'] = 'calc(50% - ' + width / 2 + suffix + ')';
+      } else {
+        styles[x] = '0px';
+      }
+
+      return styles;
+    },
+    active: function active() {
+      return this.list.filter(function (v) {
+        return v.state !== STATE.DESTROYED;
+      });
+    },
+    botToTop: function botToTop() {
+      return this.styles.hasOwnProperty('bottom');
+    }
+  },
+  methods: {
+    destroyIfNecessary: function destroyIfNecessary(item) {
+      if (this.closeOnClick) {
+        this.destroy(item);
+      }
+    },
+    addItem: function addItem(event) {
+      var _this = this;
+
+      event.group = event.group || '';
+
+      if (this.group !== event.group) {
+        return;
+      }
+
+      if (event.clean || event.clear) {
+        this.destroyAll();
+        return;
+      }
+
+      var duration = typeof event.duration === 'number' ? event.duration : this.duration;
+
+      var speed = typeof event.speed === 'number' ? event.speed : this.speed;
+
+      var ignoreDuplicates = typeof event.ignoreDuplicates === 'boolean' ? event.ignoreDuplicates : this.ignoreDuplicates;
+
+      var title = event.title,
+          text = event.text,
+          type = event.type,
+          data = event.data,
+          id = event.id;
+
+
+      var item = {
+        id: id || __nested_webpack_require_7343__.i(__WEBPACK_IMPORTED_MODULE_2__util__["b" /* Id */])(),
+        title: title,
+        text: text,
+        type: type,
+        state: STATE.IDLE,
+        speed: speed,
+        length: duration + 2 * speed,
+        data: data
+      };
+
+      if (duration >= 0) {
+        item.timer = setTimeout(function () {
+          _this.destroy(item);
+        }, item.length);
+      }
+
+      var direction = this.reverse ? !this.botToTop : this.botToTop;
+
+      var indexToDestroy = -1;
+
+      var isDuplicate = this.active.some(function (item) {
+        return item.title === event.title && item.text === event.text;
+      });
+
+      var canAdd = ignoreDuplicates ? !isDuplicate : true;
+
+      if (!canAdd) return;
+
+      if (direction) {
+        this.list.push(item);
+
+        if (this.active.length > this.max) {
+          indexToDestroy = 0;
+        }
+      } else {
+        this.list.unshift(item);
+
+        if (this.active.length > this.max) {
+          indexToDestroy = this.active.length - 1;
+        }
+      }
+
+      if (indexToDestroy !== -1) {
+        this.destroy(this.active[indexToDestroy]);
+      }
+    },
+    closeItem: function closeItem(id) {
+      this.destroyById(id);
+    },
+    notifyClass: function notifyClass(item) {
+      return ['vue-notification-template', this.classes, item.type];
+    },
+    notifyWrapperStyle: function notifyWrapperStyle(item) {
+      return this.isVA ? null : { transition: 'all ' + item.speed + 'ms' };
+    },
+    destroy: function destroy(item) {
+      clearTimeout(item.timer);
+      item.state = STATE.DESTROYED;
+
+      if (!this.isVA) {
+        this.clean();
+      }
+    },
+    destroyById: function destroyById(id) {
+      var item = this.list.find(function (v) {
+        return v.id === id;
+      });
+
+      if (item) {
+        this.destroy(item);
+      }
+    },
+    destroyAll: function destroyAll() {
+      this.active.forEach(this.destroy);
+    },
+    getAnimation: function getAnimation(index, el) {
+      var animation = this.animation[index];
+
+      return typeof animation === 'function' ? animation.call(this, el) : animation;
+    },
+    enter: function enter(_ref) {
+      var el = _ref.el,
+          complete = _ref.complete;
+
+      var animation = this.getAnimation('enter', el);
+
+      this.velocity(el, animation, {
+        duration: this.speed,
+        complete: complete
+      });
+    },
+    leave: function leave(_ref2) {
+      var el = _ref2.el,
+          complete = _ref2.complete;
+
+      var animation = this.getAnimation('leave', el);
+
+      this.velocity(el, animation, {
+        duration: this.speed,
+        complete: complete
+      });
+    },
+    clean: function clean() {
+      this.list = this.list.filter(function (v) {
+        return v.state !== STATE.DESTROYED;
+      });
+    }
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Component);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'VelocityGroup',
+  methods: {
+    enter: function enter(el, complete) {
+      this.$emit('enter', { el: el, complete: complete });
+    },
+    leave: function leave(el, complete) {
+      this.$emit('leave', { el: el, complete: complete });
+    },
+    afterLeave: function afterLeave() {
+      this.$emit('afterLeave');
+    }
+  }
+});
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+  position: ['top', 'right'],
+  cssAnimation: 'vn-fade',
+  velocityAnimation: {
+    enter: function enter(el) {
+      var height = el.clientHeight;
+
+      return {
+        height: [height, 0],
+        opacity: [1, 0]
+      };
+    },
+    leave: {
+      height: 0,
+      opacity: [0, 1]
+    }
+  }
+});
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export parse */
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var floatRegexp = '[-+]?[0-9]*.?[0-9]+';
+
+var types = [{
+  name: 'px',
+  regexp: new RegExp('^' + floatRegexp + 'px$')
+}, {
+  name: '%',
+  regexp: new RegExp('^' + floatRegexp + '%$')
+}, {
+  name: 'px',
+  regexp: new RegExp('^' + floatRegexp + '$')
+}];
+
+var getType = function getType(value) {
+  if (value === 'auto') {
+    return {
+      type: value,
+      value: 0
+    };
+  }
+
+  for (var i = 0; i < types.length; i++) {
+    var type = types[i];
+    if (type.regexp.test(value)) {
+      return {
+        type: type.name,
+        value: parseFloat(value)
+      };
+    }
+  }
+
+  return {
+    type: '',
+    value: value
+  };
+};
+
+var parse = function parse(value) {
+  switch (typeof value === 'undefined' ? 'undefined' : _typeof(value)) {
+    case 'number':
+      return { type: 'px', value: value };
+    case 'string':
+      return getType(value);
+    default:
+      return { type: '', value: value };
+  }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (parse);
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __nested_webpack_require_18050__) {
+
+"use strict";
+/* harmony export (binding) */ __nested_webpack_require_18050__.d(__webpack_exports__, "b", function() { return Id; });
+/* unused harmony export split */
+/* harmony export (binding) */ __nested_webpack_require_18050__.d(__webpack_exports__, "a", function() { return listToDirection; });
+var directions = {
+  x: ['left', 'center', 'right'],
+  y: ['top', 'bottom']
+};
+
+var Id = function (i) {
+  return function () {
+    return i++;
+  };
+}(0);
+
+var split = function split(value) {
+  if (typeof value !== 'string') {
+    return [];
+  }
+
+  return value.split(/\s+/gi).filter(function (v) {
+    return v;
+  });
+};
+
+var listToDirection = function listToDirection(value) {
+  if (typeof value === 'string') {
+    value = split(value);
+  }
+
+  var x = null;
+  var y = null;
+
+  value.forEach(function (v) {
+    if (directions.y.indexOf(v) !== -1) {
+      y = v;
+    }
+    if (directions.x.indexOf(v) !== -1) {
+      x = v;
+    }
+  });
+
+  return { x: x, y: y };
+};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __nested_webpack_require_19067__) {
+
+exports = module.exports = __nested_webpack_require_19067__(11)();
+// imports
+
+
+// module
+exports.push([module.i, ".vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{background:#fff}.vue-notification,.vue-notification-template{display:block;box-sizing:border-box;text-align:left}.vue-notification{font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187fe7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter,.vn-fade-leave-to{opacity:0}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function() {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		var result = [];
+		for(var i = 0; i < this.length; i++) {
+			var item = this[i];
+			if(item[2]) {
+				result.push("@media " + item[2] + "{" + item[1] + "}");
+			} else {
+				result.push(item[1]);
+			}
+		}
+		return result.join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __nested_webpack_require_21610__) {
+
+var Component = __nested_webpack_require_21610__(0)(
+  /* script */
+  __nested_webpack_require_21610__(4),
+  /* template */
+  __nested_webpack_require_21610__(16),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __nested_webpack_require_21901__) {
+
+var Component = __nested_webpack_require_21901__(0)(
+  /* script */
+  __nested_webpack_require_21901__(6),
+  /* template */
+  __nested_webpack_require_21901__(14),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('transition-group', {
+    attrs: {
+      "css": false
+    },
+    on: {
+      "enter": _vm.enter,
+      "leave": _vm.leave,
+      "after-leave": _vm.afterLeave
+    }
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "vue-notification-group",
+    style: (_vm.styles)
+  }, [_c(_vm.componentName, {
+    tag: "component",
+    attrs: {
+      "name": _vm.animationName
+    },
+    on: {
+      "enter": _vm.enter,
+      "leave": _vm.leave,
+      "after-leave": _vm.clean
+    }
+  }, _vm._l((_vm.active), function(item) {
+    return _c('div', {
+      key: item.id,
+      staticClass: "vue-notification-wrapper",
+      style: (_vm.notifyWrapperStyle(item)),
+      attrs: {
+        "data-id": item.id
+      }
+    }, [_vm._t("body", [_c('div', {
+      class: _vm.notifyClass(item),
+      on: {
+        "click": function($event) {
+          return _vm.destroyIfNecessary(item)
+        }
+      }
+    }, [(item.title) ? _c('div', {
+      staticClass: "notification-title",
+      domProps: {
+        "innerHTML": _vm._s(item.title)
+      }
+    }) : _vm._e(), _vm._v(" "), _c('div', {
+      staticClass: "notification-content",
+      domProps: {
+        "innerHTML": _vm._s(item.text)
+      }
+    })])], {
+      "item": item,
+      "close": function () { return _vm.destroy(item); }
+    })], 2)
+  }), 0)], 1)
+},staticRenderFns: []}
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('transition-group', {
+    attrs: {
+      "name": _vm.name
+    }
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __nested_webpack_require_24150__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __nested_webpack_require_24150__(10);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __nested_webpack_require_24150__(18)("2901aeae", content, true);
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __nested_webpack_require_24567__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __nested_webpack_require_24567__(19)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction) {
+  isProduction = _isProduction
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_20__;
+
+/***/ })
+/******/ ]);
+});
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 

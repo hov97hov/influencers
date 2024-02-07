@@ -10,58 +10,112 @@
                         <div class="fields">
                             <div>
                                 <p>First name *</p>
-                                <input type="text" placeholder="Only you can see this name">
+                                <input
+                                    v-model="defaultData.first_name"
+                                    type="text"
+                                    placeholder="Only you can see this name"
+                                    @input="checkErrors('defaultErrorData', 'first_name')"
+                                >
+                                <span class="field-error-message">{{errors.defaultErrorData.first_name ? errors.defaultErrorData.first_name[0] : ''}}</span>
                             </div>
                             <div>
                                 <p>First name *</p>
-                                <input type="text" placeholder="Only you can see this name">
+                                <input
+                                    v-model="defaultData.last_name"
+                                    type="text"
+                                    placeholder="Only you can see this name"
+                                    @input="checkErrors('defaultErrorData', 'last_name')"
+                                >
+                                <span class="field-error-message">{{errors.defaultErrorData.last_name ? errors.defaultErrorData.last_name[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="fields">
                             <div>
                                 <p>Email address *</p>
-                                <input type="text" placeholder="myname@example.com">
+                                <input
+                                    v-model="defaultData.email"
+                                    type="text"
+                                    placeholder="myname@example.com"
+                                    @input="checkErrors('defaultErrorData', 'email')"
+                                >
+                                <span class="field-error-message">{{errors.defaultErrorData.email ? errors.defaultErrorData.email[0] : ''}}</span>
                             </div>
                             <div>
                                 <p>Phone number *</p>
-                                <input type="text" placeholder="0XX XX-XX-XX">
+                                <input
+                                    v-model="defaultData.phone"
+                                    type="text"
+                                    placeholder="0XX XX-XX-XX"
+                                    @input="checkErrors('defaultErrorData', 'phone')"
+                                >
+                                <span class="field-error-message">{{errors.defaultErrorData.phone ? errors.defaultErrorData.phone[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="field">
                             <div>
                                 <p>Influencer name *</p>
-                                <input type="text" placeholder="This will be shown on your profile">
+                                <input
+                                    v-model="defaultData.influencer_name"
+                                    type="text"
+                                    placeholder="This will be shown on your profile"
+                                    @input="checkErrors('defaultErrorData', 'influencer_name')"
+                                >
+                                <span class="field-error-message">{{errors.defaultErrorData.influencer_name ? errors.defaultErrorData.influencer_name[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="form-title">Choose your social medias profiles (at least one)</div>
                         <div class="fields">
                             <div>
                                 <p>Facebook</p>
-                                <input type="text" placeholder="Your Facebook URL">
+                                <input
+                                    v-model="defaultData.facebook"
+                                    type="text"
+                                    placeholder="Your Facebook URL"
+                                >
                             </div>
                             <div>
                                 <p>YouTube</p>
-                                <input type="text" placeholder="Your YouTube URL">
+                                <input
+                                    v-model="defaultData.youtube"
+                                    type="text"
+                                    placeholder="Your YouTube URL"
+                                >
                             </div>
                         </div>
                         <div class="fields">
                             <div>
                                 <p>Instagram</p>
-                                <input type="text" placeholder="Your Instagram URL">
+                                <input
+                                    v-model="defaultData.instagram"
+                                    type="text"
+                                    placeholder="Your Instagram URL"
+                                >
                             </div>
                             <div>
                                 <p>Twitter</p>
-                                <input type="text" placeholder="Your Twitter URL">
+                                <input
+                                    v-model="defaultData.twitter"
+                                    type="text"
+                                    placeholder="Your Twitter URL"
+                                >
                             </div>
                         </div>
                         <div class="fields">
                             <div>
                                 <p>TikTok</p>
-                                <input type="text" placeholder="Your TikTok URL">
+                                <input
+                                    v-model="defaultData.tiktok"
+                                    type="text"
+                                    placeholder="Your TikTok URL"
+                                >
                             </div>
                             <div>
                                 <p>Telegram</p>
-                                <input type="text" placeholder="Your Telegram URL">
+                                <input
+                                    v-model="defaultData.telegram"
+                                    type="text"
+                                    placeholder="Your Telegram URL"
+                                >
                             </div>
                         </div>
                         <div class="field">
@@ -101,40 +155,70 @@
                         <div class="field">
                             <div>
                                 <p>Account type *</p>
-                                <v-select :options="options"></v-select>
+                                <v-select
+                                    v-model="defaultData.account_type"
+                                    :options="options"
+                                    @input="checkErrors('defaultErrorData', 'account_type')"
+                                ></v-select>
+                                <span class="field-error-message">{{errors.defaultErrorData.account_type ? errors.defaultErrorData.account_type[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="field">
                             <div>
                                 <p>Gender *</p>
-                                <v-select :options="options"></v-select>
+                                <v-select
+                                    v-model="defaultData.gender"
+                                    :options="options"
+                                    @input="checkErrors('defaultErrorData', 'gender')"
+                                ></v-select>
+                                <span class="field-error-message">{{errors.defaultErrorData.gender ? errors.defaultErrorData.gender[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="field">
                             <div>
                                 <p>Birthday *</p>
-                                <date-picker v-model="defaultData.birthday"></date-picker>
+                                <date-picker
+                                    v-model="defaultData.birthday"
+                                    @input="checkErrors('defaultErrorData', 'birthday')"
+                                ></date-picker>
+                                <span class="field-error-message">{{errors.defaultErrorData.birthday ? errors.defaultErrorData.birthday[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="field">
                             <div>
                                 <p>Language *</p>
-                                <v-select :options="options"></v-select>
+                                <v-select
+                                    v-model="defaultData.language"
+                                    :options="options"
+                                    @input="checkErrors('defaultErrorData', 'language')"
+                                ></v-select>
+                                <span class="field-error-message">
+                                    {{errors.defaultErrorData.language ? errors.defaultErrorData.language[0] : ''}}
+                                </span>
                             </div>
                         </div>
                         <div class="field">
                             <div>
                                 <p>Additional information *</p>
-                                <textarea placeholder="Provide additional information about your activity and contact information"></textarea>
+                                <textarea
+                                    v-model="defaultData.additional_information"
+                                    placeholder="Provide additional information about your activity and contact information"
+                                    @input="checkErrors('defaultErrorData', 'additional_information')"
+                                ></textarea>
+                                <span class="field-error-message">{{errors.defaultErrorData.additional_information != '' ? errors.defaultErrorData.additional_information[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="btn-content">
-                            <button>Submit</button>
+                            <button @click="registerUser">Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div v-if="isLoader" class="loader-overly">
+            <div class="lds-dual-ring"></div>
+        </div>
+        <notifications group="foo"/>
         <Footer/>
     </div>
 </template>
@@ -153,17 +237,84 @@ export default {
     },
     data() {
         return {
+            isLoader: false,
             selectCategory: false,
             options: ["foo", "bar", "baz"],
             defaultData: {
-                birthday: ''
+                first_name: 'Valod',
+                last_name: 'Valodyan',
+                phone: '37455969696',
+                influencer_name: 'es shat gidem inch',
+                facebook: '',
+                instagram: 'hov97mkrtchyan',
+                tiktok: 'therock',
+                youtube: 'UCmqqdbEjzhryi3R-_qHPExg',
+                twitter: 'Hovo1543569',
+                telegram: 'kalalaallala',
+                account_type: 'esim',
+                gender: '',
+                birthday: '',
+                language: '',
+                additional_information: 'text',
+                email: 'example@emample.com',
+            },
+            errors: {
+                defaultErrorData: {
+                    first_name: '',
+                    last_name: '',
+                    phone: '',
+                    influencer_name: '',
+                    facebook: '',
+                    instagram: '',
+                    tiktok: '',
+                    youtube: '',
+                    twitter: '',
+                    telegram: '',
+                    account_type: '',
+                    gender: '',
+                    birthday: '',
+                    language: '',
+                    additional_information: '',
+                    email: '',
+                },
             }
         }
     },
     methods: {
+
         hideSelectCategory() {
             this.selectCategory = false
-        }
+        },
+
+        checkErrors(obj, field) {
+            console.log(55)
+            if (obj) {
+                this.errors[obj][field] = ''
+            } else {
+                this.errors[field] = ''
+            }
+        },
+
+        async registerUser() {
+            this.isLoader = true
+
+            await axios.post('/register/user', this.defaultData).then(response => {
+                console.log(response)
+                this.isLoader = false
+            }).catch(error => {
+                this.isLoader = false
+                this.$notify({
+                    group: 'foo',
+                    title: 'ERROR',
+                    text: 'An error has occurred',
+                    type: 'error',
+                    duration: 1000,
+                    speed: 1000,
+                })
+                this.errors.defaultErrorData = Object.assign(this.errors.defaultErrorData, error.response.data.errors)
+            })
+        },
+
     },
     directives: {
         ClickOutside
@@ -172,6 +323,48 @@ export default {
 </script>
 
 <style lang="scss">
+    .loader-overly {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background: #00000069;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .lds-dual-ring {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+        }
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
+        @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    .field-error-message {
+        color: red;
+        margin-top: 10px;
+        display: block;
+    }
     // select
     .vs__dropdown-toggle .vs__selected {
         font-family: 'Rubik', sans-serif !important;

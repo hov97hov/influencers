@@ -8,7 +8,10 @@ import Paginate from 'vuejs-paginate'
 Vue.component('paginate', Paginate)
 Vue.component("v-select", vSelect);
 import VueI18n from 'vue-i18n'
+import Notifications from 'vue-notification'
 
+Vue.use(Notifications)
+Vue.use(Notifications)
 Vue.use(VueI18n)
 Vue.use(InertiaPlugin);
 

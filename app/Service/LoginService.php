@@ -11,7 +11,6 @@ use App\Models\Twitter;
 use App\Models\User;
 use App\Models\UserDetail;
 use App\Models\Youtube;
-use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Mockery\Exception;
 
@@ -30,15 +29,6 @@ class LoginService implements LoginInterface
      */
     public function registerUser(array $data): array
     {
-        $user = User::where('email', Arr::get($data, 'email'))->first();
-
-        if ($user) {
-            return [
-                'status' => false,
-                'message' => 'There is already a user in this email'
-            ];
-        }
-
         try {
             $createNewUser = $this->createNewUser($data);
             $createUserDetail = $this->createUserDetail($data, $createNewUser->id);
@@ -122,7 +112,6 @@ class LoginService implements LoginInterface
      */
     public function createUserDetail($data, $userId): mixed
     {
-        $date = Carbon::createFromFormat('d/m/Y', Arr::get($data, 'birthday'))->format('d/m/Y');
 
         return UserDetail::create([
             'first_name' => Arr::get($data, 'first_name'),
@@ -137,7 +126,7 @@ class LoginService implements LoginInterface
             'telegram' => Arr::get($data, 'telegram'),
             'account_type' => Arr::get($data, 'account_type'),
             'gender' => Arr::get($data, 'gender'),
-            'birthday' => $date,
+            'birthday' => $data['birthday'],
             'language' => Arr::get($data, 'language'),
             'additional_information' => Arr::get($data, 'additional_information'),
             'user_id' => $userId,
