@@ -168,7 +168,7 @@
                                 <p>Gender *</p>
                                 <v-select
                                     v-model="defaultData.gender"
-                                    :options="options"
+                                    :options="genderOption"
                                     @input="checkErrors('defaultErrorData', 'gender')"
                                 ></v-select>
                                 <span class="field-error-message">{{errors.defaultErrorData.gender ? errors.defaultErrorData.gender[0] : ''}}</span>
@@ -240,6 +240,7 @@ export default {
             isLoader: false,
             selectCategory: false,
             options: ["foo", "bar", "baz"],
+            genderOption: ["Male", "Famele"],
             defaultData: {
                 first_name: 'Valod',
                 last_name: 'Valodyan',
@@ -299,8 +300,41 @@ export default {
             this.isLoader = true
 
             await axios.post('/register/user', this.defaultData).then(response => {
-                console.log(response)
                 this.isLoader = false
+
+                this.$notify({
+                    group: 'foo',
+                    title: 'Success',
+                    text: 'Registration has been completed successfully',
+                    type: 'success',
+                    duration: 1000,
+                    speed: 1000,
+                })
+
+                this.defaultData = {
+                    ...this.defaultData,
+                    first_name: '',
+                    last_name: '',
+                    phone: '',
+                    influencer_name: '',
+                    facebook: '',
+                    instagram: '',
+                    tiktok: '',
+                    youtube: '',
+                    twitter: '',
+                    telegram: '',
+                    account_type: '',
+                    gender: '',
+                    birthday: '',
+                    language: '',
+                    additional_information: '',
+                    email: ''
+                };
+
+                setTimeout(function () {
+                    location.href = '/'
+                },3000)
+
             }).catch(error => {
                 this.isLoader = false
                 this.$notify({
