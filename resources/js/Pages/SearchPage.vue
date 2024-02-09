@@ -7,24 +7,54 @@
                     <button>Search</button>
                 </div>
                 <div class="filter-vars">
-                    <div v-if="defaultData.accountType">{{ defaultData.accountType }} <img
-                        @click="defaultData.accountType = '' " src="/images/icons/close-icon.png" alt=""></div>
-                    <div v-if="defaultData.location">{{ defaultData.location }} <img @click="defaultData.location = '' "
-                                                                                     src="/images/icons/close-icon.png"
-                                                                                     alt=""></div>
-                    <div v-if="defaultData.gender">{{ defaultData.gender }} <img @click="defaultData.gender = '' "
-                                                                                 src="/images/icons/close-icon.png"
-                                                                                 alt=""></div>
-                    <div v-if="defaultData.Age">{{ defaultData.Age }} <img @click="defaultData.Age = '' "
-                                                                           src="/images/icons/close-icon.png" alt="">
+                    <div v-if="defaultData.accountType">
+                        {{ defaultData.accountType }}
+                        <img
+                            @click="defaultData.accountType = '' "
+                            src="/images/icons/close-icon.png"
+                        >
                     </div>
-                    <div v-if="defaultData.numberFollowers">{{ defaultData.numberFollowers }} <img
-                        @click="defaultData.numberFollowers = '' " src="/images/icons/close-icon.png" alt=""></div>
-                    <div v-if="defaultData.numberPosts">{{ defaultData.numberPosts }} <img
-                        @click="defaultData.numberPosts = '' " src="/images/icons/close-icon.png" alt=""></div>
-                    <div v-if="defaultData.lastPost">{{ defaultData.lastPost }} <img @click="defaultData.lastPost = '' "
-                                                                                     src="/images/icons/close-icon.png"
-                                                                                     alt=""></div>
+                    <div v-if="defaultData.location">
+                        {{ defaultData.location }}
+                        <img
+                            @click="defaultData.location = '' "
+                             src="/images/icons/close-icon.png"
+                        >
+                    </div>
+                    <div v-if="defaultData.gender">
+                        {{ defaultData.gender }}
+                        <img
+                             @click="defaultData.gender = '' "
+                             src="/images/icons/close-icon.png"
+                        >
+                    </div>
+                    <div v-if="defaultData.Age">
+                        {{ defaultData.Age }}
+                        <img
+                            @click="defaultData.Age = '' "
+                            src="/images/icons/close-icon.png"
+                        >
+                    </div>
+                    <div v-if="defaultData.numberFollowers">{{ defaultData.numberFollowers }}
+                        <img
+                            @click="defaultData.numberFollowers = '' "
+                            src="/images/icons/close-icon.png" alt=""
+                        >
+                    </div>
+                    <div v-if="defaultData.numberPosts">
+                        {{ defaultData.numberPosts }}
+                        <img
+                            @click="defaultData.numberPosts = '' "
+                            src="/images/icons/close-icon.png" alt=""
+                        >
+                    </div>
+                    <div v-if="defaultData.lastPost">
+                        {{ defaultData.lastPost }}
+                        <img
+                            @click="defaultData.lastPost = '' "
+                             src="/images/icons/close-icon.png" alt=""
+                        >
+                    </div>
                 </div>
                 <div class="input-filter-content">
                     <div class="title">Search filters</div>
@@ -33,16 +63,18 @@
                             <div>
                                 <p>Platform</p>
                                 <button class="select-btn" @click.stop="transitionPlatform = true">
-                                    {{selectedCategories[0]}}
-                                    {{selectedCategories[1] ? `,` : ``}}
-                                    {{selectedCategories[1]}}
-                                    {{selectedCategories.length > 2 ? `...` : ``}}
+                                    {{ selectedCategories[0] }}
+                                    {{ selectedCategories[1] ? `,` : `` }}
+                                    {{ selectedCategories[1] }}
+                                    {{ selectedCategories.length > 2 ? `...` : `` }}
                                     <img :class="{active : transitionPlatform}" src="/images/icons/dropdown.svg" alt="">
                                 </button>
                                 <transition name="slide">
-                                    <div class="transition-select" v-click-outside="hideTransitionPlatform"  v-if="transitionPlatform">
+                                    <div class="transition-select" v-click-outside="hideTransitionPlatform"
+                                         v-if="transitionPlatform">
                                         <div class="search-category-content">
-                                            <input v-model="searchNotSelectedCategories" class="search-input" type="text" placeholder="Choose category">
+                                            <input v-model="searchNotSelectedCategories" class="search-input"
+                                                   type="text" placeholder="Choose category">
                                         </div>
                                         <div class="selected-category-content">
                                             <p>Selected:</p>
@@ -72,16 +104,18 @@
                             <div>
                                 <p>Category</p>
                                 <button class="select-btn" @click.stop="transitionCategory = true">
-                                    {{selectedCategories[0]}}
-                                    {{selectedCategories[1] ? `,` : ``}}
-                                    {{selectedCategories[1]}}
-                                    {{selectedCategories.length > 2 ? `...` : ``}}
+                                    {{ selectedCategories[0] }}
+                                    {{ selectedCategories[1] ? `,` : `` }}
+                                    {{ selectedCategories[1] }}
+                                    {{ selectedCategories.length > 2 ? `...` : `` }}
                                     <img :class="{active : transitionCategory}" src="/images/icons/dropdown.svg" alt="">
                                 </button>
                                 <transition name="slide">
-                                    <div class="transition-select" v-click-outside="hideTransitionCategory" v-if="transitionCategory">
+                                    <div class="transition-select" v-click-outside="hideTransitionCategory"
+                                         v-if="transitionCategory">
                                         <div class="search-category-content">
-                                            <input v-model="searchNotSelectedCategories" class="search-input" type="text" placeholder="Choose category">
+                                            <input v-model="searchNotSelectedCategories" class="search-input"
+                                                   type="text" placeholder="Choose category">
                                         </div>
                                         <div class="selected-category-content">
                                             <p>Selected:</p>
@@ -126,76 +160,93 @@
                             </div>
                             <div>
                                 <p>Number of followers</p>
-                                <button  class="select-btn" @click.stop="numberFollowers = true">
-                                    {{defaultData.searchFollowerCountLeft}}
-                                    {{defaultData.searchFollowerCountLeft ? `>` : ``}}
-                                    {{defaultData.searchFollowerCountRight}}
+                                <button class="select-btn" @click.stop="numberFollowers = true">
+                                    {{ defaultData.searchFollowerCountLeft }}
+                                    {{ defaultData.searchFollowerCountLeft ? `>` : `` }}
+                                    {{ defaultData.searchFollowerCountRight }}
                                     <img :class="{active : numberFollowers}" src="/images/icons/dropdown.svg" alt="">
                                 </button>
                                 <transition name="slide">
-                                    <div class="transition-select" v-click-outside="hideNmberFollowers" v-if="numberFollowers">
+                                    <div class="transition-select" v-click-outside="hideNmberFollowers"
+                                         v-if="numberFollowers">
                                         <div class="transition-search-content">
-                                            <input v-model="defaultData.searchFollowerCountLeft" class="search-input" type="text">
+                                            <input v-model="defaultData.searchFollowerCountLeft" class="search-input"
+                                                   type="text">
                                             <span>-</span>
-                                            <input v-model="defaultData.searchFollowerCountRight" class="search-input" type="text">
+                                            <input v-model="defaultData.searchFollowerCountRight" class="search-input"
+                                                   type="text">
                                         </div>
                                         <div class="followers-count">
                                             <div
                                                 :class="{active : activeBtnCountLeft === '1k'}"
                                                 @click="followerCountLeft('1k')"
-                                            >1k</div>
+                                            >1k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountRight === '1k'}"
                                                 @click="followerCountRight('1k')"
-                                            >1k</div>
+                                            >1k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountLeft === '5k'}"
                                                 @click="followerCountLeft('5k')"
-                                            >5k</div>
+                                            >5k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountRight === '5k'}"
                                                 @click="followerCountRight('5k')"
-                                            >5k</div>
+                                            >5k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountLeft === '10k'}"
                                                 @click="followerCountLeft('10k')"
-                                            >10k</div>
+                                            >10k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountRight === '10k'}"
                                                 @click="followerCountRight('10k')"
-                                            >10k</div>
+                                            >10k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountLeft === '20k'}"
                                                 @click="followerCountLeft('20k')"
-                                            >20k</div>
+                                            >20k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountRight === '20k'}"
                                                 @click="followerCountRight('20k')"
-                                            >20k</div>
+                                            >20k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountLeft === '100k'}"
                                                 @click="followerCountLeft('100k')"
-                                            >100k</div>
+                                            >100k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountRight === '100k'}"
                                                 @click="followerCountRight('100k')"
-                                            >100k</div>
+                                            >100k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountLeft === '500k'}"
                                                 @click="followerCountLeft('500k')"
-                                            >500k</div>
+                                            >500k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountRight === '500k'}"
                                                 @click="followerCountRight('500k')"
-                                            >500k</div>
+                                            >500k
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountLeft === '1M'}"
                                                 @click="followerCountLeft('1M')"
-                                            >1M</div>
+                                            >1M
+                                            </div>
                                             <div
                                                 :class="{active : activeBtnCountRight === '1M'}"
                                                 @click="followerCountRight('1M')"
-                                            >1M</div>
+                                            >1M
+                                            </div>
                                         </div>
                                     </div>
                                 </transition>
@@ -251,99 +302,10 @@
                         </div>
                     </div>
                     <div class="items">
-                        <div class="item">
-                            <div class="left-section">
-                                <img src="/images/user.png" alt="">
-                                <div>
-                                    <div class="name">Iveta Mukuchyan <img src="/images/icons/done.png" alt=""></div>
-                                    <div class="sub-name">iveta.mukuchyan</div>
-                                </div>
-                            </div>
-                            <div class="center-section">
-                                <div>Beauty</div>
-                                <div>281.4K</div>
-                                <div>19</div>
-                                <div>Armenia</div>
-                            </div>
-                            <div class="right-section">
-                                <div><img src="/images/icons/small/facebook.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter.png" alt=""></div>
-                                <div><img src="/images/icons/small/TikTok.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram.png" alt=""></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="left-section">
-                                <img src="/images/user.png" alt="">
-                                <div>
-                                    <div class="name">Iveta Mukuchyan <img src="/images/icons/done.png" alt=""></div>
-                                    <div class="sub-name">iveta.mukuchyan</div>
-                                </div>
-                            </div>
-                            <div class="center-section">
-                                <div>Beauty</div>
-                                <div>281.4K</div>
-                                <div>19</div>
-                                <div>Armenia</div>
-                            </div>
-                            <div class="right-section">
-                                <div><img src="/images/icons/small/facebook.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter.png" alt=""></div>
-                                <div><img src="/images/icons/small/TikTok.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram.png" alt=""></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="left-section">
-                                <img src="/images/user.png" alt="">
-                                <div>
-                                    <div class="name">Iveta Mukuchyan <img src="/images/icons/done.png" alt=""></div>
-                                    <div class="sub-name">iveta.mukuchyan</div>
-                                </div>
-                            </div>
-                            <div class="center-section">
-                                <div>Beauty</div>
-                                <div>281.4K</div>
-                                <div>19</div>
-                                <div>Armenia</div>
-                            </div>
-                            <div class="right-section">
-                                <div><img src="/images/icons/small/facebook.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter.png" alt=""></div>
-                                <div><img src="/images/icons/small/TikTok.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram.png" alt=""></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="left-section">
-                                <img src="/images/user.png" alt="">
-                                <div>
-                                    <div class="name">Iveta Mukuchyan <img src="/images/icons/done.png" alt=""></div>
-                                    <div class="sub-name">iveta.mukuchyan</div>
-                                </div>
-                            </div>
-                            <div class="center-section">
-                                <div>Beauty</div>
-                                <div>281.4K</div>
-                                <div>19</div>
-                                <div>Armenia</div>
-                            </div>
-                            <div class="right-section">
-                                <div><img src="/images/icons/small/facebook.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter.png" alt=""></div>
-                                <div><img src="/images/icons/small/TikTok.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram.png" alt=""></div>
-                            </div>
-                        </div>
-                        <div class="item">
+                        <div
+                            class="item"
+                            v-for="item in data"
+                        >
                             <div class="left-section">
                                 <img src="/images/user.png" alt="">
                                 <div>
@@ -447,12 +409,17 @@
                         </div>
                     </div>
                 </div>
-                <paginate
-                    :page-count="20"
-                    :prev-text="'<'"
-                    :next-text="'>'"
-                    :container-class="'search-paginate'">
-                </paginate>
+                <div class="search-paginator">
+                    <div v-for="item in paginate">
+                        <div
+                            class="search-paginator-item"
+                            @click="nextPage(item.url)"
+                            :class="{active : item.active}"
+                        >
+                            {{item.label}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <Footer/>
@@ -469,6 +436,8 @@ export default {
     components: {Footer},
     data() {
         return {
+            data: [],
+            paginate: [],
             activeBtnCountLeft: null,
             activeBtnCountRight: null,
             searchNotSelectedCategories: '',
@@ -491,28 +460,34 @@ export default {
             options: ["foo", "bar", "baz", "test test"],
         }
     },
-    computed:{
-        filterNotSelectedCategories:function(){
+    computed: {
+        filterNotSelectedCategories: function () {
             var self = this;
-            return self.notSelectedCategories.filter(function(val){
-                return val.indexOf(self.searchNotSelectedCategories)!== -1;
+            return self.notSelectedCategories.filter(function (val) {
+                return val.indexOf(self.searchNotSelectedCategories) !== -1;
             })
         }
     },
+    created() {
+        this.getUsers()
+    },
     methods: {
-        hideTransitionPlatform () {
+        nextPage(page) {
+            this.getUsers(page)
+        },
+        hideTransitionPlatform() {
             this.transitionPlatform = false
         },
 
-        hideTransitionCategory () {
+        hideTransitionCategory() {
             this.transitionCategory = false
         },
 
-        hideNmberFollowers () {
+        hideNmberFollowers() {
             this.numberFollowers = false
         },
 
-        followerCountLeft (count) {
+        followerCountLeft(count) {
             this.activeBtnCountLeft = count
             this.defaultData.searchFollowerCountLeft = ''
             if (count === "1k") {
@@ -538,7 +513,7 @@ export default {
             }
         },
 
-        followerCountRight (count) {
+        followerCountRight(count) {
             this.defaultData.searchFollowerCountRight = ''
             this.activeBtnCountRight = count
 
@@ -568,11 +543,12 @@ export default {
         selectedCategory(value) {
             let index = this.notSelectedCategories.indexOf(value);
             if (index !== -1) {
-               this.notSelectedCategories.splice(index, 1);
-               this.selectedCategories.push(value);
-               this.selectedCategories.sort()
+                this.notSelectedCategories.splice(index, 1);
+                this.selectedCategories.push(value);
+                this.selectedCategories.sort()
             }
         },
+
         notSelectedCategory(value) {
             let index = this.selectedCategories.indexOf(value);
             if (index !== -1) {
@@ -580,7 +556,17 @@ export default {
                 this.notSelectedCategories.push(value);
                 this.notSelectedCategories.sort()
             }
-        }
+        },
+
+        async getUsers(page) {
+            await axios.post('/users').then(response => {
+                this.data = response.data.data
+                this.paginate = response.data.links
+
+            }).catch(error => {
+                console.log(error)
+            })
+        },
     },
     directives: {
         ClickOutside
@@ -589,6 +575,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.search-paginator {
+    display: flex;
+    width: 451px;
+    margin: 100px auto 50px;
+    .search-paginator-item {
+        margin: 0 10px;
+        padding: 10px;
+        cursor: pointer;
+        &.active {
+            border: 1px solid #000000;
+        }
+    }
+}
 
 .vs__dropdown-toggle {
     background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;

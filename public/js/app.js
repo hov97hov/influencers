@@ -5670,6 +5670,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
   },
+  mounted: function mounted() {},
   methods: {
     hideSelectCategory: function hideSelectCategory() {
       this.selectCategory = false;
@@ -5772,39 +5773,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
 /* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-click-outside */ "./node_modules/vue-click-outside/index.js");
 /* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_click_outside__WEBPACK_IMPORTED_MODULE_2__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -6243,6 +6219,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      data: [],
+      paginate: [],
       activeBtnCountLeft: null,
       activeBtnCountRight: null,
       searchNotSelectedCategories: '',
@@ -6273,7 +6251,13 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
+  created: function created() {
+    this.getUsers();
+  },
   methods: {
+    nextPage: function nextPage(page) {
+      this.getUsers(page);
+    },
     hideTransitionPlatform: function hideTransitionPlatform() {
       this.transitionPlatform = false;
     },
@@ -6364,6 +6348,30 @@ __webpack_require__.r(__webpack_exports__);
         this.notSelectedCategories.push(value);
         this.notSelectedCategories.sort();
       }
+    },
+    getUsers: function getUsers(page) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.post('/users').then(function (response) {
+                  _this.data = response.data.data;
+                  _this.paginate = response.data.links;
+                })["catch"](function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   },
   directives: {
@@ -11956,7 +11964,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".loader-overly {\n  position: fixed;\n  width: 100%;\n  height: 100vh;\n  overflow: hidden;\n  top: 0;\n  left: 0;\n  background: #00000069;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.loader-overly .lds-dual-ring {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n}\n.loader-overly .lds-dual-ring:after {\n  content: \" \";\n  display: block;\n  width: 64px;\n  height: 64px;\n  margin: 8px;\n  border-radius: 50%;\n  border: 6px solid #fff;\n  border-color: #fff transparent #fff transparent;\n  -webkit-animation: lds-dual-ring 1.2s linear infinite;\n          animation: lds-dual-ring 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.field-error-message {\n  color: red;\n  margin-top: 10px;\n  display: block;\n}\n.vs__dropdown-toggle .vs__selected {\n  font-family: \"Rubik\", sans-serif !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  font-size: 22px !important;\n  line-height: 26px !important;\n  letter-spacing: 0.02em !important;\n  color: #8B8989 !important;\n  padding: 0 !important;\n}\n.vs__dropdown-toggle {\n  height: 60px !important;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n  border-radius: 40px !important;\n  padding: 0 40px !important;\n}\n.vs__dropdown-toggle .vs__search {\n  visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n  display: none !important;\n}\n.join-form-content {\n  padding-bottom: 150px;\n  background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 700;\n  font-size: 64px;\n  line-height: 76px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n  margin-bottom: 37px;\n}\n.join-form-content .content > .form {\n  background: #E9EDF0;\n  box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n  border-radius: 40.5321px;\n  padding: 70px 60px 40px;\n}\n.join-form-content .content > .form .fields {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 40px;\n}\n.join-form-content .content > .form .fields > div {\n  width: calc(100% / 2 - 50px);\n}\n.join-form-content .content > .form .fields > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n  width: 100%;\n  height: 60px;\n  padding: 0 40px;\n  border: 0;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n}\n.join-form-content .content > .form .field {\n  margin-bottom: 40px;\n}\n.join-form-content .content > .form .field > div {\n  position: relative;\n  width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n  width: 100%;\n  border: 0;\n  height: 60px;\n  padding: 0 40px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n  width: 100%;\n  border: 0;\n  height: 60px;\n  padding: 0 40px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  text-align: left;\n  position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n  position: absolute;\n  right: 47px;\n  top: 30px;\n  transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n  transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n  background: #FEFDFF;\n  box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n  position: absolute;\n  top: 125px;\n  width: 100%;\n  padding: 30px 22px;\n  z-index: 9;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  /* Hide the browser's default checkbox */\n  /* Create a custom checkbox */\n  /* On mouse-over, add a grey background color */\n  /* When the checkbox is checked, add a blue background */\n  /* Create the checkmark/indicator (hidden when not checked) */\n  /* Show the checkmark when checked */\n  /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n  background: #E9EDF0;\n  border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n  display: flex;\n  justify-content: flex-start;\n  width: 100%;\n  position: relative;\n  cursor: pointer;\n  padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n  position: absolute;\n  opacity: 0;\n  cursor: pointer;\n  height: 0;\n  width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n  border: 1px solid #595656;\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  height: 22px;\n  width: 22px;\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n  display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n  left: 7px;\n  top: 3px;\n  width: 5px;\n  height: 10px;\n  border: solid #595656;\n  border-width: 0 2px 2px 0;\n  transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n  width: 100%;\n  padding: 20px 40px;\n  height: 203px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  border: 0;\n  outline: none;\n  resize: none;\n}\n.join-form-content .content > .form .btn-content {\n  display: flex;\n  justify-content: center;\n  padding-top: 70px;\n}\n.join-form-content .content > .form .btn-content button {\n  width: 268px;\n  height: 66px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n  border-radius: 32.9846px;\n  border: 0;\n  font-family: \"Lato\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 23px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.join-form-content .content > .form .form-title {\n  margin-top: 60px;\n  margin-bottom: 42px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  color: #8B8989;\n}\n@media screen and (max-width: 1280px) {\n.join-form-content {\n    padding-bottom: 150px;\n    padding-right: 60px;\n    padding-left: 60px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n}\n@media screen and (max-width: 1024px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 21px !important;\n    line-height: 25px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 40px;\n    padding-right: 40px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 56px;\n    line-height: 66px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 33px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 62px 60px 45px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 40px;\n}\n.join-form-content .content > .form .fields > div {\n    width: calc(100% / 2 - 15px);\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    padding: 0 40px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 40px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    padding: 0 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    padding: 0 40px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 47px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 20px 40px;\n    height: 140px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: center;\n    padding-top: 70px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 66px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin-bottom: 40px;\n    margin-top: 50px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    text-align: center;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 992px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 21px !important;\n    line-height: 25px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 25px;\n    padding-right: 25px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 45px;\n    line-height: 53px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n    text-align: center;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 70px 60px 40px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 41px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 20px 35px;\n    height: 140px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 15px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    text-align: center;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 580px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 18px !important;\n    line-height: 21px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-align: center;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 40px 22px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 42px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 23px 25px;\n    height: 203px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 10px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    text-align: left;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 480px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 18px !important;\n    line-height: 21px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-align: center;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 40px 22px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 42px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 23px 25px;\n    height: 203px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 10px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    text-align: left;\n    color: #8B8989;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vue-notification-group {\n  top: 20px !important;\n}\n.vue-notification.success {\n  background: #ffffff;\n  border-color: #42a85f;\n}\n.vue-notification.success .notification-title {\n  font-size: 20px;\n  color: #42a85f;\n}\n.vue-notification.error {\n  background: #ffffff;\n  border-color: #b82e24;\n}\n.vue-notification.error .notification-title {\n  font-size: 20px;\n  color: #b82e24;\n}\n.vue-notification {\n  border: 3px solid;\n}\n.notification-content {\n  font-size: 16px;\n  color: #000000;\n}\n.loader-overly {\n  position: fixed;\n  width: 100%;\n  height: 100vh;\n  overflow: hidden;\n  top: 0;\n  left: 0;\n  background: #00000069;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.loader-overly .lds-dual-ring {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n}\n.loader-overly .lds-dual-ring:after {\n  content: \" \";\n  display: block;\n  width: 64px;\n  height: 64px;\n  margin: 8px;\n  border-radius: 50%;\n  border: 6px solid #fff;\n  border-color: #fff transparent #fff transparent;\n  -webkit-animation: lds-dual-ring 1.2s linear infinite;\n          animation: lds-dual-ring 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.field-error-message {\n  color: red;\n  margin-top: 10px;\n  display: block;\n}\n.vs__dropdown-toggle .vs__selected {\n  font-family: \"Rubik\", sans-serif !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  font-size: 22px !important;\n  line-height: 26px !important;\n  letter-spacing: 0.02em !important;\n  color: #8B8989 !important;\n  padding: 0 !important;\n}\n.vs__dropdown-toggle {\n  height: 60px !important;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n  border-radius: 40px !important;\n  padding: 0 40px !important;\n}\n.vs__dropdown-toggle .vs__search {\n  visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n  display: none !important;\n}\n.join-form-content {\n  padding-bottom: 150px;\n  background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 700;\n  font-size: 64px;\n  line-height: 76px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n  margin-bottom: 37px;\n}\n.join-form-content .content > .form {\n  background: #E9EDF0;\n  box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n  border-radius: 40.5321px;\n  padding: 70px 60px 40px;\n}\n.join-form-content .content > .form .fields {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 40px;\n}\n.join-form-content .content > .form .fields > div {\n  width: calc(100% / 2 - 50px);\n}\n.join-form-content .content > .form .fields > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n  width: 100%;\n  height: 60px;\n  padding: 0 40px;\n  border: 0;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n}\n.join-form-content .content > .form .field {\n  margin-bottom: 40px;\n}\n.join-form-content .content > .form .field > div {\n  position: relative;\n  width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n  width: 100%;\n  border: 0;\n  height: 60px;\n  padding: 0 40px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n  width: 100%;\n  border: 0;\n  height: 60px;\n  padding: 0 40px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  text-align: left;\n  position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n  position: absolute;\n  right: 47px;\n  top: 30px;\n  transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n  transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n  background: #FEFDFF;\n  box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n  position: absolute;\n  top: 125px;\n  width: 100%;\n  padding: 30px 22px;\n  z-index: 9;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  /* Hide the browser's default checkbox */\n  /* Create a custom checkbox */\n  /* On mouse-over, add a grey background color */\n  /* When the checkbox is checked, add a blue background */\n  /* Create the checkmark/indicator (hidden when not checked) */\n  /* Show the checkmark when checked */\n  /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n  background: #E9EDF0;\n  border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n  display: flex;\n  justify-content: flex-start;\n  width: 100%;\n  position: relative;\n  cursor: pointer;\n  padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n  position: absolute;\n  opacity: 0;\n  cursor: pointer;\n  height: 0;\n  width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n  border: 1px solid #595656;\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  height: 22px;\n  width: 22px;\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n  background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n  display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n  left: 7px;\n  top: 3px;\n  width: 5px;\n  height: 10px;\n  border: solid #595656;\n  border-width: 0 2px 2px 0;\n  transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n  width: 100%;\n  padding: 20px 40px;\n  height: 203px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 26px;\n  letter-spacing: 0.02em;\n  color: #8B8989;\n  border: 0;\n  outline: none;\n  resize: none;\n}\n.join-form-content .content > .form .btn-content {\n  display: flex;\n  justify-content: center;\n  padding-top: 70px;\n}\n.join-form-content .content > .form .btn-content button {\n  width: 268px;\n  height: 66px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n  border-radius: 32.9846px;\n  border: 0;\n  font-family: \"Lato\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 23px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.join-form-content .content > .form .form-title {\n  margin-top: 60px;\n  margin-bottom: 42px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 26px;\n  line-height: 31px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  color: #8B8989;\n}\n@media screen and (max-width: 1280px) {\n.join-form-content {\n    padding-bottom: 150px;\n    padding-right: 60px;\n    padding-left: 60px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n}\n@media screen and (max-width: 1024px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 21px !important;\n    line-height: 25px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 40px;\n    padding-right: 40px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 56px;\n    line-height: 66px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 33px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 62px 60px 45px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 40px;\n}\n.join-form-content .content > .form .fields > div {\n    width: calc(100% / 2 - 15px);\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    padding: 0 40px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 40px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    padding: 0 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    height: 55px;\n    padding: 0 40px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 47px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 20px 40px;\n    height: 140px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: center;\n    padding-top: 70px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 66px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin-bottom: 40px;\n    margin-top: 50px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    text-align: center;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 992px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 21px !important;\n    line-height: 25px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 25px;\n    padding-right: 25px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 45px;\n    line-height: 53px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n    text-align: center;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 70px 60px 40px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 23px;\n    line-height: 27px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 41px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 20px 35px;\n    height: 140px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 21px;\n    line-height: 25px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 15px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    text-align: center;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 580px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 18px !important;\n    line-height: 21px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-align: center;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 40px 22px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 42px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 23px 25px;\n    height: 203px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 10px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    text-align: left;\n    color: #8B8989;\n}\n}\n@media screen and (max-width: 480px) {\n.vs__dropdown-toggle .vs__selected {\n    font-family: \"Rubik\", sans-serif !important;\n    font-style: normal !important;\n    font-weight: 400 !important;\n    font-size: 18px !important;\n    line-height: 21px !important;\n    letter-spacing: 0.02em !important;\n    color: #8B8989 !important;\n    padding: 0 !important;\n}\n.vs__dropdown-toggle {\n    height: 55px !important;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%) !important;\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75) !important;\n    border-radius: 40px !important;\n    padding: 0 35px !important;\n}\n.vs__dropdown-toggle .vs__search {\n    visibility: hidden;\n}\n.vs__dropdown-toggle .join-form-content .content > .form .field > div button {\n    display: none !important;\n}\n.join-form-content {\n    padding-bottom: 100px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);\n}\n.join-form-content .content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-align: center;\n    text-fill-color: transparent;\n    margin-bottom: 46px;\n}\n.join-form-content .content > .form {\n    background: #E9EDF0;\n    box-shadow: 0 4.05321px 4.05321px rgba(255, 255, 255, 0.25), -2.02661px -2.02661px 10.133px rgba(180, 175, 175, 0.25);\n    border-radius: 40.5321px;\n    padding: 40px 22px;\n}\n.join-form-content .content > .form .fields {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n    flex-wrap: wrap;\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div {\n    width: 100%;\n}\n.join-form-content .content > .form .fields > div:first-child {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .fields > div input {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field {\n    margin-bottom: 15px;\n}\n.join-form-content .content > .form .field > div {\n    position: relative;\n    width: 100%;\n}\n.join-form-content .content > .form .field > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    margin-bottom: 10px;\n}\n.join-form-content .content > .form .field > div input {\n    display: block;\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.join-form-content .content > .form .field > div button {\n    width: 100%;\n    border: 0;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    height: 55px;\n    padding: 0 35px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    text-align: left;\n    position: relative;\n}\n.join-form-content .content > .form .field > div button img {\n    position: absolute;\n    right: 42px;\n    top: 25px;\n    transition: 0.25s ease;\n}\n.join-form-content .content > .form .field > div button img.active {\n    transform: rotate(180deg);\n}\n.join-form-content .content > .form .field > div .transition-select {\n    background: #FEFDFF;\n    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    position: absolute;\n    top: 107px;\n    width: 100%;\n    padding: 30px 22px;\n}\n.join-form-content .content > .form .field > div .transition-select .item {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    /* Hide the browser's default checkbox */\n    /* Create a custom checkbox */\n    /* On mouse-over, add a grey background color */\n    /* When the checkbox is checked, add a blue background */\n    /* Create the checkmark/indicator (hidden when not checked) */\n    /* Show the checkmark when checked */\n    /* Style the checkmark/indicator */\n}\n.join-form-content .content > .form .field > div .transition-select .item:hover {\n    background: #E9EDF0;\n    border-radius: 10px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container {\n    display: flex;\n    justify-content: flex-start;\n    width: 100%;\n    position: relative;\n    cursor: pointer;\n    padding: 14px 30px;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n    height: 0;\n    width: 0;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark {\n    border: 1px solid #595656;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    height: 22px;\n    width: 22px;\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container:hover input ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark {\n    background-color: #ffffff;\n}\n.join-form-content .content > .form .field > div .transition-select .item .checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container input:checked ~ .checkmark:after {\n    display: block;\n}\n.join-form-content .content > .form .field > div .transition-select .item .form-checkbox-container .checkmark:after {\n    left: 7px;\n    top: 3px;\n    width: 5px;\n    height: 10px;\n    border: solid #595656;\n    border-width: 0 2px 2px 0;\n    transform: rotate(45deg);\n}\n.join-form-content .content > .form .field > div textarea {\n    width: 100%;\n    padding: 23px 25px;\n    height: 203px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 35px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n    border: 0;\n    outline: none;\n    resize: none;\n}\n.join-form-content .content > .form .btn-content {\n    display: flex;\n    justify-content: flex-start;\n    padding-top: 10px;\n}\n.join-form-content .content > .form .btn-content button {\n    width: 235px;\n    height: 58px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -9.89538px -9.89538px 16.4923px rgba(255, 255, 255, 0.8), 8.24615px 8.24615px 16.4923px rgba(166, 180, 200, 0.7);\n    border-radius: 32.9846px;\n    border: 0;\n    font-family: \"Lato\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.join-form-content .content > .form .form-title {\n    margin: 15px 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    text-align: left;\n    color: #8B8989;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11980,7 +11988,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vs__dropdown-toggle[data-v-30b3a980] {\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7) !important;\n  border-radius: 20px !important;\n  padding: 0 12px !important;\n  height: 56px !important;\n}\n.vs__dropdown-toggle .vs__selected[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  font-size: 24px !important;\n  line-height: 28px !important;\n  letter-spacing: 0.02em !important;\n  color: #595656 !important;\n}\n.vs--single.vs--loading .vs__selected[data-v-30b3a980], .vs--single.vs--open .vs__selected[data-v-30b3a980] {\n  opacity: 1 !important;\n  position: relative !important;\n}\n.vs__clear[data-v-30b3a980] {\n  display: none !important;\n}\n.vs__dropdown-menu[data-v-30b3a980] {\n  top: 87px !important;\n  padding: 32px 22px !important;\n  border-radius: 25px !important;\n}\n.vs__dropdown-option--highlight[data-v-30b3a980] {\n  background: #FEFDFF !important;\n}\n.vs__dropdown-menu li[data-v-30b3a980] {\n  padding: 12px 0 !important;\n  text-align: center !important;\n  font-family: \"Lato\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 22px;\n  letter-spacing: 0.02em;\n  color: #000000;\n}\n.vs--open .vs__dropdown-toggle[data-v-30b3a980] {\n  border: 0 !important;\n}\n.vs__dropdown-toggle[data-v-30b3a980] {\n  border: 0 !important;\n}\n.vs__dropdown-menu li[data-v-30b3a980]:hover {\n  background: #E9EDF0 !important;\n  border-radius: 10px !important;\n  color: #000000 !important;\n}\n.vs__dropdown-menu li.active[data-v-30b3a980] {\n  background: red !important;\n}\n.search-page-content[data-v-30b3a980] {\n  background: #E9EDF0;\n}\n.search-page-content .search-content[data-v-30b3a980] {\n  margin-top: 48px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-page-content .search-content button[data-v-30b3a980] {\n  border: 2px solid #FCFCFD;\n  background: #EAEEF1;\n  filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n  border-radius: 20px;\n  height: 60px;\n  padding: 0 40px;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  cursor: pointer;\n}\n.search-page-content .search-content input[data-v-30b3a980] {\n  width: 100%;\n  margin-right: 100px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  border: 0;\n  height: 60px;\n  padding: 0 50px;\n  outline: 0;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n}\n.search-page-content .search-content input[data-v-30b3a980]::-moz-placeholder {\n  color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::placeholder {\n  color: #8B8989;\n}\n.search-page-content .filter-vars[data-v-30b3a980] {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: 15px -10px;\n}\n.search-page-content .filter-vars > div[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  border-radius: 40px;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n  padding: 15px 30px;\n  margin: 10px;\n}\n.search-page-content .filter-vars > div img[data-v-30b3a980] {\n  margin-left: 30px;\n  cursor: pointer;\n}\n.search-page-content .input-filter-content[data-v-30b3a980] {\n  margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 700;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 25px;\n  margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields[data-v-30b3a980] {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div[data-v-30b3a980] {\n  margin: 30px 12px;\n  width: calc(100% / 4 - 25px);\n  position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n  margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input[data-v-30b3a980] {\n  width: 100%;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  height: 56px;\n  padding: 0 29px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn[data-v-30b3a980] {\n  width: 100%;\n  height: 56px;\n  position: relative;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img[data-v-30b3a980] {\n  position: absolute;\n  right: 20px;\n  transition: 0.25s ease;\n  top: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active[data-v-30b3a980] {\n  transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select[data-v-30b3a980] {\n  width: 100%;\n  position: absolute;\n  top: 119px;\n  background: #FEFDFF;\n  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n  padding: 20px 10px;\n  z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n  margin-bottom: 10px;\n  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input[data-v-30b3a980] {\n  width: 100%;\n  height: 52px;\n  padding: 0 35px;\n  border: 2px solid #E9ECF2;\n  border-radius: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  background: #ffffff;\n  outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count[data-v-30b3a980] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div[data-v-30b3a980] {\n  width: calc(100% / 2 - 10px);\n  padding: 12px 0;\n  cursor: pointer;\n  text-align: center;\n  border-radius: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 22px;\n  letter-spacing: 0.02em;\n  color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active[data-v-30b3a980] {\n  background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content[data-v-30b3a980] {\n  margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input[data-v-30b3a980] {\n  width: 100%;\n  height: 48px;\n  border: 2px solid #E9ECF2;\n  border-radius: 10px;\n  outline: 0;\n  background: #FFFFFF;\n  padding: 0 22px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content[data-v-30b3a980] {\n  padding-bottom: 20px;\n  margin-bottom: 10px;\n  border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 17px;\n  letter-spacing: 0.02em;\n  color: #9C99EF;\n  padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div[data-v-30b3a980] {\n  margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container[data-v-30b3a980] {\n  background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n  box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n  border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span[data-v-30b3a980] {\n  color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list[data-v-30b3a980] {\n  height: 325px;\n  overflow-y: auto;\n  padding-bottom: 30px;\n  border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel[data-v-30b3a980] {\n  display: flex;\n  justify-content: center;\n  margin-top: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span[data-v-30b3a980] {\n  cursor: pointer;\n}\n.search-page-content .search-result > .title[data-v-30b3a980] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .search-result-header[data-v-30b3a980] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(1) {\n  width: 33%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(2) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(3) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(4) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(5) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(6) {\n  width: 20%;\n}\n.search-page-content .search-result > .items-mobile[data-v-30b3a980] {\n  display: none;\n}\n.search-page-content .search-result > .items[data-v-30b3a980] {\n  margin-top: 85px;\n}\n.search-page-content .search-result > .items .item[data-v-30b3a980] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item[data-v-30b3a980]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-page-content .search-result > .items .item > div[data-v-30b3a980]:nth-child(1) {\n  width: 30%;\n}\n.search-page-content .search-result > .items .item > div[data-v-30b3a980]:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-page-content .search-result > .items .item > div[data-v-30b3a980]:nth-child(3) {\n  width: 15%;\n}\n.search-page-content .search-result > .items .item .left-section[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item .left-section > img[data-v-30b3a980] {\n  margin-right: 15px;\n}\n.search-page-content .search-result > .items .item .left-section .name[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-page-content .search-result > .items .item .left-section .name img[data-v-30b3a980] {\n  margin-left: 10px;\n}\n.search-page-content .search-result > .items .item .left-section .sub-name[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .items .item .center-section[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-page-content .search-result > .items .item .center-section > div[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .items .item .right-section[data-v-30b3a980] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item .right-section > div[data-v-30b3a980] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-page-content .search-result > .items .item .right-section > div[data-v-30b3a980]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-page-content .search-result > .items .item .right-section > div:nth-child(1) img[data-v-30b3a980] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 1280px) {\n.container[data-v-30b3a980] {\n    padding-left: 60px;\n    padding-right: 60px;\n}\n}\n@media screen and (max-width: 992px) {\n.search-result-header[data-v-30b3a980] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 768px) {\n.search-page-content[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .search-content[data-v-30b3a980] {\n    margin-top: 48px;\n    display: flex;\n    justify-content: space-between;\n}\n.search-page-content .search-content button[data-v-30b3a980] {\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 60px;\n    padding: 0 40px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input[data-v-30b3a980] {\n    width: 100%;\n    margin-right: 30px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 60px;\n    padding: 0 50px;\n    outline: 0;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n}\n.search-page-content .search-content input[data-v-30b3a980]::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 40px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 15px 30px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img[data-v-30b3a980] {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content[data-v-30b3a980] {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div[data-v-30b3a980] {\n    margin: 30px 12px;\n    width: calc(100% / 3 - 25px);\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input[data-v-30b3a980] {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 29px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn[data-v-30b3a980] {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img[data-v-30b3a980] {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active[data-v-30b3a980] {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select[data-v-30b3a980] {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input[data-v-30b3a980] {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div[data-v-30b3a980] {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content[data-v-30b3a980] {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input[data-v-30b3a980] {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content[data-v-30b3a980] {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div[data-v-30b3a980] {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container[data-v-30b3a980] {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span[data-v-30b3a980] {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list[data-v-30b3a980] {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel[data-v-30b3a980] {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span[data-v-30b3a980] {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile[data-v-30b3a980] {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img[data-v-30b3a980] {\n    margin-right: 32px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-30b3a980] {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div[data-v-30b3a980] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div[data-v-30b3a980]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-30b3a980] {\n    margin-top: 2px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img[data-v-30b3a980] {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-page-content[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .search-content[data-v-30b3a980] {\n    margin-top: 48px;\n    display: flex;\n    justify-content: space-between;\n}\n.search-page-content .search-content button[data-v-30b3a980] {\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 60px;\n    padding: 0 25px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input[data-v-30b3a980] {\n    width: 100%;\n    margin-right: 10px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 60px;\n    padding: 0 20px;\n    outline: 0;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.5804px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 32px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.7382px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 15px 13px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img[data-v-30b3a980] {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content[data-v-30b3a980] {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 12.8899px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div[data-v-30b3a980] {\n    margin: 20px 12px;\n    width: calc(100% / 2 - 25px);\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input[data-v-30b3a980] {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 16px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 19px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn[data-v-30b3a980] {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img[data-v-30b3a980] {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active[data-v-30b3a980] {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select[data-v-30b3a980] {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input[data-v-30b3a980] {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div[data-v-30b3a980] {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content[data-v-30b3a980] {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input[data-v-30b3a980] {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content[data-v-30b3a980] {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div[data-v-30b3a980] {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container[data-v-30b3a980] {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span[data-v-30b3a980] {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list[data-v-30b3a980] {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel[data-v-30b3a980] {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span[data-v-30b3a980] {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile[data-v-30b3a980] {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img[data-v-30b3a980] {\n    margin-right: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-30b3a980] {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div[data-v-30b3a980] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div[data-v-30b3a980]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-30b3a980] {\n    margin-top: 2px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img[data-v-30b3a980] {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.container[data-v-30b3a980] {\n    padding-left: 45px;\n    padding-right: 45px;\n}\n.search-page-content[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .search-content[data-v-30b3a980] {\n    margin-top: 48px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.search-page-content .search-content button[data-v-30b3a980] {\n    width: 100px;\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 43px;\n    padding: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input[data-v-30b3a980] {\n    width: 100%;\n    margin-bottom: 10px;\n    margin-right: 10px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 53px;\n    padding: 0 20px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 32px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 12.549px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 10px 10px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img[data-v-30b3a980] {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content[data-v-30b3a980] {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 12.8899px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div[data-v-30b3a980] {\n    margin: 15px 12px;\n    width: 100%;\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input[data-v-30b3a980] {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 16px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn[data-v-30b3a980] {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img[data-v-30b3a980] {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active[data-v-30b3a980] {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select[data-v-30b3a980] {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input[data-v-30b3a980] {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div[data-v-30b3a980] {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content[data-v-30b3a980] {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input[data-v-30b3a980] {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content[data-v-30b3a980] {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div[data-v-30b3a980] {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container[data-v-30b3a980] {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span[data-v-30b3a980] {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list[data-v-30b3a980] {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel[data-v-30b3a980] {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span[data-v-30b3a980] {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile[data-v-30b3a980] {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img[data-v-30b3a980] {\n    margin-right: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-30b3a980] {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(2) {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980]:nth-child(2) {\n    padding-left: 0;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980]:nth-child(4) {\n    padding-left: 0;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img[data-v-30b3a980] {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div[data-v-30b3a980] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div[data-v-30b3a980]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-30b3a980] {\n    margin-top: 2px;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".search-paginator[data-v-30b3a980] {\n  display: flex;\n  width: 451px;\n  margin: 100px auto 50px;\n}\n.search-paginator .search-paginator-item[data-v-30b3a980] {\n  margin: 0 10px;\n  padding: 10px;\n  cursor: pointer;\n}\n.search-paginator .search-paginator-item.active[data-v-30b3a980] {\n  border: 1px solid #000000;\n}\n.vs__dropdown-toggle[data-v-30b3a980] {\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7) !important;\n  border-radius: 20px !important;\n  padding: 0 12px !important;\n  height: 56px !important;\n}\n.vs__dropdown-toggle .vs__selected[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  font-size: 24px !important;\n  line-height: 28px !important;\n  letter-spacing: 0.02em !important;\n  color: #595656 !important;\n}\n.vs--single.vs--loading .vs__selected[data-v-30b3a980], .vs--single.vs--open .vs__selected[data-v-30b3a980] {\n  opacity: 1 !important;\n  position: relative !important;\n}\n.vs__clear[data-v-30b3a980] {\n  display: none !important;\n}\n.vs__dropdown-menu[data-v-30b3a980] {\n  top: 87px !important;\n  padding: 32px 22px !important;\n  border-radius: 25px !important;\n}\n.vs__dropdown-option--highlight[data-v-30b3a980] {\n  background: #FEFDFF !important;\n}\n.vs__dropdown-menu li[data-v-30b3a980] {\n  padding: 12px 0 !important;\n  text-align: center !important;\n  font-family: \"Lato\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 22px;\n  letter-spacing: 0.02em;\n  color: #000000;\n}\n.vs--open .vs__dropdown-toggle[data-v-30b3a980] {\n  border: 0 !important;\n}\n.vs__dropdown-toggle[data-v-30b3a980] {\n  border: 0 !important;\n}\n.vs__dropdown-menu li[data-v-30b3a980]:hover {\n  background: #E9EDF0 !important;\n  border-radius: 10px !important;\n  color: #000000 !important;\n}\n.vs__dropdown-menu li.active[data-v-30b3a980] {\n  background: red !important;\n}\n.search-page-content[data-v-30b3a980] {\n  background: #E9EDF0;\n}\n.search-page-content .search-content[data-v-30b3a980] {\n  margin-top: 48px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-page-content .search-content button[data-v-30b3a980] {\n  border: 2px solid #FCFCFD;\n  background: #EAEEF1;\n  filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n  border-radius: 20px;\n  height: 60px;\n  padding: 0 40px;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  cursor: pointer;\n}\n.search-page-content .search-content input[data-v-30b3a980] {\n  width: 100%;\n  margin-right: 100px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  border: 0;\n  height: 60px;\n  padding: 0 50px;\n  outline: 0;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n}\n.search-page-content .search-content input[data-v-30b3a980]::-moz-placeholder {\n  color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::placeholder {\n  color: #8B8989;\n}\n.search-page-content .filter-vars[data-v-30b3a980] {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: 15px -10px;\n}\n.search-page-content .filter-vars > div[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  border-radius: 40px;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n  padding: 15px 30px;\n  margin: 10px;\n}\n.search-page-content .filter-vars > div img[data-v-30b3a980] {\n  margin-left: 30px;\n  cursor: pointer;\n}\n.search-page-content .input-filter-content[data-v-30b3a980] {\n  margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 700;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 25px;\n  margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields[data-v-30b3a980] {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div[data-v-30b3a980] {\n  margin: 30px 12px;\n  width: calc(100% / 4 - 25px);\n  position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n  margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input[data-v-30b3a980] {\n  width: 100%;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  height: 56px;\n  padding: 0 29px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn[data-v-30b3a980] {\n  width: 100%;\n  height: 56px;\n  position: relative;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img[data-v-30b3a980] {\n  position: absolute;\n  right: 20px;\n  transition: 0.25s ease;\n  top: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active[data-v-30b3a980] {\n  transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select[data-v-30b3a980] {\n  width: 100%;\n  position: absolute;\n  top: 119px;\n  background: #FEFDFF;\n  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n  padding: 20px 10px;\n  z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n  margin-bottom: 10px;\n  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input[data-v-30b3a980] {\n  width: 100%;\n  height: 52px;\n  padding: 0 35px;\n  border: 2px solid #E9ECF2;\n  border-radius: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  background: #ffffff;\n  outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count[data-v-30b3a980] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div[data-v-30b3a980] {\n  width: calc(100% / 2 - 10px);\n  padding: 12px 0;\n  cursor: pointer;\n  text-align: center;\n  border-radius: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 22px;\n  letter-spacing: 0.02em;\n  color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active[data-v-30b3a980] {\n  background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content[data-v-30b3a980] {\n  margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input[data-v-30b3a980] {\n  width: 100%;\n  height: 48px;\n  border: 2px solid #E9ECF2;\n  border-radius: 10px;\n  outline: 0;\n  background: #FFFFFF;\n  padding: 0 22px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content[data-v-30b3a980] {\n  padding-bottom: 20px;\n  margin-bottom: 10px;\n  border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 17px;\n  letter-spacing: 0.02em;\n  color: #9C99EF;\n  padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div[data-v-30b3a980] {\n  margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container[data-v-30b3a980] {\n  background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n  box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n  border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span[data-v-30b3a980] {\n  color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list[data-v-30b3a980] {\n  height: 325px;\n  overflow-y: auto;\n  padding-bottom: 30px;\n  border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel[data-v-30b3a980] {\n  display: flex;\n  justify-content: center;\n  margin-top: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span[data-v-30b3a980] {\n  cursor: pointer;\n}\n.search-page-content .search-result > .title[data-v-30b3a980] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .search-result-header[data-v-30b3a980] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(1) {\n  width: 33%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(2) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(3) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(4) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(5) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div[data-v-30b3a980]:nth-child(6) {\n  width: 20%;\n}\n.search-page-content .search-result > .items-mobile[data-v-30b3a980] {\n  display: none;\n}\n.search-page-content .search-result > .items[data-v-30b3a980] {\n  margin-top: 85px;\n}\n.search-page-content .search-result > .items .item[data-v-30b3a980] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item[data-v-30b3a980]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-page-content .search-result > .items .item > div[data-v-30b3a980]:nth-child(1) {\n  width: 30%;\n}\n.search-page-content .search-result > .items .item > div[data-v-30b3a980]:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-page-content .search-result > .items .item > div[data-v-30b3a980]:nth-child(3) {\n  width: 15%;\n}\n.search-page-content .search-result > .items .item .left-section[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item .left-section > img[data-v-30b3a980] {\n  margin-right: 15px;\n}\n.search-page-content .search-result > .items .item .left-section .name[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-page-content .search-result > .items .item .left-section .name img[data-v-30b3a980] {\n  margin-left: 10px;\n}\n.search-page-content .search-result > .items .item .left-section .sub-name[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .items .item .center-section[data-v-30b3a980] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-page-content .search-result > .items .item .center-section > div[data-v-30b3a980] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .items .item .right-section[data-v-30b3a980] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item .right-section > div[data-v-30b3a980] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-page-content .search-result > .items .item .right-section > div[data-v-30b3a980]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-page-content .search-result > .items .item .right-section > div:nth-child(1) img[data-v-30b3a980] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 1280px) {\n.container[data-v-30b3a980] {\n    padding-left: 60px;\n    padding-right: 60px;\n}\n}\n@media screen and (max-width: 992px) {\n.search-result-header[data-v-30b3a980] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 768px) {\n.search-page-content[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .search-content[data-v-30b3a980] {\n    margin-top: 48px;\n    display: flex;\n    justify-content: space-between;\n}\n.search-page-content .search-content button[data-v-30b3a980] {\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 60px;\n    padding: 0 40px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input[data-v-30b3a980] {\n    width: 100%;\n    margin-right: 30px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 60px;\n    padding: 0 50px;\n    outline: 0;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n}\n.search-page-content .search-content input[data-v-30b3a980]::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 40px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 15px 30px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img[data-v-30b3a980] {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content[data-v-30b3a980] {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div[data-v-30b3a980] {\n    margin: 30px 12px;\n    width: calc(100% / 3 - 25px);\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input[data-v-30b3a980] {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 29px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn[data-v-30b3a980] {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img[data-v-30b3a980] {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active[data-v-30b3a980] {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select[data-v-30b3a980] {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input[data-v-30b3a980] {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div[data-v-30b3a980] {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content[data-v-30b3a980] {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input[data-v-30b3a980] {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content[data-v-30b3a980] {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div[data-v-30b3a980] {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container[data-v-30b3a980] {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span[data-v-30b3a980] {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list[data-v-30b3a980] {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel[data-v-30b3a980] {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span[data-v-30b3a980] {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile[data-v-30b3a980] {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img[data-v-30b3a980] {\n    margin-right: 32px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-30b3a980] {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div[data-v-30b3a980] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div[data-v-30b3a980]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-30b3a980] {\n    margin-top: 2px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img[data-v-30b3a980] {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-page-content[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .search-content[data-v-30b3a980] {\n    margin-top: 48px;\n    display: flex;\n    justify-content: space-between;\n}\n.search-page-content .search-content button[data-v-30b3a980] {\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 60px;\n    padding: 0 25px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input[data-v-30b3a980] {\n    width: 100%;\n    margin-right: 10px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 60px;\n    padding: 0 20px;\n    outline: 0;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.5804px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 32px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.7382px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 15px 13px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img[data-v-30b3a980] {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content[data-v-30b3a980] {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 12.8899px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div[data-v-30b3a980] {\n    margin: 20px 12px;\n    width: calc(100% / 2 - 25px);\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input[data-v-30b3a980] {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 16px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 19px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn[data-v-30b3a980] {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img[data-v-30b3a980] {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active[data-v-30b3a980] {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select[data-v-30b3a980] {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input[data-v-30b3a980] {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div[data-v-30b3a980] {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content[data-v-30b3a980] {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input[data-v-30b3a980] {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content[data-v-30b3a980] {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div[data-v-30b3a980] {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container[data-v-30b3a980] {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span[data-v-30b3a980] {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list[data-v-30b3a980] {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel[data-v-30b3a980] {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span[data-v-30b3a980] {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile[data-v-30b3a980] {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img[data-v-30b3a980] {\n    margin-right: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-30b3a980] {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div[data-v-30b3a980] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div[data-v-30b3a980]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-30b3a980] {\n    margin-top: 2px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img[data-v-30b3a980] {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.container[data-v-30b3a980] {\n    padding-left: 45px;\n    padding-right: 45px;\n}\n.search-page-content[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .search-content[data-v-30b3a980] {\n    margin-top: 48px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.search-page-content .search-content button[data-v-30b3a980] {\n    width: 100px;\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 43px;\n    padding: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input[data-v-30b3a980] {\n    width: 100%;\n    margin-bottom: 10px;\n    margin-right: 10px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 53px;\n    padding: 0 20px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input[data-v-30b3a980]::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 32px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 12.549px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 10px 10px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img[data-v-30b3a980] {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content[data-v-30b3a980] {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 12.8899px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div[data-v-30b3a980] {\n    margin: 15px 12px;\n    width: 100%;\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input[data-v-30b3a980] {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 16px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn[data-v-30b3a980] {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img[data-v-30b3a980] {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active[data-v-30b3a980] {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select[data-v-30b3a980] {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content[data-v-30b3a980] {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input[data-v-30b3a980] {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count[data-v-30b3a980] {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div[data-v-30b3a980] {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active[data-v-30b3a980] {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content[data-v-30b3a980] {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input[data-v-30b3a980] {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content[data-v-30b3a980] {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div[data-v-30b3a980] {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container[data-v-30b3a980] {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span[data-v-30b3a980] {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list[data-v-30b3a980] {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel[data-v-30b3a980] {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span[data-v-30b3a980] {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .title div[data-v-30b3a980]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items[data-v-30b3a980] {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile[data-v-30b3a980] {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item[data-v-30b3a980]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img[data-v-30b3a980] {\n    margin-right: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-30b3a980] {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-30b3a980] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(2) {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980]:nth-child(2) {\n    padding-left: 0;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div[data-v-30b3a980]:nth-child(4) {\n    padding-left: 0;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img[data-v-30b3a980] {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div[data-v-30b3a980]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div[data-v-30b3a980] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div[data-v-30b3a980]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-30b3a980] {\n    margin-top: 2px;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40052,7 +40060,10 @@ var render = function () {
                         expression: "defaultData.youtube",
                       },
                     ],
-                    attrs: { type: "text", placeholder: "Your YouTube URL" },
+                    attrs: {
+                      type: "text",
+                      placeholder: "Your YouTube Chanel ID",
+                    },
                     domProps: { value: _vm.defaultData.youtube },
                     on: {
                       input: function ($event) {
@@ -40083,7 +40094,10 @@ var render = function () {
                         expression: "defaultData.instagram",
                       },
                     ],
-                    attrs: { type: "text", placeholder: "Your Instagram URL" },
+                    attrs: {
+                      type: "text",
+                      placeholder: "Your Instagram Username",
+                    },
                     domProps: { value: _vm.defaultData.instagram },
                     on: {
                       input: function ($event) {
@@ -40112,7 +40126,10 @@ var render = function () {
                         expression: "defaultData.twitter",
                       },
                     ],
-                    attrs: { type: "text", placeholder: "Your Twitter URL" },
+                    attrs: {
+                      type: "text",
+                      placeholder: "Your Twitter Username",
+                    },
                     domProps: { value: _vm.defaultData.twitter },
                     on: {
                       input: function ($event) {
@@ -40143,7 +40160,10 @@ var render = function () {
                         expression: "defaultData.tiktok",
                       },
                     ],
-                    attrs: { type: "text", placeholder: "Your TikTok URL" },
+                    attrs: {
+                      type: "text",
+                      placeholder: "Your TikTok Username",
+                    },
                     domProps: { value: _vm.defaultData.tiktok },
                     on: {
                       input: function ($event) {
@@ -40168,7 +40188,10 @@ var render = function () {
                         expression: "defaultData.telegram",
                       },
                     ],
-                    attrs: { type: "text", placeholder: "Your Telegram URL" },
+                    attrs: {
+                      type: "text",
+                      placeholder: "Your Telegram Username",
+                    },
                     domProps: { value: _vm.defaultData.telegram },
                     on: {
                       input: function ($event) {
@@ -40512,7 +40535,7 @@ var render = function () {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("notifications", { attrs: { group: "foo" } }),
+      _c("notifications", { attrs: { group: "foo", width: "400" } }),
       _vm._v(" "),
       _c("Footer"),
     ],
@@ -40546,262 +40569,239 @@ var render = function () {
     "div",
     [
       _c("div", { staticClass: "search-page-content" }, [
-        _c(
-          "div",
-          { staticClass: "container" },
-          [
-            _vm._m(0),
+        _c("div", { staticClass: "container" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "filter-vars" }, [
+            _vm.defaultData.accountType
+              ? _c("div", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.defaultData.accountType) +
+                      "\n                    "
+                  ),
+                  _c("img", {
+                    attrs: { src: "/images/icons/close-icon.png" },
+                    on: {
+                      click: function ($event) {
+                        _vm.defaultData.accountType = ""
+                      },
+                    },
+                  }),
+                ])
+              : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "filter-vars" }, [
-              _vm.defaultData.accountType
-                ? _c("div", [
-                    _vm._v(_vm._s(_vm.defaultData.accountType) + " "),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.accountType = ""
-                        },
+            _vm.defaultData.location
+              ? _c("div", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.defaultData.location) +
+                      "\n                    "
+                  ),
+                  _c("img", {
+                    attrs: { src: "/images/icons/close-icon.png" },
+                    on: {
+                      click: function ($event) {
+                        _vm.defaultData.location = ""
                       },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.location
-                ? _c("div", [
-                    _vm._v(_vm._s(_vm.defaultData.location) + " "),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.location = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.gender
-                ? _c("div", [
-                    _vm._v(_vm._s(_vm.defaultData.gender) + " "),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.gender = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.Age
-                ? _c("div", [
-                    _vm._v(_vm._s(_vm.defaultData.Age) + " "),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.Age = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.numberFollowers
-                ? _c("div", [
-                    _vm._v(_vm._s(_vm.defaultData.numberFollowers) + " "),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.numberFollowers = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.numberPosts
-                ? _c("div", [
-                    _vm._v(_vm._s(_vm.defaultData.numberPosts) + " "),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.numberPosts = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.lastPost
-                ? _c("div", [
-                    _vm._v(_vm._s(_vm.defaultData.lastPost) + " "),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.lastPost = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-            ]),
+                    },
+                  }),
+                ])
+              : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "input-filter-content" }, [
-              _c("div", { staticClass: "title" }, [_vm._v("Search filters")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "items" }, [
-                _c("div", { staticClass: "fields" }, [
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Platform")]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "select-btn",
-                          on: {
-                            click: function ($event) {
-                              $event.stopPropagation()
-                              _vm.transitionPlatform = true
-                            },
+            _vm.defaultData.gender
+              ? _c("div", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.defaultData.gender) +
+                      "\n                    "
+                  ),
+                  _c("img", {
+                    attrs: { src: "/images/icons/close-icon.png" },
+                    on: {
+                      click: function ($event) {
+                        _vm.defaultData.gender = ""
+                      },
+                    },
+                  }),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.defaultData.Age
+              ? _c("div", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.defaultData.Age) +
+                      "\n                    "
+                  ),
+                  _c("img", {
+                    attrs: { src: "/images/icons/close-icon.png" },
+                    on: {
+                      click: function ($event) {
+                        _vm.defaultData.Age = ""
+                      },
+                    },
+                  }),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.defaultData.numberFollowers
+              ? _c("div", [
+                  _vm._v(
+                    _vm._s(_vm.defaultData.numberFollowers) +
+                      "\n                    "
+                  ),
+                  _c("img", {
+                    attrs: { src: "/images/icons/close-icon.png", alt: "" },
+                    on: {
+                      click: function ($event) {
+                        _vm.defaultData.numberFollowers = ""
+                      },
+                    },
+                  }),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.defaultData.numberPosts
+              ? _c("div", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.defaultData.numberPosts) +
+                      "\n                    "
+                  ),
+                  _c("img", {
+                    attrs: { src: "/images/icons/close-icon.png", alt: "" },
+                    on: {
+                      click: function ($event) {
+                        _vm.defaultData.numberPosts = ""
+                      },
+                    },
+                  }),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.defaultData.lastPost
+              ? _c("div", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.defaultData.lastPost) +
+                      "\n                    "
+                  ),
+                  _c("img", {
+                    attrs: { src: "/images/icons/close-icon.png", alt: "" },
+                    on: {
+                      click: function ($event) {
+                        _vm.defaultData.lastPost = ""
+                      },
+                    },
+                  }),
+                ])
+              : _vm._e(),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-filter-content" }, [
+            _c("div", { staticClass: "title" }, [_vm._v("Search filters")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "items" }, [
+              _c("div", { staticClass: "fields" }, [
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Platform")]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "select-btn",
+                        on: {
+                          click: function ($event) {
+                            $event.stopPropagation()
+                            _vm.transitionPlatform = true
                           },
                         },
-                        [
-                          _vm._v(
+                      },
+                      [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.selectedCategories[0]) +
                             "\n                                " +
-                              _vm._s(_vm.selectedCategories[0]) +
-                              "\n                                " +
-                              _vm._s(_vm.selectedCategories[1] ? "," : "") +
-                              "\n                                " +
-                              _vm._s(_vm.selectedCategories[1]) +
-                              "\n                                " +
-                              _vm._s(
-                                _vm.selectedCategories.length > 2 ? "..." : ""
-                              ) +
-                              "\n                                "
-                          ),
-                          _c("img", {
-                            class: { active: _vm.transitionPlatform },
-                            attrs: {
-                              src: "/images/icons/dropdown.svg",
-                              alt: "",
+                            _vm._s(_vm.selectedCategories[1] ? "," : "") +
+                            "\n                                " +
+                            _vm._s(_vm.selectedCategories[1]) +
+                            "\n                                " +
+                            _vm._s(
+                              _vm.selectedCategories.length > 2 ? "..." : ""
+                            ) +
+                            "\n                                "
+                        ),
+                        _c("img", {
+                          class: { active: _vm.transitionPlatform },
+                          attrs: { src: "/images/icons/dropdown.svg", alt: "" },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("transition", { attrs: { name: "slide" } }, [
+                      _vm.transitionPlatform
+                        ? _c(
+                            "div",
+                            {
+                              directives: [
+                                {
+                                  name: "click-outside",
+                                  rawName: "v-click-outside",
+                                  value: _vm.hideTransitionPlatform,
+                                  expression: "hideTransitionPlatform",
+                                },
+                              ],
+                              staticClass: "transition-select",
                             },
-                          }),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("transition", { attrs: { name: "slide" } }, [
-                        _vm.transitionPlatform
-                          ? _c(
-                              "div",
-                              {
-                                directives: [
-                                  {
-                                    name: "click-outside",
-                                    rawName: "v-click-outside",
-                                    value: _vm.hideTransitionPlatform,
-                                    expression: "hideTransitionPlatform",
-                                  },
-                                ],
-                                staticClass: "transition-select",
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "search-category-content" },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value:
-                                            _vm.searchNotSelectedCategories,
-                                          expression:
-                                            "searchNotSelectedCategories",
-                                        },
-                                      ],
-                                      staticClass: "search-input",
-                                      attrs: {
-                                        type: "text",
-                                        placeholder: "Choose category",
-                                      },
-                                      domProps: {
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "search-category-content" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
                                         value: _vm.searchNotSelectedCategories,
+                                        expression:
+                                          "searchNotSelectedCategories",
                                       },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.searchNotSelectedCategories =
-                                            $event.target.value
-                                        },
+                                    ],
+                                    staticClass: "search-input",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Choose category",
+                                    },
+                                    domProps: {
+                                      value: _vm.searchNotSelectedCategories,
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.searchNotSelectedCategories =
+                                          $event.target.value
                                       },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "selected-category-content" },
-                                  [
-                                    _c("p", [_vm._v("Selected:")]),
-                                    _vm._v(" "),
-                                    _vm._l(
-                                      _vm.selectedCategories,
-                                      function (item) {
-                                        return _c("div", [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass: "checkbox-container",
-                                            },
-                                            [
-                                              _c("span", [
-                                                _vm._v(_vm._s(item)),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                attrs: {
-                                                  type: "checkbox",
-                                                  checked: "",
-                                                },
-                                                on: {
-                                                  change: function ($event) {
-                                                    return _vm.notSelectedCategory(
-                                                      item
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _c("span", {
-                                                staticClass: "checkmark",
-                                              }),
-                                            ]
-                                          ),
-                                        ])
-                                      }
-                                    ),
-                                  ],
-                                  2
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "category-list" },
+                                    },
+                                  }),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "selected-category-content" },
+                                [
+                                  _c("p", [_vm._v("Selected:")]),
+                                  _vm._v(" "),
                                   _vm._l(
-                                    _vm.filterNotSelectedCategories,
+                                    _vm.selectedCategories,
                                     function (item) {
-                                      return _c("div", { key: item }, [
+                                      return _c("div", [
                                         _c(
                                           "label",
                                           { staticClass: "checkbox-container" },
@@ -40809,10 +40809,13 @@ var render = function () {
                                             _c("span", [_vm._v(_vm._s(item))]),
                                             _vm._v(" "),
                                             _c("input", {
-                                              attrs: { type: "checkbox" },
+                                              attrs: {
+                                                type: "checkbox",
+                                                checked: "",
+                                              },
                                               on: {
                                                 change: function ($event) {
-                                                  return _vm.selectedCategory(
+                                                  return _vm.notSelectedCategory(
                                                     item
                                                   )
                                                 },
@@ -40827,175 +40830,164 @@ var render = function () {
                                       ])
                                     }
                                   ),
-                                  0
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "category-list" },
+                                _vm._l(
+                                  _vm.filterNotSelectedCategories,
+                                  function (item) {
+                                    return _c("div", { key: item }, [
+                                      _c(
+                                        "label",
+                                        { staticClass: "checkbox-container" },
+                                        [
+                                          _c("span", [_vm._v(_vm._s(item))]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            attrs: { type: "checkbox" },
+                                            on: {
+                                              change: function ($event) {
+                                                return _vm.selectedCategory(
+                                                  item
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("span", {
+                                            staticClass: "checkmark",
+                                          }),
+                                        ]
+                                      ),
+                                    ])
+                                  }
                                 ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "cancel" }, [
-                                  _c(
-                                    "span",
-                                    {
-                                      on: {
-                                        click: function ($event) {
-                                          _vm.transitionPlatform = false
-                                        },
+                                0
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "cancel" }, [
+                                _c(
+                                  "span",
+                                  {
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.transitionPlatform = false
                                       },
                                     },
-                                    [_vm._v("Cancel")]
-                                  ),
-                                ]),
-                              ]
-                            )
-                          : _vm._e(),
-                      ]),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Category")]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "select-btn",
-                          on: {
-                            click: function ($event) {
-                              $event.stopPropagation()
-                              _vm.transitionCategory = true
-                            },
+                                  },
+                                  [_vm._v("Cancel")]
+                                ),
+                              ]),
+                            ]
+                          )
+                        : _vm._e(),
+                    ]),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Category")]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "select-btn",
+                        on: {
+                          click: function ($event) {
+                            $event.stopPropagation()
+                            _vm.transitionCategory = true
                           },
                         },
-                        [
-                          _vm._v(
+                      },
+                      [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.selectedCategories[0]) +
                             "\n                                " +
-                              _vm._s(_vm.selectedCategories[0]) +
-                              "\n                                " +
-                              _vm._s(_vm.selectedCategories[1] ? "," : "") +
-                              "\n                                " +
-                              _vm._s(_vm.selectedCategories[1]) +
-                              "\n                                " +
-                              _vm._s(
-                                _vm.selectedCategories.length > 2 ? "..." : ""
-                              ) +
-                              "\n                                "
-                          ),
-                          _c("img", {
-                            class: { active: _vm.transitionCategory },
-                            attrs: {
-                              src: "/images/icons/dropdown.svg",
-                              alt: "",
+                            _vm._s(_vm.selectedCategories[1] ? "," : "") +
+                            "\n                                " +
+                            _vm._s(_vm.selectedCategories[1]) +
+                            "\n                                " +
+                            _vm._s(
+                              _vm.selectedCategories.length > 2 ? "..." : ""
+                            ) +
+                            "\n                                "
+                        ),
+                        _c("img", {
+                          class: { active: _vm.transitionCategory },
+                          attrs: { src: "/images/icons/dropdown.svg", alt: "" },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("transition", { attrs: { name: "slide" } }, [
+                      _vm.transitionCategory
+                        ? _c(
+                            "div",
+                            {
+                              directives: [
+                                {
+                                  name: "click-outside",
+                                  rawName: "v-click-outside",
+                                  value: _vm.hideTransitionCategory,
+                                  expression: "hideTransitionCategory",
+                                },
+                              ],
+                              staticClass: "transition-select",
                             },
-                          }),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("transition", { attrs: { name: "slide" } }, [
-                        _vm.transitionCategory
-                          ? _c(
-                              "div",
-                              {
-                                directives: [
-                                  {
-                                    name: "click-outside",
-                                    rawName: "v-click-outside",
-                                    value: _vm.hideTransitionCategory,
-                                    expression: "hideTransitionCategory",
-                                  },
-                                ],
-                                staticClass: "transition-select",
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "search-category-content" },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value:
-                                            _vm.searchNotSelectedCategories,
-                                          expression:
-                                            "searchNotSelectedCategories",
-                                        },
-                                      ],
-                                      staticClass: "search-input",
-                                      attrs: {
-                                        type: "text",
-                                        placeholder: "Choose category",
-                                      },
-                                      domProps: {
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "search-category-content" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
                                         value: _vm.searchNotSelectedCategories,
+                                        expression:
+                                          "searchNotSelectedCategories",
                                       },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.searchNotSelectedCategories =
-                                            $event.target.value
-                                        },
+                                    ],
+                                    staticClass: "search-input",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Choose category",
+                                    },
+                                    domProps: {
+                                      value: _vm.searchNotSelectedCategories,
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.searchNotSelectedCategories =
+                                          $event.target.value
                                       },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "selected-category-content" },
-                                  [
-                                    _c("p", [_vm._v("Selected:")]),
-                                    _vm._v(" "),
-                                    _vm._l(
-                                      _vm.selectedCategories,
-                                      function (item) {
-                                        return _c("div", [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass: "checkbox-container",
-                                            },
-                                            [
-                                              _c("span", [
-                                                _vm._v(_vm._s(item)),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                attrs: {
-                                                  type: "checkbox",
-                                                  checked: "",
-                                                },
-                                                on: {
-                                                  change: function ($event) {
-                                                    return _vm.notSelectedCategory(
-                                                      item
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _c("span", {
-                                                staticClass: "checkmark",
-                                              }),
-                                            ]
-                                          ),
-                                        ])
-                                      }
-                                    ),
-                                  ],
-                                  2
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "category-list" },
+                                    },
+                                  }),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "selected-category-content" },
+                                [
+                                  _c("p", [_vm._v("Selected:")]),
+                                  _vm._v(" "),
                                   _vm._l(
-                                    _vm.filterNotSelectedCategories,
+                                    _vm.selectedCategories,
                                     function (item) {
-                                      return _c("div", { key: item }, [
+                                      return _c("div", [
                                         _c(
                                           "label",
                                           { staticClass: "checkbox-container" },
@@ -41003,10 +40995,13 @@ var render = function () {
                                             _c("span", [_vm._v(_vm._s(item))]),
                                             _vm._v(" "),
                                             _c("input", {
-                                              attrs: { type: "checkbox" },
+                                              attrs: {
+                                                type: "checkbox",
+                                                checked: "",
+                                              },
                                               on: {
                                                 change: function ($event) {
-                                                  return _vm.selectedCategory(
+                                                  return _vm.notSelectedCategory(
                                                     item
                                                   )
                                                 },
@@ -41021,524 +41016,640 @@ var render = function () {
                                       ])
                                     }
                                   ),
-                                  0
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "category-list" },
+                                _vm._l(
+                                  _vm.filterNotSelectedCategories,
+                                  function (item) {
+                                    return _c("div", { key: item }, [
+                                      _c(
+                                        "label",
+                                        { staticClass: "checkbox-container" },
+                                        [
+                                          _c("span", [_vm._v(_vm._s(item))]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            attrs: { type: "checkbox" },
+                                            on: {
+                                              change: function ($event) {
+                                                return _vm.selectedCategory(
+                                                  item
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("span", {
+                                            staticClass: "checkmark",
+                                          }),
+                                        ]
+                                      ),
+                                    ])
+                                  }
                                 ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "cancel" }, [
-                                  _c(
-                                    "span",
-                                    {
-                                      on: {
-                                        click: function ($event) {
-                                          _vm.transitionCategory = false
-                                        },
+                                0
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "cancel" }, [
+                                _c(
+                                  "span",
+                                  {
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.transitionCategory = false
                                       },
                                     },
-                                    [_vm._v("Cancel")]
-                                  ),
-                                ]),
-                              ]
-                            )
-                          : _vm._e(),
-                      ]),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Account type")]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.options },
-                        model: {
-                          value: _vm.defaultData.accountType,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "accountType", $$v)
-                          },
-                          expression: "defaultData.accountType",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Location")]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.options },
-                        model: {
-                          value: _vm.defaultData.location,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "location", $$v)
-                          },
-                          expression: "defaultData.location",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Gender")]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.options },
-                        model: {
-                          value: _vm.defaultData.gender,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "gender", $$v)
-                          },
-                          expression: "defaultData.gender",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Age")]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.options },
-                        model: {
-                          value: _vm.defaultData.age,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "age", $$v)
-                          },
-                          expression: "defaultData.age",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Number of followers")]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "select-btn",
-                          on: {
-                            click: function ($event) {
-                              $event.stopPropagation()
-                              _vm.numberFollowers = true
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(_vm.defaultData.searchFollowerCountLeft) +
-                              "\n                                " +
-                              _vm._s(
-                                _vm.defaultData.searchFollowerCountLeft
-                                  ? ">"
-                                  : ""
-                              ) +
-                              "\n                                " +
-                              _vm._s(_vm.defaultData.searchFollowerCountRight) +
-                              "\n                                "
-                          ),
-                          _c("img", {
-                            class: { active: _vm.numberFollowers },
-                            attrs: {
-                              src: "/images/icons/dropdown.svg",
-                              alt: "",
-                            },
-                          }),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("transition", { attrs: { name: "slide" } }, [
-                        _vm.numberFollowers
-                          ? _c(
-                              "div",
-                              {
-                                directives: [
-                                  {
-                                    name: "click-outside",
-                                    rawName: "v-click-outside",
-                                    value: _vm.hideNmberFollowers,
-                                    expression: "hideNmberFollowers",
                                   },
-                                ],
-                                staticClass: "transition-select",
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "transition-search-content" },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value:
-                                            _vm.defaultData
-                                              .searchFollowerCountLeft,
-                                          expression:
-                                            "defaultData.searchFollowerCountLeft",
-                                        },
-                                      ],
-                                      staticClass: "search-input",
-                                      attrs: { type: "text" },
-                                      domProps: {
+                                  [_vm._v("Cancel")]
+                                ),
+                              ]),
+                            ]
+                          )
+                        : _vm._e(),
+                    ]),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Account type")]),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      model: {
+                        value: _vm.defaultData.accountType,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "accountType", $$v)
+                        },
+                        expression: "defaultData.accountType",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Location")]),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      model: {
+                        value: _vm.defaultData.location,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "location", $$v)
+                        },
+                        expression: "defaultData.location",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Gender")]),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      model: {
+                        value: _vm.defaultData.gender,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "gender", $$v)
+                        },
+                        expression: "defaultData.gender",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Age")]),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      model: {
+                        value: _vm.defaultData.age,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "age", $$v)
+                        },
+                        expression: "defaultData.age",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Number of followers")]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "select-btn",
+                        on: {
+                          click: function ($event) {
+                            $event.stopPropagation()
+                            _vm.numberFollowers = true
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.defaultData.searchFollowerCountLeft) +
+                            "\n                                " +
+                            _vm._s(
+                              _vm.defaultData.searchFollowerCountLeft ? ">" : ""
+                            ) +
+                            "\n                                " +
+                            _vm._s(_vm.defaultData.searchFollowerCountRight) +
+                            "\n                                "
+                        ),
+                        _c("img", {
+                          class: { active: _vm.numberFollowers },
+                          attrs: { src: "/images/icons/dropdown.svg", alt: "" },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("transition", { attrs: { name: "slide" } }, [
+                      _vm.numberFollowers
+                        ? _c(
+                            "div",
+                            {
+                              directives: [
+                                {
+                                  name: "click-outside",
+                                  rawName: "v-click-outside",
+                                  value: _vm.hideNmberFollowers,
+                                  expression: "hideNmberFollowers",
+                                },
+                              ],
+                              staticClass: "transition-select",
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "transition-search-content" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
                                         value:
                                           _vm.defaultData
                                             .searchFollowerCountLeft,
+                                        expression:
+                                          "defaultData.searchFollowerCountLeft",
                                       },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.defaultData,
-                                            "searchFollowerCountLeft",
-                                            $event.target.value
-                                          )
-                                        },
+                                    ],
+                                    staticClass: "search-input",
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value:
+                                        _vm.defaultData.searchFollowerCountLeft,
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.defaultData,
+                                          "searchFollowerCountLeft",
+                                          $event.target.value
+                                        )
                                       },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", [_vm._v("-")]),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value:
-                                            _vm.defaultData
-                                              .searchFollowerCountRight,
-                                          expression:
-                                            "defaultData.searchFollowerCountRight",
-                                        },
-                                      ],
-                                      staticClass: "search-input",
-                                      attrs: { type: "text" },
-                                      domProps: {
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", [_vm._v("-")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
                                         value:
                                           _vm.defaultData
                                             .searchFollowerCountRight,
+                                        expression:
+                                          "defaultData.searchFollowerCountRight",
                                       },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.defaultData,
-                                            "searchFollowerCountRight",
-                                            $event.target.value
-                                          )
-                                        },
+                                    ],
+                                    staticClass: "search-input",
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value:
+                                        _vm.defaultData
+                                          .searchFollowerCountRight,
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.defaultData,
+                                          "searchFollowerCountRight",
+                                          $event.target.value
+                                        )
                                       },
-                                    }),
+                                    },
+                                  }),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "followers-count" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "1k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("1k")
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "1k\n                                        "
+                                    ),
                                   ]
                                 ),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "followers-count" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active: _vm.activeBtnCountLeft === "1k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("1k")
-                                        },
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "1k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("1k")
                                       },
                                     },
-                                    [_vm._v("1k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "1k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("1k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "1k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "5k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("5k")
                                       },
                                     },
-                                    [_vm._v("1k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active: _vm.activeBtnCountLeft === "5k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("5k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "5k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "5k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("5k")
                                       },
                                     },
-                                    [_vm._v("5k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "5k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("5k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "5k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "10k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("10k")
                                       },
                                     },
-                                    [_vm._v("5k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountLeft === "10k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("10k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "10k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "10k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("10k")
                                       },
                                     },
-                                    [_vm._v("10k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "10k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("10k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "10k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "20k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("20k")
                                       },
                                     },
-                                    [_vm._v("10k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountLeft === "20k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("20k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "20k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "20k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("20k")
                                       },
                                     },
-                                    [_vm._v("20k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "20k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("20k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "20k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "100k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("100k")
                                       },
                                     },
-                                    [_vm._v("20k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountLeft === "100k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("100k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "100k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active:
+                                        _vm.activeBtnCountRight === "100k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("100k")
                                       },
                                     },
-                                    [_vm._v("100k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "100k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("100k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "100k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "500k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("500k")
                                       },
                                     },
-                                    [_vm._v("100k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountLeft === "500k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("500k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "500k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active:
+                                        _vm.activeBtnCountRight === "500k",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("500k")
                                       },
                                     },
-                                    [_vm._v("500k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "500k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("500k")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "500k\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountLeft === "1M",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountLeft("1M")
                                       },
                                     },
-                                    [_vm._v("500k")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active: _vm.activeBtnCountLeft === "1M",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("1M")
-                                        },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "1M\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    class: {
+                                      active: _vm.activeBtnCountRight === "1M",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.followerCountRight("1M")
                                       },
                                     },
-                                    [_vm._v("1M")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "1M",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("1M")
-                                        },
-                                      },
-                                    },
-                                    [_vm._v("1M")]
-                                  ),
-                                ]),
-                              ]
-                            )
-                          : _vm._e(),
-                      ]),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Number of posts")]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.options },
-                        model: {
-                          value: _vm.defaultData.numberFollowers,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "numberFollowers", $$v)
-                          },
-                          expression: "defaultData.numberFollowers",
+                                  },
+                                  [
+                                    _vm._v(
+                                      "1M\n                                        "
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                            ]
+                          )
+                        : _vm._e(),
+                    ]),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Number of posts")]),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      model: {
+                        value: _vm.defaultData.numberFollowers,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "numberFollowers", $$v)
                         },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v("Last post")]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.options },
-                        model: {
-                          value: _vm.defaultData.numberPosts,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "numberPosts", $$v)
-                          },
-                          expression: "defaultData.numberPosts",
+                        expression: "defaultData.numberFollowers",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v("Last post")]),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: { options: _vm.options },
+                      model: {
+                        value: _vm.defaultData.numberPosts,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "numberPosts", $$v)
                         },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _vm._m(2),
-                ]),
+                        expression: "defaultData.numberPosts",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._m(2),
               ]),
             ]),
-            _vm._v(" "),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "search-result" }, [
             _vm._m(3),
             _vm._v(" "),
-            _c("paginate", {
-              attrs: {
-                "page-count": 20,
-                "prev-text": "<",
-                "next-text": ">",
-                "container-class": "search-paginate",
-              },
+            _vm._m(4),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "items" },
+              _vm._l(_vm.data, function (item) {
+                return _c("div", { staticClass: "item" }, [
+                  _vm._m(5, true),
+                  _vm._v(" "),
+                  _vm._m(6, true),
+                  _vm._v(" "),
+                  _vm._m(7, true),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _vm._m(8),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "search-paginator" },
+            _vm._l(_vm.paginate, function (item) {
+              return _c("div", [
+                _c(
+                  "div",
+                  {
+                    staticClass: "search-paginator-item",
+                    class: { active: item.active },
+                    on: {
+                      click: function ($event) {
+                        return _vm.nextPage(item.url)
+                      },
+                    },
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(item.label) +
+                        "\n                    "
+                    ),
+                  ]
+                ),
+              ])
             }),
-          ],
-          1
-        ),
+            0
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("Footer"),
@@ -41586,694 +41697,415 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "search-result" }, [
-      _c("div", { staticClass: "title" }, [
-        _c("div", [_vm._v("Search result")]),
+    return _c("div", { staticClass: "title" }, [
+      _c("div", [_vm._v("Search result")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("Found 125 accounts")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-result-header" }, [
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
         _vm._v(" "),
-        _c("div", [_vm._v("Found 125 accounts")]),
+        _c("span", [_vm._v("account")]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "search-result-header" }, [
-        _c("div", [
-          _c("span", [_vm._v("Influencer")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("account")]),
-        ]),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
         _vm._v(" "),
-        _c("div", [
-          _c("span", [_vm._v("Influencer")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("category")]),
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("span", [_vm._v("Influencer")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("followers")]),
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("span", [_vm._v("Influencer")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("posts")]),
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("span", [_vm._v("Influencer")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("location")]),
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("span", [_vm._v("Influencer")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("platform")]),
-        ]),
+        _c("span", [_vm._v("category")]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "items" }, [
-        _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "name" }, [
-                _vm._v("Iveta Mukuchyan "),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
-              ]),
-            ]),
-          ]),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("followers")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("posts")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("location")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("platform")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-section" }, [
+      _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "name" }, [
+          _vm._v("Iveta Mukuchyan "),
+          _c("img", { attrs: { src: "/images/icons/done.png", alt: "" } }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "sub-name" }, [_vm._v("iveta.mukuchyan")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "center-section" }, [
+      _c("div", [_vm._v("Beauty")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("281.4K")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("19")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("Armenia")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "right-section" }, [
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "items-mobile" }, [
+      _c("div", { staticClass: "item" }, [
+        _c("div", { staticClass: "left-section" }, [
+          _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
           _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [_vm._v("Beauty")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("281.4K")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("19")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("Armenia")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-              }),
+          _c("div", [
+            _c("div", { staticClass: "name" }, [
+              _vm._v("Iveta Mukuchyan "),
+              _c("img", { attrs: { src: "/images/icons/done.png", alt: "" } }),
             ]),
             _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-              }),
-            ]),
+            _c("div", { staticClass: "sub-name" }, [_vm._v("iveta.mukuchyan")]),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "name" }, [
-                _vm._v("Iveta Mukuchyan "),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
-              ]),
-            ]),
+        _c("div", { staticClass: "right-section" }, [
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+            }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [_vm._v("Beauty")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("281.4K")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("19")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("Armenia")]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+            }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-              }),
-            ]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+            }),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "name" }, [
-                _vm._v("Iveta Mukuchyan "),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
-              ]),
-            ]),
+        _c("div", { staticClass: "center-section" }, [
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+            }),
+            _c("span", [_vm._v("Beauty")]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [_vm._v("Beauty")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("281.4K")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("19")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("Armenia")]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+            }),
+            _c("span", [_vm._v("Armenia")]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-              }),
-            ]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+            }),
+            _c("span", [_vm._v("281.4K")]),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+            }),
+            _c("span", [_vm._v("19")]),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "name" }, [
-                _vm._v("Iveta Mukuchyan "),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
-              ]),
-            ]),
+        _c("div", { staticClass: "icon-section" }, [
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/fb-small.png", alt: "" },
+            }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [_vm._v("Beauty")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("281.4K")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("19")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("Armenia")]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/Subtract-small.png", alt: "" },
+            }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-              }),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "name" }, [
-                _vm._v("Iveta Mukuchyan "),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
-              ]),
-            ]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/Vector-small.png", alt: "" },
+            }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [_vm._v("Beauty")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("281.4K")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("19")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("Armenia")]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/twitter-small.png", alt: "" },
+            }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-              }),
-            ]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/tiktok-small.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
+            }),
           ]),
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "items-mobile" }, [
-        _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "name" }, [
-                _vm._v("Iveta Mukuchyan "),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
-              ]),
-            ]),
-          ]),
+      _c("div", { staticClass: "item" }, [
+        _c("div", { staticClass: "left-section" }, [
+          _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
           _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-              }),
+          _c("div", [
+            _c("div", { staticClass: "name" }, [
+              _vm._v("Iveta Mukuchyan "),
+              _c("img", { attrs: { src: "/images/icons/done.png", alt: "" } }),
             ]),
             _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-              }),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
-              }),
-              _c("span", [_vm._v("Beauty")]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
-              }),
-              _c("span", [_vm._v("Armenia")]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
-              }),
-              _c("span", [_vm._v("281.4K")]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
-              }),
-              _c("span", [_vm._v("19")]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "icon-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/fb-small.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: {
-                  src: "/images/icons/small/Subtract-small.png",
-                  alt: "",
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector-small.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: {
-                  src: "/images/icons/small/twitter-small.png",
-                  alt: "",
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/tiktok-small.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: {
-                  src: "/images/icons/small/telegram-small.png",
-                  alt: "",
-                },
-              }),
-            ]),
+            _c("div", { staticClass: "sub-name" }, [_vm._v("iveta.mukuchyan")]),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "name" }, [
-                _vm._v("Iveta Mukuchyan "),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
-              ]),
-            ]),
+        _c("div", { staticClass: "right-section" }, [
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+            }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-              }),
-            ]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+            }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
-              }),
-              _c("span", [_vm._v("Beauty")]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
-              }),
-              _c("span", [_vm._v("Armenia")]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
-              }),
-              _c("span", [_vm._v("281.4K")]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
-              }),
-              _c("span", [_vm._v("19")]),
-            ]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+            }),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "name" }, [
-                _vm._v("Iveta Mukuchyan "),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
-              ]),
-            ]),
+        _c("div", { staticClass: "center-section" }, [
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+            }),
+            _c("span", [_vm._v("Beauty")]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-              }),
-            ]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+            }),
+            _c("span", [_vm._v("Armenia")]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
-              }),
-              _c("span", [_vm._v("Beauty")]),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+            }),
+            _c("span", [_vm._v("281.4K")]),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+            }),
+            _c("span", [_vm._v("19")]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item" }, [
+        _c("div", { staticClass: "left-section" }, [
+          _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+          _vm._v(" "),
+          _c("div", [
+            _c("div", { staticClass: "name" }, [
+              _vm._v("Iveta Mukuchyan "),
+              _c("img", { attrs: { src: "/images/icons/done.png", alt: "" } }),
             ]),
             _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
-              }),
-              _c("span", [_vm._v("Armenia")]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
-              }),
-              _c("span", [_vm._v("281.4K")]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
-              }),
-              _c("span", [_vm._v("19")]),
-            ]),
+            _c("div", { staticClass: "sub-name" }, [_vm._v("iveta.mukuchyan")]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "right-section" }, [
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "center-section" }, [
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+            }),
+            _c("span", [_vm._v("Beauty")]),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+            }),
+            _c("span", [_vm._v("Armenia")]),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+            }),
+            _c("span", [_vm._v("281.4K")]),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+            }),
+            _c("span", [_vm._v("19")]),
           ]),
         ]),
       ]),

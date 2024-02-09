@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -21,7 +22,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
     ];
 
     /**
@@ -35,17 +35,42 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+     * @return HasOne
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'created_at' => 'datetime:d/m/Y - H:i',
-    ];
-
-    public function emails()
+    public function instagram(): HasOne
     {
-        return $this->belongsToMany(Email::class, 'user_emails');
+        return $this->hasOne(Instagram::class, 'user_id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function twitter(): HasOne
+    {
+        return $this->hasOne(Twitter::class, 'user_id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function telegram(): HasOne
+    {
+        return $this->hasOne(Telegram::class, 'user_id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function youtube(): HasOne
+    {
+        return $this->hasOne(Youtube::class, 'user_id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function tiktok(): HasOne
+    {
+        return $this->hasOne(TikTok::class, 'user_id');
     }
 }

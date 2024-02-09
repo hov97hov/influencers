@@ -78,7 +78,7 @@
                                 <input
                                     v-model="defaultData.youtube"
                                     type="text"
-                                    placeholder="Your YouTube URL"
+                                    placeholder="Your YouTube Chanel ID"
                                 >
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                 <input
                                     v-model="defaultData.instagram"
                                     type="text"
-                                    placeholder="Your Instagram URL"
+                                    placeholder="Your Instagram Username"
                                 >
                             </div>
                             <div>
@@ -96,7 +96,7 @@
                                 <input
                                     v-model="defaultData.twitter"
                                     type="text"
-                                    placeholder="Your Twitter URL"
+                                    placeholder="Your Twitter Username"
                                 >
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                 <input
                                     v-model="defaultData.tiktok"
                                     type="text"
-                                    placeholder="Your TikTok URL"
+                                    placeholder="Your TikTok Username"
                                 >
                             </div>
                             <div>
@@ -114,7 +114,7 @@
                                 <input
                                     v-model="defaultData.telegram"
                                     type="text"
-                                    placeholder="Your Telegram URL"
+                                    placeholder="Your Telegram Username"
                                 >
                             </div>
                         </div>
@@ -218,7 +218,7 @@
         <div v-if="isLoader" class="loader-overly">
             <div class="lds-dual-ring"></div>
         </div>
-        <notifications group="foo"/>
+        <notifications group="foo" width="400"/>
         <Footer/>
     </div>
 </template>
@@ -280,6 +280,9 @@ export default {
                 },
             }
         }
+    },
+    mounted() {
+
     },
     methods: {
 
@@ -357,6 +360,33 @@ export default {
 </script>
 
 <style lang="scss">
+    .vue-notification-group {
+        top: 20px !important;
+    }
+    .vue-notification.success {
+        background: #ffffff;
+        border-color: #42a85f;
+        .notification-title {
+            font-size: 20px;
+            color: #42a85f;
+        }
+    }
+    .vue-notification.error {
+        background: #ffffff;
+        border-color: #b82e24;
+        .notification-title {
+            font-size: 20px;
+            color: #b82e24;
+        }
+    }
+    .vue-notification {
+        border: 3px solid;
+    }
+
+    .notification-content {
+        font-size: 16px;
+        color: #000000;
+    }
     .loader-overly {
         position: fixed;
         width: 100%;

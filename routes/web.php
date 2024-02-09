@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::post('/register/user', [LoginController::class, 'registerUser']);
+Route::post('/users', [SearchController::class, 'getUsers']);
 
 Route::get('/search', [SearchController::class, 'index']);
 Route::get('/join', [JoinController::class, 'index']);
