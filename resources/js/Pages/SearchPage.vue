@@ -435,7 +435,7 @@ export default {
             users: [],
             paginate: [],
             currentPage: 1,
-            lastPage: null,
+            lastPage: 0,
             activeBtnCountLeft: null,
             activeBtnCountRight: null,
             searchNotSelectedCategories: '',

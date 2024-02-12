@@ -6210,7 +6210,7 @@ __webpack_require__.r(__webpack_exports__);
       users: [],
       paginate: [],
       currentPage: 1,
-      lastPage: null,
+      lastPage: 0,
       activeBtnCountLeft: null,
       activeBtnCountRight: null,
       searchNotSelectedCategories: '',
