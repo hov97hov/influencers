@@ -304,12 +304,12 @@
                     <div class="items">
                         <div
                             class="item"
-                            v-for="item in data"
+                            v-for="(user, index) in users"
                         >
                             <div class="left-section">
                                 <img src="/images/user.png" alt="">
                                 <div>
-                                    <div class="name">Iveta Mukuchyan <img src="/images/icons/done.png" alt=""></div>
+                                    <div class="name">{{user.user_detail.first_name}} {{user.user_detail.last_name}} <img src="/images/icons/done.png" alt=""></div>
                                     <div class="sub-name">iveta.mukuchyan</div>
                                 </div>
                             </div>
@@ -409,17 +409,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="search-paginator">
-                    <div v-for="item in paginate">
-                        <div
-                            class="search-paginator-item"
-                            @click="nextPage(item.url)"
-                            :class="{active : item.active}"
-                        >
-                            {{item.label}}
-                        </div>
-                    </div>
-                </div>
+                <paginate
+                    :page-count="lastPage"
+                    :click-handler="getUsers"
+                    :prev-text="'<'"
+                    :next-text="'>'"
+                    :container-class="'search-paginator'">
+                </paginate>
             </div>
         </div>
         <Footer/>
@@ -436,8 +432,10 @@ export default {
     components: {Footer},
     data() {
         return {
-            data: [],
+            users: [],
             paginate: [],
+            currentPage: 1,
+            lastPage: null,
             activeBtnCountLeft: null,
             activeBtnCountRight: null,
             searchNotSelectedCategories: '',
@@ -466,15 +464,13 @@ export default {
             return self.notSelectedCategories.filter(function (val) {
                 return val.indexOf(self.searchNotSelectedCategories) !== -1;
             })
-        }
+        },
     },
     created() {
         this.getUsers()
     },
     methods: {
-        nextPage(page) {
-            this.getUsers(page)
-        },
+
         hideTransitionPlatform() {
             this.transitionPlatform = false
         },
@@ -558,15 +554,13 @@ export default {
             }
         },
 
-        async getUsers(page) {
-            await axios.post('/users').then(response => {
-                this.data = response.data.data
-                this.paginate = response.data.links
-
-            }).catch(error => {
-                console.log(error)
-            })
-        },
+        getUsers(page = 1) {
+            axios.get(`/users?page=${page}`).then(response => {
+                this.users = response.data.data;
+                this.currentPage = response.data.pagination.current_page;
+                this.lastPage = response.data.pagination.last_page;
+            });
+        }
     },
     directives: {
         ClickOutside
@@ -575,19 +569,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.search-paginator {
-    display: flex;
-    width: 451px;
-    margin: 100px auto 50px;
-    .search-paginator-item {
-        margin: 0 10px;
-        padding: 10px;
-        cursor: pointer;
-        &.active {
-            border: 1px solid #000000;
-        }
-    }
-}
 
 .vs__dropdown-toggle {
     background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;

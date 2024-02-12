@@ -73,4 +73,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(TikTok::class, 'user_id');
     }
+
+    /**
+     * @return HasOne
+     */
+    public function userDetail(): HasOne
+    {
+        return $this->hasOne(UserDetail::class, 'user_id');
+    }
 }

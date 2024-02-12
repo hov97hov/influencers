@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\Interface\UserInterface;
 use App\Repositories\UserRepository;
@@ -17,14 +18,13 @@ class UserService implements UserInterface
 
     /**
      * @param $filter
-     * @return mixed
+     * @return UserCollection
      */
-    public function getUsers($filter): mixed
+    public function getUsers($filter): UserCollection
     {
         $result = $this->userRepository->getUsers($filter);
-        $data = UserResource::collection($result->items());
-//        $result->appends($filter->all());
+        $data = UserResource::collection($result);
 
-        return $data;
+        return new UserCollection($result);
     }
 }

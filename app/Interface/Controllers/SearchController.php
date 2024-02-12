@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Interface\Controllers;
 
 use App\Interface\UserInterface;
 use Illuminate\Contracts\Foundation\Application;
