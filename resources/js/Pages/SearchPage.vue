@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Header :is-home="false"/>
         <div class="search-page-content">
             <div class="container">
                 <div class="search-content">
@@ -426,10 +427,11 @@
 import Footer from "../components/Footer.vue";
 import "vue-select/dist/vue-select.css";
 import ClickOutside from 'vue-click-outside'
+import Header from "../components/Header.vue";
 
 export default {
     name: "SearchPage",
-    components: {Footer},
+    components: {Header, Footer},
     data() {
         return {
             users: [],

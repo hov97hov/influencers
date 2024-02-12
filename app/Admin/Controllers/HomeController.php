@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Interface\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;

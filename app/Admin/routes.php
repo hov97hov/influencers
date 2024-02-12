@@ -12,5 +12,6 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-
+    $router->resource('/users/register', AdminRegisteredUserController::class);
+    $router->resource('/users/approved', AdminApprovedUserController::class);
 });

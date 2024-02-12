@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header/>
+        <Header :is-home="true"/>
         <Banner/>
         <div class="home-page-content">
             <div class="container">

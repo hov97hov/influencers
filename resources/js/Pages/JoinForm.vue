@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Header :is-home="false"/>
         <div class="join-form-content">
             <div class="container">
                 <div class="content">
@@ -229,9 +230,11 @@ import "vue-select/dist/vue-select.css";
 import ClickOutside from "vue-click-outside";
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
+import Header from "../components/Header.vue";
 export default {
     name: "JoinForm",
     components: {
+        Header,
         Footer,
         DatePicker
     },
@@ -282,7 +285,9 @@ export default {
         }
     },
     mounted() {
-
+        if (localStorage.getItem('lang')) {
+            this.$i18n.locale = localStorage.getItem('lang')
+        }
     },
     methods: {
 
@@ -307,8 +312,8 @@ export default {
 
                 this.$notify({
                     group: 'foo',
-                    title: 'Success',
-                    text: 'Registration has been completed successfully',
+                    title: this.$t('success_title'),
+                    text: this.$t('success_text'),
                     type: 'success',
                     duration: 1000,
                     speed: 1000,
@@ -342,8 +347,8 @@ export default {
                 this.isLoader = false
                 this.$notify({
                     group: 'foo',
-                    title: 'ERROR',
-                    text: 'An error has occurred',
+                    title: this.$t('error_title'),
+                    text: this.$t('error_text'),
                     type: 'error',
                     duration: 1000,
                     speed: 1000,

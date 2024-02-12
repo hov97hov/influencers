@@ -1,20 +1,26 @@
 <template>
     <div>
-        <div class="header">
+        <div class="header" :class="{active : !isHome}">
             <div class="container">
                <div class="header-wrapper">
-                   <div class="logo">
-                       <img src="/images/header/logo.svg" alt="">
-                   </div>
-                   <div class="menu">
-                       <div class="btn-content">
-                           <a href="/join">Join as an Influencer</a>
+                   <a href="/">
+                       <div class="logo">
+                           <img src="/images/header/logo.svg" alt="">
+                       </div>
+                   </a>
+                   <div class="menu" :class="{active : !isHome}">
+                       <div class="btn-content" v-if="isHome">
+                           <a href="/join">{{ $t('join_influencer') }}</a>
                            <img src="/images/icons/accardion.png" alt="">
                        </div>
-                       <select id="languageSwitch">
-                           <option value="">ENG</option>
-                           <option value="">RUS</option>
-                           <option value="">ARM</option>
+                       <select
+                           v-model="lang"
+                           @change="setLocaleLanguage"
+                           id="languageSwitch"
+                       >
+                           <option value="en">ENG</option>
+                           <option value="ru">RUS</option>
+                           <option value="am">ARM</option>
                        </select>
                    </div>
                </div>
@@ -28,11 +34,29 @@ export default {
     name: "Header",
     data() {
         return {
-
+            lang: 'en',
         }
     },
-    methods: {
+    props: ['isHome'],
+    mounted() {
+        this.lang = localStorage.getItem('lang')
+        this.$i18n.locale = this.lang
 
+        this.setLocaleLanguage()
+    },
+    methods: {
+        async setLocaleLanguage() {
+            this.$i18n.locale = this.lang
+            localStorage.setItem('lang', this.lang)
+
+           await axios.post('/locale/set', {
+                lang: this.lang
+            }).then(response => {
+                console.log(response)
+            }).catch(error => {
+                console.log(error)
+            })
+        }
     }
 }
 </script>
@@ -46,10 +70,16 @@ export default {
 .header {
     background: transparent;
     width: 100%;
+    &.active {
+        background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);
+    }
     .menu {
         margin-top: 35px;
         display: flex;
         justify-content: flex-end;
+        &.active {
+            margin-top: 0;
+        }
         .btn-content {
             a {
                 display: block;

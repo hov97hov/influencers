@@ -34,4 +34,22 @@ class RegisterUserRequest extends FormRequest
             'additional_information' => 'required',
         ];
     }
+
+    /**
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'first_name.required' => __('validation.required'),
+            'last_name.required' => __('validation.required'),
+            'influencer_name.required' => __('validation.required'),
+            'gender.required' => __('validation.required'),
+            'birthday.required' => __('validation.required'),
+            'email.required' => __('validation.required'),
+            'language.required' => __('validation.required'),
+            'additional_information.required' => __('validation.required'),
+            'email.email' => __('validation.email'),
+        ];
+    }
 }

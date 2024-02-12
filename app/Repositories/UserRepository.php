@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
@@ -16,6 +15,7 @@ class UserRepository
     {
         return User::query()
             ->with('userDetail')
-            ->paginate(1);
+            ->where('status', true)
+            ->paginate(2);
     }
 }

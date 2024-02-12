@@ -5,20 +5,20 @@ import Vue from 'vue';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 import vSelect from "vue-select";
 import Paginate from 'vuejs-paginate'
-import VueI18n from 'vue-i18n'
+import {i18n}  from './i18n'
 import Notifications from 'vue-notification'
 
 Vue.component('paginate', Paginate)
 Vue.component("v-select", vSelect);
-
 Vue.use(Notifications)
 Vue.use(Notifications)
-Vue.use(VueI18n)
 Vue.use(InertiaPlugin);
+
 
 const app = document.getElementById('app');
 
 new Vue({
+    i18n,
     render: (h) =>
         h(InertiaApp, {
             props: {

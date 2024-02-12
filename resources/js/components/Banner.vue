@@ -5,13 +5,13 @@
                 <div class="banner-content">
                     <div class="banner-text-content">
                         <div class="title">
-                            Find Armenian influencers for your brand faster and easier
+                            {{ $t('banner_text') }}
                         </div>
                         <div class="small-title">
-                            Empower your Influencer Marketing
+                            {{ $t('banner_small_text') }}
                         </div>
                         <div class="btn-content">
-                            <a href="/search">Find your Influencer</a>
+                            <a href="/search">{{ $t('find_your_influencer') }}</a>
                         </div>
                     </div>
                 </div>
