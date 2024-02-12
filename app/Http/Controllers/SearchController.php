@@ -18,6 +18,7 @@ class SearchController extends Controller
         $this->userService = $userService;
     }
 
+
     /**
      * @return Response
      */
