@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 
 class LoginController extends Controller
 {
+
     protected LoginInterface $loginService;
     public function __construct(LoginInterface $loginService)
     {
