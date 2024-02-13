@@ -33,7 +33,9 @@
             </div>
             <div class="menu">
                 <div class="btn-content">
-                    <a href="/join">{{ $t('join_influencer') }}</a>
+                    <a class="mb-3" href="/">{{ $t('home') }}</a>
+                    <a class="mb-3" href="/search">{{ $t('find_your_influencer') }}</a>
+                    <a class="mb-3" href="/join">{{ $t('join_influencer') }}</a>
                 </div>
                 <select
                     v-model="lang"

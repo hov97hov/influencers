@@ -6531,6 +6531,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
   data: function data() {
@@ -6699,7 +6701,8 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
       find_your_influencer: 'Find your Influencer',
       error_title: 'ERROR',
       error_text: 'An error has occurred',
-      success_title: 'SUCCESS'
+      success_title: 'SUCCESS',
+      home: 'Main page'
     },
     ru: {
       join_influencer: 'Присоединяйтесь в качестве влиятельного человека',
@@ -6708,7 +6711,8 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
       find_your_influencer: 'Найдите свое влияние',
       error_title: 'ОШИБКА',
       error_text: 'Произошла ошибка',
-      success_title: 'УСПЕХ'
+      success_title: 'УСПЕХ',
+      home: 'Главная страница'
     },
     am: {
       join_influencer: 'Միացեք որպես ազդեցիկ',
@@ -6717,7 +6721,8 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
       find_your_influencer: 'Գտեք Ձեր ազդակիրը',
       error_title: 'ՍԽԱԼ',
       error_text: 'Սխալ է տեղի ունեցել',
-      success_title: 'ՀԱՋՈՂՈԻԹՅՈՒՆ'
+      success_title: 'ՀԱՋՈՂՈԻԹՅՈՒՆ',
+      home: 'Գլխավոր էջ'
     }
   }
 });
@@ -42493,7 +42498,15 @@ var render = function () {
           _vm._v(" "),
           _c("div", { staticClass: "menu" }, [
             _c("div", { staticClass: "btn-content" }, [
-              _c("a", { attrs: { href: "/join" } }, [
+              _c("a", { staticClass: "mb-3", attrs: { href: "/" } }, [
+                _vm._v(_vm._s(_vm.$t("home"))),
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "mb-3", attrs: { href: "/search" } }, [
+                _vm._v(_vm._s(_vm.$t("find_your_influencer"))),
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "mb-3", attrs: { href: "/join" } }, [
                 _vm._v(_vm._s(_vm.$t("join_influencer"))),
               ]),
             ]),

@@ -15,6 +15,7 @@ export const i18n = new VueI18n({
             error_title: 'ERROR',
             error_text: 'An error has occurred',
             success_title: 'SUCCESS',
+            home: 'Main page',
         },
         ru: {
             join_influencer: 'Присоединяйтесь в качестве влиятельного человека',
@@ -24,6 +25,7 @@ export const i18n = new VueI18n({
             error_title: 'ОШИБКА',
             error_text: 'Произошла ошибка',
             success_title: 'УСПЕХ',
+            home: 'Главная страница',
         },
         am: {
             join_influencer: 'Միացեք որպես ազդեցիկ',
@@ -33,6 +35,7 @@ export const i18n = new VueI18n({
             error_title: 'ՍԽԱԼ',
             error_text: 'Սխալ է տեղի ունեցել',
             success_title: 'ՀԱՋՈՂՈԻԹՅՈՒՆ',
+            home: 'Գլխավոր էջ',
         },
     }
 })
