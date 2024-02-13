@@ -5,26 +5,26 @@
             <div class="container">
                 <div class="content">
                     <div class="title">
-                        Register as an influencer
+                        {{ $t('register_influencer') }}
                     </div>
                     <div class="form">
                         <div class="fields">
                             <div>
-                                <p>First name *</p>
+                                <p>{{ $t('first_name') }} *</p>
                                 <input
                                     v-model="defaultData.first_name"
                                     type="text"
-                                    placeholder="Only you can see this name"
+                                    :placeholder="$t('only_you_can_see_this_name')"
                                     @input="checkErrors('defaultErrorData', 'first_name')"
                                 >
                                 <span class="field-error-message">{{errors.defaultErrorData.first_name ? errors.defaultErrorData.first_name[0] : ''}}</span>
                             </div>
                             <div>
-                                <p>First name *</p>
+                                <p>{{ $t('last_name') }} *</p>
                                 <input
                                     v-model="defaultData.last_name"
                                     type="text"
-                                    placeholder="Only you can see this name"
+                                    :placeholder="$t('only_you_can_see_this_last_name')"
                                     @input="checkErrors('defaultErrorData', 'last_name')"
                                 >
                                 <span class="field-error-message">{{errors.defaultErrorData.last_name ? errors.defaultErrorData.last_name[0] : ''}}</span>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="fields">
                             <div>
-                                <p>Email address *</p>
+                                <p>{{ $t('email') }} *</p>
                                 <input
                                     v-model="defaultData.email"
                                     type="text"
@@ -42,7 +42,7 @@
                                 <span class="field-error-message">{{errors.defaultErrorData.email ? errors.defaultErrorData.email[0] : ''}}</span>
                             </div>
                             <div>
-                                <p>Phone number *</p>
+                                <p>{{ $t('phone') }} *</p>
                                 <input
                                     v-model="defaultData.phone"
                                     type="text"
@@ -54,24 +54,24 @@
                         </div>
                         <div class="field">
                             <div>
-                                <p>Influencer name *</p>
+                                <p>{{ $t('influencer_name') }} *</p>
                                 <input
                                     v-model="defaultData.influencer_name"
                                     type="text"
-                                    placeholder="This will be shown on your profile"
+                                    :placeholder="$t('this_will_be_shown_on_your_profile')"
                                     @input="checkErrors('defaultErrorData', 'influencer_name')"
                                 >
                                 <span class="field-error-message">{{errors.defaultErrorData.influencer_name ? errors.defaultErrorData.influencer_name[0] : ''}}</span>
                             </div>
                         </div>
-                        <div class="form-title">Choose your social medias profiles (at least one)</div>
+                        <div class="form-title">{{ $t('choose_your_social_media_profiles') }} </div>
                         <div class="fields">
                             <div>
                                 <p>Facebook</p>
                                 <input
                                     v-model="defaultData.facebook"
                                     type="text"
-                                    placeholder="Your Facebook URL"
+                                    :placeholder="$t('your_Facebook_utl')"
                                 >
                             </div>
                             <div>
@@ -79,7 +79,7 @@
                                 <input
                                     v-model="defaultData.youtube"
                                     type="text"
-                                    placeholder="Your YouTube Chanel ID"
+                                    :placeholder="$t('your_youtube_chanel_id')"
                                 >
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 <input
                                     v-model="defaultData.instagram"
                                     type="text"
-                                    placeholder="Your Instagram Username"
+                                    :placeholder="$t('your_instagram_username')"
                                 >
                             </div>
                             <div>
@@ -97,7 +97,7 @@
                                 <input
                                     v-model="defaultData.twitter"
                                     type="text"
-                                    placeholder="Your Twitter Username"
+                                    :placeholder="$t('your_twitter_username')"
                                 >
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                                 <input
                                     v-model="defaultData.tiktok"
                                     type="text"
-                                    placeholder="Your TikTok Username"
+                                    :placeholder="$t('your_tiktok_username')"
                                 >
                             </div>
                             <div>
@@ -115,15 +115,15 @@
                                 <input
                                     v-model="defaultData.telegram"
                                     type="text"
-                                    placeholder="Your Telegram Username"
+                                    :placeholder="$t('your_telegram_username')"
                                 >
                             </div>
                         </div>
                         <div class="field">
                           <div>
-                              <p>Category *</p>
+                              <p>{{ $t('category') }} *</p>
                               <button class="select-btn" @click.stop="selectCategory = true">
-                                  Choose your account category
+                                  {{ $t('choose_your_account_category') }}
                                   <img :class="{active : selectCategory}" src="/images/icons/dropdown.svg" alt="">
                               </button>
                               <transition name="slide">
@@ -155,7 +155,7 @@
                         </div>
                         <div class="field">
                             <div>
-                                <p>Account type *</p>
+                                <p>{{ $t('account_type') }} *</p>
                                 <v-select
                                     v-model="defaultData.account_type"
                                     :options="options"
@@ -166,7 +166,7 @@
                         </div>
                         <div class="field">
                             <div>
-                                <p>Gender *</p>
+                                <p>{{ $t('gender') }} *</p>
                                 <v-select
                                     v-model="defaultData.gender"
                                     :options="genderOption"
@@ -177,7 +177,7 @@
                         </div>
                         <div class="field">
                             <div>
-                                <p>Birthday *</p>
+                                <p>{{ $t('birthday') }} *</p>
                                 <date-picker
                                     v-model="defaultData.birthday"
                                     @input="checkErrors('defaultErrorData', 'birthday')"
@@ -187,7 +187,7 @@
                         </div>
                         <div class="field">
                             <div>
-                                <p>Language *</p>
+                                <p>{{ $t('language') }} *</p>
                                 <v-select
                                     v-model="defaultData.language"
                                     :options="options"
@@ -200,17 +200,17 @@
                         </div>
                         <div class="field">
                             <div>
-                                <p>Additional information *</p>
+                                <p>{{ $t('additional_information') }} *</p>
                                 <textarea
                                     v-model="defaultData.additional_information"
-                                    placeholder="Provide additional information about your activity and contact information"
+                                    :placeholder="$t('additional_information_placeholder')"
                                     @input="checkErrors('defaultErrorData', 'additional_information')"
                                 ></textarea>
                                 <span class="field-error-message">{{errors.defaultErrorData.additional_information != '' ? errors.defaultErrorData.additional_information[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="btn-content">
-                            <button @click="registerUser">Submit</button>
+                            <button @click="registerUser">{{ $t('submit') }}</button>
                         </div>
                     </div>
                 </div>

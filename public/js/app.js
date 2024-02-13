@@ -6702,7 +6702,44 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
       error_title: 'ERROR',
       error_text: 'An error has occurred',
       success_title: 'SUCCESS',
-      home: 'Main page'
+      home: 'Main page',
+      search: 'Search',
+      search_filters: 'Search filters',
+      search_result: 'Search result',
+      found: 'Found',
+      account: 'Account',
+      register_influencer: 'Register as an influencer',
+      first_name: 'First name',
+      last_name: 'Last name',
+      email: 'Email address',
+      phone: 'Phone number',
+      influencer_name: 'Influencer name',
+      choose_your_social_media_profiles: 'Choose your social medias profiles (at least one)',
+      account_type: 'Account type',
+      gender: 'Gender',
+      birthday: 'Birthday',
+      language: 'Language',
+      additional_information: 'Additional information',
+      submit: 'Submit',
+      only_you_can_see_this_name: 'Only you can see this name',
+      only_you_can_see_this_last_name: 'Only you can see this last name',
+      this_will_be_shown_on_your_profile: 'This will be shown on your profile',
+      your_Facebook_utl: 'Your Facebook URL',
+      your_youtube_chanel_id: 'Your YouTube Chanel ID',
+      your_instagram_username: 'Your Instagram Username',
+      your_twitter_username: 'Your Twitter Username',
+      your_tiktok_username: 'Your TikTok Username',
+      your_telegram_username: 'Your Telegram Username',
+      choose_your_account_category: 'Choose your account category',
+      additional_information_placeholder: 'Provide additional information about your activity and contact information',
+      platform: 'Platform',
+      location: 'Location',
+      age: 'Age',
+      number_of_followers: 'Number of followers',
+      number_of_posts: 'Number of posts',
+      last_post: 'Last post',
+      required_keywords: 'Required keywords',
+      negative_keywords: 'Negative keywords'
     },
     ru: {
       join_influencer: 'Присоединяйтесь в качестве влиятельного человека',
@@ -6712,7 +6749,45 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
       error_title: 'ОШИБКА',
       error_text: 'Произошла ошибка',
       success_title: 'УСПЕХ',
-      home: 'Главная страница'
+      home: 'Главная страница',
+      search: 'Поиск',
+      search_filters: 'Поисковые фильтры',
+      search_result: 'Результат поиска',
+      found: 'Найдено',
+      account: 'Счета',
+      register_influencer: 'Зарегистрируйтесь в качестве влиятельного лица',
+      first_name: 'Имя',
+      last_name: 'Фамилия',
+      email: 'Электронной почты',
+      phone: 'Телефон',
+      influencer_name: 'Имя влиятельного лица',
+      choose_your_social_media_profiles: 'Выберите свои профили в социальных сетях (хотя бы один)',
+      category: 'Категория',
+      account_type: 'Тип учетной записи',
+      gender: 'Пол',
+      birthday: 'День рождения',
+      language: 'Язык',
+      additional_information: 'Дополнительная информация',
+      submit: 'Представить',
+      only_you_can_see_this_name: 'Только ты можешь видеть это имя',
+      only_you_can_see_this_last_name: 'Только ты можешь увидеть это последнее имя',
+      this_will_be_shown_on_your_profile: 'Это будет показано в вашем профиле',
+      your_Facebook_utl: 'Ваш URL на Facebook',
+      your_youtube_chanel_id: 'Ваш идентификатор Шанель на YouTube',
+      your_instagram_username: 'Ваше Имя Пользователя В Instagram',
+      your_twitter_username: 'Ваше Имя Пользователя В Twitter',
+      your_tiktok_username: 'Ваше Имя Пользователя В TikTok',
+      your_telegram_username: 'Ваше Имя Пользователя Telegram',
+      choose_your_account_category: 'Выберите категорию своего аккаунта',
+      additional_information_placeholder: 'Предоставьте дополнительную информацию о своей деятельности и контактную информацию',
+      platform: 'Платформа',
+      location: 'местоположение',
+      age: 'возраст',
+      number_of_followers: 'Количество подписчиков',
+      number_of_posts: 'Количество должностей',
+      last_post: 'Последнее сообщение',
+      required_keywords: 'Обязательные ключевые слова',
+      negative_keywords: 'Отрицательные ключевые слова'
     },
     am: {
       join_influencer: 'Միացեք որպես ազդեցիկ',
@@ -6722,7 +6797,45 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
       error_title: 'ՍԽԱԼ',
       error_text: 'Սխալ է տեղի ունեցել',
       success_title: 'ՀԱՋՈՂՈԻԹՅՈՒՆ',
-      home: 'Գլխավոր էջ'
+      home: 'Գլխավոր էջ',
+      search: 'Որոնում',
+      search_filters: 'Որոնման զտիչներ',
+      search_result: 'Որոնման արդյունքը',
+      found: 'Գտնվել է',
+      account: 'Հաշիվներ',
+      register_influencer: 'Գրանցվեք որպես ազդեցիկ',
+      first_name: 'Անուն',
+      last_name: 'Ազգանուն',
+      email: 'Էլ. փոստի հասցե',
+      phone: 'Հեռախոս',
+      influencer_name: 'Ազդեցիկ անուն',
+      choose_your_social_media_profiles: 'Ընտրեք ձեր սոցիալական մեդիայի պրոֆիլները (առնվազն մեկը)',
+      category: 'Կատեգորիա',
+      account_type: 'Հաշվի տեսակը',
+      gender: 'Սեռ',
+      birthday: 'Ծննդյան օր',
+      language: 'Լեզու',
+      additional_information: 'Լրացուցիչ տեղեկություններ',
+      submit: 'Ներկայացնել',
+      only_you_can_see_this_name: 'Միայն դուք կարող եք տեսնել այս անունը',
+      only_you_can_see_this_last_name: 'Միայն դուք կարող եք տեսնել այս ազգանունը',
+      this_will_be_shown_on_your_profile: 'Սա կցուցադրվի Ձեր պրոֆիլում',
+      your_Facebook_utl: 'Ձեր ՈՒՐԼ-ը Facebook-ում',
+      your_youtube_chanel_id: 'Ձեր Chanel ID-ն YouTube-ում',
+      your_instagram_username: 'Ձեր Instagram Օգտվողի Անունը',
+      your_twitter_username: 'Ձեր Twitter Օգտանունը',
+      your_tiktok_username: 'Ձեր TikTok Օգտվողի Անունը',
+      your_telegram_username: 'Ձեր Telegram Օգտվողի Անունը',
+      choose_your_account_category: 'Ընտրեք ձեր հաշվի կատեգորիան',
+      additional_information_placeholder: 'Տրամադրեք լրացուցիչ տեղեկություններ Ձեր գործունեության և կոնտակտային տվյալների վերաբերյալ',
+      platform: 'Հարթակ',
+      location: 'գտնվելու վայրը',
+      age: 'Տարիք',
+      number_of_followers: 'Բաժանորդների քանակը',
+      number_of_posts: 'Պաշտոնների քանակը',
+      last_post: 'Վերջին գրառումը',
+      required_keywords: 'Պարտադիր հիմնաբառեր',
+      negative_keywords: 'Բացասական հիմնաբառեր'
     }
   }
 });
@@ -39889,14 +40002,16 @@ var render = function () {
           _c("div", { staticClass: "content" }, [
             _c("div", { staticClass: "title" }, [
               _vm._v(
-                "\n                    Register as an influencer\n                "
+                "\n                    " +
+                  _vm._s(_vm.$t("register_influencer")) +
+                  "\n                "
               ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form" }, [
               _c("div", { staticClass: "fields" }, [
                 _c("div", [
-                  _c("p", [_vm._v("First name *")]),
+                  _c("p", [_vm._v(_vm._s(_vm.$t("first_name")) + " *")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -39909,7 +40024,7 @@ var render = function () {
                     ],
                     attrs: {
                       type: "text",
-                      placeholder: "Only you can see this name",
+                      placeholder: _vm.$t("only_you_can_see_this_name"),
                     },
                     domProps: { value: _vm.defaultData.first_name },
                     on: {
@@ -39946,7 +40061,7 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("div", [
-                  _c("p", [_vm._v("First name *")]),
+                  _c("p", [_vm._v(_vm._s(_vm.$t("last_name")) + " *")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -39959,7 +40074,7 @@ var render = function () {
                     ],
                     attrs: {
                       type: "text",
-                      placeholder: "Only you can see this name",
+                      placeholder: _vm.$t("only_you_can_see_this_last_name"),
                     },
                     domProps: { value: _vm.defaultData.last_name },
                     on: {
@@ -39998,7 +40113,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "fields" }, [
                 _c("div", [
-                  _c("p", [_vm._v("Email address *")]),
+                  _c("p", [_vm._v(_vm._s(_vm.$t("email")) + " *")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -40042,7 +40157,7 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("div", [
-                  _c("p", [_vm._v("Phone number *")]),
+                  _c("p", [_vm._v(_vm._s(_vm.$t("phone")) + " *")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -40088,7 +40203,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "field" }, [
                 _c("div", [
-                  _c("p", [_vm._v("Influencer name *")]),
+                  _c("p", [_vm._v(_vm._s(_vm.$t("influencer_name")) + " *")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -40101,7 +40216,7 @@ var render = function () {
                     ],
                     attrs: {
                       type: "text",
-                      placeholder: "This will be shown on your profile",
+                      placeholder: _vm.$t("this_will_be_shown_on_your_profile"),
                     },
                     domProps: { value: _vm.defaultData.influencer_name },
                     on: {
@@ -40139,7 +40254,9 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-title" }, [
-                _vm._v("Choose your social medias profiles (at least one)"),
+                _vm._v(
+                  _vm._s(_vm.$t("choose_your_social_media_profiles")) + " "
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "fields" }, [
@@ -40155,7 +40272,10 @@ var render = function () {
                         expression: "defaultData.facebook",
                       },
                     ],
-                    attrs: { type: "text", placeholder: "Your Facebook URL" },
+                    attrs: {
+                      type: "text",
+                      placeholder: _vm.$t("your_Facebook_utl"),
+                    },
                     domProps: { value: _vm.defaultData.facebook },
                     on: {
                       input: function ($event) {
@@ -40186,7 +40306,7 @@ var render = function () {
                     ],
                     attrs: {
                       type: "text",
-                      placeholder: "Your YouTube Chanel ID",
+                      placeholder: _vm.$t("your_youtube_chanel_id"),
                     },
                     domProps: { value: _vm.defaultData.youtube },
                     on: {
@@ -40220,7 +40340,7 @@ var render = function () {
                     ],
                     attrs: {
                       type: "text",
-                      placeholder: "Your Instagram Username",
+                      placeholder: _vm.$t("your_instagram_username"),
                     },
                     domProps: { value: _vm.defaultData.instagram },
                     on: {
@@ -40252,7 +40372,7 @@ var render = function () {
                     ],
                     attrs: {
                       type: "text",
-                      placeholder: "Your Twitter Username",
+                      placeholder: _vm.$t("your_twitter_username"),
                     },
                     domProps: { value: _vm.defaultData.twitter },
                     on: {
@@ -40286,7 +40406,7 @@ var render = function () {
                     ],
                     attrs: {
                       type: "text",
-                      placeholder: "Your TikTok Username",
+                      placeholder: _vm.$t("your_tiktok_username"),
                     },
                     domProps: { value: _vm.defaultData.tiktok },
                     on: {
@@ -40314,7 +40434,7 @@ var render = function () {
                     ],
                     attrs: {
                       type: "text",
-                      placeholder: "Your Telegram Username",
+                      placeholder: _vm.$t("your_telegram_username"),
                     },
                     domProps: { value: _vm.defaultData.telegram },
                     on: {
@@ -40337,7 +40457,7 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("p", [_vm._v("Category *")]),
+                    _c("p", [_vm._v(_vm._s(_vm.$t("category")) + " *")]),
                     _vm._v(" "),
                     _c(
                       "button",
@@ -40352,7 +40472,9 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                              Choose your account category\n                              "
+                          "\n                              " +
+                            _vm._s(_vm.$t("choose_your_account_category")) +
+                            "\n                              "
                         ),
                         _c("img", {
                           class: { active: _vm.selectCategory },
@@ -40446,7 +40568,7 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("p", [_vm._v("Account type *")]),
+                    _c("p", [_vm._v(_vm._s(_vm.$t("account_type")) + " *")]),
                     _vm._v(" "),
                     _c("v-select", {
                       attrs: { options: _vm.options },
@@ -40485,7 +40607,7 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("p", [_vm._v("Gender *")]),
+                    _c("p", [_vm._v(_vm._s(_vm.$t("gender")) + " *")]),
                     _vm._v(" "),
                     _c("v-select", {
                       attrs: { options: _vm.genderOption },
@@ -40521,7 +40643,7 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("p", [_vm._v("Birthday *")]),
+                    _c("p", [_vm._v(_vm._s(_vm.$t("birthday")) + " *")]),
                     _vm._v(" "),
                     _c("date-picker", {
                       on: {
@@ -40556,7 +40678,7 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("p", [_vm._v("Language *")]),
+                    _c("p", [_vm._v(_vm._s(_vm.$t("language")) + " *")]),
                     _vm._v(" "),
                     _c("v-select", {
                       attrs: { options: _vm.options },
@@ -40592,7 +40714,9 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "field" }, [
                 _c("div", [
-                  _c("p", [_vm._v("Additional information *")]),
+                  _c("p", [
+                    _vm._v(_vm._s(_vm.$t("additional_information")) + " *"),
+                  ]),
                   _vm._v(" "),
                   _c("textarea", {
                     directives: [
@@ -40604,8 +40728,7 @@ var render = function () {
                       },
                     ],
                     attrs: {
-                      placeholder:
-                        "Provide additional information about your activity and contact information",
+                      placeholder: _vm.$t("additional_information_placeholder"),
                     },
                     domProps: { value: _vm.defaultData.additional_information },
                     on: {
@@ -40645,7 +40768,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "btn-content" }, [
                 _c("button", { on: { click: _vm.registerUser } }, [
-                  _vm._v("Submit"),
+                  _vm._v(_vm._s(_vm.$t("submit"))),
                 ]),
               ]),
             ]),
@@ -40699,7 +40822,16 @@ var render = function () {
           "div",
           { staticClass: "container" },
           [
-            _vm._m(0),
+            _c("div", { staticClass: "search-content" }, [
+              _c("input", {
+                attrs: {
+                  type: "text",
+                  placeholder: "Keywords: fashion, design, marketing",
+                },
+              }),
+              _vm._v(" "),
+              _c("button", [_vm._v(_vm._s(_vm.$t("search")))]),
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "filter-vars" }, [
               _vm.defaultData.accountType
@@ -40829,14 +40961,16 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "input-filter-content" }, [
-              _c("div", { staticClass: "title" }, [_vm._v("Search filters")]),
+              _c("div", { staticClass: "title" }, [
+                _vm._v(_vm._s(_vm.$t("search_filters"))),
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "items" }, [
                 _c("div", { staticClass: "fields" }, [
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Platform")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("platform")))]),
                       _vm._v(" "),
                       _c(
                         "button",
@@ -41030,7 +41164,7 @@ var render = function () {
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Category")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("category")))]),
                       _vm._v(" "),
                       _c(
                         "button",
@@ -41224,7 +41358,7 @@ var render = function () {
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Account type")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("account_type")))]),
                       _vm._v(" "),
                       _c("v-select", {
                         attrs: { options: _vm.options },
@@ -41243,7 +41377,7 @@ var render = function () {
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Location")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("location")))]),
                       _vm._v(" "),
                       _c("v-select", {
                         attrs: { options: _vm.options },
@@ -41262,7 +41396,7 @@ var render = function () {
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Gender")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("gender")))]),
                       _vm._v(" "),
                       _c("v-select", {
                         attrs: { options: _vm.options },
@@ -41281,7 +41415,7 @@ var render = function () {
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Age")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("age")))]),
                       _vm._v(" "),
                       _c("v-select", {
                         attrs: { options: _vm.options },
@@ -41300,7 +41434,7 @@ var render = function () {
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Number of followers")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("number_of_followers")))]),
                       _vm._v(" "),
                       _c(
                         "button",
@@ -41716,7 +41850,7 @@ var render = function () {
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Number of posts")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("number_of_posts")))]),
                       _vm._v(" "),
                       _c("v-select", {
                         attrs: { options: _vm.options },
@@ -41735,7 +41869,7 @@ var render = function () {
                   _c(
                     "div",
                     [
-                      _c("p", [_vm._v("Last post")]),
+                      _c("p", [_vm._v(_vm._s(_vm.$t("last_post")))]),
                       _vm._v(" "),
                       _c("v-select", {
                         attrs: { options: _vm.options },
@@ -41751,17 +41885,36 @@ var render = function () {
                     1
                   ),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _c("div", [
+                    _c("p", [_vm._v(_vm._s(_vm.$t("required_keywords")))]),
+                    _vm._v(" "),
+                    _c("input", { attrs: { type: "text" } }),
+                  ]),
                   _vm._v(" "),
-                  _vm._m(2),
+                  _c("div", [
+                    _c("p", [_vm._v(_vm._s(_vm.$t("negative_keywords")))]),
+                    _vm._v(" "),
+                    _c("input", { attrs: { type: "text" } }),
+                  ]),
                 ]),
               ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "search-result" }, [
-              _vm._m(3),
+              _c("div", { staticClass: "title" }, [
+                _c("div", [_vm._v(_vm._s(_vm.$t("search_result")))]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    _vm._s(_vm.$t("found")) +
+                      " 125 " +
+                      _vm._s(_vm.$t("account")) +
+                      " "
+                  ),
+                ]),
+              ]),
               _vm._v(" "),
-              _vm._m(4),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "div",
@@ -41792,15 +41945,15 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _vm._m(5, true),
+                    _vm._m(1, true),
                     _vm._v(" "),
-                    _vm._m(6, true),
+                    _vm._m(2, true),
                   ])
                 }),
                 0
               ),
               _vm._v(" "),
-              _vm._m(7),
+              _vm._m(3),
             ]),
             _vm._v(" "),
             _c("paginate", {
@@ -41823,51 +41976,6 @@ var render = function () {
   )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "search-content" }, [
-      _c("input", {
-        attrs: {
-          type: "text",
-          placeholder: "Keywords: fashion, design, marketing",
-        },
-      }),
-      _vm._v(" "),
-      _c("button", [_vm._v("Search")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Required keywords")]),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "text" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Negative keywords")]),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "text" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "title" }, [
-      _c("div", [_vm._v("Search result")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("Found 125 accounts")]),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

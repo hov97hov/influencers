@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="search-content">
                     <input type="text" placeholder="Keywords: fashion, design, marketing">
-                    <button>Search</button>
+                    <button>{{ $t('search') }}</button>
                 </div>
                 <div class="filter-vars">
                     <div v-if="defaultData.accountType">
@@ -58,11 +58,11 @@
                     </div>
                 </div>
                 <div class="input-filter-content">
-                    <div class="title">Search filters</div>
+                    <div class="title">{{ $t('search_filters') }}</div>
                     <div class="items">
                         <div class="fields">
                             <div>
-                                <p>Platform</p>
+                                <p>{{ $t('platform') }}</p>
                                 <button class="select-btn" @click.stop="transitionPlatform = true">
                                     {{ selectedCategories[0] }}
                                     {{ selectedCategories[1] ? `,` : `` }}
@@ -103,7 +103,7 @@
                                 </transition>
                             </div>
                             <div>
-                                <p>Category</p>
+                                <p>{{ $t('category') }}</p>
                                 <button class="select-btn" @click.stop="transitionCategory = true">
                                     {{ selectedCategories[0] }}
                                     {{ selectedCategories[1] ? `,` : `` }}
@@ -144,23 +144,23 @@
                                 </transition>
                             </div>
                             <div>
-                                <p>Account type</p>
+                                <p>{{ $t('account_type') }}</p>
                                 <v-select v-model="defaultData.accountType" :options="options"></v-select>
                             </div>
                             <div>
-                                <p>Location</p>
+                                <p>{{ $t('location') }}</p>
                                 <v-select v-model="defaultData.location" :options="options"></v-select>
                             </div>
                             <div>
-                                <p>Gender</p>
+                                <p>{{ $t('gender') }}</p>
                                 <v-select v-model="defaultData.gender" :options="options"></v-select>
                             </div>
                             <div>
-                                <p>Age</p>
+                                <p>{{ $t('age') }}</p>
                                 <v-select v-model="defaultData.age" :options="options"></v-select>
                             </div>
                             <div>
-                                <p>Number of followers</p>
+                                <p>{{ $t('number_of_followers') }}</p>
                                 <button class="select-btn" @click.stop="numberFollowers = true">
                                     {{ defaultData.searchFollowerCountLeft }}
                                     {{ defaultData.searchFollowerCountLeft ? `>` : `` }}
@@ -253,19 +253,19 @@
                                 </transition>
                             </div>
                             <div>
-                                <p>Number of posts</p>
+                                <p>{{ $t('number_of_posts') }}</p>
                                 <v-select v-model="defaultData.numberFollowers" :options="options"></v-select>
                             </div>
                             <div>
-                                <p>Last post</p>
+                                <p>{{ $t('last_post') }}</p>
                                 <v-select v-model="defaultData.numberPosts" :options="options"></v-select>
                             </div>
                             <div>
-                                <p>Required keywords</p>
+                                <p>{{ $t('required_keywords') }}</p>
                                 <input type="text">
                             </div>
                             <div>
-                                <p>Negative keywords</p>
+                                <p>{{ $t('negative_keywords') }}</p>
                                 <input type="text">
                             </div>
                         </div>
@@ -273,8 +273,8 @@
                 </div>
                 <div class="search-result">
                     <div class="title">
-                        <div>Search result</div>
-                        <div>Found 125 accounts</div>
+                        <div>{{ $t('search_result') }}</div>
+                        <div>{{ $t('found') }} 125 {{ $t('account') }} </div>
                     </div>
                     <div class="search-result-header">
                         <div>
