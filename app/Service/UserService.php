@@ -23,6 +23,7 @@ class UserService implements UserInterface
     public function getUsers($filter): UserCollection
     {
         $result = $this->userRepository->getUsers($filter);
+
         return new UserCollection($result);
     }
 }

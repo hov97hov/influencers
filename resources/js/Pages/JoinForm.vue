@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header :is-home="false"/>
+        <Header :is-show="false"/>
         <div class="join-form-content">
             <div class="container">
                 <div class="content">
@@ -1640,8 +1640,8 @@ export default {
         //
         .join-form-content {
             padding-bottom: 100px;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 0;
+            padding-right: 0;
             background: linear-gradient(134.17deg, #FFFFFF 4.98%, #F1ECF1 94.88%);
             .content {
                 > .title {

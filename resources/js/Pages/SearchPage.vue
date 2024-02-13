@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header :is-home="false"/>
+        <Header :is-show="false"/>
         <div class="search-page-content">
             <div class="container">
                 <div class="search-content">

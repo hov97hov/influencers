@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Http\Controllers\JoinController;
 use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -71,12 +72,12 @@ class AdminApprovedUserController extends AdminController
         $form->text('userDetail.last_name', __('Last Name'));
         $form->mobile('userDetail.phone', __('Phone'));
         $form->text('userDetail.influencer_name', __('Influencer name'));
-        $form->text('userDetail.facebook', __('Facebook username'));
-        $form->text('userDetail.instagram', __('Instagram username'));
-        $form->text('userDetail.tiktok', __('Tiktok username'));
-        $form->text('userDetail.youtube', __('Youtube channel ID'));
-        $form->text('userDetail.twitter', __('Twitter username'));
-        $form->text('userDetail.telegram', __('Telegram username'));
+        $form->text('userDetail.facebook', __('Facebook username'))->disable();
+        $form->text('userDetail.instagram', __('Instagram username'))->disable();
+        $form->text('userDetail.tiktok', __('Tiktok username'))->disable();
+        $form->text('userDetail.youtube', __('Youtube channel ID'))->disable();
+        $form->text('userDetail.twitter', __('Twitter username'))->disable();
+        $form->text('userDetail.telegram', __('Telegram username'))->disable();
         $form->text('userDetail.account_type', __('Account type'));
         $form->text('userDetail.gender', __('Gender'));
         $form->date('userDetail.birthday', __('Birthday'));
