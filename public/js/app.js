@@ -6520,7 +6520,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   props: ['isHome'],
   mounted: function mounted() {
-    this.lang = localStorage.getItem('lang');
+    var storageLang = localStorage.getItem('lang');
+    storageLang ? this.lang = storageLang : this.lang = 'en';
     this.$i18n.locale = this.lang;
     this.setLocaleLanguage();
   },

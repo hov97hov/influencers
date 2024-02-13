@@ -39,7 +39,8 @@ export default {
     },
     props: ['isHome'],
     mounted() {
-        this.lang = localStorage.getItem('lang')
+        const storageLang = localStorage.getItem('lang')
+        storageLang ? this.lang = storageLang : this.lang = 'en'
         this.$i18n.locale = this.lang
 
         this.setLocaleLanguage()
