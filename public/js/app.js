@@ -6161,52 +6161,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -41953,7 +41907,44 @@ var render = function () {
                 0
               ),
               _vm._v(" "),
-              _vm._m(3),
+              _c(
+                "div",
+                { staticClass: "items-mobile" },
+                _vm._l(_vm.users, function (user, index) {
+                  return _c("div", { staticClass: "item" }, [
+                    _c("div", { staticClass: "left-section" }, [
+                      _c("img", {
+                        attrs: { src: "/images/user.png", alt: "" },
+                      }),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("div", { staticClass: "name" }, [
+                          _vm._v(
+                            _vm._s(user.user_detail.first_name) +
+                              " " +
+                              _vm._s(user.user_detail.last_name) +
+                              " "
+                          ),
+                          _c("img", {
+                            attrs: { src: "/images/icons/done.png", alt: "" },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "sub-name" }, [
+                          _vm._v("iveta.mukuchyan"),
+                        ]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3, true),
+                    _vm._v(" "),
+                    _vm._m(4, true),
+                    _vm._v(" "),
+                    _vm._m(5, true),
+                  ])
+                }),
+                0
+              ),
             ]),
             _vm._v(" "),
             _c("paginate", {
@@ -42078,292 +42069,109 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "items-mobile" }, [
-      _c("div", { staticClass: "item" }, [
-        _c("div", { staticClass: "left-section" }, [
-          _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "name" }, [
-              _vm._v("Iveta Mukuchyan "),
-              _c("img", { attrs: { src: "/images/icons/done.png", alt: "" } }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "sub-name" }, [_vm._v("iveta.mukuchyan")]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "right-section" }, [
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-            }),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "center-section" }, [
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color.png", alt: "" },
-            }),
-            _c("span", [_vm._v("Beauty")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
-            }),
-            _c("span", [_vm._v("Armenia")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
-            }),
-            _c("span", [_vm._v("281.4K")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
-            }),
-            _c("span", [_vm._v("19")]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "icon-section" }, [
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/fb-small.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/Subtract-small.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/Vector-small.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/twitter-small.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/tiktok-small.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
-            }),
-          ]),
-        ]),
+    return _c("div", { staticClass: "right-section" }, [
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+        }),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "item" }, [
-        _c("div", { staticClass: "left-section" }, [
-          _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "name" }, [
-              _vm._v("Iveta Mukuchyan "),
-              _c("img", { attrs: { src: "/images/icons/done.png", alt: "" } }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "sub-name" }, [_vm._v("iveta.mukuchyan")]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "right-section" }, [
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-            }),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "center-section" }, [
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color.png", alt: "" },
-            }),
-            _c("span", [_vm._v("Beauty")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
-            }),
-            _c("span", [_vm._v("Armenia")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
-            }),
-            _c("span", [_vm._v("281.4K")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
-            }),
-            _c("span", [_vm._v("19")]),
-          ]),
-        ]),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+        }),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "item" }, [
-        _c("div", { staticClass: "left-section" }, [
-          _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "name" }, [
-              _vm._v("Iveta Mukuchyan "),
-              _c("img", { attrs: { src: "/images/icons/done.png", alt: "" } }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "sub-name" }, [_vm._v("iveta.mukuchyan")]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "right-section" }, [
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-            }),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "center-section" }, [
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color.png", alt: "" },
-            }),
-            _c("span", [_vm._v("Beauty")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
-            }),
-            _c("span", [_vm._v("Armenia")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
-            }),
-            _c("span", [_vm._v("281.4K")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("img", {
-              attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
-            }),
-            _c("span", [_vm._v("19")]),
-          ]),
-        ]),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "center-section" }, [
+      _c("div", [
+        _c("img", { attrs: { src: "/images/icons/Icon-color.png", alt: "" } }),
+        _c("span", [_vm._v("Beauty")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", { attrs: { src: "/images/icons/Icon-color2.png", alt: "" } }),
+        _c("span", [_vm._v("Armenia")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", { attrs: { src: "/images/icons/Icon-color3.png", alt: "" } }),
+        _c("span", [_vm._v("281.4K")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", { attrs: { src: "/images/icons/Icon-color5.png", alt: "" } }),
+        _c("span", [_vm._v("19")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "icon-section" }, [
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/fb-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Subtract-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Vector-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/twitter-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/tiktok-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
+        }),
       ]),
     ])
   },

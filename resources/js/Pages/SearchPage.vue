@@ -331,11 +331,11 @@
                         </div>
                     </div>
                     <div class="items-mobile">
-                        <div class="item">
+                        <div class="item" v-for="(user, index) in users">
                             <div class="left-section">
                                 <img src="/images/user.png" alt="">
                                 <div>
-                                    <div class="name">Iveta Mukuchyan <img src="/images/icons/done.png" alt=""></div>
+                                    <div class="name">{{user.user_detail.first_name}} {{user.user_detail.last_name}} <img src="/images/icons/done.png" alt=""></div>
                                     <div class="sub-name">iveta.mukuchyan</div>
                                 </div>
                             </div>
@@ -360,52 +360,6 @@
                                 <div><img src="/images/icons/small/twitter-small.png" alt=""></div>
                                 <div><img src="/images/icons/small/tiktok-small.png" alt=""></div>
                                 <div><img src="/images/icons/small/telegram-small.png" alt=""></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="left-section">
-                                <img src="/images/user.png" alt="">
-                                <div>
-                                    <div class="name">Iveta Mukuchyan <img src="/images/icons/done.png" alt=""></div>
-                                    <div class="sub-name">iveta.mukuchyan</div>
-                                </div>
-                            </div>
-                            <div class="right-section">
-                                <div><img src="/images/icons/small/facebook.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter.png" alt=""></div>
-                                <div><img src="/images/icons/small/TikTok.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram.png" alt=""></div>
-                            </div>
-                            <div class="center-section">
-                                <div><img src="/images/icons/Icon-color.png" alt=""><span>Beauty</span></div>
-                                <div><img src="/images/icons/Icon-color2.png" alt=""><span>Armenia</span></div>
-                                <div><img src="/images/icons/Icon-color3.png" alt=""><span>281.4K</span></div>
-                                <div><img src="/images/icons/Icon-color5.png" alt=""><span>19</span></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="left-section">
-                                <img src="/images/user.png" alt="">
-                                <div>
-                                    <div class="name">Iveta Mukuchyan <img src="/images/icons/done.png" alt=""></div>
-                                    <div class="sub-name">iveta.mukuchyan</div>
-                                </div>
-                            </div>
-                            <div class="right-section">
-                                <div><img src="/images/icons/small/facebook.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter.png" alt=""></div>
-                                <div><img src="/images/icons/small/TikTok.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram.png" alt=""></div>
-                            </div>
-                            <div class="center-section">
-                                <div><img src="/images/icons/Icon-color.png" alt=""><span>Beauty</span></div>
-                                <div><img src="/images/icons/Icon-color2.png" alt=""><span>Armenia</span></div>
-                                <div><img src="/images/icons/Icon-color3.png" alt=""><span>281.4K</span></div>
-                                <div><img src="/images/icons/Icon-color5.png" alt=""><span>19</span></div>
                             </div>
                         </div>
                     </div>
