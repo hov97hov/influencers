@@ -1,7 +1,5 @@
 <?php
 
-use App\Admin\Controllers\AdminApprovedUserController;
-use App\Admin\Controllers\AdminRegisteredUserController;
 use Illuminate\Routing\Router;
 
 Admin::routes();
