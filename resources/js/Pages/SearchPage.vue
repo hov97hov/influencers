@@ -8,8 +8,15 @@
                     <button>{{ $t('search') }}</button>
                 </div>
                 <div class="filter-vars">
+                    <div v-if="defaultData.platform">
+                        {{ defaultData.platform }}
+                        <img
+                            @click="defaultData.platform = '' "
+                            src="/images/icons/close-icon.png"
+                        >
+                    </div>
                     <div v-if="defaultData.accountType">
-                        {{ defaultData.accountType }}
+                        {{ defaultData.accountType.name }}
                         <img
                             @click="defaultData.accountType = '' "
                             src="/images/icons/close-icon.png"
@@ -29,16 +36,20 @@
                              src="/images/icons/close-icon.png"
                         >
                     </div>
-                    <div v-if="defaultData.Age">
-                        {{ defaultData.Age }}
+                    <div v-if="defaultData.age">
+                        {{formatDate(defaultData.age)}}
                         <img
-                            @click="defaultData.Age = '' "
+                            @click="defaultData.age = '' "
                             src="/images/icons/close-icon.png"
                         >
                     </div>
-                    <div v-if="defaultData.numberFollowers">{{ defaultData.numberFollowers }}
+                    <div v-if="defaultData.searchFollowerCountLeft || defaultData.searchFollowerCountRight">
+                        <span style="margin-right: 5px">Followers count</span>
+                        <span v-if="defaultData.searchFollowerCountLeft">{{ defaultData.searchFollowerCountLeft }}</span>
+                        <span style="margin: 0 5px" v-if="defaultData.searchFollowerCountLeft && defaultData.searchFollowerCountRight">></span>
+                        <span v-if="defaultData.searchFollowerCountRight">{{ defaultData.searchFollowerCountRight }}</span>
                         <img
-                            @click="defaultData.numberFollowers = '' "
+                            @click="resetFiledDate(defaultData)"
                             src="/images/icons/close-icon.png" alt=""
                         >
                     </div>
@@ -62,14 +73,14 @@
                     <div class="items">
                         <div class="fields">
                             <div>
-                                <p>{{ $t('platform') }}</p>
-                                <button class="select-btn" @click.stop="transitionPlatform = true">
-                                    {{ selectedCategories[0] }}
-                                    {{ selectedCategories[1] ? `,` : `` }}
-                                    {{ selectedCategories[1] }}
-                                    {{ selectedCategories.length > 2 ? `...` : `` }}
-                                    <img :class="{active : transitionPlatform}" src="/images/icons/dropdown.svg" alt="">
-                                </button>
+                                <div>
+                                    <p>{{ $t('platform') }}</p>
+                                    <v-select
+                                        v-model="defaultData.platform"
+                                        :options="platforms"
+                                        @input="filterUrl('platform', defaultData.platform)"
+                                    ></v-select>
+                                </div>
                                 <transition name="slide">
                                     <div class="transition-select" v-click-outside="hideTransitionPlatform"
                                          v-if="transitionPlatform">
@@ -145,19 +156,35 @@
                             </div>
                             <div>
                                 <p>{{ $t('account_type') }}</p>
-                                <v-select v-model="defaultData.accountType" :options="options"></v-select>
+                                <v-select
+                                    v-model="defaultData.accountType"
+                                    :options="accountTypes"
+                                    label="name"
+                                    @input="filterUrl('accountTypes', defaultData.accountType.value)"
+                                ></v-select>
                             </div>
                             <div>
                                 <p>{{ $t('location') }}</p>
-                                <v-select v-model="defaultData.location" :options="options"></v-select>
+                                <v-select
+                                    v-model="defaultData.location"
+                                    :options="locations"
+                                    @input="filterUrl('locations', defaultData.location)"
+                                ></v-select>
                             </div>
                             <div>
                                 <p>{{ $t('gender') }}</p>
-                                <v-select v-model="defaultData.gender" :options="options"></v-select>
+                                <v-select
+                                    v-model="defaultData.gender"
+                                    :options="gender"
+                                    @input="filterUrl('gender', defaultData.gender)"
+                                ></v-select>
                             </div>
                             <div>
                                 <p>{{ $t('age') }}</p>
-                                <v-select v-model="defaultData.age" :options="options"></v-select>
+                                <date-picker
+                                    v-model="defaultData.age"
+                                    @input="filterUrl('age', defaultData.age)"
+                                ></date-picker>
                             </div>
                             <div>
                                 <p>{{ $t('number_of_followers') }}</p>
@@ -382,10 +409,13 @@ import Footer from "../components/Footer.vue";
 import "vue-select/dist/vue-select.css";
 import ClickOutside from 'vue-click-outside'
 import Header from "../components/Header.vue";
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+import json from '../../../public/files/countries.json'
 
 export default {
     name: "SearchPage",
-    components: {Header, Footer},
+    components: {Header, Footer, DatePicker},
     data() {
         return {
             users: [],
@@ -395,6 +425,29 @@ export default {
             activeBtnCountLeft: null,
             activeBtnCountRight: null,
             searchNotSelectedCategories: '',
+            locations: json,
+            platforms: [
+                'Instagram',
+                'Facebook',
+                'Telegram',
+                'Twitter',
+                'TikTok',
+                'Youtube',
+            ],
+            gender: [
+                'Male',
+                'Female',
+            ],
+            accountTypes: [
+                {
+                    value: 0,
+                    name: 'Not verifed',
+                },
+                {
+                    value: 1,
+                    name: 'Verifd',
+                }
+            ],
             defaultData: {
                 accountType: '',
                 location: '',
@@ -406,7 +459,7 @@ export default {
                 searchFollowerCountLeft: '',
                 searchFollowerCountRight: '',
             },
-            notSelectedCategories: ['aaa', 'bbb', 'ccc', 'ddd', 'eeee', 'fff'],
+            notSelectedCategories: ['Artist', 'Blogger', 'Digital creator', 'Photoghraper', 'Entrepreneur', 'Public figure'],
             selectedCategories: [],
             numberFollowers: false,
             transitionPlatform: false,
@@ -415,18 +468,34 @@ export default {
         }
     },
     computed: {
-        filterNotSelectedCategories: function () {
-            var self = this;
-            return self.notSelectedCategories.filter(function (val) {
-                return val.indexOf(self.searchNotSelectedCategories) !== -1;
+        filterNotSelectedCategories ()  {
+            return this.notSelectedCategories.filter(val => {
+                return val.indexOf(this.searchNotSelectedCategories) !== -1;
             })
         },
     },
+
     created() {
         this.getUsers()
     },
-    methods: {
 
+    methods: {
+        resetFiledDate(data) {
+            data.searchFollowerCountLeft = ''
+            data.searchFollowerCountRight = ''
+        },
+
+        formatDate(date) {
+            function pad(number, length) {
+                let str = '' + number;
+                while (str.length < length) {
+                    str = '0' + str;
+                }
+                return str;
+            }
+
+            return date.getFullYear() + "-" + pad((date.getMonth() + 1), 2) + "-" + pad(date.getDate(), 2);
+        },
         hideTransitionPlatform() {
             this.transitionPlatform = false
         },
@@ -463,6 +532,8 @@ export default {
             if (count === "1M") {
                 this.defaultData.searchFollowerCountLeft = 1000000
             }
+
+            this.filterUrl('minFollowers', this.defaultData.searchFollowerCountLeft)
         },
 
         followerCountRight(count) {
@@ -490,6 +561,8 @@ export default {
             if (count === "1M") {
                 this.defaultData.searchFollowerCountRight = 1000000
             }
+
+            this.filterUrl('maxFollowers', this.defaultData.searchFollowerCountRight)
         },
 
         selectedCategory(value) {
@@ -499,6 +572,7 @@ export default {
                 this.selectedCategories.push(value);
                 this.selectedCategories.sort()
             }
+            this.filterUrl('categories', this.selectedCategories)
         },
 
         notSelectedCategory(value) {
@@ -508,6 +582,7 @@ export default {
                 this.notSelectedCategories.push(value);
                 this.notSelectedCategories.sort()
             }
+            this.filterUrl('categories', this.selectedCategories)
         },
 
         getUsers(page = 1) {
@@ -516,6 +591,10 @@ export default {
                 this.currentPage = response.data.pagination.current_page;
                 this.lastPage = response.data.pagination.last_page;
             });
+        },
+
+        filterUrl(type, filter) {
+            console.log(type, filter)
         }
     },
     directives: {
@@ -524,7 +603,27 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.mx-icon-calendar {
+    right: 20px !important;
+}
+.mx-input {
+    width: 100%;
+    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);
+    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);
+    border-radius: 20px;
+    border: 0;
+    height: 56px;
+    padding: 0 29px;
+    outline: 0;
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #595656;
+}
 
 .vs__dropdown-toggle {
     background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;

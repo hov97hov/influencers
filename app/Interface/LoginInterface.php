@@ -36,4 +36,11 @@ interface LoginInterface
      * @return string
      */
     public function updateTiktokUsers(): string;
+
+    /**
+     * @param $userDetail
+     * @param $userId
+     * @return bool
+     */
+    public function createUserSocialMedia($userDetail, $userId): bool;
 }

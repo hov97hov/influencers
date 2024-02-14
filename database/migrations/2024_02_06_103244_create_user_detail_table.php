@@ -25,7 +25,8 @@ class CreateUserDetailTable extends Migration
             $table->string('youtube')->nullable();
             $table->string('twitter')->nullable();
             $table->string('telegram')->nullable();
-            $table->string('account_type');
+            $table->string('category');
+            $table->boolean('account_type')->default(false);
             $table->string('gender');
             $table->string('birthday');
             $table->string('language');

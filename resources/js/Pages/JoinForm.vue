@@ -71,7 +71,7 @@
                                 <input
                                     v-model="defaultData.facebook"
                                     type="text"
-                                    :placeholder="$t('your_Facebook_utl')"
+                                    :placeholder="$t('your_facebook')"
                                 >
                             </div>
                             <div>
@@ -79,7 +79,7 @@
                                 <input
                                     v-model="defaultData.youtube"
                                     type="text"
-                                    :placeholder="$t('your_youtube_chanel_id')"
+                                    :placeholder="$t('your_youtube')"
                                 >
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 <input
                                     v-model="defaultData.instagram"
                                     type="text"
-                                    :placeholder="$t('your_instagram_username')"
+                                    :placeholder="$t('your_instagram')"
                                 >
                             </div>
                             <div>
@@ -97,7 +97,7 @@
                                 <input
                                     v-model="defaultData.twitter"
                                     type="text"
-                                    :placeholder="$t('your_twitter_username')"
+                                    :placeholder="$t('your_twitter')"
                                 >
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                                 <input
                                     v-model="defaultData.tiktok"
                                     type="text"
-                                    :placeholder="$t('your_tiktok_username')"
+                                    :placeholder="$t('your_tiktok')"
                                 >
                             </div>
                             <div>
@@ -115,7 +115,7 @@
                                 <input
                                     v-model="defaultData.telegram"
                                     type="text"
-                                    :placeholder="$t('your_telegram_username')"
+                                    :placeholder="$t('your_telegram')"
                                 >
                             </div>
                         </div>
@@ -128,24 +128,10 @@
                               </button>
                               <transition name="slide">
                                   <div class="transition-select" v-click-outside="hideSelectCategory"  v-if="selectCategory">
-                                      <div class="item">
+                                      <div class="item" v-for="item in category">
                                           <label class="form-checkbox-container">
-                                              <span>Personal blog</span>
-                                              <input type="checkbox" checked="checked">
-                                              <span class="checkmark"></span>
-                                          </label>
-                                      </div>
-                                      <div class="item">
-                                          <label class="form-checkbox-container">
-                                              <span>Business consultant</span>
-                                              <input type="checkbox" checked="checked">
-                                              <span class="checkmark"></span>
-                                          </label>
-                                      </div>
-                                      <div class="item">
-                                          <label class="form-checkbox-container">
-                                              <span>Makeup artist</span>
-                                              <input type="checkbox" checked="checked">
+                                              <span>{{item.name}}</span>
+                                              <input type="checkbox" v-model="defaultData.selectCategories" :value="item.id">
                                               <span class="checkmark"></span>
                                           </label>
                                       </div>
@@ -158,7 +144,8 @@
                                 <p>{{ $t('account_type') }} *</p>
                                 <v-select
                                     v-model="defaultData.account_type"
-                                    :options="options"
+                                    :options="accountTypes"
+                                    label="name"
                                     @input="checkErrors('defaultErrorData', 'account_type')"
                                 ></v-select>
                                 <span class="field-error-message">{{errors.defaultErrorData.account_type ? errors.defaultErrorData.account_type[0] : ''}}</span>
@@ -190,7 +177,7 @@
                                 <p>{{ $t('language') }} *</p>
                                 <v-select
                                     v-model="defaultData.language"
-                                    :options="options"
+                                    :options="languages"
                                     @input="checkErrors('defaultErrorData', 'language')"
                                 ></v-select>
                                 <span class="field-error-message">
@@ -242,12 +229,53 @@ export default {
         return {
             isLoader: false,
             selectCategory: false,
-            options: ["foo", "bar", "baz"],
+            accountTypes: [
+                {
+                    value: 0,
+                    name: 'Not verifed',
+                },
+                {
+                    value: 1,
+                    name: 'Verifd',
+                }
+            ],
+            languages: [
+                'Armenia',
+                'Russia',
+                'English',
+            ],
+            category: [
+                {
+                    id: 1,
+                    name: 'Artist',
+                },
+                {
+                    id: 2,
+                    name: 'Blogger',
+                },
+                {
+                    id: 3,
+                    name: 'Digital creator',
+                },
+                {
+                    id: 4,
+                    name: 'Photographer',
+                },
+                {
+                    id: 5,
+                    name: 'Entrepreneur',
+                },
+                {
+                    id: 6,
+                    name: 'Public figure',
+                },
+            ],
             genderOption: ["Male", "Famele"],
             defaultData: {
                 first_name: 'Valod',
                 last_name: 'Valodyan',
                 phone: '37455969696',
+                selectCategories: [],
                 influencer_name: 'es shat gidem inch',
                 facebook: '',
                 instagram: 'hov97mkrtchyan',
@@ -255,7 +283,7 @@ export default {
                 youtube: 'UCmqqdbEjzhryi3R-_qHPExg',
                 twitter: 'Hovo1543569',
                 telegram: 'kalalaallala',
-                account_type: 'esim',
+                account_type: '',
                 gender: '',
                 birthday: '',
                 language: '',
@@ -267,6 +295,7 @@ export default {
                     first_name: '',
                     last_name: '',
                     phone: '',
+                    category: '',
                     influencer_name: '',
                     facebook: '',
                     instagram: '',
@@ -290,13 +319,11 @@ export default {
         }
     },
     methods: {
-
         hideSelectCategory() {
             this.selectCategory = false
         },
 
         checkErrors(obj, field) {
-            console.log(55)
             if (obj) {
                 this.errors[obj][field] = ''
             } else {
@@ -366,6 +393,7 @@ export default {
 
 <style lang="scss">
     .vue-notification-group {
+        width: auto !important;
         top: 20px !important;
     }
     .vue-notification.success {

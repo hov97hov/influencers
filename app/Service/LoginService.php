@@ -31,8 +31,8 @@ class LoginService implements LoginInterface
     {
         try {
             $createNewUser = $this->createNewUser($data);
-            $createUserDetail = $this->createUserDetail($data, $createNewUser->id);
-            $this->createUserSocialMedia($createUserDetail);
+            $createNewUser->categories()->attach($data['selectCategories']);
+            $this->createUserDetail($data, $createNewUser->id);
 
             return [
                 'status' => true,
@@ -50,14 +50,23 @@ class LoginService implements LoginInterface
 
     /**
      * @param $userDetail
+     * @param $userId
      * @return bool
      */
-    public function createUserSocialMedia($userDetail): bool
+    public function createUserSocialMedia($userDetail, $userId): bool
     {
+        $user = User::where('id', $userId)->first();
+
+        $user->instagram()->delete();
+        $user->telegram()->delete();
+        $user->tiktok()->delete();
+        $user->twitter()->delete();
+        $user->youtube()->delete();
+
         $socialMediaPlatforms = ['instagram', 'twitter', 'telegram', 'youtube', 'tiktok'];
 
         foreach ($socialMediaPlatforms as $platform) {
-            if ($userDetail->$platform) {
+            if ($userDetail[$platform]) {
                 $details = [];
 
                 switch ($platform) {
@@ -65,27 +74,27 @@ class LoginService implements LoginInterface
                         $details = $userDetail;
                         break;
                     case 'twitter':
-                        $details['username'] = $userDetail->twitter;
+                        $details['username'] = $userDetail['twitter'];
                         break;
                     case 'telegram':
-                        $details['user'] = $userDetail->telegram;
+                        $details['user'] = $userDetail['telegram'];
                         break;
                     case 'youtube':
                         $details = [
-                            'id' => $userDetail->youtube,
+                            'id' => $userDetail['youtube'],
                             'hl' => 'en',
                             'gl' => 'US',
                         ];
                         break;
                     case 'tiktok':
-                        $details['username'] = $userDetail->tiktok;
+                        $details['username'] = $userDetail['tiktok'];
                         break;
                 }
 
                 $userInfo = $this->rapidApiService->{$platform . 'Api'}($details);
                 if (!isset($userInfo['error'])) {
                     $methodName = 'create' . ucfirst($platform) . 'User';
-                    $this->$methodName($userInfo, $userDetail->user_id);
+                    $this->$methodName($userInfo, $userId);
                 }
             }
         }
@@ -112,7 +121,6 @@ class LoginService implements LoginInterface
      */
     public function createUserDetail($data, $userId): mixed
     {
-
         return UserDetail::create([
             'first_name' => Arr::get($data, 'first_name'),
             'last_name' => Arr::get($data, 'last_name'),
@@ -124,7 +132,8 @@ class LoginService implements LoginInterface
             'youtube' => Arr::get($data, 'youtube'),
             'twitter' => Arr::get($data, 'twitter'),
             'telegram' => Arr::get($data, 'telegram'),
-            'account_type' => Arr::get($data, 'account_type'),
+            'category' => Arr::get($data, 'category'),
+            'account_type' => Arr::get($data, 'account_type.value'),
             'gender' => Arr::get($data, 'gender'),
             'birthday' => $data['birthday'],
             'language' => Arr::get($data, 'language'),
