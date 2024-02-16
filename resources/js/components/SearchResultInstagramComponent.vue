@@ -36,7 +36,7 @@
                 v-for="(user, index) in users"
             >
                 <div class="left-section">
-                    <img :src="user.instagram.image" crossorigin="anonymous" :alt="user.instagram.full_name">
+                    <img :src="user.instagram.image" :alt="user.instagram.full_name">
 
                     <div>
                         <div class="name">

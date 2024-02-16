@@ -48,7 +48,7 @@
                             <span v-if="defaultData.searchFollowerCountLeft">{{ defaultData.searchFollowerCountLeft }}</span>
                             <span style="margin: 0 5px" v-if="defaultData.searchFollowerCountLeft && defaultData.searchFollowerCountRight">></span>
                             <span v-if="defaultData.searchFollowerCountRight">{{ defaultData.searchFollowerCountRight }}</span>
-                            <img @click="resetField('searchFollowerCountLeft')" src="/images/icons/close-icon.png" alt="">
+                            <img @click="resetFiledDate(defaultData)" src="/images/icons/close-icon.png" alt="">
                         </div>
                     </div>
                     <div v-if="defaultData.numberPosts">

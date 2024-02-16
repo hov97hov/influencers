@@ -42792,7 +42792,7 @@ var render = function () {
                           },
                           on: {
                             click: function ($event) {
-                              return _vm.resetField("searchFollowerCountLeft")
+                              return _vm.resetFiledDate(_vm.defaultData)
                             },
                           },
                         }),
@@ -44339,7 +44339,6 @@ var render = function () {
             _c("img", {
               attrs: {
                 src: user.instagram.image,
-                crossorigin: "anonymous",
                 alt: user.instagram.full_name,
               },
             }),
