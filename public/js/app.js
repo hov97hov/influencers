@@ -6173,7 +6173,8 @@ __webpack_require__.r(__webpack_exports__);
       filterValue: '',
       filteredItems: [],
       locations: _public_files_countries_json__WEBPACK_IMPORTED_MODULE_6__,
-      platforms: ['Instagram', 'Facebook', 'Telegram', 'Twitter', 'TikTok', 'Youtube'],
+      platforms: ['Instagram', // 'Facebook',
+      'Telegram', 'Twitter', 'TikTok', 'Youtube'],
       numberPosts: ['> 10', '> 50', '> 100', '> 200'],
       gender: ['Male', 'Female'],
       accountTypes: [{

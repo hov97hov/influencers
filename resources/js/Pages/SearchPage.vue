@@ -384,7 +384,7 @@ export default {
             locations: json,
             platforms: [
                 'Instagram',
-                'Facebook',
+                // 'Facebook',
                 'Telegram',
                 'Twitter',
                 'TikTok',
