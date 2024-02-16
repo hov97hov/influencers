@@ -371,7 +371,6 @@ export default {
 
                 .right-section {
                     display: flex;
-                    justify-content: space-between;
                     align-items: center;
 
                     > div {
