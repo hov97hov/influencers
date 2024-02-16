@@ -306,6 +306,30 @@
                     :platform="defaultData.platform"
                 />
 
+                <SearchResultTwitterComponent
+                    v-if="defaultData.platform === `Twitter`"
+                    :users="users"
+                    :platform="defaultData.platform"
+                />
+
+                <SearchResultYoutubeComponent
+                    v-if="defaultData.platform === `Youtube`"
+                    :users="users"
+                    :platform="defaultData.platform"
+                />
+
+                <SearchResultTikTokComponent
+                    v-if="defaultData.platform === `TikTok`"
+                    :users="users"
+                    :platform="defaultData.platform"
+                />
+
+                <SearchResultTelegramComponent
+                    v-if="defaultData.platform === `Telegram`"
+                    :users="users"
+                    :platform="defaultData.platform"
+                />
+
                 <paginate
                     v-if="defaultData.platform"
                     :page-count="lastPage"
@@ -329,10 +353,18 @@ import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
 import json from '../../../public/files/countries.json'
 import SearchResultInstagramComponent from '../components/SearchResultInstagramComponent'
+import SearchResultTwitterComponent from "../components/SearchResultTwitterComponent.vue";
+import SearchResultYoutubeComponent from "../components/SearchResultYoutubeComponent.vue";
+import SearchResultTikTokComponent from "../components/SearchResultTikTokComponent.vue";
+import SearchResultTelegramComponent from "../components/SearchResultTelegramComponent.vue";
 
 export default {
     name: "SearchPage",
-    components: {Header, Footer, DatePicker, SearchResultInstagramComponent},
+    components: {
+        SearchResultTelegramComponent,
+        SearchResultTikTokComponent,
+        SearchResultYoutubeComponent,
+        SearchResultTwitterComponent, Header, Footer, DatePicker, SearchResultInstagramComponent},
     data() {
         return {
             users: [],

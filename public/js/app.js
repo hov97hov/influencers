@@ -5799,6 +5799,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-datepicker/index.css */ "./node_modules/vue2-datepicker/index.css");
 /* harmony import */ var _public_files_countries_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/files/countries.json */ "./public/files/countries.json");
 /* harmony import */ var _components_SearchResultInstagramComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/SearchResultInstagramComponent */ "./resources/js/components/SearchResultInstagramComponent.vue");
+/* harmony import */ var _components_SearchResultTwitterComponent_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/SearchResultTwitterComponent.vue */ "./resources/js/components/SearchResultTwitterComponent.vue");
+/* harmony import */ var _components_SearchResultYoutubeComponent_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/SearchResultYoutubeComponent.vue */ "./resources/js/components/SearchResultYoutubeComponent.vue");
+/* harmony import */ var _components_SearchResultTikTokComponent_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/SearchResultTikTokComponent.vue */ "./resources/js/components/SearchResultTikTokComponent.vue");
+/* harmony import */ var _components_SearchResultTelegramComponent_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/SearchResultTelegramComponent.vue */ "./resources/js/components/SearchResultTelegramComponent.vue");
 //
 //
 //
@@ -6121,6 +6125,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
 
 
 
@@ -6132,6 +6164,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchPage",
   components: {
+    SearchResultTelegramComponent: _components_SearchResultTelegramComponent_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    SearchResultTikTokComponent: _components_SearchResultTikTokComponent_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    SearchResultYoutubeComponent: _components_SearchResultYoutubeComponent_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    SearchResultTwitterComponent: _components_SearchResultTwitterComponent_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     DatePicker: vue2_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -6776,8 +6812,871 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchResultComponent",
+  props: ['users', 'platform']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "SearchResultTelegramComponent",
+  props: ['users', 'platform']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "SearchResultTikTokComponent",
+  props: ['users', 'platform']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "SearchResultTwitterComponent",
+  props: ['users', 'platform']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "SearchResultYoutubeComponent",
   props: ['users', 'platform']
 });
 
@@ -12514,7 +13413,103 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".search-result > .title[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-result > .search-result-header > div[data-v-404db35b] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(1) {\n  width: 33%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(2) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(4) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(5) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(6) {\n  width: 20%;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n  display: none;\n}\n.search-result > .items[data-v-404db35b] {\n  margin-top: 85px;\n}\n.search-result > .items .item[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item[data-v-404db35b]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(1) {\n  width: 30%;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .items .item .left-section[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n}\n.search-result > .items .item .left-section > img[data-v-404db35b] {\n  margin-right: 15px;\n}\n.search-result > .items .item .left-section .name[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-result > .items .item .left-section .name img[data-v-404db35b] {\n  margin-left: 10px;\n}\n.search-result > .items .item .left-section .sub-name[data-v-404db35b] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-result > .items .item .center-section > div[data-v-404db35b] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section > div.categories[data-v-404db35b] {\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .items .item .center-section > div.categories span[data-v-404db35b] {\n  display: block;\n  margin: 0 0 10px;\n}\n.search-result > .items .item .right-section[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item .right-section > div[data-v-404db35b] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-result > .items .item .right-section > div[data-v-404db35b]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-result > .items .item .right-section > div:nth-child(1) img[data-v-404db35b] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 768px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 32px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-404db35b] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-404db35b] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    display: none;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(2) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(4) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-404db35b] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-404db35b] {\n    margin-top: 2px;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".category-list[data-v-404db35b] {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n}\n.search-result > .title[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-result > .search-result-header > div[data-v-404db35b] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(1) {\n  width: 33%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(2) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(4) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(5) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(6) {\n  width: 20%;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n  display: none;\n}\n.search-result > .items[data-v-404db35b] {\n  margin-top: 85px;\n}\n.search-result > .items .item[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item[data-v-404db35b]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(1) {\n  width: 30%;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .items .item .left-section[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n}\n.search-result > .items .item .left-section > img[data-v-404db35b] {\n  margin-right: 15px;\n}\n.search-result > .items .item .left-section .name[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-result > .items .item .left-section .name img[data-v-404db35b] {\n  margin-left: 10px;\n}\n.search-result > .items .item .left-section .sub-name[data-v-404db35b] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-result > .items .item .center-section > div[data-v-404db35b] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section > div.categories[data-v-404db35b] {\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .items .item .center-section > div.categories span[data-v-404db35b] {\n  display: block;\n  margin: 0 0 10px;\n}\n.search-result > .items .item .right-section[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item .right-section > div[data-v-404db35b] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-result > .items .item .right-section > div[data-v-404db35b]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-result > .items .item .right-section > div:nth-child(1) img[data-v-404db35b] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 768px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 32px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-404db35b] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-404db35b] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    display: none;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(2) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(4) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-404db35b] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-404db35b] {\n    margin-top: 2px;\n}\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".category-list[data-v-c8f56488] {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n}\n.search-result > .title[data-v-c8f56488] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .title div[data-v-c8f56488]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-result > .title div[data-v-c8f56488]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .search-result-header[data-v-c8f56488] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-result > .search-result-header > div[data-v-c8f56488] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .search-result-header > div[data-v-c8f56488]:nth-child(1) {\n  width: 33%;\n}\n.search-result > .search-result-header > div[data-v-c8f56488]:nth-child(2) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-c8f56488]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-c8f56488]:nth-child(4) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-c8f56488]:nth-child(5) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-c8f56488]:nth-child(6) {\n  width: 20%;\n}\n.search-result > .items-mobile[data-v-c8f56488] {\n  display: none;\n}\n.search-result > .items[data-v-c8f56488] {\n  margin-top: 85px;\n}\n.search-result > .items .item[data-v-c8f56488] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item[data-v-c8f56488]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-result > .items .item > div[data-v-c8f56488]:nth-child(1) {\n  width: 30%;\n}\n.search-result > .items .item > div[data-v-c8f56488]:nth-child(2) {\n  width: 43%;\n  margin: 0 80px;\n}\n.search-result > .items .item > div[data-v-c8f56488]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .items .item .left-section[data-v-c8f56488] {\n  display: flex;\n  align-items: center;\n}\n.search-result > .items .item .left-section > img[data-v-c8f56488] {\n  width: 120px;\n  height: 120px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n  margin-right: 15px;\n}\n.search-result > .items .item .left-section .name[data-v-c8f56488] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-result > .items .item .left-section .name img[data-v-c8f56488] {\n  margin-left: 10px;\n}\n.search-result > .items .item .left-section .sub-name[data-v-c8f56488] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section[data-v-c8f56488] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-result > .items .item .center-section > div[data-v-c8f56488] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section > div.categories[data-v-c8f56488] {\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .items .item .center-section > div.categories span[data-v-c8f56488] {\n  display: block;\n  margin: 0 0 10px;\n}\n.search-result > .items .item .right-section[data-v-c8f56488] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item .right-section > div[data-v-c8f56488] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-result > .items .item .right-section > div[data-v-c8f56488]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-result > .items .item .right-section > div:nth-child(1) img[data-v-c8f56488] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 768px) {\n.search-result > .title[data-v-c8f56488] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-c8f56488]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-c8f56488]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-c8f56488] {\n    display: none;\n}\n.search-result > .items[data-v-c8f56488] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-c8f56488] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-c8f56488] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-c8f56488]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-c8f56488] {\n    margin-right: 32px;\n    width: 120px;\n    height: 120px;\n    border-radius: 50%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-c8f56488] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-c8f56488] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-c8f56488] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-c8f56488] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-c8f56488]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-c8f56488] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-c8f56488] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-c8f56488] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-result > .title[data-v-c8f56488] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-c8f56488]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-c8f56488]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-c8f56488] {\n    display: none;\n}\n.search-result > .items[data-v-c8f56488] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-c8f56488] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-c8f56488] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-c8f56488]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-c8f56488] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-c8f56488] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-c8f56488] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-c8f56488] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-c8f56488] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-c8f56488]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-c8f56488] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-c8f56488] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-c8f56488]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-c8f56488]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-c8f56488] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.search-result > .title[data-v-c8f56488] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-result > .title div[data-v-c8f56488]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-result > .title div[data-v-c8f56488]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-c8f56488] {\n    display: none;\n}\n.search-result > .items[data-v-c8f56488] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-c8f56488] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-c8f56488] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-c8f56488]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-c8f56488] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-c8f56488] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-c8f56488] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-c8f56488] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(2) {\n    display: none;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-c8f56488] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-c8f56488]:nth-child(2) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-c8f56488]:nth-child(4) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-c8f56488] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-c8f56488]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-c8f56488] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-c8f56488]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-c8f56488] {\n    margin-top: 2px;\n}\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".category-list[data-v-36f1b083] {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n}\n.search-result > .title[data-v-36f1b083] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .title div[data-v-36f1b083]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-result > .title div[data-v-36f1b083]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .search-result-header[data-v-36f1b083] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-result > .search-result-header > div[data-v-36f1b083] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .search-result-header > div[data-v-36f1b083]:nth-child(1) {\n  width: 33%;\n}\n.search-result > .search-result-header > div[data-v-36f1b083]:nth-child(2) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-36f1b083]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-36f1b083]:nth-child(4) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-36f1b083]:nth-child(5) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-36f1b083]:nth-child(6) {\n  width: 20%;\n}\n.search-result > .items-mobile[data-v-36f1b083] {\n  display: none;\n}\n.search-result > .items[data-v-36f1b083] {\n  margin-top: 85px;\n}\n.search-result > .items .item[data-v-36f1b083] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item[data-v-36f1b083]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-result > .items .item > div[data-v-36f1b083]:nth-child(1) {\n  width: 30%;\n}\n.search-result > .items .item > div[data-v-36f1b083]:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-result > .items .item > div[data-v-36f1b083]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .items .item .left-section[data-v-36f1b083] {\n  display: flex;\n  align-items: center;\n}\n.search-result > .items .item .left-section > img[data-v-36f1b083] {\n  margin-right: 15px;\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n}\n.search-result > .items .item .left-section .name[data-v-36f1b083] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-result > .items .item .left-section .name img[data-v-36f1b083] {\n  margin-left: 10px;\n}\n.search-result > .items .item .left-section .sub-name[data-v-36f1b083] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section[data-v-36f1b083] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-result > .items .item .center-section > div[data-v-36f1b083] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section > div.categories[data-v-36f1b083] {\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .items .item .center-section > div.categories span[data-v-36f1b083] {\n  display: block;\n  margin: 0 0 10px;\n}\n.search-result > .items .item .right-section[data-v-36f1b083] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item .right-section > div[data-v-36f1b083] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-result > .items .item .right-section > div[data-v-36f1b083]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-result > .items .item .right-section > div:nth-child(1) img[data-v-36f1b083] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 768px) {\n.search-result > .title[data-v-36f1b083] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-36f1b083]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-36f1b083]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-36f1b083] {\n    display: none;\n}\n.search-result > .items[data-v-36f1b083] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-36f1b083] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-36f1b083] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-36f1b083]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-36f1b083] {\n    margin-right: 32px;\n    width: 120px;\n    height: 120px;\n    border-radius: 50%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-36f1b083] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-36f1b083] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-36f1b083] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-36f1b083] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-36f1b083]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-36f1b083] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-36f1b083] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-36f1b083] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-result > .title[data-v-36f1b083] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-36f1b083]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-36f1b083]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-36f1b083] {\n    display: none;\n}\n.search-result > .items[data-v-36f1b083] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-36f1b083] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-36f1b083] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-36f1b083]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-36f1b083] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-36f1b083] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-36f1b083] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-36f1b083] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-36f1b083] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-36f1b083]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-36f1b083] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-36f1b083] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-36f1b083]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-36f1b083]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-36f1b083] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.search-result > .title[data-v-36f1b083] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-result > .title div[data-v-36f1b083]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-result > .title div[data-v-36f1b083]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-36f1b083] {\n    display: none;\n}\n.search-result > .items[data-v-36f1b083] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-36f1b083] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-36f1b083] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-36f1b083]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-36f1b083] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-36f1b083] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-36f1b083] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-36f1b083] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(2) {\n    display: none;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-36f1b083] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-36f1b083]:nth-child(2) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-36f1b083]:nth-child(4) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-36f1b083] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-36f1b083]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-36f1b083] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-36f1b083]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-36f1b083] {\n    margin-top: 2px;\n}\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".category-list[data-v-53b0af8c] {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n}\n.search-result > .title[data-v-53b0af8c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .title div[data-v-53b0af8c]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-result > .title div[data-v-53b0af8c]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .search-result-header[data-v-53b0af8c] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-result > .search-result-header > div[data-v-53b0af8c] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .search-result-header > div[data-v-53b0af8c]:nth-child(1) {\n  width: 33%;\n}\n.search-result > .search-result-header > div[data-v-53b0af8c]:nth-child(2) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-53b0af8c]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-53b0af8c]:nth-child(4) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-53b0af8c]:nth-child(5) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-53b0af8c]:nth-child(6) {\n  width: 20%;\n}\n.search-result > .items-mobile[data-v-53b0af8c] {\n  display: none;\n}\n.search-result > .items[data-v-53b0af8c] {\n  margin-top: 85px;\n}\n.search-result > .items .item[data-v-53b0af8c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item[data-v-53b0af8c]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-result > .items .item > div[data-v-53b0af8c]:nth-child(1) {\n  width: 30%;\n}\n.search-result > .items .item > div[data-v-53b0af8c]:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-result > .items .item > div[data-v-53b0af8c]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .items .item .left-section[data-v-53b0af8c] {\n  display: flex;\n  align-items: center;\n}\n.search-result > .items .item .left-section > img[data-v-53b0af8c] {\n  margin-right: 15px;\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n}\n.search-result > .items .item .left-section .name[data-v-53b0af8c] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-result > .items .item .left-section .name img[data-v-53b0af8c] {\n  margin-left: 10px;\n}\n.search-result > .items .item .left-section .sub-name[data-v-53b0af8c] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section[data-v-53b0af8c] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-result > .items .item .center-section > div[data-v-53b0af8c] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section > div.categories[data-v-53b0af8c] {\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .items .item .center-section > div.categories span[data-v-53b0af8c] {\n  display: block;\n  margin: 0 0 10px;\n}\n.search-result > .items .item .right-section[data-v-53b0af8c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item .right-section > div[data-v-53b0af8c] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-result > .items .item .right-section > div[data-v-53b0af8c]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-result > .items .item .right-section > div:nth-child(1) img[data-v-53b0af8c] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 768px) {\n.search-result > .title[data-v-53b0af8c] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-53b0af8c]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-53b0af8c]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-53b0af8c] {\n    display: none;\n}\n.search-result > .items[data-v-53b0af8c] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-53b0af8c] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-53b0af8c] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-53b0af8c]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-53b0af8c] {\n    margin-right: 32px;\n    width: 120px;\n    height: 120px;\n    border-radius: 50%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-53b0af8c] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-53b0af8c] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-53b0af8c] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-53b0af8c] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-53b0af8c]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-53b0af8c] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-53b0af8c] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-53b0af8c] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-result > .title[data-v-53b0af8c] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-53b0af8c]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-53b0af8c]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-53b0af8c] {\n    display: none;\n}\n.search-result > .items[data-v-53b0af8c] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-53b0af8c] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-53b0af8c] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-53b0af8c]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-53b0af8c] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-53b0af8c] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-53b0af8c] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-53b0af8c] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-53b0af8c] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-53b0af8c]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-53b0af8c] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-53b0af8c] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-53b0af8c]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-53b0af8c]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-53b0af8c] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.search-result > .title[data-v-53b0af8c] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-result > .title div[data-v-53b0af8c]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-result > .title div[data-v-53b0af8c]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-53b0af8c] {\n    display: none;\n}\n.search-result > .items[data-v-53b0af8c] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-53b0af8c] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-53b0af8c] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-53b0af8c]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-53b0af8c] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-53b0af8c] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-53b0af8c] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-53b0af8c] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(2) {\n    display: none;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-53b0af8c] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-53b0af8c]:nth-child(2) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-53b0af8c]:nth-child(4) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-53b0af8c] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-53b0af8c]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-53b0af8c] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-53b0af8c]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-53b0af8c] {\n    margin-top: 2px;\n}\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".category-list[data-v-fcde74ec] {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n}\n.search-result > .title[data-v-fcde74ec] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .title div[data-v-fcde74ec]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-result > .title div[data-v-fcde74ec]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .search-result-header[data-v-fcde74ec] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-result > .search-result-header > div[data-v-fcde74ec] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .search-result-header > div[data-v-fcde74ec]:nth-child(1) {\n  width: 33%;\n}\n.search-result > .search-result-header > div[data-v-fcde74ec]:nth-child(2) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-fcde74ec]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-fcde74ec]:nth-child(4) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-fcde74ec]:nth-child(5) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-fcde74ec]:nth-child(6) {\n  width: 20%;\n}\n.search-result > .items-mobile[data-v-fcde74ec] {\n  display: none;\n}\n.search-result > .items[data-v-fcde74ec] {\n  margin-top: 85px;\n}\n.search-result > .items .item[data-v-fcde74ec] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item[data-v-fcde74ec]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-result > .items .item > div[data-v-fcde74ec]:nth-child(1) {\n  width: 30%;\n}\n.search-result > .items .item > div[data-v-fcde74ec]:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-result > .items .item > div[data-v-fcde74ec]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .items .item .left-section[data-v-fcde74ec] {\n  display: flex;\n  align-items: center;\n}\n.search-result > .items .item .left-section > img[data-v-fcde74ec] {\n  margin-right: 15px;\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n}\n.search-result > .items .item .left-section .name[data-v-fcde74ec] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-result > .items .item .left-section .name img[data-v-fcde74ec] {\n  margin-left: 10px;\n}\n.search-result > .items .item .left-section .sub-name[data-v-fcde74ec] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section[data-v-fcde74ec] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-result > .items .item .center-section > div[data-v-fcde74ec] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section > div.categories[data-v-fcde74ec] {\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .items .item .center-section > div.categories span[data-v-fcde74ec] {\n  display: block;\n  margin: 0 0 10px;\n}\n.search-result > .items .item .right-section[data-v-fcde74ec] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item .right-section > div[data-v-fcde74ec] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-result > .items .item .right-section > div[data-v-fcde74ec]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-result > .items .item .right-section > div:nth-child(1) img[data-v-fcde74ec] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 768px) {\n.search-result > .title[data-v-fcde74ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-fcde74ec]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-fcde74ec]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-fcde74ec] {\n    display: none;\n}\n.search-result > .items[data-v-fcde74ec] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-fcde74ec] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-fcde74ec] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-fcde74ec]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-fcde74ec] {\n    margin-right: 32px;\n    width: 120px;\n    height: 120px;\n    border-radius: 50%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-fcde74ec] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-fcde74ec] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-fcde74ec] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-fcde74ec] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-fcde74ec]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-fcde74ec] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-fcde74ec] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-fcde74ec] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-result > .title[data-v-fcde74ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-fcde74ec]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-fcde74ec]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-fcde74ec] {\n    display: none;\n}\n.search-result > .items[data-v-fcde74ec] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-fcde74ec] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-fcde74ec] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-fcde74ec]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-fcde74ec] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-fcde74ec] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-fcde74ec] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-fcde74ec] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-fcde74ec] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-fcde74ec]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-fcde74ec] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-fcde74ec] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-fcde74ec]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-fcde74ec]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-fcde74ec] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.search-result > .title[data-v-fcde74ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-result > .title div[data-v-fcde74ec]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-result > .title div[data-v-fcde74ec]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-fcde74ec] {\n    display: none;\n}\n.search-result > .items[data-v-fcde74ec] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-fcde74ec] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-fcde74ec] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-fcde74ec]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-fcde74ec] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-fcde74ec] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-fcde74ec] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-fcde74ec] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(2) {\n    display: none;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-fcde74ec] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-fcde74ec]:nth-child(2) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-fcde74ec]:nth-child(4) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-fcde74ec] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-fcde74ec]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-fcde74ec] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-fcde74ec]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-fcde74ec] {\n    margin-top: 2px;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36857,6 +37852,126 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_style_index_0_id_c8f56488_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_style_index_0_id_c8f56488_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_style_index_0_id_c8f56488_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_style_index_0_id_36f1b083_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_style_index_0_id_36f1b083_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_style_index_0_id_36f1b083_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_style_index_0_id_53b0af8c_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_style_index_0_id_53b0af8c_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_style_index_0_id_53b0af8c_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_style_index_0_id_fcde74ec_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_style_index_0_id_fcde74ec_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_style_index_0_id_fcde74ec_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/vue-select/dist/vue-select.css":
 /*!*****************************************************!*\
   !*** ./node_modules/vue-select/dist/vue-select.css ***!
@@ -39882,6 +40997,170 @@ component.options.__file = "resources/js/components/SearchResultInstagramCompone
 
 /***/ }),
 
+/***/ "./resources/js/components/SearchResultTelegramComponent.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/SearchResultTelegramComponent.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SearchResultTelegramComponent_vue_vue_type_template_id_c8f56488_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchResultTelegramComponent.vue?vue&type=template&id=c8f56488&scoped=true& */ "./resources/js/components/SearchResultTelegramComponent.vue?vue&type=template&id=c8f56488&scoped=true&");
+/* harmony import */ var _SearchResultTelegramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchResultTelegramComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/SearchResultTelegramComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SearchResultTelegramComponent_vue_vue_type_style_index_0_id_c8f56488_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss& */ "./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SearchResultTelegramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SearchResultTelegramComponent_vue_vue_type_template_id_c8f56488_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SearchResultTelegramComponent_vue_vue_type_template_id_c8f56488_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "c8f56488",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SearchResultTelegramComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTikTokComponent.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/SearchResultTikTokComponent.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SearchResultTikTokComponent_vue_vue_type_template_id_36f1b083_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchResultTikTokComponent.vue?vue&type=template&id=36f1b083&scoped=true& */ "./resources/js/components/SearchResultTikTokComponent.vue?vue&type=template&id=36f1b083&scoped=true&");
+/* harmony import */ var _SearchResultTikTokComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchResultTikTokComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/SearchResultTikTokComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SearchResultTikTokComponent_vue_vue_type_style_index_0_id_36f1b083_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss& */ "./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SearchResultTikTokComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SearchResultTikTokComponent_vue_vue_type_template_id_36f1b083_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SearchResultTikTokComponent_vue_vue_type_template_id_36f1b083_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "36f1b083",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SearchResultTikTokComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTwitterComponent.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/SearchResultTwitterComponent.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SearchResultTwitterComponent_vue_vue_type_template_id_53b0af8c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchResultTwitterComponent.vue?vue&type=template&id=53b0af8c&scoped=true& */ "./resources/js/components/SearchResultTwitterComponent.vue?vue&type=template&id=53b0af8c&scoped=true&");
+/* harmony import */ var _SearchResultTwitterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchResultTwitterComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/SearchResultTwitterComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SearchResultTwitterComponent_vue_vue_type_style_index_0_id_53b0af8c_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss& */ "./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SearchResultTwitterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SearchResultTwitterComponent_vue_vue_type_template_id_53b0af8c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SearchResultTwitterComponent_vue_vue_type_template_id_53b0af8c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "53b0af8c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SearchResultTwitterComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultYoutubeComponent.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/SearchResultYoutubeComponent.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SearchResultYoutubeComponent_vue_vue_type_template_id_fcde74ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchResultYoutubeComponent.vue?vue&type=template&id=fcde74ec&scoped=true& */ "./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=template&id=fcde74ec&scoped=true&");
+/* harmony import */ var _SearchResultYoutubeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchResultYoutubeComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SearchResultYoutubeComponent_vue_vue_type_style_index_0_id_fcde74ec_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss& */ "./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SearchResultYoutubeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SearchResultYoutubeComponent_vue_vue_type_template_id_fcde74ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SearchResultYoutubeComponent_vue_vue_type_template_id_fcde74ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "fcde74ec",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SearchResultYoutubeComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Home.vue?vue&type=script&lang=js&":
 /*!**************************************************************!*\
   !*** ./resources/js/Pages/Home.vue?vue&type=script&lang=js& ***!
@@ -39994,6 +41273,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/SearchResultTelegramComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTelegramComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTelegramComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTikTokComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTikTokComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTikTokComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTwitterComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTwitterComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTwitterComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultYoutubeComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Home.vue?vue&type=style&index=0&id=6a63e488&scoped=true&lang=scss&":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/Pages/Home.vue?vue&type=style&index=0&id=6a63e488&scoped=true&lang=scss& ***!
@@ -40081,6 +41424,58 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_style_index_0_id_404db35b_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss&":
+/*!*****************************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss& ***!
+  \*****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_style_index_0_id_c8f56488_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=style&index=0&id=c8f56488&scoped=true&lang=scss&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss& ***!
+  \***************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_style_index_0_id_36f1b083_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=style&index=0&id=36f1b083&scoped=true&lang=scss&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss&":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss& ***!
+  \****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_style_index_0_id_53b0af8c_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=style&index=0&id=53b0af8c&scoped=true&lang=scss&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss&":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss& ***!
+  \****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_style_index_0_id_fcde74ec_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=style&index=0&id=fcde74ec&scoped=true&lang=scss&");
 
 
 /***/ }),
@@ -40200,6 +41595,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_template_id_404db35b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_template_id_404db35b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTelegramComponent.vue?vue&type=template&id=c8f56488&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTelegramComponent.vue?vue&type=template&id=c8f56488&scoped=true& ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_template_id_c8f56488_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_template_id_c8f56488_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTelegramComponent_vue_vue_type_template_id_c8f56488_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTelegramComponent.vue?vue&type=template&id=c8f56488&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=template&id=c8f56488&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTikTokComponent.vue?vue&type=template&id=36f1b083&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTikTokComponent.vue?vue&type=template&id=36f1b083&scoped=true& ***!
+  \************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_template_id_36f1b083_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_template_id_36f1b083_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTikTokComponent_vue_vue_type_template_id_36f1b083_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTikTokComponent.vue?vue&type=template&id=36f1b083&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=template&id=36f1b083&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultTwitterComponent.vue?vue&type=template&id=53b0af8c&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultTwitterComponent.vue?vue&type=template&id=53b0af8c&scoped=true& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_template_id_53b0af8c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_template_id_53b0af8c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultTwitterComponent_vue_vue_type_template_id_53b0af8c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultTwitterComponent.vue?vue&type=template&id=53b0af8c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=template&id=53b0af8c&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=template&id=fcde74ec&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=template&id=fcde74ec&scoped=true& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_template_id_fcde74ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_template_id_fcde74ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultYoutubeComponent_vue_vue_type_template_id_fcde74ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultYoutubeComponent.vue?vue&type=template&id=fcde74ec&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=template&id=fcde74ec&scoped=true&");
 
 
 /***/ }),
@@ -42466,6 +43929,42 @@ var render = function () {
                   })
                 : _vm._e(),
               _vm._v(" "),
+              _vm.defaultData.platform === "Twitter"
+                ? _c("SearchResultTwitterComponent", {
+                    attrs: {
+                      users: _vm.users,
+                      platform: _vm.defaultData.platform,
+                    },
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.defaultData.platform === "Youtube"
+                ? _c("SearchResultYoutubeComponent", {
+                    attrs: {
+                      users: _vm.users,
+                      platform: _vm.defaultData.platform,
+                    },
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.defaultData.platform === "TikTok"
+                ? _c("SearchResultTikTokComponent", {
+                    attrs: {
+                      users: _vm.users,
+                      platform: _vm.defaultData.platform,
+                    },
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.defaultData.platform === "Telegram"
+                ? _c("SearchResultTelegramComponent", {
+                    attrs: {
+                      users: _vm.users,
+                      platform: _vm.defaultData.platform,
+                    },
+                  })
+                : _vm._e(),
+              _vm._v(" "),
               _vm.defaultData.platform
                 ? _c("paginate", {
                     attrs: {
@@ -42840,6 +44339,7 @@ var render = function () {
             _c("img", {
               attrs: {
                 src: user.instagram.image,
+                crossorigin: "anonymous",
                 alt: user.instagram.full_name,
               },
             }),
@@ -42976,13 +44476,13 @@ var render = function () {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            user.youtube
+            user.telegram
               ? _c("div", [
                   _c(
                     "a",
                     {
                       attrs: {
-                        href: user.youtube.profile_url,
+                        href: user.telegram.profile_url,
                         target: "__block",
                       },
                     },
@@ -43009,32 +44509,290 @@ var render = function () {
       _vm._l(_vm.users, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
-            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+            _c("img", {
+              attrs: {
+                src: user.instagram.image,
+                alt: user.instagram.full_name,
+              },
+            }),
             _vm._v(" "),
             _c("div", [
               _c("div", { staticClass: "name" }, [
                 _vm._v(
-                  _vm._s(user.user_detail.first_name) +
-                    " " +
-                    _vm._s(user.user_detail.last_name) +
-                    " "
+                  _vm._s(user.instagram.full_name) +
+                    "\n                        "
                 ),
-                _c("img", {
-                  attrs: { src: "/images/icons/done.png", alt: "" },
-                }),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "sub-name" }, [
-                _vm._v("iveta.mukuchyan"),
+                _vm._v(_vm._s(user.instagram.username)),
               ]),
             ]),
           ]),
           _vm._v(" "),
-          _vm._m(2, true),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(2, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
           _vm._v(" "),
-          _vm._m(3, true),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "category-list" },
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.user_detail.language))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.instagram.follow))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.instagram.post_count))]),
+            ]),
+          ]),
           _vm._v(" "),
-          _vm._m(4, true),
+          _c("div", { staticClass: "icon-section" }, [
+            user.facebook ? _c("div", [_vm._m(3, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/fb-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/tiktok-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [_vm._m(4, true)]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
         ])
       }),
       0
@@ -43098,41 +44856,562 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right-section" }, [
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=template&id=c8f56488&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTelegramComponent.vue?vue&type=template&id=c8f56488&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "search-result" }, [
+    _c("div", { staticClass: "title" }, [
+      _c("div", [_vm._v(_vm._s(_vm.$t("search_result")))]),
+      _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-        }),
+        _vm._v(
+          _vm._s(_vm.$t("found")) + " 125 " + _vm._s(_vm.$t("account")) + " "
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: { src: user.telegram.image, alt: user.telegram.full_name },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  "\n                            " +
+                    _vm._s(user.telegram.full_name) +
+                    "\n                            "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.telegram.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c(
+              "div",
+              { staticClass: "categories" },
+              [
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                _vm._v(" "),
+                _c("br"),
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.telegram.follow))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(1, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items-mobile" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: { src: user.telegram.image, alt: user.telegram.full_name },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  _vm._s(user.telegram.full_name) +
+                    "\n                            "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.telegram.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(2, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "category-list" },
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.user_detail.language))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.telegram.follow))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.telegram.post_count))]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "icon-section" }, [
+            user.facebook ? _c("div", [_vm._m(3, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/fb-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/tiktok-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [_vm._m(4, true)]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-result-header" }, [
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("account")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("category")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("followers")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("location")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("platform")]),
       ]),
     ])
   },
@@ -43140,25 +45419,579 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "center-section" }, [
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=template&id=36f1b083&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTikTokComponent.vue?vue&type=template&id=36f1b083&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "search-result" }, [
+    _c("div", { staticClass: "title" }, [
+      _c("div", [_vm._v(_vm._s(_vm.$t("search_result")))]),
+      _vm._v(" "),
       _c("div", [
-        _c("img", { attrs: { src: "/images/icons/Icon-color.png", alt: "" } }),
-        _c("span", [_vm._v("Beauty")]),
+        _vm._v(
+          _vm._s(_vm.$t("found")) + " 125 " + _vm._s(_vm.$t("account")) + " "
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: { src: user.tiktok.image, alt: user.tiktok.full_name },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(user.tiktok.full_name) +
+                    "\n                        "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.tiktok.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c(
+              "div",
+              { staticClass: "categories" },
+              [
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                _vm._v(" "),
+                _c("br"),
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.tiktok.follow))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.tiktok.post_count))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(1, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items-mobile" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: { src: user.tiktok.image, alt: user.tiktok.full_name },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  _vm._s(user.tiktok.full_name) + "\n                        "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.tiktok.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(2, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "category-list" },
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.user_detail.language))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.tiktok.follow))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.tiktok.post_count))]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "icon-section" }, [
+            user.facebook ? _c("div", [_vm._m(3, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/fb-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/tiktok-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [_vm._m(4, true)]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-result-header" }, [
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("account")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", { attrs: { src: "/images/icons/Icon-color2.png", alt: "" } }),
-        _c("span", [_vm._v("Armenia")]),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("category")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", { attrs: { src: "/images/icons/Icon-color3.png", alt: "" } }),
-        _c("span", [_vm._v("281.4K")]),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("followers")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", { attrs: { src: "/images/icons/Icon-color5.png", alt: "" } }),
-        _c("span", [_vm._v("19")]),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("posts")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("location")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("platform")]),
       ]),
     ])
   },
@@ -43166,42 +45999,1200 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon-section" }, [
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=template&id=53b0af8c&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultTwitterComponent.vue?vue&type=template&id=53b0af8c&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "search-result" }, [
+    _c("div", { staticClass: "title" }, [
+      _c("div", [_vm._v(_vm._s(_vm.$t("search_result")))]),
+      _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/fb-small.png", alt: "" },
-        }),
+        _vm._v(
+          _vm._s(_vm.$t("found")) + " 125 " + _vm._s(_vm.$t("account")) + " "
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: { src: user.twitter.image, alt: user.twitter.full_name },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(user.twitter.full_name) +
+                    "\n                        "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.twitter.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c(
+              "div",
+              { staticClass: "categories" },
+              [
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                _vm._v(" "),
+                _c("br"),
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.twitter.follow))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.twitter.post_count))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(1, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items-mobile" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: { src: user.twitter.image, alt: user.twitter.full_name },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  _vm._s(user.twitter.full_name) + "\n                        "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.twitter.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(2, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "category-list" },
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.user_detail.language))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.twitter.follow))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.twitter.post_count))]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "icon-section" }, [
+            user.facebook ? _c("div", [_vm._m(3, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/fb-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/tiktok-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [_vm._m(4, true)]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-result-header" }, [
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("account")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Subtract-small.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("category")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Vector-small.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("followers")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/twitter-small.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("posts")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/tiktok-small.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("location")]),
       ]),
       _vm._v(" "),
       _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
-        }),
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("platform")]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=template&id=fcde74ec&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultYoutubeComponent.vue?vue&type=template&id=fcde74ec&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "search-result" }, [
+    _c("div", { staticClass: "title" }, [
+      _c("div", [_vm._v(_vm._s(_vm.$t("search_result")))]),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v(
+          _vm._s(_vm.$t("found")) + " 125 " + _vm._s(_vm.$t("account")) + " "
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: { src: user.youtube.image, alt: user.youtube.full_name },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(user.youtube.full_name) +
+                    "\n                        "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.youtube.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c(
+              "div",
+              { staticClass: "categories" },
+              [
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                _vm._v(" "),
+                _c("br"),
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.youtube.follow))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.youtube.post_count))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(1, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items-mobile" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: { src: user.youtube.image, alt: user.youtube.full_name },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  _vm._s(user.youtube.full_name) + "\n                        "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.youtube.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(2, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "category-list" },
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.user_detail.language))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.youtube.follow))]),
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("img", {
+                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+              }),
+              _c("span", [_vm._v(_vm._s(user.youtube.post_count))]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "icon-section" }, [
+            user.facebook ? _c("div", [_vm._m(3, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/fb-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/tiktok-small.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.telegram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.telegram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [_vm._m(4, true)]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-result-header" }, [
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("account")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("category")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("followers")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("posts")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("location")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("platform")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
+      }),
     ])
   },
 ]
@@ -60555,7 +64546,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('["Afghanistan","Åland Islands","Albania","Algeria","American Samoa","Andorra","Angola","Anguilla","Antarctica","Antigua and Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas (the)","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia (Plurinational State of)","Bonaire, Sint Eustatius and Saba","Bosnia and Herzegovina","Botswana","Bouvet Island","Brazil","British Indian Ocean Territory (the)","Brunei Darussalam","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Cayman Islands (the)","Central African Republic (the)","Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands (the)","Colombia","Comoros (the)","Congo (the Democratic Republic of the)","Congo (the)","Cook Islands (the)","Costa Rica","Croatia","Cuba","Curaçao","Cyprus","Czechia","Côte d\'Ivoire","Denmark","Djibouti","Dominica","Dominican Republic (the)","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Falkland Islands (the) [Malvinas]","Faroe Islands (the)","Fiji","Finland","France","French Guiana","French Polynesia","French Southern Territories (the)","Gabon","Gambia (the)","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guernsey","Guinea","Guinea-Bissau","Guyana","Haiti","Heard Island and McDonald Islands","Holy See (the)","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran (Islamic Republic of)","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Korea (the Democratic People\'s Republic of)","Korea (the Republic of)","Kuwait","Kyrgyzstan","Lao People\'s Democratic Republic (the)","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macao","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands (the)","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia (Federated States of)","Moldova (the Republic of)","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands (the)","New Caledonia","New Zealand","Nicaragua","Niger (the)","Nigeria","Niue","Norfolk Island","Northern Mariana Islands (the)","Norway","Oman","Pakistan","Palau","Palestine, State of","Panama","Papua New Guinea","Paraguay","Peru","Philippines (the)","Pitcairn","Poland","Portugal","Puerto Rico","Qatar","Republic of North Macedonia","Romania","Russian Federation (the)","Rwanda","Réunion","Saint Barthélemy","Saint Helena, Ascension and Tristan da Cunha","Saint Kitts and Nevis","Saint Lucia","Saint Martin (French part)","Saint Pierre and Miquelon","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Sint Maarten (Dutch part)","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Georgia and the South Sandwich Islands","South Sudan","Spain","Sri Lanka","Sudan (the)","Suriname","Svalbard and Jan Mayen","Sweden","Switzerland","Syrian Arab Republic","Taiwan (Province of China)","Tajikistan","Tanzania, United Republic of","Thailand","Timor-Leste","Togo","Tokelau","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Turks and Caicos Islands (the)","Tuvalu","Uganda","Ukraine","United Arab Emirates (the)","United Kingdom of Great Britain and Northern Ireland (the)","United States Minor Outlying Islands (the)","United States of America (the)","Uruguay","Uzbekistan","Vanuatu","Venezuela (Bolivarian Republic of)","Viet Nam","Virgin Islands (British)","Virgin Islands (U.S.)","Wallis and Futuna","Western Sahara","Yemen","Zambia","Zimbabwe"]');
+module.exports = JSON.parse('["Armenia","Russia","English"]');
 
 /***/ })
 

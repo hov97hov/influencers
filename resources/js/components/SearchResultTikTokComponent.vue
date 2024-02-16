@@ -36,22 +36,21 @@
                 v-for="(user, index) in users"
             >
                 <div class="left-section">
-                    <img :src="user.instagram.image" crossorigin="anonymous" :alt="user.instagram.full_name">
-
+                    <img :src="user.tiktok.image" :alt="user.tiktok.full_name">
                     <div>
                         <div class="name">
-                            {{user.instagram.full_name}}
+                            {{user.tiktok.full_name}}
                             <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">
                         </div>
-                        <div class="sub-name">{{user.instagram.username}}</div>
+                        <div class="sub-name">{{user.tiktok.username}}</div>
                     </div>
                 </div>
                 <div class="center-section">
                     <div class="categories">
                         <span v-for="item in user.categories">{{item.name}}</span> <br>
                     </div>
-                    <div>{{ user.instagram.follow }}</div>
-                    <div>{{ user.instagram.post_count }}</div>
+                    <div>{{ user.tiktok.follow }}</div>
+                    <div>{{ user.tiktok.post_count }}</div>
                     <div>{{user.user_detail.language}}</div>
                 </div>
                 <div class="right-section">
@@ -94,12 +93,12 @@
                 v-for="(user, index) in users"
             >
                 <div class="left-section">
-                    <img :src="user.instagram.image" :alt="user.instagram.full_name">
+                    <img :src="user.tiktok.image" :alt="user.tiktok.full_name">
                     <div>
-                        <div class="name">{{user.instagram.full_name}}
+                        <div class="name">{{user.tiktok.full_name}}
                             <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">
                         </div>
-                        <div class="sub-name">{{user.instagram.username}}</div>
+                        <div class="sub-name">{{user.tiktok.username}}</div>
                     </div>
                 </div>
                 <div class="right-section">
@@ -142,8 +141,8 @@
                        </div>
                     </div>
                     <div><img src="/images/icons/Icon-color2.png" alt=""><span>{{ user.user_detail.language }}</span></div>
-                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.instagram.follow }}</span></div>
-                    <div><img src="/images/icons/Icon-color5.png" alt=""><span>{{ user.instagram.post_count }}</span></div>
+                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.tiktok.follow }}</span></div>
+                    <div><img src="/images/icons/Icon-color5.png" alt=""><span>{{ user.tiktok.post_count }}</span></div>
                 </div>
                 <div class="icon-section">
                     <div v-if="user.facebook">
@@ -184,7 +183,7 @@
 
 <script>
 export default {
-    name: "SearchResultComponent",
+    name: "SearchResultTikTokComponent",
     props: ['users', 'platform'],
 }
 
@@ -311,6 +310,9 @@ export default {
 
                     > img {
                         margin-right: 15px;
+                        width: 120px;
+                        height: 120px;
+                        border-radius: 50%;
                     }
 
                     .name {
@@ -461,6 +463,9 @@ export default {
 
                             > img {
                                 margin-right: 32px;
+                                width: 120px;
+                                height: 120px;
+                                border-radius: 50%;
                             }
 
                             .name {
