@@ -75,8 +75,6 @@ export default {
 
            await axios.post('/locale/set', {
                 lang: this.lang
-            }).then(response => {
-                console.log(response)
             }).catch(error => {
                 console.log(error)
             })

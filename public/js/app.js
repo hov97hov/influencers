@@ -5798,6 +5798,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-datepicker */ "./node_modules/vue2-datepicker/index.esm.js");
 /* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-datepicker/index.css */ "./node_modules/vue2-datepicker/index.css");
 /* harmony import */ var _public_files_countries_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/files/countries.json */ "./public/files/countries.json");
+/* harmony import */ var _components_SearchResultInstagramComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/SearchResultInstagramComponent */ "./resources/js/components/SearchResultInstagramComponent.vue");
 //
 //
 //
@@ -6120,90 +6121,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -6216,25 +6134,34 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    DatePicker: vue2_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"]
+    DatePicker: vue2_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"],
+    SearchResultInstagramComponent: _components_SearchResultInstagramComponent__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   data: function data() {
     return {
       users: [],
       paginate: [],
+      selectedAges: [],
+      isShowElement: false,
+      isSelectedAge: false,
       currentPage: 1,
+      page: '',
       lastPage: 0,
       activeBtnCountLeft: null,
       activeBtnCountRight: null,
       searchNotSelectedCategories: '',
+      searchAges: '',
+      filterValue: '',
+      filteredItems: [],
       locations: _public_files_countries_json__WEBPACK_IMPORTED_MODULE_6__,
       platforms: ['Instagram', 'Facebook', 'Telegram', 'Twitter', 'TikTok', 'Youtube'],
+      numberPosts: ['> 10', '> 50', '> 100', '> 200'],
       gender: ['Male', 'Female'],
       accountTypes: [{
-        value: 0,
+        id: 0,
         name: 'Not verifed'
       }, {
-        value: 1,
+        id: 1,
         name: 'Verifd'
       }],
       defaultData: {
@@ -6249,11 +6176,15 @@ __webpack_require__.r(__webpack_exports__);
         searchFollowerCountRight: ''
       },
       notSelectedCategories: ['Artist', 'Blogger', 'Digital creator', 'Photoghraper', 'Entrepreneur', 'Public figure'],
+      notSelectedAges: ['< 20', '21 - 30', '31 - 40', '40+'],
       selectedCategories: [],
+      selectedCategoryIds: [],
       numberFollowers: false,
       transitionPlatform: false,
       transitionCategory: false,
-      options: ["foo", "bar", "baz", "test test"]
+      options: ["foo", "bar", "baz", "test test"],
+      isNumberOfPost: false,
+      isLastPost: false
     };
   },
   computed: {
@@ -6263,28 +6194,27 @@ __webpack_require__.r(__webpack_exports__);
       return this.notSelectedCategories.filter(function (val) {
         return val.indexOf(_this.searchNotSelectedCategories) !== -1;
       });
+    },
+    filterNotSelectedAge: function filterNotSelectedAge() {
+      var _this2 = this;
+
+      return this.notSelectedAges.filter(function (val) {
+        return val.indexOf(_this2.searchAges) !== -1;
+      });
     }
   },
-  created: function created() {
-    this.getUsers();
-  },
   methods: {
+    resetField: function resetField(fieldName) {
+      this.defaultData[fieldName] = '';
+      this.filter(this.page);
+    },
     resetFiledDate: function resetFiledDate(data) {
       data.searchFollowerCountLeft = '';
       data.searchFollowerCountRight = '';
+      this.getUsers();
     },
-    formatDate: function formatDate(date) {
-      function pad(number, length) {
-        var str = '' + number;
-
-        while (str.length < length) {
-          str = '0' + str;
-        }
-
-        return str;
-      }
-
-      return date.getFullYear() + "-" + pad(date.getMonth() + 1, 2) + "-" + pad(date.getDate(), 2);
+    hideTransitionAge: function hideTransitionAge() {
+      this.isSelectedAge = false;
     },
     hideTransitionPlatform: function hideTransitionPlatform() {
       this.transitionPlatform = false;
@@ -6327,7 +6257,7 @@ __webpack_require__.r(__webpack_exports__);
         this.defaultData.searchFollowerCountLeft = 1000000;
       }
 
-      this.filterUrl('minFollowers', this.defaultData.searchFollowerCountLeft);
+      this.getUsers();
     },
     followerCountRight: function followerCountRight(count) {
       this.defaultData.searchFollowerCountRight = '';
@@ -6361,42 +6291,125 @@ __webpack_require__.r(__webpack_exports__);
         this.defaultData.searchFollowerCountRight = 1000000;
       }
 
-      this.filterUrl('maxFollowers', this.defaultData.searchFollowerCountRight);
+      this.getUsers();
     },
     selectedCategory: function selectedCategory(value) {
+      var categoryMap = {
+        'Artist': 1,
+        'Blogger': 2,
+        'Digital creator': 3,
+        'Photographer': 4,
+        'Entrepreneur': 5,
+        'Public figure': 6
+      };
       var index = this.notSelectedCategories.indexOf(value);
 
       if (index !== -1) {
         this.notSelectedCategories.splice(index, 1);
+        var categoryId = categoryMap[value];
+
+        if (categoryId) {
+          this.selectedCategoryIds.push(categoryId);
+        }
+
         this.selectedCategories.push(value);
         this.selectedCategories.sort();
       }
 
-      this.filterUrl('categories', this.selectedCategories);
+      this.getUsers();
     },
     notSelectedCategory: function notSelectedCategory(value) {
+      var categoryMap = {
+        'Artist': 1,
+        'Blogger': 2,
+        'Digital creator': 3,
+        'Photographer': 4,
+        'Entrepreneur': 5,
+        'Public figure': 6
+      };
       var index = this.selectedCategories.indexOf(value);
 
       if (index !== -1) {
+        var categoryId = categoryMap[value];
+
+        if (categoryId) {
+          this.selectedCategoryIds.splice(index, 1);
+        }
+
         this.selectedCategories.splice(index, 1);
         this.notSelectedCategories.push(value);
         this.notSelectedCategories.sort();
       }
 
-      this.filterUrl('categories', this.selectedCategories);
+      this.getUsers();
+    },
+    selectedAge: function selectedAge(value) {
+      var index = this.notSelectedAges.indexOf(value);
+
+      if (index !== -1) {
+        this.notSelectedAges.splice(index, 1);
+        this.selectedAges.push(value);
+        this.selectedAges.sort();
+      }
+
+      this.getUsers();
+    },
+    notSelectedAge: function notSelectedAge(value) {
+      var index = this.selectedAges.indexOf(value);
+
+      if (index !== -1) {
+        this.selectedAges.splice(index, 1);
+        this.notSelectedAges.push(value);
+        this.notSelectedAges.sort();
+      }
+
+      this.getUsers();
     },
     getUsers: function getUsers() {
-      var _this2 = this;
+      var _this3 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get("/users?page=".concat(page)).then(function (response) {
-        _this2.users = response.data.data;
-        _this2.currentPage = response.data.pagination.current_page;
-        _this2.lastPage = response.data.pagination.last_page;
+      this.page = page;
+      var requestParams = {
+        page: this.page,
+        platform: this.defaultData.platform,
+        accountType: this.defaultData.accountType.id,
+        location: this.defaultData.location,
+        gender: this.defaultData.gender,
+        age: this.selectedAges,
+        numberFollowers: this.defaultData.numberFollowers,
+        numberPosts: this.defaultData.numberPosts,
+        lastPost: this.defaultData.lastPost,
+        searchFollowerCountLeft: this.defaultData.searchFollowerCountLeft,
+        searchFollowerCountRight: this.defaultData.searchFollowerCountRight,
+        categories: this.selectedCategoryIds
+      };
+      var filteredParams = {};
+
+      for (var key in requestParams) {
+        if (requestParams[key] !== "" && requestParams[key] !== null && requestParams[key] !== undefined) {
+          filteredParams[key] = requestParams[key];
+        }
+      }
+
+      var request = {
+        params: filteredParams
+      };
+      axios.get("/users", request).then(function (response) {
+        _this3.users = response.data.data;
+        _this3.currentPage = response.data.pagination.current_page;
+        _this3.lastPage = response.data.pagination.last_page;
       });
     },
-    filterUrl: function filterUrl(type, filter) {
-      console.log(type, filter);
+    filter: function filter(page) {
+      if (!this.defaultData.platform) {
+        this.defaultData = [];
+        this.isShowElement = false;
+        return;
+      }
+
+      this.isShowElement = true;
+      this.getUsers(page);
     }
   },
   directives: {
@@ -6602,8 +6615,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 4;
                 return axios.post('/locale/set', {
                   lang: _this.lang
-                }).then(function (response) {
-                  console.log(response);
                 })["catch"](function (error) {
                   console.log(error);
                 });
@@ -6625,6 +6636,149 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       document.querySelector('body').style.overflow = 'inherit';
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "SearchResultComponent",
+  props: ['users', 'platform']
 });
 
 /***/ }),
@@ -12264,7 +12418,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".mx-icon-calendar {\n  right: 20px !important;\n}\n.mx-input {\n  width: 100%;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  height: 56px;\n  padding: 0 29px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.vs__dropdown-toggle {\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7) !important;\n  border-radius: 20px !important;\n  padding: 0 12px !important;\n  height: 56px !important;\n}\n.vs__dropdown-toggle .vs__selected {\n  font-family: \"Rubik\", sans-serif !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  font-size: 24px !important;\n  line-height: 28px !important;\n  letter-spacing: 0.02em !important;\n  color: #595656 !important;\n}\n.vs--single.vs--loading .vs__selected, .vs--single.vs--open .vs__selected {\n  opacity: 1 !important;\n  position: relative !important;\n}\n.vs__clear {\n  display: none !important;\n}\n.vs__dropdown-menu {\n  top: 87px !important;\n  padding: 32px 22px !important;\n  border-radius: 25px !important;\n}\n.vs__dropdown-option--highlight {\n  background: #FEFDFF !important;\n}\n.vs__dropdown-menu li {\n  padding: 12px 0 !important;\n  text-align: center !important;\n  font-family: \"Lato\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 22px;\n  letter-spacing: 0.02em;\n  color: #000000;\n}\n.vs--open .vs__dropdown-toggle {\n  border: 0 !important;\n}\n.vs__dropdown-toggle {\n  border: 0 !important;\n}\n.vs__dropdown-menu li:hover {\n  background: #E9EDF0 !important;\n  border-radius: 10px !important;\n  color: #000000 !important;\n}\n.vs__dropdown-menu li.active {\n  background: red !important;\n}\n.search-page-content {\n  background: #E9EDF0;\n}\n.search-page-content .search-content {\n  margin-top: 48px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-page-content .search-content button {\n  border: 2px solid #FCFCFD;\n  background: #EAEEF1;\n  filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n  border-radius: 20px;\n  height: 60px;\n  padding: 0 40px;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  cursor: pointer;\n}\n.search-page-content .search-content input {\n  width: 100%;\n  margin-right: 100px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  border: 0;\n  height: 60px;\n  padding: 0 50px;\n  outline: 0;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n}\n.search-page-content .search-content input::-moz-placeholder {\n  color: #8B8989;\n}\n.search-page-content .search-content input::placeholder {\n  color: #8B8989;\n}\n.search-page-content .filter-vars {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: 15px -10px;\n}\n.search-page-content .filter-vars > div {\n  display: flex;\n  align-items: center;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  border-radius: 40px;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n  padding: 15px 30px;\n  margin: 10px;\n}\n.search-page-content .filter-vars > div img {\n  margin-left: 30px;\n  cursor: pointer;\n}\n.search-page-content .input-filter-content {\n  margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 700;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 25px;\n  margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div {\n  margin: 30px 12px;\n  width: calc(100% / 4 - 25px);\n  position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n  margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input {\n  width: 100%;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  height: 56px;\n  padding: 0 29px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn {\n  width: 100%;\n  height: 56px;\n  position: relative;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img {\n  position: absolute;\n  right: 20px;\n  transition: 0.25s ease;\n  top: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active {\n  transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select {\n  width: 100%;\n  position: absolute;\n  top: 119px;\n  background: #FEFDFF;\n  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n  padding: 20px 10px;\n  z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content {\n  display: flex;\n  align-items: center;\n  margin-bottom: 10px;\n  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input {\n  width: 100%;\n  height: 52px;\n  padding: 0 35px;\n  border: 2px solid #E9ECF2;\n  border-radius: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  background: #ffffff;\n  outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div {\n  width: calc(100% / 2 - 10px);\n  padding: 12px 0;\n  cursor: pointer;\n  text-align: center;\n  border-radius: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 22px;\n  letter-spacing: 0.02em;\n  color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active {\n  background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content {\n  margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input {\n  width: 100%;\n  height: 48px;\n  border: 2px solid #E9ECF2;\n  border-radius: 10px;\n  outline: 0;\n  background: #FFFFFF;\n  padding: 0 22px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content {\n  padding-bottom: 20px;\n  margin-bottom: 10px;\n  border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 17px;\n  letter-spacing: 0.02em;\n  color: #9C99EF;\n  padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div {\n  margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container {\n  background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n  box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n  border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span {\n  color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list {\n  height: 325px;\n  overflow-y: auto;\n  padding-bottom: 30px;\n  border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel {\n  display: flex;\n  justify-content: center;\n  margin-top: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span {\n  cursor: pointer;\n}\n.search-page-content .search-result > .title {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .title div:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .search-result-header {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-page-content .search-result > .search-result-header > div {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-page-content .search-result > .search-result-header > div:nth-child(1) {\n  width: 33%;\n}\n.search-page-content .search-result > .search-result-header > div:nth-child(2) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div:nth-child(3) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div:nth-child(4) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div:nth-child(5) {\n  width: 15%;\n}\n.search-page-content .search-result > .search-result-header > div:nth-child(6) {\n  width: 20%;\n}\n.search-page-content .search-result > .items-mobile {\n  display: none;\n}\n.search-page-content .search-result > .items {\n  margin-top: 85px;\n}\n.search-page-content .search-result > .items .item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-page-content .search-result > .items .item > div:nth-child(1) {\n  width: 30%;\n}\n.search-page-content .search-result > .items .item > div:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-page-content .search-result > .items .item > div:nth-child(3) {\n  width: 15%;\n}\n.search-page-content .search-result > .items .item .left-section {\n  display: flex;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item .left-section > img {\n  margin-right: 15px;\n}\n.search-page-content .search-result > .items .item .left-section .name {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-page-content .search-result > .items .item .left-section .name img {\n  margin-left: 10px;\n}\n.search-page-content .search-result > .items .item .left-section .sub-name {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .items .item .center-section {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-page-content .search-result > .items .item .center-section > div {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-page-content .search-result > .items .item .right-section {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-page-content .search-result > .items .item .right-section > div {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-page-content .search-result > .items .item .right-section > div:not(:last-child) {\n  margin-right: 5px;\n}\n.search-page-content .search-result > .items .item .right-section > div:nth-child(1) img {\n  margin-top: 2px;\n}\n@media screen and (max-width: 1280px) {\n.container {\n    padding-left: 60px;\n    padding-right: 60px;\n}\n}\n@media screen and (max-width: 992px) {\n.search-result-header {\n    display: none !important;\n}\n}\n@media screen and (max-width: 768px) {\n.search-page-content {\n    background: #E9EDF0;\n}\n.search-page-content .search-content {\n    margin-top: 48px;\n    display: flex;\n    justify-content: space-between;\n}\n.search-page-content .search-content button {\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 60px;\n    padding: 0 40px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input {\n    width: 100%;\n    margin-right: 30px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 60px;\n    padding: 0 50px;\n    outline: 0;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n}\n.search-page-content .search-content input::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 40px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 15px 30px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div {\n    margin: 30px 12px;\n    width: calc(100% / 3 - 25px);\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 29px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-page-content .search-result > .title div:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header {\n    display: none;\n}\n.search-page-content .search-result > .items {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img {\n    margin-right: 32px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div:not(:last-child) {\n    margin-right: 5px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img {\n    margin-top: 2px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-page-content {\n    background: #E9EDF0;\n}\n.search-page-content .search-content {\n    margin-top: 48px;\n    display: flex;\n    justify-content: space-between;\n}\n.search-page-content .search-content button {\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 60px;\n    padding: 0 25px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input {\n    width: 100%;\n    margin-right: 10px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 60px;\n    padding: 0 20px;\n    outline: 0;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.5804px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.search-page-content .search-content input::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 32px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.7382px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 15px 13px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 12.8899px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div {\n    margin: 20px 12px;\n    width: calc(100% / 2 - 25px);\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 16px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 19px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-page-content .search-result > .title div:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-page-content .search-result > .title div:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header {\n    display: none;\n}\n.search-page-content .search-result > .items {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img {\n    margin-right: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div:not(:last-child) {\n    margin-right: 5px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img {\n    margin-top: 2px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div:nth-child(2) {\n    padding-left: 30px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div:nth-child(4) {\n    padding-left: 30px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.container {\n    padding-left: 45px;\n    padding-right: 45px;\n}\n.search-page-content {\n    background: #E9EDF0;\n}\n.search-page-content .search-content {\n    margin-top: 48px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.search-page-content .search-content button {\n    width: 100px;\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 43px;\n    padding: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input {\n    width: 100%;\n    margin-bottom: 10px;\n    margin-right: 10px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 53px;\n    padding: 0 20px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.search-page-content .search-content input::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 32px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 12.549px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 10px 10px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 12.8899px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div {\n    margin: 15px 12px;\n    width: 100%;\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 16px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list {\n    height: 325px;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span {\n    cursor: pointer;\n}\n.search-page-content .search-result > .title {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-page-content .search-result > .title div:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .title div:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .search-result-header {\n    display: none;\n}\n.search-page-content .search-result > .items {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile {\n    display: block;\n    margin-top: 35px;\n}\n.search-page-content .search-result > .items-mobile .item {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-page-content .search-result > .items-mobile .item:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) > img {\n    margin-right: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .name > img {\n    margin-left: 15px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(1) .sub-name {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(2) {\n    display: none;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div:nth-child(2) {\n    padding-left: 0;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div:nth-child(4) {\n    padding-left: 0;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(3) div img {\n    margin-right: 10px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div:not(:last-child) {\n    margin-right: 8px;\n}\n.search-page-content .search-result > .items-mobile .item > div:nth-child(4) > div:first-child img {\n    margin-top: 2px;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".mx-icon-calendar {\n  right: 20px !important;\n}\n.mx-input {\n  width: 100%;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  height: 56px;\n  padding: 0 29px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.vs__dropdown-toggle {\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%) !important;\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7) !important;\n  border-radius: 20px !important;\n  padding: 0 12px !important;\n  height: 56px !important;\n}\n.vs__dropdown-toggle .vs__selected {\n  font-family: \"Rubik\", sans-serif !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  font-size: 24px !important;\n  line-height: 28px !important;\n  letter-spacing: 0.02em !important;\n  color: #595656 !important;\n}\n.vs--single.vs--loading .vs__selected, .vs--single.vs--open .vs__selected {\n  opacity: 1 !important;\n  position: relative !important;\n}\n.vs__clear {\n  display: none !important;\n}\n.vs__dropdown-menu {\n  top: 87px !important;\n  padding: 32px 22px !important;\n  border-radius: 25px !important;\n}\n.vs__dropdown-option--highlight {\n  background: #FEFDFF !important;\n}\n.vs__dropdown-menu li {\n  padding: 12px 0 !important;\n  text-align: center !important;\n  font-family: \"Lato\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 22px;\n  letter-spacing: 0.02em;\n  color: #000000;\n}\n.vs--open .vs__dropdown-toggle {\n  border: 0 !important;\n}\n.vs__dropdown-toggle {\n  border: 0 !important;\n}\n.vs__dropdown-menu li:hover {\n  background: #E9EDF0 !important;\n  border-radius: 10px !important;\n  color: #000000 !important;\n}\n.vs__dropdown-menu li.active {\n  background: red !important;\n}\n.search-page-content {\n  background: #E9EDF0;\n}\n.search-page-content .search-content {\n  margin-top: 48px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-page-content .search-content button {\n  border: 2px solid #FCFCFD;\n  background: #EAEEF1;\n  filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n  border-radius: 20px;\n  height: 60px;\n  padding: 0 40px;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  cursor: pointer;\n}\n.search-page-content .search-content input {\n  width: 100%;\n  margin-right: 100px;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n  border-radius: 40px;\n  border: 0;\n  height: 60px;\n  padding: 0 50px;\n  outline: 0;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n}\n.search-page-content .search-content input::-moz-placeholder {\n  color: #8B8989;\n}\n.search-page-content .search-content input::placeholder {\n  color: #8B8989;\n}\n.search-page-content .filter-vars {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: 15px -10px;\n}\n.search-page-content .filter-vars > div {\n  display: flex;\n  align-items: center;\n  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n  border-radius: 40px;\n  font-family: arialAum;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n  padding: 15px 30px;\n  margin: 10px;\n}\n.search-page-content .filter-vars > div img {\n  margin-left: 30px;\n  cursor: pointer;\n}\n.search-page-content .input-filter-content {\n  margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 700;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 25px;\n  margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div {\n  margin: 30px 12px;\n  width: calc(100% / 4 - 25px);\n  position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div.active {\n  width: 100%;\n}\n.search-page-content .input-filter-content .items .fields > div p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n  margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input {\n  width: 100%;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  height: 56px;\n  padding: 0 29px;\n  outline: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 24px;\n  line-height: 28px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn {\n  width: 100%;\n  height: 56px;\n  position: relative;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n  border-radius: 20px;\n  border: 0;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img {\n  position: absolute;\n  right: 20px;\n  transition: 0.25s ease;\n  top: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active {\n  transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select {\n  width: 100%;\n  position: absolute;\n  top: 119px;\n  background: #FEFDFF;\n  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n  padding: 20px 10px;\n  z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content {\n  display: flex;\n  align-items: center;\n  margin-bottom: 10px;\n  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n  border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input {\n  width: 100%;\n  height: 52px;\n  padding: 0 35px;\n  border: 2px solid #E9ECF2;\n  border-radius: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  background: #ffffff;\n  outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div {\n  width: calc(100% / 2 - 10px);\n  padding: 12px 0;\n  cursor: pointer;\n  text-align: center;\n  border-radius: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 22px;\n  letter-spacing: 0.02em;\n  color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active {\n  background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content {\n  margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input {\n  width: 100%;\n  height: 48px;\n  border: 2px solid #E9ECF2;\n  border-radius: 10px;\n  outline: 0;\n  background: #FFFFFF;\n  padding: 0 22px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content {\n  padding-bottom: 20px;\n  margin-bottom: 10px;\n  border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 17px;\n  letter-spacing: 0.02em;\n  color: #9C99EF;\n  padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div {\n  margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container {\n  background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n  box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n  border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span {\n  color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list {\n  height: auto;\n  overflow-y: auto;\n  padding-bottom: 30px;\n  border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel {\n  display: flex;\n  justify-content: center;\n  margin-top: 10px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 20px;\n  line-height: 24px;\n  letter-spacing: 0.02em;\n  color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span {\n  cursor: pointer;\n}\n@media screen and (max-width: 1280px) {\n.container {\n    padding-left: 60px;\n    padding-right: 60px;\n}\n}\n@media screen and (max-width: 992px) {\n.search-result-header {\n    display: none !important;\n}\n}\n@media screen and (max-width: 768px) {\n.search-page-content {\n    background: #E9EDF0;\n}\n.search-page-content .search-content {\n    margin-top: 48px;\n    display: flex;\n    justify-content: space-between;\n}\n.search-page-content .search-content button {\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 60px;\n    padding: 0 40px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input {\n    width: 100%;\n    margin-right: 30px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 60px;\n    padding: 0 50px;\n    outline: 0;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n}\n.search-page-content .search-content input::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 40px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 15px 30px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div {\n    margin: 30px 12px;\n    width: calc(100% / 3 - 25px);\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div.active {\n    width: 100%;\n}\n.search-page-content .input-filter-content .items .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 29px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list {\n    height: auto;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span {\n    cursor: pointer;\n}\n}\n@media screen and (max-width: 580px) {\n.search-page-content {\n    background: #E9EDF0;\n}\n.search-page-content .search-content {\n    margin-top: 48px;\n    display: flex;\n    justify-content: space-between;\n}\n.search-page-content .search-content button {\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 60px;\n    padding: 0 25px;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input {\n    width: 100%;\n    margin-right: 10px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 60px;\n    padding: 0 20px;\n    outline: 0;\n    font-family: arialAum;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.5804px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.search-page-content .search-content input::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 32px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.7382px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 15px 13px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 12.8899px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div {\n    margin: 20px 12px;\n    width: calc(100% / 2 - 25px);\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div.active {\n    width: 100%;\n}\n.search-page-content .input-filter-content .items .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 16px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 19px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list {\n    height: auto;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span {\n    cursor: pointer;\n}\n}\n@media screen and (max-width: 500px) {\n.container {\n    padding-left: 45px;\n    padding-right: 45px;\n}\n.search-page-content {\n    background: #E9EDF0;\n}\n.search-page-content .search-content {\n    margin-top: 48px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.search-page-content .search-content button {\n    width: 100px;\n    border: 2px solid #FCFCFD;\n    background: #EAEEF1;\n    filter: drop-shadow(-12px -12px 20px rgba(255, 255, 255, 0.8)) drop-shadow(10px 10px 20px rgba(166, 180, 200, 0.7));\n    border-radius: 20px;\n    height: 43px;\n    padding: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    cursor: pointer;\n}\n.search-page-content .search-content input {\n    width: 100%;\n    margin-bottom: 10px;\n    margin-right: 10px;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(166, 180, 200, 0.75);\n    border-radius: 40px;\n    border: 0;\n    height: 53px;\n    padding: 0 20px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #8B8989;\n}\n.search-page-content .search-content input::-moz-placeholder {\n    color: #8B8989;\n}\n.search-page-content .search-content input::placeholder {\n    color: #8B8989;\n}\n.search-page-content .filter-vars {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: 15px -10px;\n}\n.search-page-content .filter-vars > div {\n    display: flex;\n    align-items: center;\n    background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);\n    border-radius: 32px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 12.549px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    padding: 10px 10px;\n    margin: 10px;\n}\n.search-page-content .filter-vars > div img {\n    margin-left: 30px;\n    cursor: pointer;\n}\n.search-page-content .input-filter-content {\n    margin-bottom: 136px;\n}\n.search-page-content .input-filter-content > .title {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 12.8899px;\n    line-height: 15px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin-bottom: 25px;\n    margin-top: 90px;\n}\n.search-page-content .input-filter-content .items .fields {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    margin: -15px;\n}\n.search-page-content .input-filter-content .items .fields > div {\n    margin: 15px 12px;\n    width: 100%;\n    position: relative;\n}\n.search-page-content .input-filter-content .items .fields > div p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    margin-bottom: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div > input {\n    width: 100%;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    height: 56px;\n    padding: 0 16px;\n    outline: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn {\n    width: 100%;\n    height: 56px;\n    position: relative;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n    border-radius: 20px;\n    border: 0;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img {\n    position: absolute;\n    right: 20px;\n    transition: 0.25s ease;\n}\n.search-page-content .input-filter-content .items .fields > div .select-btn img.active {\n    transform: rotate(180deg);\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select {\n    width: 100%;\n    position: absolute;\n    top: 119px;\n    background: #FEFDFF;\n    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n    padding: 20px 10px;\n    z-index: 99;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content {\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), -2px -2px 10px rgba(180, 175, 175, 0.25);\n    border-radius: 25px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content span {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    margin: 0 4px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .transition-search-content > .search-input {\n    width: 100%;\n    height: 52px;\n    padding: 0 35px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    background: #ffffff;\n    outline: 0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div {\n    width: calc(100% / 2 - 10px);\n    padding: 12px 0;\n    cursor: pointer;\n    text-align: center;\n    border-radius: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 22px;\n    letter-spacing: 0.02em;\n    color: #000000;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .followers-count > div.active {\n    background: #E9EDF0;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content {\n    margin-bottom: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .search-category-content input {\n    width: 100%;\n    height: 48px;\n    border: 2px solid #E9ECF2;\n    border-radius: 10px;\n    outline: 0;\n    background: #FFFFFF;\n    padding: 0 22px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content {\n    padding-bottom: 20px;\n    margin-bottom: 10px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content p {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #9C99EF;\n    padding-left: 22px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content > div {\n    margin-bottom: 5px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container {\n    background: linear-gradient(134.17deg, #9D99EE 4.98%, #BBA7E6 94.88%);\n    box-shadow: -12px -2px 20px rgba(255, 255, 255, 0.8);\n    border-radius: 10px;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .selected-category-content .checkbox-container span {\n    color: #ffffff;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .category-list {\n    height: auto;\n    overflow-y: auto;\n    padding-bottom: 30px;\n    border-bottom: 0.5px solid #5F5C5C;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel {\n    display: flex;\n    justify-content: center;\n    margin-top: 10px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 20px;\n    line-height: 24px;\n    letter-spacing: 0.02em;\n    color: #595656;\n}\n.search-page-content .input-filter-content .items .fields > div .transition-select .cancel span {\n    cursor: pointer;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12337,6 +12491,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".mobile-menu[data-v-1f42fb90] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100vh;\n  background: #E9EDF0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 999999;\n}\n.mobile-menu .close-menu[data-v-1f42fb90] {\n  position: absolute;\n  top: 30px;\n  right: 30px;\n  cursor: pointer;\n}\n.mobile-menu .close-menu img[data-v-1f42fb90] {\n  width: 16px;\n}\n.mobile-menu .menu[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.mobile-menu #languageSwitch[data-v-1f42fb90] {\n  width: 70px;\n  margin-top: 20px;\n  border: 1px solid #000000;\n  background: transparent;\n  color: #000000;\n  font-family: arialAum;\n  outline: 0;\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding-left: 5px;\n  padding-right: 5px;\n  cursor: pointer;\n  padding-bottom: 5px;\n  padding-top: 5px;\n}\n.mobile-menu #languageSwitch option[data-v-1f42fb90] {\n  background: #E9EDF0;\n  color: #000000;\n}\n.mobile-menu .btn-content a[data-v-1f42fb90] {\n  display: block;\n  background: #FFFFFF;\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  text-align: center;\n  letter-spacing: 0.02em;\n  color: #151515;\n  padding: 12px 38px;\n  cursor: pointer;\n  text-decoration: none;\n}\n.mobile-menu .btn-content img[data-v-1f42fb90] {\n  display: none;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.header[data-v-1f42fb90] {\n  background: transparent;\n  width: 100%;\n}\n.header.active[data-v-1f42fb90] {\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n}\n.header .menu[data-v-1f42fb90] {\n  margin-top: 35px;\n  display: flex;\n  justify-content: flex-end;\n}\n.header .menu.active[data-v-1f42fb90] {\n  margin-top: 0;\n}\n.header .menu .btn-content a[data-v-1f42fb90] {\n  display: block;\n  background: #FFFFFF;\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  text-align: center;\n  letter-spacing: 0.02em;\n  color: #151515;\n  padding: 12px 38px;\n  cursor: pointer;\n  text-decoration: none;\n}\n.header .menu .btn-content img[data-v-1f42fb90] {\n  display: none;\n}\n.header .menu #languageSwitch[data-v-1f42fb90] {\n  background: transparent;\n  color: #ffffff;\n  font-family: arialAum;\n  border: none;\n  outline: 0;\n  margin-left: 13px;\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding-left: 5px;\n  padding-right: 5px;\n  cursor: pointer;\n}\n.header .menu #languageSwitch option[data-v-1f42fb90] {\n  background: #E9EDF0;\n  color: #000000;\n}\n@media screen and (max-width: 580px) {\n.header[data-v-1f42fb90] {\n    background: transparent;\n    width: 100%;\n}\n.header .menu[data-v-1f42fb90] {\n    margin-top: 20px;\n    display: flex;\n    justify-content: flex-end;\n}\n.header .menu #languageSwitch[data-v-1f42fb90] {\n    display: none;\n}\n.header .menu .btn-content a[data-v-1f42fb90] {\n    display: none;\n    background: #FFFFFF;\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    text-align: center;\n    letter-spacing: 0.02em;\n    color: #151515;\n    padding: 12px 38px;\n    cursor: pointer;\n    text-decoration: none;\n}\n.header .menu .btn-content img[data-v-1f42fb90] {\n    display: block;\n}\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".search-result > .title[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 700;\n  font-size: 36px;\n  line-height: 43px;\n  letter-spacing: 0.02em;\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n  margin-top: 50px;\n  display: flex;\n  justify-content: space-between;\n}\n.search-result > .search-result-header > div[data-v-404db35b] {\n  text-align: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #000000;\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(1) {\n  width: 33%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(2) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(4) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(5) {\n  width: 15%;\n}\n.search-result > .search-result-header > div[data-v-404db35b]:nth-child(6) {\n  width: 20%;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n  display: none;\n}\n.search-result > .items[data-v-404db35b] {\n  margin-top: 85px;\n}\n.search-result > .items .item[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item[data-v-404db35b]:not(:last-child) {\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n  border-bottom: 1.05182px solid #88898A;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(1) {\n  width: 30%;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(2) {\n  width: 55%;\n  margin: 0 80px;\n}\n.search-result > .items .item > div[data-v-404db35b]:nth-child(3) {\n  width: 15%;\n}\n.search-result > .items .item .left-section[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n}\n.search-result > .items .item .left-section > img[data-v-404db35b] {\n  margin-right: 15px;\n}\n.search-result > .items .item .left-section .name[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #595656;\n  margin-bottom: 10px;\n}\n.search-result > .items .item .left-section .name img[data-v-404db35b] {\n  margin-left: 10px;\n}\n.search-result > .items .item .left-section .sub-name[data-v-404db35b] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 17px;\n  line-height: 20px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section[data-v-404db35b] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.search-result > .items .item .center-section > div[data-v-404db35b] {\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 19px;\n  line-height: 23px;\n  letter-spacing: 0.02em;\n  color: #686868;\n}\n.search-result > .items .item .center-section > div.categories[data-v-404db35b] {\n  display: flex;\n  flex-direction: column;\n}\n.search-result > .items .item .center-section > div.categories span[data-v-404db35b] {\n  display: block;\n  margin: 0 0 10px;\n}\n.search-result > .items .item .right-section[data-v-404db35b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.search-result > .items .item .right-section > div[data-v-404db35b] {\n  width: 22px;\n  height: 21px;\n  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n  box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n  border-radius: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n.search-result > .items .item .right-section > div[data-v-404db35b]:not(:last-child) {\n  margin-right: 5px;\n}\n.search-result > .items .item .right-section > div:nth-child(1) img[data-v-404db35b] {\n  margin-top: 2px;\n}\n@media screen and (max-width: 768px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-weight: 700;\n    font-size: 36px;\n    line-height: 43px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    width: 60%;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 32px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-404db35b] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 113px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    display: flex;\n    align-items: center;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 580px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 55%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    width: 40%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b] {\n    width: 22px;\n    height: 21px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 5px;\n}\n.search-result > .items-mobile .item > div:nth-child(2) > div:nth-child(1) img[data-v-404db35b] {\n    margin-top: 2px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 100px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(2) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(4) {\n    padding-left: 30px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: none;\n}\n}\n@media screen and (max-width: 500px) {\n.search-result > .title[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-direction: column;\n}\n.search-result > .title div[data-v-404db35b]:first-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 28px;\n    letter-spacing: 0.02em;\n    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    background-clip: text;\n    text-fill-color: transparent;\n    margin-bottom: 10px;\n}\n.search-result > .title div[data-v-404db35b]:last-child {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 17px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .search-result-header[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items[data-v-404db35b] {\n    display: none;\n}\n.search-result > .items-mobile[data-v-404db35b] {\n    display: block;\n    margin-top: 35px;\n}\n.search-result > .items-mobile .item[data-v-404db35b] {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 50px;\n    padding-bottom: 50px;\n}\n.search-result > .items-mobile .item[data-v-404db35b]:not(:last-child) {\n    border-bottom: 0.912564px solid #88898A;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(1) {\n    display: flex;\n    align-items: center;\n    width: 100%;\n}\n.search-result > .items-mobile .item > div:nth-child(1) > img[data-v-404db35b] {\n    margin-right: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #595656;\n    display: flex;\n    align-items: center;\n    margin-bottom: 10px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .name > img[data-v-404db35b] {\n    margin-left: 15px;\n}\n.search-result > .items-mobile .item > div:nth-child(1) .sub-name[data-v-404db35b] {\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14.9265px;\n    line-height: 18px;\n    letter-spacing: 0.02em;\n    color: #686868;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(2) {\n    display: none;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(3) {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    margin-top: 10px;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b] {\n    width: 50%;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16.7923px;\n    line-height: 20px;\n    letter-spacing: 0.02em;\n    color: #686868;\n    align-items: center;\n    margin-bottom: 20px;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(2) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div[data-v-404db35b]:nth-child(4) {\n    padding-left: 0;\n}\n.search-result > .items-mobile .item > div:nth-child(3) div img[data-v-404db35b] {\n    margin-right: 10px;\n}\n.search-result > .items-mobile .item > div[data-v-404db35b]:nth-child(4) {\n    display: flex;\n    padding-left: 75px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-404db35b] {\n    width: 34px;\n    height: 33px;\n    background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);\n    box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);\n    border-radius: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div[data-v-404db35b]:not(:last-child) {\n    margin-right: 8px;\n}\n.search-result > .items-mobile .item > div:nth-child(4) > div:first-child img[data-v-404db35b] {\n    margin-top: 2px;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36649,6 +36827,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_style_index_0_id_404db35b_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_style_index_0_id_404db35b_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_style_index_0_id_404db35b_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/vue-select/dist/vue-select.css":
 /*!*****************************************************!*\
   !*** ./node_modules/vue-select/dist/vue-select.css ***!
@@ -39633,6 +39841,47 @@ component.options.__file = "resources/js/components/Header.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/SearchResultInstagramComponent.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/SearchResultInstagramComponent.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SearchResultInstagramComponent_vue_vue_type_template_id_404db35b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true& */ "./resources/js/components/SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true&");
+/* harmony import */ var _SearchResultInstagramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchResultInstagramComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/SearchResultInstagramComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SearchResultInstagramComponent_vue_vue_type_style_index_0_id_404db35b_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss& */ "./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SearchResultInstagramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SearchResultInstagramComponent_vue_vue_type_template_id_404db35b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SearchResultInstagramComponent_vue_vue_type_template_id_404db35b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "404db35b",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SearchResultInstagramComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Home.vue?vue&type=script&lang=js&":
 /*!**************************************************************!*\
   !*** ./resources/js/Pages/Home.vue?vue&type=script&lang=js& ***!
@@ -39729,6 +39978,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/SearchResultInstagramComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultInstagramComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultInstagramComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Home.vue?vue&type=style&index=0&id=6a63e488&scoped=true&lang=scss&":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/Pages/Home.vue?vue&type=style&index=0&id=6a63e488&scoped=true&lang=scss& ***!
@@ -39803,6 +40068,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_style_index_0_id_1f42fb90_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Header.vue?vue&type=style&index=0&id=1f42fb90&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Header.vue?vue&type=style&index=0&id=1f42fb90&scoped=true&lang=scss&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss&":
+/*!******************************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss& ***!
+  \******************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_style_index_0_id_404db35b_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=style&index=0&id=404db35b&scoped=true&lang=scss&");
 
 
 /***/ }),
@@ -39905,6 +40183,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_1f42fb90_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_1f42fb90_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Header.vue?vue&type=template&id=1f42fb90&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Header.vue?vue&type=template&id=1f42fb90&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/components/SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true& ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_template_id_404db35b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_template_id_404db35b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResultInstagramComponent_vue_vue_type_template_id_404db35b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true&");
 
 
 /***/ }),
@@ -40871,1471 +41166,1329 @@ var render = function () {
     [
       _c("Header", { attrs: { "is-show": false } }),
       _vm._v(" "),
-      _c("div", { staticClass: "search-page-content" }, [
-        _c(
-          "div",
-          { staticClass: "container" },
-          [
-            _c("div", { staticClass: "search-content" }, [
-              _c("input", {
-                attrs: {
-                  type: "text",
-                  placeholder: "Keywords: fashion, design, marketing",
-                },
-              }),
-              _vm._v(" "),
-              _c("button", [_vm._v(_vm._s(_vm.$t("search")))]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "filter-vars" }, [
-              _vm.defaultData.platform
-                ? _c("div", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.defaultData.platform) +
-                        "\n                    "
-                    ),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.platform = ""
-                        },
+      _c(
+        "div",
+        {
+          staticClass: "search-page-content",
+          style: !_vm.isShowElement ? "height: 100vh" : "height: auto",
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container" },
+            [
+              _vm.isShowElement
+                ? _c("div", { staticClass: "search-content" }, [
+                    _c("input", {
+                      attrs: {
+                        type: "text",
+                        placeholder: "Keywords: fashion, design, marketing",
                       },
                     }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.accountType
-                ? _c("div", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.defaultData.accountType.name) +
-                        "\n                    "
-                    ),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.accountType = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.location
-                ? _c("div", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.defaultData.location) +
-                        "\n                    "
-                    ),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.location = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.gender
-                ? _c("div", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.defaultData.gender) +
-                        "\n                    "
-                    ),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.gender = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.age
-                ? _c("div", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.formatDate(_vm.defaultData.age)) +
-                        "\n                    "
-                    ),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.age = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.searchFollowerCountLeft ||
-              _vm.defaultData.searchFollowerCountRight
-                ? _c("div", [
-                    _c("span", { staticStyle: { "margin-right": "5px" } }, [
-                      _vm._v("Followers count"),
-                    ]),
                     _vm._v(" "),
-                    _vm.defaultData.searchFollowerCountLeft
-                      ? _c("span", [
-                          _vm._v(
-                            _vm._s(_vm.defaultData.searchFollowerCountLeft)
-                          ),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.defaultData.searchFollowerCountLeft &&
-                    _vm.defaultData.searchFollowerCountRight
-                      ? _c("span", { staticStyle: { margin: "0 5px" } }, [
-                          _vm._v(">"),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.defaultData.searchFollowerCountRight
-                      ? _c("span", [
-                          _vm._v(
-                            _vm._s(_vm.defaultData.searchFollowerCountRight)
-                          ),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          return _vm.resetFiledDate(_vm.defaultData)
-                        },
-                      },
-                    }),
+                    _c("button", [_vm._v(_vm._s(_vm.$t("search")))]),
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm.defaultData.numberPosts
-                ? _c("div", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.defaultData.numberPosts) +
-                        "\n                    "
-                    ),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.numberPosts = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.defaultData.lastPost
-                ? _c("div", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.defaultData.lastPost) +
-                        "\n                    "
-                    ),
-                    _c("img", {
-                      attrs: { src: "/images/icons/close-icon.png", alt: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.defaultData.lastPost = ""
-                        },
-                      },
-                    }),
-                  ])
-                : _vm._e(),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "input-filter-content" }, [
-              _c("div", { staticClass: "title" }, [
-                _vm._v(_vm._s(_vm.$t("search_filters"))),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "items" }, [
-                _c("div", { staticClass: "fields" }, [
-                  _c(
-                    "div",
-                    [
-                      _c(
-                        "div",
-                        [
-                          _c("p", [_vm._v(_vm._s(_vm.$t("platform")))]),
-                          _vm._v(" "),
-                          _c("v-select", {
-                            attrs: { options: _vm.platforms },
-                            on: {
-                              input: function ($event) {
-                                return _vm.filterUrl(
-                                  "platform",
-                                  _vm.defaultData.platform
-                                )
-                              },
-                            },
-                            model: {
-                              value: _vm.defaultData.platform,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.defaultData, "platform", $$v)
-                              },
-                              expression: "defaultData.platform",
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("transition", { attrs: { name: "slide" } }, [
-                        _vm.transitionPlatform
-                          ? _c(
-                              "div",
-                              {
-                                directives: [
-                                  {
-                                    name: "click-outside",
-                                    rawName: "v-click-outside",
-                                    value: _vm.hideTransitionPlatform,
-                                    expression: "hideTransitionPlatform",
-                                  },
-                                ],
-                                staticClass: "transition-select",
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "search-category-content" },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value:
-                                            _vm.searchNotSelectedCategories,
-                                          expression:
-                                            "searchNotSelectedCategories",
-                                        },
-                                      ],
-                                      staticClass: "search-input",
-                                      attrs: {
-                                        type: "text",
-                                        placeholder: "Choose category",
-                                      },
-                                      domProps: {
-                                        value: _vm.searchNotSelectedCategories,
-                                      },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.searchNotSelectedCategories =
-                                            $event.target.value
-                                        },
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "selected-category-content" },
-                                  [
-                                    _c("p", [_vm._v("Selected:")]),
-                                    _vm._v(" "),
-                                    _vm._l(
-                                      _vm.selectedCategories,
-                                      function (item) {
-                                        return _c("div", [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass: "checkbox-container",
-                                            },
-                                            [
-                                              _c("span", [
-                                                _vm._v(_vm._s(item)),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                attrs: {
-                                                  type: "checkbox",
-                                                  checked: "",
-                                                },
-                                                on: {
-                                                  change: function ($event) {
-                                                    return _vm.notSelectedCategory(
-                                                      item
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _c("span", {
-                                                staticClass: "checkmark",
-                                              }),
-                                            ]
-                                          ),
-                                        ])
-                                      }
-                                    ),
-                                  ],
-                                  2
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "category-list" },
-                                  _vm._l(
-                                    _vm.filterNotSelectedCategories,
-                                    function (item) {
-                                      return _c("div", { key: item }, [
-                                        _c(
-                                          "label",
-                                          { staticClass: "checkbox-container" },
-                                          [
-                                            _c("span", [_vm._v(_vm._s(item))]),
-                                            _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "checkbox" },
-                                              on: {
-                                                change: function ($event) {
-                                                  return _vm.selectedCategory(
-                                                    item
-                                                  )
-                                                },
-                                              },
-                                            }),
-                                            _vm._v(" "),
-                                            _c("span", {
-                                              staticClass: "checkmark",
-                                            }),
-                                          ]
-                                        ),
-                                      ])
-                                    }
-                                  ),
-                                  0
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "cancel" }, [
-                                  _c(
-                                    "span",
-                                    {
-                                      on: {
-                                        click: function ($event) {
-                                          _vm.transitionPlatform = false
-                                        },
-                                      },
-                                    },
-                                    [_vm._v("Cancel")]
-                                  ),
-                                ]),
-                              ]
-                            )
-                          : _vm._e(),
-                      ]),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v(_vm._s(_vm.$t("category")))]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "select-btn",
+              _c("div", { staticClass: "filter-vars" }, [
+                _vm.defaultData.platform
+                  ? _c("div", [
+                      _c("div", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.defaultData.platform) +
+                            "\n                        "
+                        ),
+                        _c("img", {
+                          attrs: { src: "/images/icons/close-icon.png" },
                           on: {
                             click: function ($event) {
-                              $event.stopPropagation()
-                              _vm.transitionCategory = true
+                              return _vm.resetField("platform")
                             },
                           },
-                        },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(_vm.selectedCategories[0]) +
-                              "\n                                " +
-                              _vm._s(_vm.selectedCategories[1] ? "," : "") +
-                              "\n                                " +
-                              _vm._s(_vm.selectedCategories[1]) +
-                              "\n                                " +
-                              _vm._s(
-                                _vm.selectedCategories.length > 2 ? "..." : ""
-                              ) +
-                              "\n                                "
-                          ),
-                          _c("img", {
-                            class: { active: _vm.transitionCategory },
-                            attrs: {
-                              src: "/images/icons/dropdown.svg",
-                              alt: "",
-                            },
-                          }),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("transition", { attrs: { name: "slide" } }, [
-                        _vm.transitionCategory
-                          ? _c(
-                              "div",
-                              {
-                                directives: [
-                                  {
-                                    name: "click-outside",
-                                    rawName: "v-click-outside",
-                                    value: _vm.hideTransitionCategory,
-                                    expression: "hideTransitionCategory",
-                                  },
-                                ],
-                                staticClass: "transition-select",
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "search-category-content" },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value:
-                                            _vm.searchNotSelectedCategories,
-                                          expression:
-                                            "searchNotSelectedCategories",
-                                        },
-                                      ],
-                                      staticClass: "search-input",
-                                      attrs: {
-                                        type: "text",
-                                        placeholder: "Choose category",
-                                      },
-                                      domProps: {
-                                        value: _vm.searchNotSelectedCategories,
-                                      },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.searchNotSelectedCategories =
-                                            $event.target.value
-                                        },
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "selected-category-content" },
-                                  [
-                                    _c("p", [_vm._v("Selected:")]),
-                                    _vm._v(" "),
-                                    _vm._l(
-                                      _vm.selectedCategories,
-                                      function (item) {
-                                        return _c("div", [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass: "checkbox-container",
-                                            },
-                                            [
-                                              _c("span", [
-                                                _vm._v(_vm._s(item)),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                attrs: {
-                                                  type: "checkbox",
-                                                  checked: "",
-                                                },
-                                                on: {
-                                                  change: function ($event) {
-                                                    return _vm.notSelectedCategory(
-                                                      item
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _c("span", {
-                                                staticClass: "checkmark",
-                                              }),
-                                            ]
-                                          ),
-                                        ])
-                                      }
-                                    ),
-                                  ],
-                                  2
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "category-list" },
-                                  _vm._l(
-                                    _vm.filterNotSelectedCategories,
-                                    function (item) {
-                                      return _c("div", { key: item }, [
-                                        _c(
-                                          "label",
-                                          { staticClass: "checkbox-container" },
-                                          [
-                                            _c("span", [_vm._v(_vm._s(item))]),
-                                            _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "checkbox" },
-                                              on: {
-                                                change: function ($event) {
-                                                  return _vm.selectedCategory(
-                                                    item
-                                                  )
-                                                },
-                                              },
-                                            }),
-                                            _vm._v(" "),
-                                            _c("span", {
-                                              staticClass: "checkmark",
-                                            }),
-                                          ]
-                                        ),
-                                      ])
-                                    }
-                                  ),
-                                  0
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "cancel" }, [
-                                  _c(
-                                    "span",
-                                    {
-                                      on: {
-                                        click: function ($event) {
-                                          _vm.transitionCategory = false
-                                        },
-                                      },
-                                    },
-                                    [_vm._v("Cancel")]
-                                  ),
-                                ]),
-                              ]
-                            )
-                          : _vm._e(),
+                        }),
                       ]),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v(_vm._s(_vm.$t("account_type")))]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.accountTypes, label: "name" },
-                        on: {
-                          input: function ($event) {
-                            return _vm.filterUrl(
-                              "accountTypes",
-                              _vm.defaultData.accountType.value
-                            )
-                          },
-                        },
-                        model: {
-                          value: _vm.defaultData.accountType,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "accountType", $$v)
-                          },
-                          expression: "defaultData.accountType",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v(_vm._s(_vm.$t("location")))]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.locations },
-                        on: {
-                          input: function ($event) {
-                            return _vm.filterUrl(
-                              "locations",
-                              _vm.defaultData.location
-                            )
-                          },
-                        },
-                        model: {
-                          value: _vm.defaultData.location,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "location", $$v)
-                          },
-                          expression: "defaultData.location",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v(_vm._s(_vm.$t("gender")))]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.gender },
-                        on: {
-                          input: function ($event) {
-                            return _vm.filterUrl(
-                              "gender",
-                              _vm.defaultData.gender
-                            )
-                          },
-                        },
-                        model: {
-                          value: _vm.defaultData.gender,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "gender", $$v)
-                          },
-                          expression: "defaultData.gender",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v(_vm._s(_vm.$t("age")))]),
-                      _vm._v(" "),
-                      _c("date-picker", {
-                        on: {
-                          input: function ($event) {
-                            return _vm.filterUrl("age", _vm.defaultData.age)
-                          },
-                        },
-                        model: {
-                          value: _vm.defaultData.age,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "age", $$v)
-                          },
-                          expression: "defaultData.age",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v(_vm._s(_vm.$t("number_of_followers")))]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "select-btn",
-                          on: {
-                            click: function ($event) {
-                              $event.stopPropagation()
-                              _vm.numberFollowers = true
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(_vm.defaultData.searchFollowerCountLeft) +
-                              "\n                                " +
-                              _vm._s(
-                                _vm.defaultData.searchFollowerCountLeft
-                                  ? ">"
-                                  : ""
-                              ) +
-                              "\n                                " +
-                              _vm._s(_vm.defaultData.searchFollowerCountRight) +
-                              "\n                                "
-                          ),
-                          _c("img", {
-                            class: { active: _vm.numberFollowers },
-                            attrs: {
-                              src: "/images/icons/dropdown.svg",
-                              alt: "",
-                            },
-                          }),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("transition", { attrs: { name: "slide" } }, [
-                        _vm.numberFollowers
-                          ? _c(
-                              "div",
-                              {
-                                directives: [
-                                  {
-                                    name: "click-outside",
-                                    rawName: "v-click-outside",
-                                    value: _vm.hideNmberFollowers,
-                                    expression: "hideNmberFollowers",
-                                  },
-                                ],
-                                staticClass: "transition-select",
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "transition-search-content" },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value:
-                                            _vm.defaultData
-                                              .searchFollowerCountLeft,
-                                          expression:
-                                            "defaultData.searchFollowerCountLeft",
-                                        },
-                                      ],
-                                      staticClass: "search-input",
-                                      attrs: { type: "text" },
-                                      domProps: {
-                                        value:
-                                          _vm.defaultData
-                                            .searchFollowerCountLeft,
-                                      },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.defaultData,
-                                            "searchFollowerCountLeft",
-                                            $event.target.value
-                                          )
-                                        },
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", [_vm._v("-")]),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value:
-                                            _vm.defaultData
-                                              .searchFollowerCountRight,
-                                          expression:
-                                            "defaultData.searchFollowerCountRight",
-                                        },
-                                      ],
-                                      staticClass: "search-input",
-                                      attrs: { type: "text" },
-                                      domProps: {
-                                        value:
-                                          _vm.defaultData
-                                            .searchFollowerCountRight,
-                                      },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.defaultData,
-                                            "searchFollowerCountRight",
-                                            $event.target.value
-                                          )
-                                        },
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "followers-count" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active: _vm.activeBtnCountLeft === "1k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("1k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "1k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "1k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("1k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "1k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active: _vm.activeBtnCountLeft === "5k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("5k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "5k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "5k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("5k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "5k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountLeft === "10k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("10k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "10k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "10k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("10k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "10k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountLeft === "20k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("20k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "20k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "20k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("20k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "20k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountLeft === "100k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("100k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "100k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "100k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("100k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "100k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountLeft === "500k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("500k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "500k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "500k",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("500k")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "500k\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active: _vm.activeBtnCountLeft === "1M",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountLeft("1M")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "1M\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      class: {
-                                        active:
-                                          _vm.activeBtnCountRight === "1M",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.followerCountRight("1M")
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "1M\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                ]),
-                              ]
-                            )
-                          : _vm._e(),
-                      ]),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v(_vm._s(_vm.$t("number_of_posts")))]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.options },
-                        model: {
-                          value: _vm.defaultData.numberFollowers,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "numberFollowers", $$v)
-                          },
-                          expression: "defaultData.numberFollowers",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("p", [_vm._v(_vm._s(_vm.$t("last_post")))]),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: { options: _vm.options },
-                        model: {
-                          value: _vm.defaultData.numberPosts,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.defaultData, "numberPosts", $$v)
-                          },
-                          expression: "defaultData.numberPosts",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("p", [_vm._v(_vm._s(_vm.$t("required_keywords")))]),
-                    _vm._v(" "),
-                    _c("input", { attrs: { type: "text" } }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("p", [_vm._v(_vm._s(_vm.$t("negative_keywords")))]),
-                    _vm._v(" "),
-                    _c("input", { attrs: { type: "text" } }),
-                  ]),
-                ]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "search-result" }, [
-              _c("div", { staticClass: "title" }, [
-                _c("div", [_vm._v(_vm._s(_vm.$t("search_result")))]),
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("div", [
-                  _vm._v(
-                    _vm._s(_vm.$t("found")) +
-                      " 125 " +
-                      _vm._s(_vm.$t("account")) +
-                      " "
-                  ),
+                _vm.defaultData.accountType
+                  ? _c("div", [
+                      _c("div", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.defaultData.accountType.name) +
+                            "\n                        "
+                        ),
+                        _c("img", {
+                          attrs: { src: "/images/icons/close-icon.png" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetField("accountType")
+                            },
+                          },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.defaultData.location
+                  ? _c("div", [
+                      _c("div", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.defaultData.location) +
+                            "\n                        "
+                        ),
+                        _c("img", {
+                          attrs: { src: "/images/icons/close-icon.png" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetField("location")
+                            },
+                          },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.defaultData.gender
+                  ? _c("div", [
+                      _c("div", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.defaultData.gender) +
+                            "\n                        "
+                        ),
+                        _c("img", {
+                          attrs: { src: "/images/icons/close-icon.png" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetField("gender")
+                            },
+                          },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.defaultData.age
+                  ? _c("div", [
+                      _c("div", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.defaultData.age) +
+                            "\n                        "
+                        ),
+                        _c("img", {
+                          attrs: { src: "/images/icons/close-icon.png" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetField("age")
+                            },
+                          },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.defaultData.searchFollowerCountLeft ||
+                _vm.defaultData.searchFollowerCountRight
+                  ? _c("div", [
+                      _c("div", [
+                        _c("span", { staticStyle: { "margin-right": "5px" } }, [
+                          _vm._v("Followers count"),
+                        ]),
+                        _vm._v(" "),
+                        _vm.defaultData.searchFollowerCountLeft
+                          ? _c("span", [
+                              _vm._v(
+                                _vm._s(_vm.defaultData.searchFollowerCountLeft)
+                              ),
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.defaultData.searchFollowerCountLeft &&
+                        _vm.defaultData.searchFollowerCountRight
+                          ? _c("span", { staticStyle: { margin: "0 5px" } }, [
+                              _vm._v(">"),
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.defaultData.searchFollowerCountRight
+                          ? _c("span", [
+                              _vm._v(
+                                _vm._s(_vm.defaultData.searchFollowerCountRight)
+                              ),
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: "/images/icons/close-icon.png",
+                            alt: "",
+                          },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetField("searchFollowerCountLeft")
+                            },
+                          },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.defaultData.numberPosts
+                  ? _c("div", [
+                      _c("div", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.defaultData.numberPosts) +
+                            "\n                        "
+                        ),
+                        _c("img", {
+                          attrs: {
+                            src: "/images/icons/close-icon.png",
+                            alt: "",
+                          },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetField("numberPosts")
+                            },
+                          },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.defaultData.lastPost
+                  ? _c("div", [
+                      _c("div", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.defaultData.lastPost) +
+                            "\n                        "
+                        ),
+                        _c("img", {
+                          attrs: {
+                            src: "/images/icons/close-icon.png",
+                            alt: "",
+                          },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetField("lastPost")
+                            },
+                          },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-filter-content" }, [
+                _c("div", { staticClass: "title" }, [
+                  _vm._v(_vm._s(_vm.$t("search_filters"))),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "items" }, [
+                  _c("div", { staticClass: "fields" }, [
+                    _c(
+                      "div",
+                      { class: { active: !_vm.isShowElement } },
+                      [
+                        _c("p", [_vm._v(_vm._s(_vm.$t("platform")))]),
+                        _vm._v(" "),
+                        _c("v-select", {
+                          attrs: { options: _vm.platforms },
+                          on: {
+                            input: function ($event) {
+                              return _vm.filter(_vm.page)
+                            },
+                          },
+                          model: {
+                            value: _vm.defaultData.platform,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.defaultData, "platform", $$v)
+                            },
+                            expression: "defaultData.platform",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.isShowElement
+                      ? _c(
+                          "div",
+                          [
+                            _c("p", [_vm._v(_vm._s(_vm.$t("category")))]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "select-btn",
+                                on: {
+                                  click: function ($event) {
+                                    $event.stopPropagation()
+                                    _vm.transitionCategory = true
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.selectedCategories[0]) +
+                                    "\n                                " +
+                                    _vm._s(
+                                      _vm.selectedCategories[1] ? "," : ""
+                                    ) +
+                                    "\n                                " +
+                                    _vm._s(_vm.selectedCategories[1]) +
+                                    "\n                                " +
+                                    _vm._s(
+                                      _vm.selectedCategories.length > 2
+                                        ? "..."
+                                        : ""
+                                    ) +
+                                    "\n                                "
+                                ),
+                                _c("img", {
+                                  class: { active: _vm.transitionCategory },
+                                  attrs: {
+                                    src: "/images/icons/dropdown.svg",
+                                    alt: "",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("transition", { attrs: { name: "slide" } }, [
+                              _vm.transitionCategory
+                                ? _c(
+                                    "div",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "click-outside",
+                                          rawName: "v-click-outside",
+                                          value: _vm.hideTransitionCategory,
+                                          expression: "hideTransitionCategory",
+                                        },
+                                      ],
+                                      staticClass: "transition-select",
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "search-category-content",
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.searchNotSelectedCategories,
+                                                expression:
+                                                  "searchNotSelectedCategories",
+                                              },
+                                            ],
+                                            staticClass: "search-input",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Choose category",
+                                            },
+                                            domProps: {
+                                              value:
+                                                _vm.searchNotSelectedCategories,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.searchNotSelectedCategories =
+                                                  $event.target.value
+                                              },
+                                            },
+                                          }),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "selected-category-content",
+                                        },
+                                        [
+                                          _c("p", [_vm._v("Selected:")]),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.selectedCategories,
+                                            function (item) {
+                                              return _c("div", [
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "checkbox-container",
+                                                  },
+                                                  [
+                                                    _c("span", [
+                                                      _vm._v(
+                                                        _vm._s(item) + " "
+                                                      ),
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                      attrs: {
+                                                        type: "checkbox",
+                                                      },
+                                                      domProps: {
+                                                        checked: item,
+                                                      },
+                                                      on: {
+                                                        change: function (
+                                                          $event
+                                                        ) {
+                                                          return _vm.notSelectedCategory(
+                                                            item
+                                                          )
+                                                        },
+                                                      },
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("span", {
+                                                      staticClass: "checkmark",
+                                                    }),
+                                                  ]
+                                                ),
+                                              ])
+                                            }
+                                          ),
+                                        ],
+                                        2
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "category-list" },
+                                        _vm._l(
+                                          _vm.filterNotSelectedCategories,
+                                          function (item) {
+                                            return _c("div", { key: item }, [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "checkbox-container",
+                                                },
+                                                [
+                                                  _c("span", [
+                                                    _vm._v(_vm._s(item)),
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("input", {
+                                                    attrs: { type: "checkbox" },
+                                                    on: {
+                                                      change: function (
+                                                        $event
+                                                      ) {
+                                                        return _vm.selectedCategory(
+                                                          item
+                                                        )
+                                                      },
+                                                    },
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("span", {
+                                                    staticClass: "checkmark",
+                                                  }),
+                                                ]
+                                              ),
+                                            ])
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "cancel" }, [
+                                        _c(
+                                          "span",
+                                          {
+                                            on: {
+                                              click: function ($event) {
+                                                _vm.transitionCategory = false
+                                              },
+                                            },
+                                          },
+                                          [_vm._v("Cancel")]
+                                        ),
+                                      ]),
+                                    ]
+                                  )
+                                : _vm._e(),
+                            ]),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isShowElement
+                      ? _c(
+                          "div",
+                          [
+                            _c("p", [_vm._v(_vm._s(_vm.$t("account_type")))]),
+                            _vm._v(" "),
+                            _c("v-select", {
+                              attrs: {
+                                options: _vm.accountTypes,
+                                label: "name",
+                              },
+                              on: {
+                                input: function ($event) {
+                                  return _vm.filter(_vm.page)
+                                },
+                              },
+                              model: {
+                                value: _vm.defaultData.accountType,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.defaultData, "accountType", $$v)
+                                },
+                                expression: "defaultData.accountType",
+                              },
+                            }),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isShowElement
+                      ? _c(
+                          "div",
+                          [
+                            _c("p", [_vm._v(_vm._s(_vm.$t("location")))]),
+                            _vm._v(" "),
+                            _c("v-select", {
+                              attrs: { options: _vm.locations },
+                              on: {
+                                input: function ($event) {
+                                  return _vm.filter(_vm.page)
+                                },
+                              },
+                              model: {
+                                value: _vm.defaultData.location,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.defaultData, "location", $$v)
+                                },
+                                expression: "defaultData.location",
+                              },
+                            }),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isShowElement
+                      ? _c(
+                          "div",
+                          [
+                            _c("p", [_vm._v(_vm._s(_vm.$t("gender")))]),
+                            _vm._v(" "),
+                            _c("v-select", {
+                              attrs: { options: _vm.gender },
+                              on: {
+                                input: function ($event) {
+                                  return _vm.filter(_vm.page)
+                                },
+                              },
+                              model: {
+                                value: _vm.defaultData.gender,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.defaultData, "gender", $$v)
+                                },
+                                expression: "defaultData.gender",
+                              },
+                            }),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isShowElement
+                      ? _c(
+                          "div",
+                          [
+                            _c("p", [_vm._v(_vm._s(_vm.$t("age")))]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "select-btn",
+                                on: {
+                                  click: function ($event) {
+                                    $event.stopPropagation()
+                                    _vm.isSelectedAge = true
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.selectedAges[0]) +
+                                    "\n                                " +
+                                    _vm._s(_vm.selectedAges[1] ? "," : "") +
+                                    "\n                                " +
+                                    _vm._s(_vm.selectedAges[1]) +
+                                    "\n                                " +
+                                    _vm._s(
+                                      _vm.selectedAges.length > 2 ? "..." : ""
+                                    ) +
+                                    "\n                                "
+                                ),
+                                _c("img", {
+                                  class: { active: _vm.isSelectedAge },
+                                  attrs: {
+                                    src: "/images/icons/dropdown.svg",
+                                    alt: "",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("transition", { attrs: { name: "slide" } }, [
+                              _vm.isSelectedAge
+                                ? _c(
+                                    "div",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "click-outside",
+                                          rawName: "v-click-outside",
+                                          value: _vm.hideTransitionAge,
+                                          expression: "hideTransitionAge",
+                                        },
+                                      ],
+                                      staticClass: "transition-select",
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "search-category-content",
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.searchAges,
+                                                expression: "searchAges",
+                                              },
+                                            ],
+                                            staticClass: "search-input",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Choose Ages",
+                                            },
+                                            domProps: { value: _vm.searchAges },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.searchAges =
+                                                  $event.target.value
+                                              },
+                                            },
+                                          }),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "selected-category-content",
+                                        },
+                                        [
+                                          _c("p", [_vm._v("Selected:")]),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.selectedAges,
+                                            function (item) {
+                                              return _c("div", [
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "checkbox-container",
+                                                  },
+                                                  [
+                                                    _c("span", [
+                                                      _vm._v(
+                                                        _vm._s(item) + " "
+                                                      ),
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                      attrs: {
+                                                        type: "checkbox",
+                                                      },
+                                                      domProps: {
+                                                        checked: item,
+                                                      },
+                                                      on: {
+                                                        change: function (
+                                                          $event
+                                                        ) {
+                                                          return _vm.notSelectedAge(
+                                                            item
+                                                          )
+                                                        },
+                                                      },
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("span", {
+                                                      staticClass: "checkmark",
+                                                    }),
+                                                  ]
+                                                ),
+                                              ])
+                                            }
+                                          ),
+                                        ],
+                                        2
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "category-list" },
+                                        _vm._l(
+                                          _vm.filterNotSelectedAge,
+                                          function (item) {
+                                            return _c("div", { key: item }, [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "checkbox-container",
+                                                },
+                                                [
+                                                  _c("span", [
+                                                    _vm._v(_vm._s(item)),
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("input", {
+                                                    attrs: { type: "checkbox" },
+                                                    on: {
+                                                      change: function (
+                                                        $event
+                                                      ) {
+                                                        return _vm.selectedAge(
+                                                          item
+                                                        )
+                                                      },
+                                                    },
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("span", {
+                                                    staticClass: "checkmark",
+                                                  }),
+                                                ]
+                                              ),
+                                            ])
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "cancel" }, [
+                                        _c(
+                                          "span",
+                                          {
+                                            on: {
+                                              click: function ($event) {
+                                                _vm.isSelectedAge = false
+                                              },
+                                            },
+                                          },
+                                          [_vm._v("Cancel")]
+                                        ),
+                                      ]),
+                                    ]
+                                  )
+                                : _vm._e(),
+                            ]),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isShowElement
+                      ? _c(
+                          "div",
+                          [
+                            _c("p", [
+                              _vm._v(_vm._s(_vm.$t("number_of_followers"))),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "select-btn",
+                                on: {
+                                  click: function ($event) {
+                                    $event.stopPropagation()
+                                    _vm.numberFollowers = true
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(
+                                      _vm.defaultData.searchFollowerCountLeft
+                                    ) +
+                                    "\n                                " +
+                                    _vm._s(
+                                      _vm.defaultData.searchFollowerCountLeft
+                                        ? ">"
+                                        : ""
+                                    ) +
+                                    "\n                                " +
+                                    _vm._s(
+                                      _vm.defaultData.searchFollowerCountRight
+                                    ) +
+                                    "\n                                "
+                                ),
+                                _c("img", {
+                                  class: { active: _vm.numberFollowers },
+                                  attrs: {
+                                    src: "/images/icons/dropdown.svg",
+                                    alt: "",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("transition", { attrs: { name: "slide" } }, [
+                              _vm.numberFollowers
+                                ? _c(
+                                    "div",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "click-outside",
+                                          rawName: "v-click-outside",
+                                          value: _vm.hideNmberFollowers,
+                                          expression: "hideNmberFollowers",
+                                        },
+                                      ],
+                                      staticClass: "transition-select",
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "transition-search-content",
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.defaultData
+                                                    .searchFollowerCountLeft,
+                                                expression:
+                                                  "defaultData.searchFollowerCountLeft",
+                                              },
+                                            ],
+                                            staticClass: "search-input",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value:
+                                                _vm.defaultData
+                                                  .searchFollowerCountLeft,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.defaultData,
+                                                  "searchFollowerCountLeft",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("-")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.defaultData
+                                                    .searchFollowerCountRight,
+                                                expression:
+                                                  "defaultData.searchFollowerCountRight",
+                                              },
+                                            ],
+                                            staticClass: "search-input",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value:
+                                                _vm.defaultData
+                                                  .searchFollowerCountRight,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.defaultData,
+                                                  "searchFollowerCountRight",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "followers-count" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountLeft ===
+                                                  "1k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountLeft(
+                                                    "1k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "1k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountRight ===
+                                                  "1k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountRight(
+                                                    "1k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "1k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountLeft ===
+                                                  "5k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountLeft(
+                                                    "5k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "5k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountRight ===
+                                                  "5k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountRight(
+                                                    "5k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "5k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountLeft ===
+                                                  "10k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountLeft(
+                                                    "10k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "10k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountRight ===
+                                                  "10k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountRight(
+                                                    "10k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "10k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountLeft ===
+                                                  "20k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountLeft(
+                                                    "20k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "20k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountRight ===
+                                                  "20k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountRight(
+                                                    "20k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "20k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountLeft ===
+                                                  "100k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountLeft(
+                                                    "100k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "100k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountRight ===
+                                                  "100k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountRight(
+                                                    "100k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "100k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountLeft ===
+                                                  "500k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountLeft(
+                                                    "500k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "500k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountRight ===
+                                                  "500k",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountRight(
+                                                    "500k"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "500k\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountLeft ===
+                                                  "1M",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountLeft(
+                                                    "1M"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "1M\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              class: {
+                                                active:
+                                                  _vm.activeBtnCountRight ===
+                                                  "1M",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.followerCountRight(
+                                                    "1M"
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "1M\n                                        "
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  )
+                                : _vm._e(),
+                            ]),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isShowElement && _vm.defaultData.platform !== "Telegram"
+                      ? _c(
+                          "div",
+                          [
+                            _c("p", [
+                              _vm._v(_vm._s(_vm.$t("number_of_posts"))),
+                            ]),
+                            _vm._v(" "),
+                            _c("v-select", {
+                              attrs: { options: _vm.numberPosts },
+                              on: {
+                                input: function ($event) {
+                                  return _vm.filter(_vm.page)
+                                },
+                              },
+                              model: {
+                                value: _vm.defaultData.numberPosts,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.defaultData, "numberPosts", $$v)
+                                },
+                                expression: "defaultData.numberPosts",
+                              },
+                            }),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isShowElement
+                      ? _c("div", [
+                          _c("p", [
+                            _vm._v(_vm._s(_vm.$t("required_keywords"))),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", { attrs: { type: "text" } }),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isShowElement
+                      ? _c("div", [
+                          _c("p", [
+                            _vm._v(_vm._s(_vm.$t("negative_keywords"))),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", { attrs: { type: "text" } }),
+                        ])
+                      : _vm._e(),
+                  ]),
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(0),
+              _vm.defaultData.platform === "Instagram"
+                ? _c("SearchResultInstagramComponent", {
+                    attrs: {
+                      users: _vm.users,
+                      platform: _vm.defaultData.platform,
+                    },
+                  })
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "items" },
-                _vm._l(_vm.users, function (user, index) {
-                  return _c("div", { staticClass: "item" }, [
-                    _c("div", { staticClass: "left-section" }, [
-                      _c("img", {
-                        attrs: { src: "/images/user.png", alt: "" },
-                      }),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v(
-                            _vm._s(user.user_detail.first_name) +
-                              " " +
-                              _vm._s(user.user_detail.last_name) +
-                              " "
-                          ),
-                          _c("img", {
-                            attrs: { src: "/images/icons/done.png", alt: "" },
-                          }),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "sub-name" }, [
-                          _vm._v("iveta.mukuchyan"),
-                        ]),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(1, true),
-                    _vm._v(" "),
-                    _vm._m(2, true),
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "items-mobile" },
-                _vm._l(_vm.users, function (user, index) {
-                  return _c("div", { staticClass: "item" }, [
-                    _c("div", { staticClass: "left-section" }, [
-                      _c("img", {
-                        attrs: { src: "/images/user.png", alt: "" },
-                      }),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v(
-                            _vm._s(user.user_detail.first_name) +
-                              " " +
-                              _vm._s(user.user_detail.last_name) +
-                              " "
-                          ),
-                          _c("img", {
-                            attrs: { src: "/images/icons/done.png", alt: "" },
-                          }),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "sub-name" }, [
-                          _vm._v("iveta.mukuchyan"),
-                        ]),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(3, true),
-                    _vm._v(" "),
-                    _vm._m(4, true),
-                    _vm._v(" "),
-                    _vm._m(5, true),
-                  ])
-                }),
-                0
-              ),
-            ]),
-            _vm._v(" "),
-            _c("paginate", {
-              attrs: {
-                "page-count": _vm.lastPage,
-                "click-handler": _vm.getUsers,
-                "prev-text": "<",
-                "next-text": ">",
-                "container-class": "search-paginator",
-              },
-            }),
-          ],
-          1
-        ),
-      ]),
+              _vm.defaultData.platform
+                ? _c("paginate", {
+                    attrs: {
+                      "page-count": _vm.lastPage,
+                      "click-handler": _vm.getUsers,
+                      "prev-text": "<",
+                      "next-text": ">",
+                      "container-class": "search-paginator",
+                    },
+                  })
+                : _vm._e(),
+            ],
+            1
+          ),
+        ]
+      ),
       _vm._v(" "),
       _c("Footer"),
     ],
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "search-result-header" }, [
-      _c("div", [
-        _c("span", [_vm._v("Influencer")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("account")]),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("span", [_vm._v("Influencer")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("category")]),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("span", [_vm._v("Influencer")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("followers")]),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("span", [_vm._v("Influencer")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("posts")]),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("span", [_vm._v("Influencer")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("location")]),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("span", [_vm._v("Influencer")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("platform")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "center-section" }, [
-      _c("div", [_vm._v("Beauty")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("281.4K")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("19")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("Armenia")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right-section" }, [
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right-section" }, [
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/facebook.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Vector.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/twitter.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/telegram.png", alt: "" },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "center-section" }, [
-      _c("div", [
-        _c("img", { attrs: { src: "/images/icons/Icon-color.png", alt: "" } }),
-        _c("span", [_vm._v("Beauty")]),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", { attrs: { src: "/images/icons/Icon-color2.png", alt: "" } }),
-        _c("span", [_vm._v("Armenia")]),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", { attrs: { src: "/images/icons/Icon-color3.png", alt: "" } }),
-        _c("span", [_vm._v("281.4K")]),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", { attrs: { src: "/images/icons/Icon-color5.png", alt: "" } }),
-        _c("span", [_vm._v("19")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon-section" }, [
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/fb-small.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Subtract-small.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/Vector-small.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/twitter-small.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/tiktok-small.png", alt: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
-        }),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -42639,6 +42792,415 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/" } }, [
       _c("div", { staticClass: "logo" }, [
         _c("img", { attrs: { src: "/images/header/logo.svg", alt: "" } }),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SearchResultInstagramComponent.vue?vue&type=template&id=404db35b&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "search-result" }, [
+    _c("div", { staticClass: "title" }, [
+      _c("div", [_vm._v(_vm._s(_vm.$t("search_result")))]),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v(
+          _vm._s(_vm.$t("found")) + " 125 " + _vm._s(_vm.$t("account")) + " "
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", {
+              attrs: {
+                src: user.instagram.image,
+                alt: user.instagram.full_name,
+              },
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(user.instagram.full_name) +
+                    "\n                        "
+                ),
+                user.user_detail.account_type
+                  ? _c("img", {
+                      attrs: { src: "/images/icons/done.png", alt: "" },
+                    })
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v(_vm._s(user.instagram.username)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "center-section" }, [
+            _c(
+              "div",
+              { staticClass: "categories" },
+              [
+                _vm._l(user.categories, function (item) {
+                  return _c("span", [_vm._v(_vm._s(item.name))])
+                }),
+                _vm._v(" "),
+                _c("br"),
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.instagram.follow))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.instagram.post_count))]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right-section" }, [
+            user.facebook ? _c("div", [_vm._m(1, true)]) : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Subtract.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.instagram
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.instagram.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/Vector.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.twitter
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.twitter.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/twitter.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.tiktok
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.tiktok.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/TikTok.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            user.youtube
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: user.youtube.profile_url,
+                        target: "__block",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/icons/small/telegram.png",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "items-mobile" },
+      _vm._l(_vm.users, function (user, index) {
+        return _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "left-section" }, [
+            _c("img", { attrs: { src: "/images/user.png", alt: "" } }),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(
+                  _vm._s(user.user_detail.first_name) +
+                    " " +
+                    _vm._s(user.user_detail.last_name) +
+                    " "
+                ),
+                _c("img", {
+                  attrs: { src: "/images/icons/done.png", alt: "" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sub-name" }, [
+                _vm._v("iveta.mukuchyan"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _vm._m(2, true),
+          _vm._v(" "),
+          _vm._m(3, true),
+          _vm._v(" "),
+          _vm._m(4, true),
+        ])
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-result-header" }, [
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("account")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("category")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("followers")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("posts")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("location")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("span", [_vm._v("Influencer")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("platform")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "right-section" }, [
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/facebook.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Subtract.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Vector.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/twitter.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/TikTok.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/telegram.png", alt: "" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "center-section" }, [
+      _c("div", [
+        _c("img", { attrs: { src: "/images/icons/Icon-color.png", alt: "" } }),
+        _c("span", [_vm._v("Beauty")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", { attrs: { src: "/images/icons/Icon-color2.png", alt: "" } }),
+        _c("span", [_vm._v("Armenia")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", { attrs: { src: "/images/icons/Icon-color3.png", alt: "" } }),
+        _c("span", [_vm._v("281.4K")]),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", { attrs: { src: "/images/icons/Icon-color5.png", alt: "" } }),
+        _c("span", [_vm._v("19")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "icon-section" }, [
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/fb-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Subtract-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/Vector-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/twitter-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/tiktok-small.png", alt: "" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/images/icons/small/telegram-small.png", alt: "" },
+        }),
       ]),
     ])
   },

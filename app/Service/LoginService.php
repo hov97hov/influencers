@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\UserDetail;
 use App\Models\Youtube;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
 use Mockery\Exception;
 
 class LoginService implements LoginInterface
@@ -121,6 +122,10 @@ class LoginService implements LoginInterface
      */
     public function createUserDetail($data, $userId): mixed
     {
+        $date = Arr::get($data, 'birthday');
+        $carbonDate = Carbon::parse($date);
+        $formattedDate = $carbonDate->format('Y-m-d');
+
         return UserDetail::create([
             'first_name' => Arr::get($data, 'first_name'),
             'last_name' => Arr::get($data, 'last_name'),
@@ -135,7 +140,7 @@ class LoginService implements LoginInterface
             'category' => Arr::get($data, 'category'),
             'account_type' => Arr::get($data, 'account_type.value'),
             'gender' => Arr::get($data, 'gender'),
-            'birthday' => $data['birthday'],
+            'birthday' => $formattedDate,
             'language' => Arr::get($data, 'language'),
             'additional_information' => Arr::get($data, 'additional_information'),
             'user_id' => $userId,
@@ -162,6 +167,7 @@ class LoginService implements LoginInterface
             'follow' => Arr::get($data,'edge_follow.count'),
             'followed_by' => Arr::get($data,'edge_followed_by.count'),
             'account_id' => Arr::get($data,'id'),
+            'post_count' => Arr::get($data,'edge_owner_to_timeline_media.count'),
             'profile_url' => 'https://www.instagram.com/'.Arr::get($data,'username'),
             'user_id' => $userId,
         ]);
@@ -193,6 +199,7 @@ class LoginService implements LoginInterface
             'follow' => Arr::get($data, 'follower_count'),
             'followed_by' => Arr::get($data, 'following_count'),
             'account_id' => Arr::get($data, 'user_id'),
+            'post_count' => Arr::get($data,'number_of_tweets'),
             'user_id' => $userId,
             'profile_url' => 'https://twitter.com/'.Arr::get($data,'username'),
         ]);
@@ -229,6 +236,7 @@ class LoginService implements LoginInterface
                     'image' => Arr::get($userInfo, 'profile_pic_url_hd'),
                     'follow' => Arr::get($userInfo, 'edge_follow.count'),
                     'followed_by' => Arr::get($userInfo, 'edge_followed_by.count'),
+                    'post_count' => Arr::get($userInfo,'edge_owner_to_timeline_media.count'),
                 ]);
         }
 
@@ -263,6 +271,7 @@ class LoginService implements LoginInterface
                     'image' => Arr::get($userInfo, 'profile_pic_url'),
                     'follow' => Arr::get($userInfo, 'follower_count'),
                     'followed_by' => Arr::get($userInfo, 'following_count'),
+                    'post_count' => Arr::get($userInfo,'number_of_tweets'),
                 ]);
         }
 
@@ -289,6 +298,7 @@ class LoginService implements LoginInterface
             'image' => Arr::get($data, 'avatar.2.url'),
             'follow' => Arr::get($data, 'stats.subscribers'),
             'description' => Arr::get($data, 'description'),
+            'post_count' => Arr::get($data,'stats.videos'),
             'user_id' => $userId,
             'profile_url' => 'https://www.youtube.com/'.Arr::get($data,'username'),
         ]);
@@ -331,6 +341,7 @@ class LoginService implements LoginInterface
                     'image' => Arr::get($userInfo, 'avatar.2.url'),
                     'follow' => Arr::get($userInfo, 'stats.subscribers'),
                     'description' => Arr::get($userInfo, 'description'),
+                    'post_count' => Arr::get($userInfo,'stats.videos'),
                 ]);
         }
 
@@ -439,6 +450,7 @@ class LoginService implements LoginInterface
             'followed_by' => Arr::get($data, 'data.stats.followingCount'),
             'follow' => Arr::get($data, 'data.stats.followerCount'),
             'account_id' => Arr::get($data, 'data.user.id'),
+            'post_count' => Arr::get($data,'data.stats.videoCount'),
             'user_id' => $userId,
             'profile_url' => 'https://www.tiktok.com/@'.Arr::get($data, 'data.user.uniqueId'),
         ]);
@@ -487,6 +499,7 @@ class LoginService implements LoginInterface
                         'followed_by' => Arr::get($tiktokUserInfo, 'data.stats.followingCount'),
                         'follow' => Arr::get($tiktokUserInfo, 'data.stats.followerCount'),
                         'account_id' => Arr::get($tiktokUserInfo, 'data.user.id'),
+                        'post_count' => Arr::get($tiktokUserInfo,'data.stats.videoCount'),
                     ]);
             }
         }

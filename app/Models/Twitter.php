@@ -20,6 +20,7 @@ class Twitter extends Model
         'user_id',
         'account_id',
         'profile_url',
+        'post_count',
     ];
 
 }

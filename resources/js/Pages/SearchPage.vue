@@ -1,119 +1,83 @@
 <template>
     <div>
         <Header :is-show="false"/>
-        <div class="search-page-content">
+        <div
+            class="search-page-content"
+            :style="!isShowElement ? `height: 100vh` : `height: auto`"
+        >
             <div class="container">
-                <div class="search-content">
+                <div class="search-content" v-if="isShowElement">
                     <input type="text" placeholder="Keywords: fashion, design, marketing">
                     <button>{{ $t('search') }}</button>
                 </div>
+
                 <div class="filter-vars">
                     <div v-if="defaultData.platform">
-                        {{ defaultData.platform }}
-                        <img
-                            @click="defaultData.platform = '' "
-                            src="/images/icons/close-icon.png"
-                        >
+                        <div>
+                            {{ defaultData.platform }}
+                            <img @click="resetField('platform')" src="/images/icons/close-icon.png">
+                        </div>
                     </div>
                     <div v-if="defaultData.accountType">
-                        {{ defaultData.accountType.name }}
-                        <img
-                            @click="defaultData.accountType = '' "
-                            src="/images/icons/close-icon.png"
-                        >
+                        <div>
+                            {{ defaultData.accountType.name }}
+                            <img @click="resetField('accountType')" src="/images/icons/close-icon.png">
+                        </div>
                     </div>
                     <div v-if="defaultData.location">
-                        {{ defaultData.location }}
-                        <img
-                            @click="defaultData.location = '' "
-                             src="/images/icons/close-icon.png"
-                        >
+                        <div>
+                            {{ defaultData.location }}
+                            <img @click="resetField('location')" src="/images/icons/close-icon.png">
+                        </div>
                     </div>
                     <div v-if="defaultData.gender">
-                        {{ defaultData.gender }}
-                        <img
-                             @click="defaultData.gender = '' "
-                             src="/images/icons/close-icon.png"
-                        >
+                        <div>
+                            {{ defaultData.gender }}
+                            <img @click="resetField('gender')" src="/images/icons/close-icon.png">
+                        </div>
                     </div>
                     <div v-if="defaultData.age">
-                        {{formatDate(defaultData.age)}}
-                        <img
-                            @click="defaultData.age = '' "
-                            src="/images/icons/close-icon.png"
-                        >
+                        <div>
+                            {{ defaultData.age }}
+                            <img @click="resetField('age')" src="/images/icons/close-icon.png">
+                        </div>
                     </div>
                     <div v-if="defaultData.searchFollowerCountLeft || defaultData.searchFollowerCountRight">
-                        <span style="margin-right: 5px">Followers count</span>
-                        <span v-if="defaultData.searchFollowerCountLeft">{{ defaultData.searchFollowerCountLeft }}</span>
-                        <span style="margin: 0 5px" v-if="defaultData.searchFollowerCountLeft && defaultData.searchFollowerCountRight">></span>
-                        <span v-if="defaultData.searchFollowerCountRight">{{ defaultData.searchFollowerCountRight }}</span>
-                        <img
-                            @click="resetFiledDate(defaultData)"
-                            src="/images/icons/close-icon.png" alt=""
-                        >
+                        <div>
+                            <span style="margin-right: 5px">Followers count</span>
+                            <span v-if="defaultData.searchFollowerCountLeft">{{ defaultData.searchFollowerCountLeft }}</span>
+                            <span style="margin: 0 5px" v-if="defaultData.searchFollowerCountLeft && defaultData.searchFollowerCountRight">></span>
+                            <span v-if="defaultData.searchFollowerCountRight">{{ defaultData.searchFollowerCountRight }}</span>
+                            <img @click="resetField('searchFollowerCountLeft')" src="/images/icons/close-icon.png" alt="">
+                        </div>
                     </div>
                     <div v-if="defaultData.numberPosts">
-                        {{ defaultData.numberPosts }}
-                        <img
-                            @click="defaultData.numberPosts = '' "
-                            src="/images/icons/close-icon.png" alt=""
-                        >
+                        <div>
+                            {{ defaultData.numberPosts }}
+                            <img @click="resetField('numberPosts')" src="/images/icons/close-icon.png" alt="">
+                        </div>
                     </div>
                     <div v-if="defaultData.lastPost">
-                        {{ defaultData.lastPost }}
-                        <img
-                            @click="defaultData.lastPost = '' "
-                             src="/images/icons/close-icon.png" alt=""
-                        >
+                        <div>
+                            {{ defaultData.lastPost }}
+                            <img @click="resetField('lastPost')" src="/images/icons/close-icon.png" alt="">
+                        </div>
                     </div>
                 </div>
+
                 <div class="input-filter-content">
                     <div class="title">{{ $t('search_filters') }}</div>
                     <div class="items">
                         <div class="fields">
-                            <div>
-                                <div>
-                                    <p>{{ $t('platform') }}</p>
-                                    <v-select
-                                        v-model="defaultData.platform"
-                                        :options="platforms"
-                                        @input="filterUrl('platform', defaultData.platform)"
-                                    ></v-select>
-                                </div>
-                                <transition name="slide">
-                                    <div class="transition-select" v-click-outside="hideTransitionPlatform"
-                                         v-if="transitionPlatform">
-                                        <div class="search-category-content">
-                                            <input v-model="searchNotSelectedCategories" class="search-input"
-                                                   type="text" placeholder="Choose category">
-                                        </div>
-                                        <div class="selected-category-content">
-                                            <p>Selected:</p>
-                                            <div v-for="item in selectedCategories">
-                                                <label class="checkbox-container">
-                                                    <span>{{ item }}</span>
-                                                    <input type="checkbox" @change="notSelectedCategory(item)" checked>
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="category-list">
-                                            <div v-for="item in filterNotSelectedCategories" :key="item">
-                                                <label class="checkbox-container">
-                                                    <span>{{ item }}</span>
-                                                    <input type="checkbox" @change="selectedCategory(item)">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="cancel">
-                                            <span @click="transitionPlatform = false">Cancel</span>
-                                        </div>
-                                    </div>
-                                </transition>
+                            <div :class="{active : !isShowElement}">
+                                <p>{{ $t('platform') }}</p>
+                                <v-select
+                                    v-model="defaultData.platform"
+                                    :options="platforms"
+                                    @input="filter(page)"
+                                ></v-select>
                             </div>
-                            <div>
+                            <div v-if="isShowElement">
                                 <p>{{ $t('category') }}</p>
                                 <button class="select-btn" @click.stop="transitionCategory = true">
                                     {{ selectedCategories[0] }}
@@ -133,8 +97,8 @@
                                             <p>Selected:</p>
                                             <div v-for="item in selectedCategories">
                                                 <label class="checkbox-container">
-                                                    <span>{{ item }}</span>
-                                                    <input type="checkbox" @change="notSelectedCategory(item)" checked>
+                                                    <span>{{ item }} </span>
+                                                    <input type="checkbox" @change="notSelectedCategory(item)" :checked="item">
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
@@ -154,39 +118,76 @@
                                     </div>
                                 </transition>
                             </div>
-                            <div>
+                            <div v-if="isShowElement">
                                 <p>{{ $t('account_type') }}</p>
                                 <v-select
                                     v-model="defaultData.accountType"
                                     :options="accountTypes"
                                     label="name"
-                                    @input="filterUrl('accountTypes', defaultData.accountType.value)"
+                                    @input="filter(page)"
                                 ></v-select>
                             </div>
-                            <div>
+                            <div v-if="isShowElement">
                                 <p>{{ $t('location') }}</p>
                                 <v-select
                                     v-model="defaultData.location"
                                     :options="locations"
-                                    @input="filterUrl('locations', defaultData.location)"
+                                    @input="filter(page)"
                                 ></v-select>
                             </div>
-                            <div>
+                            <div v-if="isShowElement">
                                 <p>{{ $t('gender') }}</p>
                                 <v-select
                                     v-model="defaultData.gender"
                                     :options="gender"
-                                    @input="filterUrl('gender', defaultData.gender)"
+                                    @input="filter(page)"
                                 ></v-select>
                             </div>
-                            <div>
+                            <div v-if="isShowElement">
                                 <p>{{ $t('age') }}</p>
-                                <date-picker
-                                    v-model="defaultData.age"
-                                    @input="filterUrl('age', defaultData.age)"
-                                ></date-picker>
+                                <button class="select-btn" @click.stop="isSelectedAge = true">
+                                    {{ selectedAges[0] }}
+                                    {{ selectedAges[1] ? `,` : `` }}
+                                    {{ selectedAges[1] }}
+                                    {{ selectedAges.length > 2 ? `...` : `` }}
+                                    <img :class="{active : isSelectedAge}" src="/images/icons/dropdown.svg" alt="">
+                                </button>
+                                <transition name="slide">
+                                    <div
+                                        class="transition-select"
+                                         v-click-outside="hideTransitionAge"
+                                         v-if="isSelectedAge"
+                                    >
+                                        <div class="search-category-content">
+                                            <input v-model="searchAges" class="search-input"
+                                                   type="text" placeholder="Choose Ages">
+                                        </div>
+                                        <div class="selected-category-content">
+                                            <p>Selected:</p>
+                                            <div v-for="item in selectedAges">
+                                                <label class="checkbox-container">
+                                                    <span>{{ item }} </span>
+                                                    <input type="checkbox" @change="notSelectedAge(item)" :checked="item">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="category-list">
+                                            <div v-for="item in filterNotSelectedAge" :key="item">
+                                                <label class="checkbox-container">
+                                                    <span>{{ item }}</span>
+                                                    <input type="checkbox" @change="selectedAge(item)">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="cancel">
+                                            <span @click="isSelectedAge = false">Cancel</span>
+                                        </div>
+                                    </div>
+                                </transition>
                             </div>
-                            <div>
+                            <div v-if="isShowElement">
                                 <p>{{ $t('number_of_followers') }}</p>
                                 <button class="select-btn" @click.stop="numberFollowers = true">
                                     {{ defaultData.searchFollowerCountLeft }}
@@ -279,119 +280,34 @@
                                     </div>
                                 </transition>
                             </div>
-                            <div>
+                            <div v-if="isShowElement && defaultData.platform !== 'Telegram'">
                                 <p>{{ $t('number_of_posts') }}</p>
-                                <v-select v-model="defaultData.numberFollowers" :options="options"></v-select>
+                                <v-select
+                                    v-model="defaultData.numberPosts"
+                                    :options="numberPosts"
+                                    @input="filter(page)"
+                                ></v-select>
                             </div>
-                            <div>
-                                <p>{{ $t('last_post') }}</p>
-                                <v-select v-model="defaultData.numberPosts" :options="options"></v-select>
-                            </div>
-                            <div>
+                            <div v-if="isShowElement">
                                 <p>{{ $t('required_keywords') }}</p>
                                 <input type="text">
                             </div>
-                            <div>
+                            <div v-if="isShowElement">
                                 <p>{{ $t('negative_keywords') }}</p>
                                 <input type="text">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="search-result">
-                    <div class="title">
-                        <div>{{ $t('search_result') }}</div>
-                        <div>{{ $t('found') }} 125 {{ $t('account') }} </div>
-                    </div>
-                    <div class="search-result-header">
-                        <div>
-                            <span>Influencer</span>
-                            <span>account</span>
-                        </div>
-                        <div>
-                            <span>Influencer</span>
-                            <span>category</span>
-                        </div>
-                        <div>
-                            <span>Influencer</span>
-                            <span>followers</span>
-                        </div>
-                        <div>
-                            <span>Influencer</span>
-                            <span>posts</span>
-                        </div>
-                        <div>
-                            <span>Influencer</span>
-                            <span>location</span>
-                        </div>
-                        <div>
-                            <span>Influencer</span>
-                            <span>platform</span>
-                        </div>
-                    </div>
-                    <div class="items">
-                        <div
-                            class="item"
-                            v-for="(user, index) in users"
-                        >
-                            <div class="left-section">
-                                <img src="/images/user.png" alt="">
-                                <div>
-                                    <div class="name">{{user.user_detail.first_name}} {{user.user_detail.last_name}} <img src="/images/icons/done.png" alt=""></div>
-                                    <div class="sub-name">iveta.mukuchyan</div>
-                                </div>
-                            </div>
-                            <div class="center-section">
-                                <div>Beauty</div>
-                                <div>281.4K</div>
-                                <div>19</div>
-                                <div>Armenia</div>
-                            </div>
-                            <div class="right-section">
-                                <div><img src="/images/icons/small/facebook.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter.png" alt=""></div>
-                                <div><img src="/images/icons/small/TikTok.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram.png" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="items-mobile">
-                        <div class="item" v-for="(user, index) in users">
-                            <div class="left-section">
-                                <img src="/images/user.png" alt="">
-                                <div>
-                                    <div class="name">{{user.user_detail.first_name}} {{user.user_detail.last_name}} <img src="/images/icons/done.png" alt=""></div>
-                                    <div class="sub-name">iveta.mukuchyan</div>
-                                </div>
-                            </div>
-                            <div class="right-section">
-                                <div><img src="/images/icons/small/facebook.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter.png" alt=""></div>
-                                <div><img src="/images/icons/small/TikTok.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram.png" alt=""></div>
-                            </div>
-                            <div class="center-section">
-                                <div><img src="/images/icons/Icon-color.png" alt=""><span>Beauty</span></div>
-                                <div><img src="/images/icons/Icon-color2.png" alt=""><span>Armenia</span></div>
-                                <div><img src="/images/icons/Icon-color3.png" alt=""><span>281.4K</span></div>
-                                <div><img src="/images/icons/Icon-color5.png" alt=""><span>19</span></div>
-                            </div>
-                            <div class="icon-section">
-                                <div><img src="/images/icons/small/fb-small.png" alt=""></div>
-                                <div><img src="/images/icons/small/Subtract-small.png" alt=""></div>
-                                <div><img src="/images/icons/small/Vector-small.png" alt=""></div>
-                                <div><img src="/images/icons/small/twitter-small.png" alt=""></div>
-                                <div><img src="/images/icons/small/tiktok-small.png" alt=""></div>
-                                <div><img src="/images/icons/small/telegram-small.png" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                <SearchResultInstagramComponent
+                    v-if="defaultData.platform === `Instagram`"
+                    :users="users"
+                    :platform="defaultData.platform"
+                />
+
                 <paginate
+                    v-if="defaultData.platform"
                     :page-count="lastPage"
                     :click-handler="getUsers"
                     :prev-text="'<'"
@@ -412,19 +328,27 @@ import Header from "../components/Header.vue";
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
 import json from '../../../public/files/countries.json'
+import SearchResultInstagramComponent from '../components/SearchResultInstagramComponent'
 
 export default {
     name: "SearchPage",
-    components: {Header, Footer, DatePicker},
+    components: {Header, Footer, DatePicker, SearchResultInstagramComponent},
     data() {
         return {
             users: [],
             paginate: [],
+            selectedAges: [],
+            isShowElement: false,
+            isSelectedAge: false,
             currentPage: 1,
+            page: '',
             lastPage: 0,
             activeBtnCountLeft: null,
             activeBtnCountRight: null,
             searchNotSelectedCategories: '',
+            searchAges: '',
+            filterValue: '',
+            filteredItems: [],
             locations: json,
             platforms: [
                 'Instagram',
@@ -434,17 +358,23 @@ export default {
                 'TikTok',
                 'Youtube',
             ],
+            numberPosts: [
+                '> 10',
+                '> 50',
+                '> 100',
+                '> 200',
+            ],
             gender: [
                 'Male',
                 'Female',
             ],
             accountTypes: [
                 {
-                    value: 0,
+                    id: 0,
                     name: 'Not verifed',
                 },
                 {
-                    value: 1,
+                    id: 1,
                     name: 'Verifd',
                 }
             ],
@@ -460,11 +390,15 @@ export default {
                 searchFollowerCountRight: '',
             },
             notSelectedCategories: ['Artist', 'Blogger', 'Digital creator', 'Photoghraper', 'Entrepreneur', 'Public figure'],
+            notSelectedAges: ['< 20', '21 - 30', '31 - 40', '40+'],
             selectedCategories: [],
+            selectedCategoryIds: [],
             numberFollowers: false,
             transitionPlatform: false,
             transitionCategory: false,
             options: ["foo", "bar", "baz", "test test"],
+            isNumberOfPost: false,
+            isLastPost: false,
         }
     },
     computed: {
@@ -473,29 +407,29 @@ export default {
                 return val.indexOf(this.searchNotSelectedCategories) !== -1;
             })
         },
-    },
-
-    created() {
-        this.getUsers()
+        filterNotSelectedAge ()  {
+            return this.notSelectedAges.filter(val => {
+                return val.indexOf(this.searchAges) !== -1;
+            })
+        },
     },
 
     methods: {
+        resetField(fieldName) {
+            this.defaultData[fieldName] = '';
+            this.filter(this.page)
+        },
+
         resetFiledDate(data) {
             data.searchFollowerCountLeft = ''
             data.searchFollowerCountRight = ''
+            this.getUsers()
         },
 
-        formatDate(date) {
-            function pad(number, length) {
-                let str = '' + number;
-                while (str.length < length) {
-                    str = '0' + str;
-                }
-                return str;
-            }
-
-            return date.getFullYear() + "-" + pad((date.getMonth() + 1), 2) + "-" + pad(date.getDate(), 2);
+        hideTransitionAge() {
+            this.isSelectedAge = false
         },
+
         hideTransitionPlatform() {
             this.transitionPlatform = false
         },
@@ -533,7 +467,7 @@ export default {
                 this.defaultData.searchFollowerCountLeft = 1000000
             }
 
-            this.filterUrl('minFollowers', this.defaultData.searchFollowerCountLeft)
+            this.getUsers()
         },
 
         followerCountRight(count) {
@@ -562,39 +496,119 @@ export default {
                 this.defaultData.searchFollowerCountRight = 1000000
             }
 
-            this.filterUrl('maxFollowers', this.defaultData.searchFollowerCountRight)
+            this.getUsers()
         },
 
         selectedCategory(value) {
+            const categoryMap = {
+                'Artist': 1,
+                'Blogger': 2,
+                'Digital creator': 3,
+                'Photographer': 4,
+                'Entrepreneur': 5,
+                'Public figure': 6
+            };
+
             let index = this.notSelectedCategories.indexOf(value);
             if (index !== -1) {
                 this.notSelectedCategories.splice(index, 1);
+                const categoryId = categoryMap[value];
+                if (categoryId) {
+                    this.selectedCategoryIds.push(categoryId);
+                }
                 this.selectedCategories.push(value);
-                this.selectedCategories.sort()
+                this.selectedCategories.sort();
             }
-            this.filterUrl('categories', this.selectedCategories)
+            this.getUsers();
         },
 
         notSelectedCategory(value) {
+            const categoryMap = {
+                'Artist': 1,
+                'Blogger': 2,
+                'Digital creator': 3,
+                'Photographer': 4,
+                'Entrepreneur': 5,
+                'Public figure': 6
+            };
+
             let index = this.selectedCategories.indexOf(value);
             if (index !== -1) {
+                const categoryId = categoryMap[value];
+                if (categoryId) {
+                    this.selectedCategoryIds.splice(index, 1);
+                }
                 this.selectedCategories.splice(index, 1);
                 this.notSelectedCategories.push(value);
                 this.notSelectedCategories.sort()
             }
-            this.filterUrl('categories', this.selectedCategories)
+            this.getUsers()
+        },
+
+        selectedAge(value) {
+            let index = this.notSelectedAges.indexOf(value);
+            if (index !== -1) {
+                this.notSelectedAges.splice(index, 1);
+                this.selectedAges.push(value);
+                this.selectedAges.sort();
+            }
+            this.getUsers();
+        },
+
+        notSelectedAge(value) {
+            let index = this.selectedAges.indexOf(value);
+            if (index !== -1) {
+                this.selectedAges.splice(index, 1);
+                this.notSelectedAges.push(value);
+                this.notSelectedAges.sort()
+            }
+            this.getUsers()
         },
 
         getUsers(page = 1) {
-            axios.get(`/users?page=${page}`).then(response => {
+            this.page = page
+
+            const requestParams = {
+                page: this.page,
+                platform: this.defaultData.platform,
+                accountType: this.defaultData.accountType.id,
+                location: this.defaultData.location,
+                gender: this.defaultData.gender,
+                age: this.selectedAges,
+                numberFollowers: this.defaultData.numberFollowers,
+                numberPosts: this.defaultData.numberPosts,
+                lastPost: this.defaultData.lastPost,
+                searchFollowerCountLeft: this.defaultData.searchFollowerCountLeft,
+                searchFollowerCountRight: this.defaultData.searchFollowerCountRight,
+                categories: this.selectedCategoryIds,
+            }
+
+            const filteredParams = {};
+            for (const key in requestParams) {
+                if (requestParams[key] !== "" && requestParams[key] !== null && requestParams[key] !== undefined) {
+                    filteredParams[key] = requestParams[key];
+                }
+            }
+
+            const request = {
+                params: filteredParams
+            };
+
+            axios.get(`/users`, request).then(response => {
                 this.users = response.data.data;
                 this.currentPage = response.data.pagination.current_page;
                 this.lastPage = response.data.pagination.last_page;
             });
         },
 
-        filterUrl(type, filter) {
-            console.log(type, filter)
+        filter(page) {
+            if (!this.defaultData.platform) {
+                this.defaultData = []
+                this.isShowElement = false
+                return
+            }
+            this.isShowElement = true
+            this.getUsers(page)
         }
     },
     directives: {
@@ -795,6 +809,9 @@ export default {
                     margin: 30px 12px;
                     width: calc(100% / 4 - 25px);
                     position: relative;
+                    &.active {
+                       width: 100%;
+                    }
 
                     p {
                         font-family: 'Rubik', sans-serif;
@@ -978,7 +995,7 @@ export default {
                         }
 
                         .category-list {
-                            height: 325px;
+                            height: auto;
                             overflow-y: auto;
                             padding-bottom: 30px;
                             border-bottom: 0.5px solid #5F5C5C;
@@ -998,198 +1015,6 @@ export default {
 
                             span {
                                 cursor: pointer;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .search-result {
-        > .title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            div {
-                &:first-child {
-                    font-family: 'Rubik', sans-serif;
-                    font-weight: 700;
-                    font-size: 36px;
-                    line-height: 43px;
-                    letter-spacing: 0.02em;
-                    background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                    text-fill-color: transparent;
-                }
-
-                &:last-child {
-                    font-family: 'Rubik', sans-serif;
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 18px;
-                    line-height: 21px;
-                    letter-spacing: 0.02em;
-                    color: #686868;
-                }
-            }
-        }
-
-        > .search-result-header {
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-between;
-
-            > div {
-                text-align: center;
-                font-family: 'Rubik', sans-serif;
-                font-style: normal;
-                font-weight: 400;
-                font-size: 19px;
-                line-height: 23px;
-                letter-spacing: 0.02em;
-                color: #000000;
-
-                &:nth-child(1) {
-                    width: 33%;
-                }
-
-                &:nth-child(2) {
-                    width: 15%;
-                }
-
-                &:nth-child(3) {
-                    width: 15%;
-                }
-
-                &:nth-child(4) {
-                    width: 15%;
-                }
-
-                &:nth-child(5) {
-                    width: 15%;
-                }
-
-                &:nth-child(6) {
-                    width: 20%;
-                }
-
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        > .items-mobile {
-            display: none
-        }
-
-        > .items {
-            margin-top: 85px;
-
-            .item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                &:not(:last-child) {
-                    padding-bottom: 20px;
-                    margin-bottom: 20px;
-                    border-bottom: 1.05182px solid #88898A;
-                }
-
-                > div {
-                    &:nth-child(1) {
-                        width: 30%;
-                    }
-
-                    &:nth-child(2) {
-                        width: 55%;
-                        margin: 0 80px;
-                    }
-
-                    &:nth-child(3) {
-                        width: 15%;
-                    }
-                }
-
-                .left-section {
-                    display: flex;
-                    align-items: center;
-
-                    > img {
-                        margin-right: 15px;
-                    }
-
-                    .name {
-                        display: flex;
-                        align-items: center;
-                        font-family: 'Rubik', sans-serif;
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 19px;
-                        line-height: 23px;
-                        letter-spacing: 0.02em;
-                        color: #595656;
-                        margin-bottom: 10px;
-
-                        img {
-                            margin-left: 10px;
-                        }
-                    }
-
-                    .sub-name {
-                        font-family: 'Rubik', sans-serif;
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 17px;
-                        line-height: 20px;
-                        letter-spacing: 0.02em;
-                        color: #686868;
-                    }
-                }
-
-                .center-section {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-
-                    > div {
-                        font-family: 'Rubik', sans-serif;
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 19px;
-                        line-height: 23px;
-                        letter-spacing: 0.02em;
-                        color: #686868;
-                    }
-                }
-
-                .right-section {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    > div {
-                        width: 22px;
-                        height: 21px;
-                        background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);
-                        box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);
-                        border-radius: 8px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: pointer;
-
-                        &:not(:last-child) {
-                            margin-right: 5px;
-                        }
-
-                        &:nth-child(1) {
-                            img {
-                                margin-top: 2px;
                             }
                         }
                     }
@@ -1316,6 +1141,9 @@ export default {
                         margin: 30px 12px;
                         width: calc(100% / 3 - 25px);
                         position: relative;
+                        &.active {
+                            width: 100%;
+                        }
 
                         p {
                             font-family: 'Rubik', sans-serif;
@@ -1498,7 +1326,7 @@ export default {
                             }
 
                             .category-list {
-                                height: 325px;
+                                height: auto;
                                 overflow-y: auto;
                                 padding-bottom: 30px;
                                 border-bottom: 0.5px solid #5F5C5C;
@@ -1520,161 +1348,6 @@ export default {
                                     cursor: pointer;
                                 }
                             }
-                        }
-                    }
-                }
-            }
-        }
-
-        .search-result {
-            > .title {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                div {
-                    &:first-child {
-                        font-family: 'Rubik', sans-serif;
-                        font-weight: 700;
-                        font-size: 36px;
-                        line-height: 43px;
-                        letter-spacing: 0.02em;
-                        background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                        text-fill-color: transparent;
-                    }
-
-                    &:last-child {
-                        font-family: 'Rubik', sans-serif;
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 18px;
-                        line-height: 21px;
-                        letter-spacing: 0.02em;
-                        color: #686868;
-                    }
-                }
-            }
-
-            > .search-result-header {
-                display: none;
-            }
-
-            > .items {
-                display: none;
-            }
-
-            > .items-mobile {
-                display: block;
-                margin-top: 35px;
-
-                .item {
-                    display: flex;
-                    justify-content: space-between;
-                    flex-wrap: wrap;
-                    margin-bottom: 50px;
-                    padding-bottom: 50px;
-
-                    &:not(:last-child) {
-                        border-bottom: 0.912564px solid #88898A;
-                    }
-
-                    > div {
-                        &:nth-child(1) {
-                            width: 60%;
-                            display: flex;
-                            align-items: center;
-
-                            > img {
-                                margin-right: 32px;
-                            }
-
-                            .name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #595656;
-                                display: flex;
-                                align-items: center;
-                                margin-bottom: 10px;
-
-                                > img {
-                                    margin-left: 15px;
-                                }
-                            }
-
-                            .sub-name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 14.9265px;
-                                line-height: 18px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
-                            }
-                        }
-
-                        &:nth-child(2) {
-                            width: 40%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: flex-end;
-
-                            > div {
-                                width: 22px;
-                                height: 21px;
-                                background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);
-                                box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);
-                                border-radius: 8px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                cursor: pointer;
-
-                                &:not(:last-child) {
-                                    margin-right: 5px;
-                                }
-
-                                &:nth-child(1) {
-                                    img {
-                                        margin-top: 2px;
-                                    }
-                                }
-                            }
-                        }
-
-                        &:nth-child(3) {
-                            width: 100%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            margin-top: 10px;
-                            padding-left: 113px;
-
-                            div {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
-                                display: flex;
-                                align-items: center;
-
-                                img {
-                                    margin-right: 10px;
-                                }
-                            }
-                        }
-
-                        &:nth-child(4) {
-                            display: none;
                         }
                     }
                 }
@@ -1787,6 +1460,9 @@ export default {
                         margin: 20px 12px;
                         width: calc(100% / 2 - 25px);
                         position: relative;
+                        &.active {
+                            width: 100%;
+                        }
 
                         p {
                             font-family: 'Rubik', sans-serif;
@@ -1969,7 +1645,7 @@ export default {
                             }
 
                             .category-list {
-                                height: 325px;
+                                height: auto;
                                 overflow-y: auto;
                                 padding-bottom: 30px;
                                 border-bottom: 0.5px solid #5F5C5C;
@@ -1991,172 +1667,6 @@ export default {
                                     cursor: pointer;
                                 }
                             }
-                        }
-                    }
-                }
-            }
-        }
-
-        .search-result {
-            > .title {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                div {
-                    &:first-child {
-                        font-family: 'Rubik', sans-serif;
-                        font-style: normal;
-                        font-weight: 700;
-                        font-size: 24px;
-                        line-height: 28px;
-                        letter-spacing: 0.02em;
-                        background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                        text-fill-color: transparent;
-                    }
-
-                    &:last-child {
-                        font-family: 'Rubik', sans-serif;
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 14px;
-                        line-height: 17px;
-                        letter-spacing: 0.02em;
-                        color: #686868;
-                    }
-                }
-            }
-
-            > .search-result-header {
-                display: none;
-            }
-
-            > .items {
-                display: none;
-            }
-
-            > .items-mobile {
-                display: block;
-                margin-top: 35px;
-
-                .item {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 50px;
-                    padding-bottom: 50px;
-
-                    &:not(:last-child) {
-                        border-bottom: 0.912564px solid #88898A;
-                    }
-
-                    > div {
-                        &:nth-child(1) {
-                            display: flex;
-                            align-items: center;
-                            width: 55%;
-
-                            > img {
-                                margin-right: 20px;
-                            }
-
-                            .name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #595656;
-                                display: flex;
-                                align-items: center;
-                                margin-bottom: 10px;
-
-                                > img {
-                                    margin-left: 15px;
-                                }
-                            }
-
-                            .sub-name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 14.9265px;
-                                line-height: 18px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
-                            }
-                        }
-
-                        &:nth-child(2) {
-                            width: 40%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: flex-end;
-
-                            > div {
-                                width: 22px;
-                                height: 21px;
-                                background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);
-                                box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);
-                                border-radius: 8px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                cursor: pointer;
-
-                                &:not(:last-child) {
-                                    margin-right: 5px;
-                                }
-
-                                &:nth-child(1) {
-                                    img {
-                                        margin-top: 2px;
-                                    }
-                                }
-                            }
-                        }
-
-                        &:nth-child(3) {
-                            display: flex;
-                            align-items: center;
-                            flex-wrap: wrap;
-                            justify-content: space-between;
-                            margin-top: 10px;
-                            padding-left: 100px;
-
-                            div {
-                                &:nth-child(2) {
-                                    padding-left: 30px;
-                                }
-
-                                &:nth-child(4) {
-                                    padding-left: 30px;
-                                }
-
-                                width: 50%;
-                                display: flex;
-                                flex-wrap: wrap;
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
-                                align-items: center;
-                                margin-bottom: 20px;
-
-                                img {
-                                    margin-right: 10px;
-                                }
-                            }
-                        }
-
-                        &:nth-child(4) {
-                            display: none;
                         }
                     }
                 }
@@ -2458,7 +1968,7 @@ export default {
                             }
 
                             .category-list {
-                                height: 325px;
+                                height: auto;
                                 overflow-y: auto;
                                 padding-bottom: 30px;
                                 border-bottom: 0.5px solid #5F5C5C;
@@ -2478,172 +1988,6 @@ export default {
 
                                 span {
                                     cursor: pointer;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .search-result {
-            > .title {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-direction: column;
-
-                div {
-                    &:first-child {
-                        font-family: 'Rubik', sans-serif;
-                        font-style: normal;
-                        font-weight: 700;
-                        font-size: 24px;
-                        line-height: 28px;
-                        letter-spacing: 0.02em;
-                        background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                        text-fill-color: transparent;
-                        margin-bottom: 10px;
-                    }
-
-                    &:last-child {
-                        font-family: 'Rubik', sans-serif;
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 14px;
-                        line-height: 17px;
-                        letter-spacing: 0.02em;
-                        color: #686868;
-                    }
-                }
-            }
-
-            > .search-result-header {
-                display: none;
-            }
-
-            > .items {
-                display: none;
-            }
-
-            > .items-mobile {
-                display: block;
-                margin-top: 35px;
-
-                .item {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 50px;
-                    padding-bottom: 50px;
-
-                    &:not(:last-child) {
-                        border-bottom: 0.912564px solid #88898A;
-                    }
-
-                    > div {
-                        &:nth-child(1) {
-                            display: flex;
-                            align-items: center;
-                            width: 100%;
-
-                            > img {
-                                margin-right: 20px;
-                            }
-
-                            .name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #595656;
-                                display: flex;
-                                align-items: center;
-                                margin-bottom: 10px;
-
-                                > img {
-                                    margin-left: 15px;
-                                }
-                            }
-
-                            .sub-name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 14.9265px;
-                                line-height: 18px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
-                            }
-                        }
-
-                        &:nth-child(2) {
-                            display: none;
-                        }
-
-                        &:nth-child(3) {
-                            display: flex;
-                            align-items: center;
-                            flex-wrap: wrap;
-                            justify-content: space-between;
-                            margin-top: 10px;
-                            padding-left: 75px;
-
-                            div {
-                                &:nth-child(2) {
-                                    padding-left: 0;
-                                }
-
-                                &:nth-child(4) {
-                                    padding-left: 0;
-                                }
-
-                                width: 50%;
-                                display: flex;
-                                flex-wrap: wrap;
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
-                                align-items: center;
-                                margin-bottom: 20px;
-
-                                img {
-                                    margin-right: 10px;
-                                }
-                            }
-                        }
-
-                        &:nth-child(4) {
-                            display: flex;
-                            padding-left: 75px;
-
-                            > div {
-                                width: 34px;
-                                height: 33px;
-                                background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);
-                                box-shadow: 0 0 5.25909px rgba(156, 161, 169, 0.69);
-                                border-radius: 8px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                cursor: pointer;
-
-                                &:not(:last-child) {
-                                    margin-right: 8px;
-                                }
-
-                                &:first-child {
-                                    img {
-                                        margin-top: 2px;
-                                    }
                                 }
                             }
                         }

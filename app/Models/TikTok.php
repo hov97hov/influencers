@@ -20,5 +20,6 @@ class TikTok extends Model
         'account_id',
         'user_id',
         'profile_url',
+        'post_count',
     ];
 }

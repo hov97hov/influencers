@@ -21,5 +21,6 @@ class Youtube extends Model
         'channel_id',
         'user_id',
         'profile_url',
+        'post_count',
     ];
 }

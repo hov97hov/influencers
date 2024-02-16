@@ -16,7 +16,13 @@ class UserResource extends JsonResource
     {
         return [
             'name' => $this->name,
+            'instagram' => $this->instagram,
+            'twitter' => $this->twitter,
+            'youtube' => $this->youtube,
+            'tiktok' => $this->tiktok,
+            'telegram' => $this->telegram,
             'user_detail' => $this->userDetail,
+            'categories' => $this->categories,
         ];
     }
 }
