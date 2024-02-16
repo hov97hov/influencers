@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header :is-show="true"/>
+        <Header :is-show="true" :isHome="true" :isFindPage="false"/>
         <Banner/>
         <div class="home-page-content">
             <div class="container">

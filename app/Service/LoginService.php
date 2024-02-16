@@ -13,6 +13,7 @@ use App\Models\UserDetail;
 use App\Models\Youtube;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Mockery\Exception;
 
 class LoginService implements LoginInterface
@@ -160,10 +161,14 @@ class LoginService implements LoginInterface
             return false;
         }
 
+        $imageData = file_get_contents(Arr::get($data,'profile_pic_url_hd'));
+        $filename = 'instagram/'.uniqid() . '.jpg';
+        Storage::disk('public')->put($filename, $imageData);
+
         $createNewInstagramUser = Instagram::create([
             'full_name' => Arr::get($data,'full_name'),
             'username' => Arr::get($data,'username'),
-            'image' => Arr::get($data,'profile_pic_url_hd'),
+            'image' => 'storage/'.$filename,
             'follow' => Arr::get($data,'edge_follow.count'),
             'followed_by' => Arr::get($data,'edge_followed_by.count'),
             'account_id' => Arr::get($data,'id'),
@@ -229,11 +234,15 @@ class LoginService implements LoginInterface
                 config('app.rapid_api_key')
             );
 
+            $imageData = file_get_contents(Arr::get($userInfo,'profile_pic_url_hd'));
+            $filename = 'instagram/'.uniqid() . '.jpg';
+            Storage::disk('public')->put($filename, $imageData);
+
             Instagram::query()
                 ->where(['account_id' => Arr::get($userInfo, 'id'), 'username' => Arr::get($userInfo, 'username')])
                 ->update([
                     'full_name' => Arr::get($userInfo, 'full_name'),
-                    'image' => Arr::get($userInfo, 'profile_pic_url_hd'),
+                    'image' => 'storage/'.$filename,
                     'follow' => Arr::get($userInfo, 'edge_follow.count'),
                     'followed_by' => Arr::get($userInfo, 'edge_followed_by.count'),
                     'post_count' => Arr::get($userInfo,'edge_owner_to_timeline_media.count'),

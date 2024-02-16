@@ -1,14 +1,14 @@
 <template>
     <div>
-        <Header :is-show="false"/>
+        <Header :is-show="true" :isHome="false" :isFindPage="false"/>
         <div
             class="search-page-content"
             :style="!isShowElement ? `height: 100vh` : `height: auto`"
         >
             <div class="container">
                 <div class="search-content" v-if="isShowElement">
-                    <input type="text" placeholder="Keywords: fashion, design, marketing">
-                    <button>{{ $t('search') }}</button>
+                    <input v-model="defaultData.search" type="text" placeholder="Keywords: fashion, design, marketing">
+                    <button @click="search">{{ $t('search') }}</button>
                 </div>
 
                 <div class="filter-vars">
@@ -420,6 +420,7 @@ export default {
                 lastPost: '',
                 searchFollowerCountLeft: '',
                 searchFollowerCountRight: '',
+                search: '',
             },
             notSelectedCategories: ['Artist', 'Blogger', 'Digital creator', 'Photoghraper', 'Entrepreneur', 'Public figure'],
             notSelectedAges: ['< 20', '21 - 30', '31 - 40', '40+'],
@@ -447,6 +448,9 @@ export default {
     },
 
     methods: {
+        search() {
+            this.filter(this.page)
+        },
         resetField(fieldName) {
             this.defaultData[fieldName] = '';
             this.filter(this.page)
@@ -612,6 +616,7 @@ export default {
                 lastPost: this.defaultData.lastPost,
                 searchFollowerCountLeft: this.defaultData.searchFollowerCountLeft,
                 searchFollowerCountRight: this.defaultData.searchFollowerCountRight,
+                search: this.defaultData.search,
                 categories: this.selectedCategoryIds,
             }
 

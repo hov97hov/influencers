@@ -15,6 +15,11 @@ class UserRepository
     public function getUsers($filter): LengthAwarePaginator
     {
         return User::query()
+            ->when($filter->search != "", function ($search) use ($filter) {
+                return $search->whereHas(strtolower($filter->platform), function ($query) use ($filter){
+                    $query->where('full_name', 'like', "%{$filter->search}%");
+                });
+            })
             ->when($filter->platform, function ($platform) use ($filter) {
                 return $platform->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
                     $query->with(strtolower($filter->platform));

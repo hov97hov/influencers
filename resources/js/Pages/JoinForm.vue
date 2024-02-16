@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header :is-show="false"/>
+        <Header :is-show="true" :isHome="false" :isFindPage="true"/>
         <div class="join-form-content">
             <div class="container">
                 <div class="content">
@@ -131,12 +131,16 @@
                                       <div class="item" v-for="item in category">
                                           <label class="form-checkbox-container">
                                               <span>{{item.name}}</span>
-                                              <input type="checkbox" v-model="defaultData.selectCategories" :value="item.id">
+                                              <input
+                                                  type="checkbox"  v-model="defaultData.selectCategories" :value="item.id"
+                                                  @input="checkErrors('defaultErrorData', 'selectCategories')"
+                                              >
                                               <span class="checkmark"></span>
                                           </label>
                                       </div>
                                   </div>
                               </transition>
+                              <span class="field-error-message">{{errors.defaultErrorData.selectCategories ? errors.defaultErrorData.selectCategories[0] : ''}}</span>
                           </div>
                         </div>
                         <div class="field">
@@ -272,23 +276,23 @@ export default {
             ],
             genderOption: ["Male", "Famele"],
             defaultData: {
-                first_name: 'Valod',
-                last_name: 'Valodyan',
-                phone: '37455969696',
+                first_name: '',
+                last_name: '',
+                phone: '',
                 selectCategories: [],
-                influencer_name: 'es shat gidem inch',
+                influencer_name: '',
                 facebook: '',
-                instagram: 'hov97mkrtchyan',
-                tiktok: 'therock',
-                youtube: 'UCmqqdbEjzhryi3R-_qHPExg',
-                twitter: 'Hovo1543569',
-                telegram: 'kalalaallala',
+                instagram: '',
+                tiktok: '',
+                youtube: '',
+                twitter: '',
+                telegram: '',
                 account_type: '',
                 gender: '',
                 birthday: '',
                 language: '',
-                additional_information: 'text',
-                email: 'example@emample.com',
+                additional_information: '',
+                email: '',
             },
             errors: {
                 defaultErrorData: {
@@ -309,6 +313,7 @@ export default {
                     language: '',
                     additional_information: '',
                     email: '',
+                    selectCategories: '',
                 },
             }
         }
@@ -331,12 +336,11 @@ export default {
             }
         },
 
-        async registerUser() {
+        registerUser() {
             this.isLoader = true
 
-            await axios.post('/register/user', this.defaultData).then(response => {
+            axios.post('/register/user', this.defaultData).then(response => {
                 this.isLoader = false
-
                 this.$notify({
                     group: 'foo',
                     title: this.$t('success_title'),
@@ -393,7 +397,7 @@ export default {
 
 <style lang="scss">
     .vue-notification-group {
-        width: auto !important;
+        width: 400px !important;
         top: 20px !important;
     }
     .vue-notification.success {
@@ -1641,6 +1645,10 @@ export default {
     }
 
     @media screen and (max-width: 480px) {
+        .vue-notification-group {
+            width: auto !important;
+            top: 20px !important;
+        }
         // select
         .vs__dropdown-toggle .vs__selected {
             font-family: 'Rubik', sans-serif !important;

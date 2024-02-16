@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="header" :class="{active : !isShow}">
+        <div class="header" :class="{active : !isHome}">
             <div class="container">
                <div class="header-wrapper">
                    <a href="/">
@@ -8,9 +8,10 @@
                            <img src="/images/header/logo.svg" alt="">
                        </div>
                    </a>
-                   <div class="menu" :class="{active : !isShow}">
+                   <div class="menu">
                        <div class="btn-content">
-                           <a v-if="isShow" href="/join">{{ $t('join_influencer') }}</a>
+                           <a v-if="isShow && !isFindPage" href="/join">{{ $t('join_influencer') }}</a>
+                           <a v-if="isFindPage" href="/search">{{ $t('find_your_influencer') }}</a>
                            <img @click="openMobileMenu" src="/images/icons/accardion.png" alt="">
                        </div>
                        <select
@@ -60,7 +61,7 @@ export default {
             isMobileMenu: false,
         }
     },
-    props: ['isShow'],
+    props: ['isShow', 'isHome', 'isFindPage'],
     mounted() {
         const storageLang = localStorage.getItem('lang')
         storageLang ? this.lang = storageLang : this.lang = 'en'

@@ -33,6 +33,7 @@ class RegisterUserRequest extends FormRequest
             'birthday' => 'required',
             'language' => 'required',
             'additional_information' => 'required',
+            'account_type' => 'required',
         ];
     }
 
@@ -50,6 +51,7 @@ class RegisterUserRequest extends FormRequest
             'email.required' => __('validation.required'),
             'language.required' => __('validation.required'),
             'additional_information.required' => __('validation.required'),
+            'account_type.required' => __('validation.required'),
             'email.email' => __('validation.email'),
         ];
     }

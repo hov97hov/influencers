@@ -311,6 +311,9 @@ export default {
 
                     > img {
                         margin-right: 15px;
+                        width: 120px;
+                        height: 120px;
+                        border-radius: 50%;
                     }
 
                     .name {
@@ -461,6 +464,9 @@ export default {
 
                             > img {
                                 margin-right: 32px;
+                                width: 120px;
+                                height: 120px;
+                                border-radius: 50%;
                             }
 
                             .name {
