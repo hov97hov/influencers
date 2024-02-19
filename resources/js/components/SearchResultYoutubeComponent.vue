@@ -919,7 +919,7 @@ export default {
 
                         &:nth-child(4) {
                             display: flex;
-                            padding-left: 75px;
+                            padding-left: 30px;
 
                             > div {
                                 width: 34px;
