@@ -33,7 +33,7 @@
         <div class="items">
             <div
                 class="item"
-                v-for="(user, index) in users"
+                v-for="(user, index) in sortedUsers"
             >
                 <div class="left-section">
                     <img :src="user.twitter.image" :alt="user.twitter.full_name">
@@ -90,7 +90,7 @@
         <div class="items-mobile">
             <div
                 class="item"
-                v-for="(user, index) in users"
+                v-for="(user, index) in sortedUsers"
             >
                 <div class="left-section">
                     <img :src="user.twitter.image" :alt="user.twitter.full_name">
@@ -185,6 +185,11 @@
 export default {
     name: "SearchResultTwitterComponent",
     props: ['users', 'platform'],
+    computed: {
+        sortedUsers() {
+            return this.users.slice().sort((a, b) => b.twitter.follow - a.twitter.follow);
+        }
+    }
 }
 
 </script>
