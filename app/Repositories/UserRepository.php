@@ -15,6 +15,7 @@ class UserRepository
     public function getUsers($filter): LengthAwarePaginator
     {
         return User::query()
+
             ->when($filter->search != "", function ($search) use ($filter) {
                 return $search->whereHas(strtolower($filter->platform), function ($query) use ($filter){
                     $query->where('full_name', 'like', "%{$filter->search}%");
@@ -22,7 +23,7 @@ class UserRepository
             })
             ->when($filter->platform, function ($platform) use ($filter) {
                 return $platform->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $query->with(strtolower($filter->platform));
+                    $query->with(strtolower($filter->platform))->orderBy('follow', 'desc');
                 });
             })
             ->when($filter->categories, function ($categories) use ($filter) {
@@ -96,7 +97,6 @@ class UserRepository
                     $query->where('post_count', '>=', $count);
                 });
             })
-
 
             ->with('categories', 'userDetail')
             ->where('status', true)
