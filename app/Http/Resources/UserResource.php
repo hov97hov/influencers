@@ -16,11 +16,11 @@ class UserResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'instagram' => $this->instagram->orderBy('follow', 'DESC'),
-            'twitter' => $this->twitter->orderBy('follow', 'DESC'),
-            'youtube' => $this->youtube->orderBy('follow', 'DESC'),
-            'tiktok' => $this->tiktok->orderBy('follow', 'DESC'),
-            'telegram' => $this->telegram->orderBy('follow', 'DESC'),
+            'instagram' => $this->instagram,
+            'twitter' => $this->twitter,
+            'youtube' => $this->youtube,
+            'tiktok' => $this->tiktok,
+            'telegram' => $this->telegram,
             'user_detail' => $this->userDetail,
             'categories' => $this->categories,
         ];
