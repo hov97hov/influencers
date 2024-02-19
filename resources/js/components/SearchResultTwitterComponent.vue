@@ -247,7 +247,7 @@ export default {
                 }
 
                 &:nth-child(2) {
-                    width: 15%;
+                    width: 24%;
                 }
 
                 &:nth-child(3) {
