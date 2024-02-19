@@ -866,7 +866,7 @@ export default {
                             flex-wrap: wrap;
                             justify-content: space-between;
                             margin-top: 10px;
-                            padding-left: 75px;
+                            padding-left: 30px;
                             .category-list {
                                 width: 100% !important;
                                 align-items: flex-start !important;
@@ -922,7 +922,7 @@ export default {
 
                         &:nth-child(4) {
                             display: flex;
-                            padding-left: 30px;
+                            padding-left: 75px;
 
                             > div {
                                 width: 34px;
