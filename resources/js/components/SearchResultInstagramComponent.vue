@@ -341,6 +341,7 @@ export default {
                         line-height: 20px;
                         letter-spacing: 0.02em;
                         color: #686868;
+                        word-break: break-word;
                     }
                 }
 
