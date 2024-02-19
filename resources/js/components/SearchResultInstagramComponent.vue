@@ -2,7 +2,7 @@
     <div class="search-result">
         <div class="title">
             <div>{{ $t('search_result') }}</div>
-            <div>{{ $t('found') }} 125 {{ $t('account') }} </div>
+            <div>{{ $t('found') }} {{users.length}} {{ $t('account') }} </div>
         </div>
         <div class="search-result-header">
             <div>
