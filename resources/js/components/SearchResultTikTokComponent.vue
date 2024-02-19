@@ -243,11 +243,12 @@ export default {
                 color: #000000;
 
                 &:nth-child(1) {
-                    width: 33%;
+                    width: 40%;
                 }
 
                 &:nth-child(2) {
                     width: 20%;
+                    text-align: left;
                 }
 
                 &:nth-child(3) {
