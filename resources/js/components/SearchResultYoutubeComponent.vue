@@ -685,22 +685,46 @@ export default {
 
                         &:nth-child(3) {
                             display: flex;
-                            align-items: center;
+                            align-items: flex-start;
                             flex-wrap: wrap;
                             justify-content: space-between;
                             margin-top: 10px;
-                            padding-left: 100px;
-
+                            padding-left: 75px;
+                            .category-list {
+                                width: 100% !important;
+                                align-items: flex-start !important;
+                            }
                             div {
+                                &:nth-child(1) {
+                                    width: 60%;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-wrap: nowrap;
+                                }
                                 &:nth-child(2) {
-                                    padding-left: 30px;
+                                    width: 30%;
+                                    padding-left: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-wrap: nowrap;
+                                }
+                                &:nth-child(3) {
+                                    width: 30%;
+                                    padding-left: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-wrap: nowrap;
                                 }
 
                                 &:nth-child(4) {
-                                    padding-left: 30px;
+                                    width: 30%;
+                                    padding-left: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-wrap: nowrap;
                                 }
 
-                                width: 50%;
+                                width: auto;
                                 display: flex;
                                 flex-wrap: wrap;
                                 font-family: 'Rubik', sans-serif;
@@ -710,7 +734,7 @@ export default {
                                 line-height: 20px;
                                 letter-spacing: 0.02em;
                                 color: #686868;
-                                align-items: center;
+                                align-items: flex-start;
                                 margin-bottom: 20px;
 
                                 img {
@@ -830,22 +854,46 @@ export default {
 
                         &:nth-child(3) {
                             display: flex;
-                            align-items: center;
+                            align-items: flex-start;
                             flex-wrap: wrap;
                             justify-content: space-between;
                             margin-top: 10px;
                             padding-left: 75px;
-
+                            .category-list {
+                                width: 100% !important;
+                                align-items: flex-start !important;
+                            }
                             div {
+                                &:nth-child(1) {
+                                    width: 60%;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-wrap: nowrap;
+                                }
                                 &:nth-child(2) {
+                                    width: 30%;
                                     padding-left: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-wrap: nowrap;
+                                }
+                                &:nth-child(3) {
+                                    width: 30%;
+                                    padding-left: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-wrap: nowrap;
                                 }
 
                                 &:nth-child(4) {
+                                    width: 30%;
                                     padding-left: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-wrap: nowrap;
                                 }
 
-                                width: 50%;
+                                width: auto;
                                 display: flex;
                                 flex-wrap: wrap;
                                 font-family: 'Rubik', sans-serif;
@@ -855,7 +903,7 @@ export default {
                                 line-height: 20px;
                                 letter-spacing: 0.02em;
                                 color: #686868;
-                                align-items: center;
+                                align-items: flex-start;
                                 margin-bottom: 20px;
 
                                 img {
