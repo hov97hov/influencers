@@ -19,7 +19,10 @@ html, body {
     background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%) !important;
 }
 
-
+.login-logo a{
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
 
 .login-page, .register-page {
     background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%) !important;
