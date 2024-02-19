@@ -22,7 +22,7 @@ class UserRepository
             })
             ->when($filter->platform, function ($platform) use ($filter) {
                 return $platform->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $query->with(strtolower($filter->platform))->orderBY('follow', 'DESC');
+                    $query->with(strtolower($filter->platform))->orderBY('follow', 'ASC');
                 });
             })
             ->when($filter->categories, function ($categories) use ($filter) {
