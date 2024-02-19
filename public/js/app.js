@@ -6869,7 +6869,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchResultComponent",
-  props: ['users', 'platform']
+  props: ['users', 'platform'],
+  computed: {
+    sortedItems: function sortedItems() {
+      return this.users.slice().sort(function (a, b) {
+        return b.follow - a.follow;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -44400,7 +44407,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedItems, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -44572,7 +44579,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items-mobile" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedItems, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
