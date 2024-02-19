@@ -243,8 +243,8 @@ class LoginService implements LoginInterface
                 ->update([
                     'full_name' => Arr::get($userInfo, 'full_name'),
                     'image' => 'storage/'.$filename,
-                    'follow' => Arr::get($userInfo, 'edge_follow.count'),
-                    'followed_by' => Arr::get($userInfo, 'edge_followed_by.count'),
+                    'follow' => Arr::get($userInfo,'edge_followed_by.count'),
+                    'followed_by' => Arr::get($userInfo,'edge_follow.count'),
                     'post_count' => Arr::get($userInfo,'edge_owner_to_timeline_media.count'),
                 ]);
         }
