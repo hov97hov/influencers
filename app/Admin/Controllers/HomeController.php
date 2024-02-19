@@ -7,11 +7,8 @@ use Encore\Admin\Layout\Content;
 
 class HomeController extends Controller
 {
-    public function index(Content $content): Content
+    public function index(Content $content): \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
     {
-        return $content
-            ->title('Dashboard')
-            ->description('Influencers');
-
+        return redirect('/admin/users/register');
     }
 }
