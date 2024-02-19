@@ -33,7 +33,7 @@
         <div class="items">
             <div
                 class="item"
-                v-for="(user, index) in users"
+                v-for="(user, index) in sortedUsers"
             >
                 <div class="left-section">
                     <img :src="user.instagram.image" :alt="user.instagram.full_name">
@@ -91,7 +91,7 @@
         <div class="items-mobile">
             <div
                 class="item"
-                v-for="(user, index) in users"
+                v-for="(user, index) in sortedUsers"
             >
                 <div class="left-section">
                     <img :src="user.instagram.image" :alt="user.instagram.full_name">
@@ -186,6 +186,11 @@
 export default {
     name: "SearchResultComponent",
     props: ['users', 'platform'],
+    computed: {
+        sortedUsers() {
+            return this.users.slice().sort((a, b) => b.instagram.follow - a.instagram.follow);
+        }
+    }
 }
 
 </script>

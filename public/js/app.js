@@ -6871,9 +6871,9 @@ __webpack_require__.r(__webpack_exports__);
   name: "SearchResultComponent",
   props: ['users', 'platform'],
   computed: {
-    sortedItems: function sortedItems() {
+    sortedUsers: function sortedUsers() {
       return this.users.slice().sort(function (a, b) {
-        return b.follow - a.follow;
+        return b.instagram.follow - a.instagram.follow;
       });
     }
   }
@@ -44407,7 +44407,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items" },
-      _vm._l(_vm.sortedItems, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -44579,7 +44579,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items-mobile" },
-      _vm._l(_vm.sortedItems, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
