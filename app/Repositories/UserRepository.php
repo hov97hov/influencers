@@ -23,9 +23,7 @@ class UserRepository
             })
             ->when($filter->platform, function ($platform) use ($filter) {
                 return $platform->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $query->with(strtolower($filter->platform), function ($aaa) {
-                        $aaa->orderBy('follow', 'desc');
-                    });
+                    $query->with(strtolower($filter->platform));
                 });
             })
             ->when($filter->categories, function ($categories) use ($filter) {
@@ -100,7 +98,9 @@ class UserRepository
                 });
             })
 
-            ->with('categories', 'userDetail')
+            ->with(['categories', 'userDetail', 'instagram' => function ($query) {
+                $query->orderBy('follow', 'desc');
+            }])
             ->where('status', true)
             ->paginate(10);
     }
