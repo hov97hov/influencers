@@ -200,6 +200,10 @@ export default {
                 padding: 12px 38px;
                 cursor: pointer;
                 text-decoration: none;
+                transition: 0.25s ease;
+                &:hover {
+                    box-shadow: -6px -6px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);
+                }
             }
             img {
                 display: none;

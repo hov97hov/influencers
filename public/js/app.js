@@ -7077,7 +7077,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchResultTelegramComponent",
-  props: ['users', 'platform']
+  props: ['users', 'platform'],
+  computed: {
+    sortedUsers: function sortedUsers() {
+      return this.users.slice().sort(function (a, b) {
+        return b.telegram.follow - a.telegram.follow;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -7278,7 +7285,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchResultTikTokComponent",
-  props: ['users', 'platform']
+  props: ['users', 'platform'],
+  computed: {
+    sortedUsers: function sortedUsers() {
+      return this.users.slice().sort(function (a, b) {
+        return b.tiktok.follow - a.tiktok.follow;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -7479,7 +7493,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchResultTwitterComponent",
-  props: ['users', 'platform']
+  props: ['users', 'platform'],
+  computed: {
+    sortedUsers: function sortedUsers() {
+      return this.users.slice().sort(function (a, b) {
+        return b.twitter.follow - a.twitter.follow;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -7680,7 +7701,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchResultYoutubeComponent",
-  props: ['users', 'platform']
+  props: ['users', 'platform'],
+  computed: {
+    sortedUsers: function sortedUsers() {
+      return this.users.slice().sort(function (a, b) {
+        return b.youtube.follow - a.youtube.follow;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -13397,7 +13425,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".mobile-menu[data-v-1f42fb90] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100vh;\n  background: #E9EDF0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 999999;\n}\n.mobile-menu .close-menu[data-v-1f42fb90] {\n  position: absolute;\n  top: 30px;\n  right: 30px;\n  cursor: pointer;\n}\n.mobile-menu .close-menu img[data-v-1f42fb90] {\n  width: 16px;\n}\n.mobile-menu .menu[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.mobile-menu #languageSwitch[data-v-1f42fb90] {\n  width: 70px;\n  margin-top: 20px;\n  border: 1px solid #000000;\n  background: transparent;\n  color: #000000;\n  font-family: arialAum;\n  outline: 0;\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding-left: 5px;\n  padding-right: 5px;\n  cursor: pointer;\n  padding-bottom: 5px;\n  padding-top: 5px;\n}\n.mobile-menu #languageSwitch option[data-v-1f42fb90] {\n  background: #E9EDF0;\n  color: #000000;\n}\n.mobile-menu .btn-content a[data-v-1f42fb90] {\n  display: block;\n  background: #FFFFFF;\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  text-align: center;\n  letter-spacing: 0.02em;\n  color: #151515;\n  padding: 12px 38px;\n  cursor: pointer;\n  text-decoration: none;\n}\n.mobile-menu .btn-content img[data-v-1f42fb90] {\n  display: none;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.header[data-v-1f42fb90] {\n  background: transparent;\n  width: 100%;\n}\n.header.active[data-v-1f42fb90] {\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n}\n.header .menu[data-v-1f42fb90] {\n  margin-top: 35px;\n  display: flex;\n  justify-content: flex-end;\n}\n.header .menu.active[data-v-1f42fb90] {\n  margin-top: 0;\n}\n.header .menu .btn-content a[data-v-1f42fb90] {\n  display: block;\n  background: #FFFFFF;\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  text-align: center;\n  letter-spacing: 0.02em;\n  color: #151515;\n  padding: 12px 38px;\n  cursor: pointer;\n  text-decoration: none;\n}\n.header .menu .btn-content img[data-v-1f42fb90] {\n  display: none;\n}\n.header .menu #languageSwitch[data-v-1f42fb90] {\n  background: transparent;\n  color: #ffffff;\n  font-family: arialAum;\n  border: none;\n  outline: 0;\n  margin-left: 13px;\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding-left: 5px;\n  padding-right: 5px;\n  cursor: pointer;\n}\n.header .menu #languageSwitch option[data-v-1f42fb90] {\n  background: #E9EDF0;\n  color: #000000;\n}\n@media screen and (max-width: 580px) {\n.header[data-v-1f42fb90] {\n    background: transparent;\n    width: 100%;\n}\n.header .menu[data-v-1f42fb90] {\n    margin-top: 20px;\n    display: flex;\n    justify-content: flex-end;\n}\n.header .menu #languageSwitch[data-v-1f42fb90] {\n    display: none;\n}\n.header .menu .btn-content a[data-v-1f42fb90] {\n    display: none;\n    background: #FFFFFF;\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    text-align: center;\n    letter-spacing: 0.02em;\n    color: #151515;\n    padding: 12px 38px;\n    cursor: pointer;\n    text-decoration: none;\n}\n.header .menu .btn-content img[data-v-1f42fb90] {\n    display: block;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".mobile-menu[data-v-1f42fb90] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100vh;\n  background: #E9EDF0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 999999;\n}\n.mobile-menu .close-menu[data-v-1f42fb90] {\n  position: absolute;\n  top: 30px;\n  right: 30px;\n  cursor: pointer;\n}\n.mobile-menu .close-menu img[data-v-1f42fb90] {\n  width: 16px;\n}\n.mobile-menu .menu[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.mobile-menu #languageSwitch[data-v-1f42fb90] {\n  width: 70px;\n  margin-top: 20px;\n  border: 1px solid #000000;\n  background: transparent;\n  color: #000000;\n  font-family: arialAum;\n  outline: 0;\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding-left: 5px;\n  padding-right: 5px;\n  cursor: pointer;\n  padding-bottom: 5px;\n  padding-top: 5px;\n}\n.mobile-menu #languageSwitch option[data-v-1f42fb90] {\n  background: #E9EDF0;\n  color: #000000;\n}\n.mobile-menu .btn-content a[data-v-1f42fb90] {\n  display: block;\n  background: #FFFFFF;\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  text-align: center;\n  letter-spacing: 0.02em;\n  color: #151515;\n  padding: 12px 38px;\n  cursor: pointer;\n  text-decoration: none;\n}\n.mobile-menu .btn-content img[data-v-1f42fb90] {\n  display: none;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.header[data-v-1f42fb90] {\n  background: transparent;\n  width: 100%;\n}\n.header.active[data-v-1f42fb90] {\n  background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);\n}\n.header .menu[data-v-1f42fb90] {\n  margin-top: 35px;\n  display: flex;\n  justify-content: flex-end;\n}\n.header .menu.active[data-v-1f42fb90] {\n  margin-top: 0;\n}\n.header .menu .btn-content a[data-v-1f42fb90] {\n  display: block;\n  background: #FFFFFF;\n  border-radius: 40px;\n  font-family: \"Rubik\", sans-serif;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 18px;\n  line-height: 21px;\n  text-align: center;\n  letter-spacing: 0.02em;\n  color: #151515;\n  padding: 12px 38px;\n  cursor: pointer;\n  text-decoration: none;\n  transition: 0.25s ease;\n}\n.header .menu .btn-content a[data-v-1f42fb90]:hover {\n  box-shadow: -6px -6px 20px rgba(255, 255, 255, 0.8), 10px 10px 20px rgba(166, 180, 200, 0.7);\n}\n.header .menu .btn-content img[data-v-1f42fb90] {\n  display: none;\n}\n.header .menu #languageSwitch[data-v-1f42fb90] {\n  background: transparent;\n  color: #ffffff;\n  font-family: arialAum;\n  border: none;\n  outline: 0;\n  margin-left: 13px;\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 21px;\n  letter-spacing: 0.02em;\n  text-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding-left: 5px;\n  padding-right: 5px;\n  cursor: pointer;\n}\n.header .menu #languageSwitch option[data-v-1f42fb90] {\n  background: #E9EDF0;\n  color: #000000;\n}\n@media screen and (max-width: 580px) {\n.header[data-v-1f42fb90] {\n    background: transparent;\n    width: 100%;\n}\n.header .menu[data-v-1f42fb90] {\n    margin-top: 20px;\n    display: flex;\n    justify-content: flex-end;\n}\n.header .menu #languageSwitch[data-v-1f42fb90] {\n    display: none;\n}\n.header .menu .btn-content a[data-v-1f42fb90] {\n    display: none;\n    background: #FFFFFF;\n    border-radius: 40px;\n    font-family: \"Rubik\", sans-serif;\n    font-style: normal;\n    font-weight: 400;\n    font-size: 18px;\n    line-height: 21px;\n    text-align: center;\n    letter-spacing: 0.02em;\n    color: #151515;\n    padding: 12px 38px;\n    cursor: pointer;\n    text-decoration: none;\n}\n.header .menu .btn-content img[data-v-1f42fb90] {\n    display: block;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44999,7 +45027,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -45166,7 +45194,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items-mobile" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -45577,7 +45605,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -45746,7 +45774,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items-mobile" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -46162,7 +46190,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -46331,7 +46359,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items-mobile" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -46747,7 +46775,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
@@ -46916,7 +46944,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "items-mobile" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.sortedUsers, function (user, index) {
         return _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "left-section" }, [
             _c("img", {
