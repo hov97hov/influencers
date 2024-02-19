@@ -199,11 +199,19 @@
                                     <div class="transition-select" v-click-outside="hideNmberFollowers"
                                          v-if="numberFollowers">
                                         <div class="transition-search-content">
-                                            <input v-model="defaultData.searchFollowerCountLeft" class="search-input"
-                                                   type="text">
+                                            <input
+                                                v-model="defaultData.searchFollowerCountLeft"
+                                                @input="filter(page)"
+                                                class="search-input"
+                                                type="text"
+                                            >
                                             <span>-</span>
-                                            <input v-model="defaultData.searchFollowerCountRight" class="search-input"
-                                                   type="text">
+                                            <input
+                                                v-model="defaultData.searchFollowerCountRight"
+                                                @input="filter(page)"
+                                                class="search-input"
+                                                type="text"
+                                            >
                                         </div>
                                         <div class="followers-count">
                                             <div
@@ -346,7 +354,6 @@
 
 <script>
 import Footer from "../components/Footer.vue";
-import "vue-select/dist/vue-select.css";
 import ClickOutside from 'vue-click-outside'
 import Header from "../components/Header.vue";
 import DatePicker from 'vue2-datepicker';
@@ -434,6 +441,7 @@ export default {
             isLastPost: false,
         }
     },
+
     computed: {
         filterNotSelectedCategories ()  {
             return this.notSelectedCategories.filter(val => {

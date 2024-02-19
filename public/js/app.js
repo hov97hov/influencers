@@ -5774,18 +5774,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Footer.vue */ "./resources/js/components/Footer.vue");
-/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
-/* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-click-outside */ "./node_modules/vue-click-outside/index.js");
-/* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_click_outside__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Header.vue */ "./resources/js/components/Header.vue");
-/* harmony import */ var vue2_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-datepicker */ "./node_modules/vue2-datepicker/index.esm.js");
-/* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-datepicker/index.css */ "./node_modules/vue2-datepicker/index.css");
-/* harmony import */ var _public_files_countries_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/files/countries.json */ "./public/files/countries.json");
-/* harmony import */ var _components_SearchResultInstagramComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/SearchResultInstagramComponent */ "./resources/js/components/SearchResultInstagramComponent.vue");
-/* harmony import */ var _components_SearchResultTwitterComponent_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/SearchResultTwitterComponent.vue */ "./resources/js/components/SearchResultTwitterComponent.vue");
-/* harmony import */ var _components_SearchResultYoutubeComponent_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/SearchResultYoutubeComponent.vue */ "./resources/js/components/SearchResultYoutubeComponent.vue");
-/* harmony import */ var _components_SearchResultTikTokComponent_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/SearchResultTikTokComponent.vue */ "./resources/js/components/SearchResultTikTokComponent.vue");
-/* harmony import */ var _components_SearchResultTelegramComponent_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/SearchResultTelegramComponent.vue */ "./resources/js/components/SearchResultTelegramComponent.vue");
+/* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-click-outside */ "./node_modules/vue-click-outside/index.js");
+/* harmony import */ var vue_click_outside__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_click_outside__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Header.vue */ "./resources/js/components/Header.vue");
+/* harmony import */ var vue2_datepicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-datepicker */ "./node_modules/vue2-datepicker/index.esm.js");
+/* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-datepicker/index.css */ "./node_modules/vue2-datepicker/index.css");
+/* harmony import */ var _public_files_countries_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/files/countries.json */ "./public/files/countries.json");
+/* harmony import */ var _components_SearchResultInstagramComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/SearchResultInstagramComponent */ "./resources/js/components/SearchResultInstagramComponent.vue");
+/* harmony import */ var _components_SearchResultTwitterComponent_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/SearchResultTwitterComponent.vue */ "./resources/js/components/SearchResultTwitterComponent.vue");
+/* harmony import */ var _components_SearchResultYoutubeComponent_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/SearchResultYoutubeComponent.vue */ "./resources/js/components/SearchResultYoutubeComponent.vue");
+/* harmony import */ var _components_SearchResultTikTokComponent_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/SearchResultTikTokComponent.vue */ "./resources/js/components/SearchResultTikTokComponent.vue");
+/* harmony import */ var _components_SearchResultTelegramComponent_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/SearchResultTelegramComponent.vue */ "./resources/js/components/SearchResultTelegramComponent.vue");
 //
 //
 //
@@ -6132,7 +6131,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6147,14 +6153,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchPage",
   components: {
-    SearchResultTelegramComponent: _components_SearchResultTelegramComponent_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
-    SearchResultTikTokComponent: _components_SearchResultTikTokComponent_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
-    SearchResultYoutubeComponent: _components_SearchResultYoutubeComponent_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    SearchResultTwitterComponent: _components_SearchResultTwitterComponent_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-    Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    SearchResultTelegramComponent: _components_SearchResultTelegramComponent_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    SearchResultTikTokComponent: _components_SearchResultTikTokComponent_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    SearchResultYoutubeComponent: _components_SearchResultYoutubeComponent_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    SearchResultTwitterComponent: _components_SearchResultTwitterComponent_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    DatePicker: vue2_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"],
-    SearchResultInstagramComponent: _components_SearchResultInstagramComponent__WEBPACK_IMPORTED_MODULE_7__["default"]
+    DatePicker: vue2_datepicker__WEBPACK_IMPORTED_MODULE_3__["default"],
+    SearchResultInstagramComponent: _components_SearchResultInstagramComponent__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   data: function data() {
     return {
@@ -6172,7 +6178,7 @@ __webpack_require__.r(__webpack_exports__);
       searchAges: '',
       filterValue: '',
       filteredItems: [],
-      locations: _public_files_countries_json__WEBPACK_IMPORTED_MODULE_6__,
+      locations: _public_files_countries_json__WEBPACK_IMPORTED_MODULE_5__,
       platforms: ['Instagram', // 'Facebook',
       'Telegram', 'Twitter', 'TikTok', 'Youtube'],
       numberPosts: ['> 10', '> 50', '> 100', '> 200'],
@@ -6438,7 +6444,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   directives: {
-    ClickOutside: (vue_click_outside__WEBPACK_IMPORTED_MODULE_2___default())
+    ClickOutside: (vue_click_outside__WEBPACK_IMPORTED_MODULE_1___default())
   }
 });
 
@@ -7680,15 +7686,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuejs-paginate */ "./node_modules/vuejs-paginate/dist/index.js");
-/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuejs_paginate__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./i18n */ "./resources/js/i18n.js");
-/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-notification */ "./node_modules/vue-notification/dist/index.js");
-/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_notification__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuejs-paginate */ "./node_modules/vuejs-paginate/dist/index.js");
+/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuejs_paginate__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./i18n */ "./resources/js/i18n.js");
+/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-notification */ "./node_modules/vue-notification/dist/index.js");
+/* harmony import */ var vue_notification__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_notification__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Import modules...
 
 
@@ -7698,14 +7705,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Import
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_5__["default"].component('paginate', (vuejs_paginate__WEBPACK_IMPORTED_MODULE_2___default()));
-vue__WEBPACK_IMPORTED_MODULE_5__["default"].component("v-select", (vue_select__WEBPACK_IMPORTED_MODULE_1___default()));
-vue__WEBPACK_IMPORTED_MODULE_5__["default"].use((vue_notification__WEBPACK_IMPORTED_MODULE_4___default()));
-vue__WEBPACK_IMPORTED_MODULE_5__["default"].use((vue_notification__WEBPACK_IMPORTED_MODULE_4___default()));
-vue__WEBPACK_IMPORTED_MODULE_5__["default"].use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.plugin);
+
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('v-select', (vue_select__WEBPACK_IMPORTED_MODULE_4___default()));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('paginate', (vuejs_paginate__WEBPACK_IMPORTED_MODULE_1___default()));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use((vue_notification__WEBPACK_IMPORTED_MODULE_3___default()));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use((vue_notification__WEBPACK_IMPORTED_MODULE_3___default()));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.plugin);
 var app = document.getElementById('app');
-new vue__WEBPACK_IMPORTED_MODULE_5__["default"]({
-  i18n: _i18n__WEBPACK_IMPORTED_MODULE_3__.i18n,
+new vue__WEBPACK_IMPORTED_MODULE_6__["default"]({
+  i18n: _i18n__WEBPACK_IMPORTED_MODULE_2__.i18n,
   render: function render(h) {
     return h(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.App, {
       props: {
@@ -43521,16 +43529,21 @@ var render = function () {
                                                   .searchFollowerCountLeft,
                                             },
                                             on: {
-                                              input: function ($event) {
-                                                if ($event.target.composing) {
-                                                  return
-                                                }
-                                                _vm.$set(
-                                                  _vm.defaultData,
-                                                  "searchFollowerCountLeft",
-                                                  $event.target.value
-                                                )
-                                              },
+                                              input: [
+                                                function ($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.defaultData,
+                                                    "searchFollowerCountLeft",
+                                                    $event.target.value
+                                                  )
+                                                },
+                                                function ($event) {
+                                                  return _vm.filter(_vm.page)
+                                                },
+                                              ],
                                             },
                                           }),
                                           _vm._v(" "),
@@ -43556,16 +43569,21 @@ var render = function () {
                                                   .searchFollowerCountRight,
                                             },
                                             on: {
-                                              input: function ($event) {
-                                                if ($event.target.composing) {
-                                                  return
-                                                }
-                                                _vm.$set(
-                                                  _vm.defaultData,
-                                                  "searchFollowerCountRight",
-                                                  $event.target.value
-                                                )
-                                              },
+                                              input: [
+                                                function ($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.defaultData,
+                                                    "searchFollowerCountRight",
+                                                    $event.target.value
+                                                  )
+                                                },
+                                                function ($event) {
+                                                  return _vm.filter(_vm.page)
+                                                },
+                                              ],
                                             },
                                           }),
                                         ]
