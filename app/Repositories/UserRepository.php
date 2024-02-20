@@ -98,9 +98,7 @@ class UserRepository
                 });
             })
 
-            ->with(['categories', 'userDetail', strtolower($filter->platform) => function ($query) {
-                $query->orderBy('follow', 'desc');
-            }])
+            ->with('categories', 'userDetail')
             ->where('status', true)
             ->paginate((int)$filter->paginateCount);
     }
