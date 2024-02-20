@@ -59,8 +59,37 @@ class AdminRegisteredUserController extends AdminController
 
         $show->field('id', __('ID'));
         $show->field('name', __('NAME'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+
+        $show->status()->as(function ($content) {
+            return $content == 1 ? 'Confirmed' : 'Cancel';
+        });
+
+        $show->field('userDetail.first_name', __('First Name'));
+        $show->field('userDetail.last_name', __('Last Name'));
+        $show->field('userDetail.phone', __('Phone'));
+        $show->field('email', __('Email'));
+        $show->field('userDetail.influencer_name', __('Influencer name'));
+        $show->field('userDetail.facebook', __('Facebook username'));
+        $show->field('userDetail.instagram', __('Instagram username'));
+        $show->field('userDetail.tiktok', __('Tiktok username'));
+        $show->field('userDetail.youtube', __('Youtube channel ID'));
+        $show->field('userDetail.twitter', __('Twitter username'));
+        $show->field('userDetail.telegram', __('Telegram username'));
+
+        $show->categories()->as(function ($content) {
+            $data = '';
+            foreach ($content as $value) {
+                $data .= '  '.$value->name;
+            }
+            return $data;
+        });
+
+        $show->field('userDetail.account_type', __('Account type'));
+        $show->field('userDetail.gender', __('Gender'));
+        $show->field('userDetail.birthday', __('Birthday'));
+        $show->field('userDetail.language', __('Language'));
+        $show->field('userDetail.additional_information', __('Additional information'));
+
 
         return $show;
     }
