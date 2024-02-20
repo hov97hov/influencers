@@ -100,6 +100,6 @@ class UserRepository
 
             ->with('categories', 'userDetail')
             ->where('status', true)
-            ->paginate(10);
+            ->paginate((int)$filter->paginateCount);
     }
 }

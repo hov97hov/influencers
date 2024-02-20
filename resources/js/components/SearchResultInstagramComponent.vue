@@ -35,17 +35,19 @@
                 class="item"
                 v-for="(user, index) in sortedUsers"
             >
-                <div class="left-section">
-                    <img :src="user.instagram.image" :alt="user.instagram.full_name">
-
-                    <div>
-                        <div class="name">
-                            {{user.instagram.full_name}}
-                            <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">
+                <a :href="user.instagram.profile_url" target="_blank" class="text-decoration-none">
+                    <div class="left-section">
+                        <img :src="user.instagram.image" :alt="user.instagram.full_name">
+                        <div>
+                            <div class="name">
+                                {{user.instagram.full_name}}
+                                <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">
+                            </div>
+                            <div class="sub-name">{{user.instagram.username}}</div>
                         </div>
-                        <div class="sub-name">{{user.instagram.username}}</div>
                     </div>
-                </div>
+                </a>
+
                 <div class="center-section">
                     <div class="categories">
                         <span v-for="item in user.categories">{{item.name}}</span> <br>
@@ -94,14 +96,18 @@
                 v-for="(user, index) in sortedUsers"
             >
                 <div class="left-section">
-                    <img :src="user.instagram.image" :alt="user.instagram.full_name">
-                    <div>
-                        <div class="name">{{user.instagram.full_name}}
-                            <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">
+                    <a :href="user.instagram.profile_url" target="_blank" class="text-decoration-none">
+                        <img :src="user.instagram.image" :alt="user.instagram.full_name">
+                        <div>
+                            <div class="name">{{user.instagram.full_name}}
+                                <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">
+                            </div>
+                            <div class="sub-name">{{user.instagram.username}}</div>
                         </div>
-                        <div class="sub-name">{{user.instagram.username}}</div>
-                    </div>
+                    </a>
                 </div>
+
+
                 <div class="right-section">
                     <div v-if="user.facebook">
                         <a href="#">
@@ -464,43 +470,44 @@ export default {
 
                     > div {
                         &:nth-child(1) {
-                            width: 60%;
-                            display: flex;
-                            align-items: center;
-
-                            > img {
-                                margin-right: 32px;
-                                width: 120px;
-                                height: 120px;
-                                border-radius: 50%;
-                            }
-
-                            .name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #595656;
+                            a {
+                                width: 60%;
                                 display: flex;
                                 align-items: center;
-                                margin-bottom: 10px;
-
                                 > img {
-                                    margin-left: 15px;
+                                    margin-right: 32px;
+                                    width: 120px;
+                                    height: 120px;
+                                    border-radius: 50%;
                                 }
-                            }
 
-                            .sub-name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 14.9265px;
-                                line-height: 18px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
-                            }
+                                .name {
+                                    font-family: 'Rubik', sans-serif;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 16.7923px;
+                                    line-height: 20px;
+                                    letter-spacing: 0.02em;
+                                    color: #595656;
+                                    display: flex;
+                                    align-items: center;
+                                    margin-bottom: 10px;
+
+                                    > img {
+                                        margin-left: 15px;
+                                    }
+                                }
+
+                                .sub-name {
+                                    font-family: 'Rubik', sans-serif;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 14.9265px;
+                                    line-height: 18px;
+                                    letter-spacing: 0.02em;
+                                    color: #686868;
+                                }
+                             }
                         }
 
                         &:nth-child(2) {
@@ -624,39 +631,43 @@ export default {
 
                     > div {
                         &:nth-child(1) {
-                            display: flex;
-                            align-items: center;
-                            width: 55%;
-
-                            > img {
-                                margin-right: 20px;
-                            }
-
-                            .name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #595656;
+                            a {
                                 display: flex;
                                 align-items: center;
-                                margin-bottom: 10px;
-
+                                width: 55%;
                                 > img {
-                                    margin-left: 15px;
+                                    margin-right: 20px;
+                                    width: 120px;
+                                    height: 120px;
+                                    border-radius: 50%;
                                 }
-                            }
 
-                            .sub-name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 14.9265px;
-                                line-height: 18px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
+                                .name {
+                                    font-family: 'Rubik', sans-serif;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 16.7923px;
+                                    line-height: 20px;
+                                    letter-spacing: 0.02em;
+                                    color: #595656;
+                                    display: flex;
+                                    align-items: center;
+                                    margin-bottom: 10px;
+
+                                    > img {
+                                        margin-left: 15px;
+                                    }
+                                }
+
+                                .sub-name {
+                                    font-family: 'Rubik', sans-serif;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 14.9265px;
+                                    line-height: 18px;
+                                    letter-spacing: 0.02em;
+                                    color: #686868;
+                                }
                             }
                         }
 
@@ -818,39 +829,43 @@ export default {
 
                     > div {
                         &:nth-child(1) {
-                            display: flex;
-                            align-items: center;
-                            width: 100%;
-
-                            > img {
-                                margin-right: 20px;
-                            }
-
-                            .name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 16.7923px;
-                                line-height: 20px;
-                                letter-spacing: 0.02em;
-                                color: #595656;
+                            a {
                                 display: flex;
                                 align-items: center;
-                                margin-bottom: 10px;
-
+                                width: 100%;
                                 > img {
-                                    margin-left: 15px;
+                                    margin-right: 20px;
+                                    width: 120px;
+                                    height: 120px;
+                                    border-radius: 50%;
                                 }
-                            }
 
-                            .sub-name {
-                                font-family: 'Rubik', sans-serif;
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 14.9265px;
-                                line-height: 18px;
-                                letter-spacing: 0.02em;
-                                color: #686868;
+                                .name {
+                                    font-family: 'Rubik', sans-serif;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 16.7923px;
+                                    line-height: 20px;
+                                    letter-spacing: 0.02em;
+                                    color: #595656;
+                                    display: flex;
+                                    align-items: center;
+                                    margin-bottom: 10px;
+
+                                    > img {
+                                        margin-left: 15px;
+                                    }
+                                }
+
+                                .sub-name {
+                                    font-family: 'Rubik', sans-serif;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 14.9265px;
+                                    line-height: 18px;
+                                    letter-spacing: 0.02em;
+                                    color: #686868;
+                                }
                             }
                         }
 
@@ -920,7 +935,7 @@ export default {
 
                         &:nth-child(4) {
                             display: flex;
-                            padding-left: 75px;
+                            padding-left: 30px;
 
                             > div {
                                 width: 34px;

@@ -36,10 +36,11 @@
 .search-paginator {
     display: flex;
     justify-content: center;
-    margin: 100px auto 50px;
     list-style: none;
     border: 1px solid transparent;
     padding: 0;
+    margin: 0;
+    width: 96%;
 }
 
 .search-paginator li {

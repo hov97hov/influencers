@@ -338,14 +338,26 @@
                     :platform="defaultData.platform"
                 />
 
-                <paginate
-                    v-if="defaultData.platform"
-                    :page-count="lastPage"
-                    :click-handler="getUsers"
-                    :prev-text="'<'"
-                    :next-text="'>'"
-                    :container-class="'search-paginator'">
-                </paginate>
+               <div class="paginate" v-if="defaultData.platform">
+                   <paginate
+                       :page-count="lastPage"
+                       :click-handler="getUsers"
+                       :prev-text="'<'"
+                       :next-text="'>'"
+                       :container-class="'search-paginator'">
+                   </paginate>
+
+                   <div class="paginateContent">
+                       <img src="/images/iconUp.png" alt="">
+                       <select
+                           v-model="defaultData.paginateCountNumber"
+                           @change="filter(page)"
+                           id="selectPaginate"
+                       >
+                           <option v-for="item in paginateCount" :value="item">{{item}}</option>
+                       </select>
+                   </div>
+               </div>
             </div>
         </div>
         <Footer/>
@@ -374,6 +386,7 @@ export default {
         SearchResultTwitterComponent, Header, Footer, DatePicker, SearchResultInstagramComponent},
     data() {
         return {
+            paginateCount: ['10', '20', '30', '50', '100', '150', '200'],
             users: [],
             paginate: [],
             selectedAges: [],
@@ -428,6 +441,7 @@ export default {
                 searchFollowerCountLeft: '',
                 searchFollowerCountRight: '',
                 search: '',
+                paginateCountNumber: '10',
             },
             notSelectedCategories: ['Artist', 'Blogger', 'Digital creator', 'Photoghraper', 'Entrepreneur', 'Public figure'],
             notSelectedAges: ['< 20', '21 - 30', '31 - 40', '40+'],
@@ -626,6 +640,7 @@ export default {
                 searchFollowerCountRight: this.defaultData.searchFollowerCountRight,
                 search: this.defaultData.search,
                 categories: this.selectedCategoryIds,
+                paginateCount: this.defaultData.paginateCountNumber,
             }
 
             const filteredParams = {};
@@ -663,6 +678,28 @@ export default {
 </script>
 
 <style lang="scss">
+.paginateContent {
+    position: relative;
+    img {
+        position: absolute;
+        right: 10px;
+        top: 13px;
+    }
+    #selectPaginate {
+        border: 1px solid #CECECE;
+        border-radius: 10px;
+        padding: 4px 30px 4px 30px;
+        outline: 0;
+        appearance: none;
+        background: transparent;
+    }
+}
+
+.paginate {
+    display: flex;
+    justify-content: center;
+    margin: 100px auto 50px;
+}
 .mx-icon-calendar {
     right: 20px !important;
 }
@@ -1084,6 +1121,13 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+    .paginate {
+        flex-direction: column;
+        align-items: center;
+        .paginateContent {
+            margin-top: 30px;
+        }
+    }
     .search-page-content {
         background: #E9EDF0;
 
