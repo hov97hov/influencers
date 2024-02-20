@@ -293,7 +293,7 @@ export default {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            a {
+            > a {
                 width: 28%;
             }
             &:not(:last-child) {

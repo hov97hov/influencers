@@ -294,7 +294,7 @@ export default {
                 margin-bottom: 20px;
                 border-bottom: 1.05182px solid #88898A;
             }
-            a {
+            > a {
                 width: 28%;
             }
             > div {
