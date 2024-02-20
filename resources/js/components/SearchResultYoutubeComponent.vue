@@ -51,7 +51,7 @@
                     <div class="categories">
                         <span v-for="item in user.categories">{{item.name}}</span> <br>
                     </div>
-                    <div>{{ user.youtube.follow }}</div>
+                    <div>{{ user.youtube ? user.youtube.follow : 0 }}</div>
                     <div>{{ user.youtube.post_count }}</div>
                     <div>{{user.user_detail.language}}</div>
                 </div>
@@ -145,7 +145,7 @@
                        </div>
                     </div>
                     <div><img src="/images/icons/Icon-color2.png" alt=""><span>{{ user.user_detail.language }}</span></div>
-                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.youtube.follow }}</span></div>
+                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.youtube ? user.youtube.follow : 0 }}</span></div>
                     <div><img src="/images/icons/Icon-color5.png" alt=""><span>{{ user.youtube.post_count }}</span></div>
                 </div>
                 <div class="icon-section">

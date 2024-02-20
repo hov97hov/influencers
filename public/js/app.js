@@ -47007,7 +47007,7 @@ var render = function () {
               2
             ),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.youtube.follow))]),
+            _c("div", [_vm._v(_vm._s(user.youtube ? user.youtube.follow : 0))]),
             _vm._v(" "),
             _c("div", [_vm._v(_vm._s(user.youtube.post_count))]),
             _vm._v(" "),
@@ -47314,7 +47314,9 @@ var render = function () {
               _c("img", {
                 attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
               }),
-              _c("span", [_vm._v(_vm._s(user.youtube.follow))]),
+              _c("span", [
+                _vm._v(_vm._s(user.youtube ? user.youtube.follow : 0)),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", [
