@@ -6255,7 +6255,7 @@ __webpack_require__.r(__webpack_exports__);
     resetFiledDate: function resetFiledDate(data) {
       data.searchFollowerCountLeft = '';
       data.searchFollowerCountRight = '';
-      this.getUsers();
+      this.filter(this.page);
     },
     hideTransitionAge: function hideTransitionAge() {
       this.isSelectedAge = false;
@@ -6301,7 +6301,7 @@ __webpack_require__.r(__webpack_exports__);
         this.defaultData.searchFollowerCountLeft = 1000000;
       }
 
-      this.getUsers();
+      this.filter(this.page);
     },
     followerCountRight: function followerCountRight(count) {
       this.defaultData.searchFollowerCountRight = '';
@@ -6335,7 +6335,7 @@ __webpack_require__.r(__webpack_exports__);
         this.defaultData.searchFollowerCountRight = 1000000;
       }
 
-      this.getUsers();
+      this.filter(this.page);
     },
     selectedCategory: function selectedCategory(value) {
       var categoryMap = {
@@ -6360,7 +6360,7 @@ __webpack_require__.r(__webpack_exports__);
         this.selectedCategories.sort();
       }
 
-      this.getUsers();
+      this.filter(this.page);
     },
     notSelectedCategory: function notSelectedCategory(value) {
       var categoryMap = {
@@ -6385,7 +6385,7 @@ __webpack_require__.r(__webpack_exports__);
         this.notSelectedCategories.sort();
       }
 
-      this.getUsers();
+      this.filter(this.page);
     },
     selectedAge: function selectedAge(value) {
       var index = this.notSelectedAges.indexOf(value);
@@ -6396,7 +6396,7 @@ __webpack_require__.r(__webpack_exports__);
         this.selectedAges.sort();
       }
 
-      this.getUsers();
+      this.filter(this.page);
     },
     notSelectedAge: function notSelectedAge(value) {
       var index = this.selectedAges.indexOf(value);
@@ -6407,7 +6407,7 @@ __webpack_require__.r(__webpack_exports__);
         this.notSelectedAges.sort();
       }
 
-      this.getUsers();
+      this.filter(this.page);
     },
     getUsers: function getUsers() {
       var _this3 = this;

@@ -481,7 +481,7 @@ export default {
         resetFiledDate(data) {
             data.searchFollowerCountLeft = ''
             data.searchFollowerCountRight = ''
-            this.getUsers()
+            this.filter(this.page)
         },
 
         hideTransitionAge() {
@@ -525,7 +525,7 @@ export default {
                 this.defaultData.searchFollowerCountLeft = 1000000
             }
 
-            this.getUsers()
+            this.filter(this.page)
         },
 
         followerCountRight(count) {
@@ -554,7 +554,7 @@ export default {
                 this.defaultData.searchFollowerCountRight = 1000000
             }
 
-            this.getUsers()
+            this.filter(this.page)
         },
 
         selectedCategory(value) {
@@ -577,7 +577,7 @@ export default {
                 this.selectedCategories.push(value);
                 this.selectedCategories.sort();
             }
-            this.getUsers();
+            this.filter(this.page)
         },
 
         notSelectedCategory(value) {
@@ -600,7 +600,7 @@ export default {
                 this.notSelectedCategories.push(value);
                 this.notSelectedCategories.sort()
             }
-            this.getUsers()
+            this.filter(this.page)
         },
 
         selectedAge(value) {
@@ -610,7 +610,7 @@ export default {
                 this.selectedAges.push(value);
                 this.selectedAges.sort();
             }
-            this.getUsers();
+            this.filter(this.page)
         },
 
         notSelectedAge(value) {
@@ -620,7 +620,7 @@ export default {
                 this.notSelectedAges.push(value);
                 this.notSelectedAges.sort()
             }
-            this.getUsers()
+            this.filter(this.page)
         },
 
         getUsers(page = 1) {
