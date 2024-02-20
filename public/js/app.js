@@ -7733,6 +7733,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchResultYoutubeComponent",
   props: ['users', 'platform'],
@@ -46955,179 +46957,181 @@ var render = function () {
       "div",
       { staticClass: "items" },
       _vm._l(_vm.sortedUsers, function (user, index) {
-        return _c("div", { staticClass: "item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "text-decoration-none",
-              attrs: { href: user.youtube.profile_url, target: "_blank" },
-            },
-            [
-              _c("div", { staticClass: "left-section" }, [
-                _c("img", {
-                  attrs: {
-                    src: user.youtube.image,
-                    alt: user.youtube.full_name,
-                  },
-                }),
+        return _vm.sortedUsers
+          ? _c("div", { staticClass: "item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "text-decoration-none",
+                  attrs: { href: user.youtube.profile_url, target: "_blank" },
+                },
+                [
+                  _c("div", { staticClass: "left-section" }, [
+                    _c("img", {
+                      attrs: {
+                        src: user.youtube.image,
+                        alt: user.youtube.full_name,
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("div", { staticClass: "name" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(user.youtube.full_name) +
+                            "\n                            "
+                        ),
+                        user.user_detail.account_type
+                          ? _c("img", {
+                              attrs: { src: "/images/icons/done.png", alt: "" },
+                            })
+                          : _vm._e(),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "sub-name" }, [
+                        _vm._v(_vm._s(user.youtube.username)),
+                      ]),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "center-section" }, [
+                _c(
+                  "div",
+                  { staticClass: "categories" },
+                  [
+                    _vm._l(user.categories, function (item) {
+                      return _c("span", [_vm._v(_vm._s(item.name))])
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                  ],
+                  2
+                ),
                 _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "name" }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(user.youtube.full_name) +
-                        "\n                            "
-                    ),
-                    user.user_detail.account_type
-                      ? _c("img", {
-                          attrs: { src: "/images/icons/done.png", alt: "" },
-                        })
-                      : _vm._e(),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "sub-name" }, [
-                    _vm._v(_vm._s(user.youtube.username)),
-                  ]),
-                ]),
+                _c("div", [_vm._v(_vm._s(user.youtube.follow))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(user.youtube.post_count))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
               ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c(
-              "div",
-              { staticClass: "categories" },
-              [
-                _vm._l(user.categories, function (item) {
-                  return _c("span", [_vm._v(_vm._s(item.name))])
-                }),
+              _vm._v(" "),
+              _c("div", { staticClass: "right-section" }, [
+                user.facebook ? _c("div", [_vm._m(1, true)]) : _vm._e(),
                 _vm._v(" "),
-                _c("br"),
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.youtube ? user.youtube.follow : 0))]),
-            _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.youtube.post_count))]),
-            _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            user.facebook ? _c("div", [_vm._m(1, true)]) : _vm._e(),
-            _vm._v(" "),
-            user.youtube
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.youtube.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/Subtract.png",
-                          alt: "",
+                user.youtube
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.youtube.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.instagram
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.instagram.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/Vector.png",
-                          alt: "",
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/Subtract.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.instagram
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.instagram.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.twitter
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.twitter.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/twitter.png",
-                          alt: "",
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/Vector.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.twitter
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.twitter.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.tiktok
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.tiktok.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/TikTok.png",
-                          alt: "",
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/twitter.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.tiktok
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.tiktok.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.telegram
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.telegram.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/telegram.png",
-                          alt: "",
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/TikTok.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.telegram
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.telegram.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-          ]),
-        ])
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/telegram.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
+            ])
+          : _vm._e()
       }),
       0
     ),
@@ -47136,304 +47140,304 @@ var render = function () {
       "div",
       { staticClass: "items-mobile" },
       _vm._l(_vm.sortedUsers, function (user, index) {
-        return _c("div", { staticClass: "item" }, [
-          _c("div", { staticClass: "left-section" }, [
-            _c(
-              "a",
-              {
-                staticClass: "text-decoration-none",
-                attrs: { href: user.youtube.profile_url, target: "_blank" },
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src: user.youtube.image,
-                    alt: user.youtube.full_name,
+        return _vm.sortedUsers
+          ? _c("div", { staticClass: "item" }, [
+              _c("div", { staticClass: "left-section" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "text-decoration-none",
+                    attrs: { href: user.youtube.profile_url, target: "_blank" },
                   },
-                }),
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: user.youtube.image,
+                        alt: user.youtube.full_name,
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("div", { staticClass: "name" }, [
+                        _vm._v(
+                          _vm._s(user.youtube.full_name) +
+                            "\n                            "
+                        ),
+                        user.user_detail.account_type
+                          ? _c("img", {
+                              attrs: { src: "/images/icons/done.png", alt: "" },
+                            })
+                          : _vm._e(),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "sub-name" }, [
+                        _vm._v(_vm._s(user.youtube.username)),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right-section" }, [
+                user.facebook ? _c("div", [_vm._m(2, true)]) : _vm._e(),
+                _vm._v(" "),
+                user.youtube
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.youtube.profile_url,
+                            target: "__block",
+                          },
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/Subtract.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.instagram
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.instagram.profile_url,
+                            target: "__block",
+                          },
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/Vector.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.twitter
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.twitter.profile_url,
+                            target: "__block",
+                          },
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/twitter.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.tiktok
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.tiktok.profile_url,
+                            target: "__block",
+                          },
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/TikTok.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.telegram
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.telegram.profile_url,
+                            target: "__block",
+                          },
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/telegram.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "center-section" }, [
+                _c("div", [
+                  _c("img", {
+                    attrs: { src: "/images/icons/Icon-color.png", alt: "" },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "category-list" },
+                    _vm._l(user.categories, function (item) {
+                      return _c("span", [_vm._v(_vm._s(item.name))])
+                    }),
+                    0
+                  ),
+                ]),
                 _vm._v(" "),
                 _c("div", [
-                  _c("div", { staticClass: "name" }, [
-                    _vm._v(
-                      _vm._s(user.youtube.full_name) +
-                        "\n                            "
-                    ),
-                    user.user_detail.account_type
-                      ? _c("img", {
-                          attrs: { src: "/images/icons/done.png", alt: "" },
-                        })
-                      : _vm._e(),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "sub-name" }, [
-                    _vm._v(_vm._s(user.youtube.username)),
-                  ]),
+                  _c("img", {
+                    attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
+                  }),
+                  _c("span", [_vm._v(_vm._s(user.user_detail.language))]),
                 ]),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "right-section" }, [
-            user.facebook ? _c("div", [_vm._m(2, true)]) : _vm._e(),
-            _vm._v(" "),
-            user.youtube
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.youtube.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/Subtract.png",
-                          alt: "",
-                        },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.instagram
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.instagram.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/Vector.png",
-                          alt: "",
-                        },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.twitter
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.twitter.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/twitter.png",
-                          alt: "",
-                        },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.tiktok
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.tiktok.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/TikTok.png",
-                          alt: "",
-                        },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.telegram
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.telegram.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/telegram.png",
-                          alt: "",
-                        },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "center-section" }, [
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color.png", alt: "" },
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "category-list" },
-                _vm._l(user.categories, function (item) {
-                  return _c("span", [_vm._v(_vm._s(item.name))])
-                }),
-                0
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color2.png", alt: "" },
-              }),
-              _c("span", [_vm._v(_vm._s(user.user_detail.language))]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
-              }),
-              _c("span", [
-                _vm._v(_vm._s(user.youtube ? user.youtube.follow : 0)),
+                _vm._v(" "),
+                _c("div", [
+                  _c("img", {
+                    attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
+                  }),
+                  _c("span", [_vm._v(_vm._s(user.youtube.follow))]),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("img", {
+                    attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
+                  }),
+                  _c("span", [_vm._v(_vm._s(user.youtube.post_count))]),
+                ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
-              }),
-              _c("span", [_vm._v(_vm._s(user.youtube.post_count))]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "icon-section" }, [
-            user.facebook ? _c("div", [_vm._m(3, true)]) : _vm._e(),
-            _vm._v(" "),
-            user.youtube
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.youtube.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/fb-small.png",
-                          alt: "",
+              _vm._v(" "),
+              _c("div", { staticClass: "icon-section" }, [
+                user.facebook ? _c("div", [_vm._m(3, true)]) : _vm._e(),
+                _vm._v(" "),
+                user.youtube
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.youtube.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.instagram
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.instagram.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/Vector-small.png",
-                          alt: "",
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/fb-small.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.instagram
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.instagram.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.twitter
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.twitter.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/twitter-small.png",
-                          alt: "",
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/Vector-small.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.twitter
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.twitter.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.tiktok
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.tiktok.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/icons/small/tiktok-small.png",
-                          alt: "",
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/twitter-small.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.tiktok
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.tiktok.profile_url,
+                            target: "__block",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            user.telegram
-              ? _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: user.telegram.profile_url,
-                        target: "__block",
-                      },
-                    },
-                    [_vm._m(4, true)]
-                  ),
-                ])
-              : _vm._e(),
-          ]),
-        ])
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/icons/small/tiktok-small.png",
+                              alt: "",
+                            },
+                          }),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                user.telegram
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: user.telegram.profile_url,
+                            target: "__block",
+                          },
+                        },
+                        [_vm._m(4, true)]
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
+            ])
+          : _vm._e()
       }),
       0
     ),
