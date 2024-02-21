@@ -309,36 +309,36 @@
                 </div>
 
                 <SearchResultInstagramComponent
-                    v-if="defaultData.platform === `Instagram`"
+                    v-if="defaultData.platform === `Instagram` && users.length"
                     :users="users"
                     :platform="defaultData.platform"
                 />
 
                 <SearchResultTwitterComponent
-                    v-if="defaultData.platform === `Twitter`"
+                    v-if="defaultData.platform === `Twitter` && users.length"
                     :users="users"
                     :platform="defaultData.platform"
                 />
 
                 <SearchResultYoutubeComponent
-                    v-if="defaultData.platform === `Youtube`"
+                    v-if="defaultData.platform === `Youtube` && users.length"
                     :users="users"
                     :platform="defaultData.platform"
                 />
 
                 <SearchResultTikTokComponent
-                    v-if="defaultData.platform === `TikTok`"
+                    v-if="defaultData.platform === `TikTok` && users.length"
                     :users="users"
                     :platform="defaultData.platform"
                 />
 
                 <SearchResultTelegramComponent
-                    v-if="defaultData.platform === `Telegram`"
+                    v-if="defaultData.platform === `Telegram` && users.length"
                     :users="users"
                     :platform="defaultData.platform"
                 />
 
-               <div class="paginate" v-if="defaultData.platform">
+               <div class="paginate" v-if="defaultData.platform && users.length">
                    <paginate
                        :page-count="lastPage"
                        :click-handler="getUsers"
@@ -358,6 +358,10 @@
                        </select>
                    </div>
                </div>
+
+                <div class="not-found-user" v-if="defaultData.platform && !users.length">
+                    {{ $t('no_users_found') }}
+                </div>
             </div>
         </div>
         <Footer/>
@@ -404,7 +408,6 @@ export default {
             locations: json,
             platforms: [
                 'Instagram',
-                // 'Facebook',
                 'Telegram',
                 'Twitter',
                 'TikTok',
@@ -678,6 +681,12 @@ export default {
 </script>
 
 <style lang="scss">
+.not-found-user {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    font-family: "Rubik", sans-serif;
+}
 .paginateContent {
     position: relative;
     img {

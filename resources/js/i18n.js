@@ -23,6 +23,7 @@ export const i18n = new VueI18n({
             found: 'Found',
             account: 'Account',
             register_influencer: 'Register as an influencer',
+            no_users_found: 'No users found',
 
             first_name: 'First name',
             last_name: 'Last name',
@@ -109,6 +110,7 @@ export const i18n = new VueI18n({
             last_post: 'Последнее сообщение',
             required_keywords: 'Обязательные ключевые слова',
             negative_keywords: 'Отрицательные ключевые слова',
+            no_users_found: 'Пользователи не найдены',
         },
         am: {
             join_influencer: 'Միացեք որպես ազդեցիկ',
@@ -162,6 +164,7 @@ export const i18n = new VueI18n({
             last_post: 'Վերջին գրառումը',
             required_keywords: 'Պարտադիր հիմնաբառեր',
             negative_keywords: 'Բացասական հիմնաբառեր',
+            no_users_found: 'Օգտատերեր չեն գտնվել',
         },
     }
 })
