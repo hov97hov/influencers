@@ -178,7 +178,7 @@ export default {
         background: linear-gradient(90deg, #FBC7D4 0%, #9796F0 100%);
     }
     .menu {
-        margin-top: 35px;
+        margin-top: 18px;
         display: flex;
         justify-content: flex-end;
         &.active {
@@ -207,6 +207,7 @@ export default {
             }
             img {
                 display: none;
+                padding: 20px
             }
         }
         #languageSwitch {
@@ -239,7 +240,7 @@ export default {
         background: transparent;
         width: 100%;
         .menu {
-            margin-top: 20px;
+            margin-top: 18px;
             display: flex;
             justify-content: flex-end;
             #languageSwitch {

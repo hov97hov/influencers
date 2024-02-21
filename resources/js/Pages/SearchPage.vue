@@ -13,10 +13,8 @@
 
                 <div class="filter-vars">
                     <div v-if="defaultData.platform">
-                        <div>
-                            {{ $t('platform') }}: {{ defaultData.platform }}
-                            <img @click="resetField('platform')" src="/images/icons/close-icon.png">
-                        </div>
+                        <div> {{ $t('platform') }}: {{ defaultData.platform }}</div>
+                        <img @click="resetField('platform')" src="/images/icons/close-icon.png">
                     </div>
                     <div
                         v-if="selectedAges.length"
@@ -955,7 +953,7 @@ export default {
             color: #686868;
             padding: 15px 30px;
             margin: 10px;
-
+            border: 1px solid #C6CEDA;
             img {
                 margin-left: 30px;
                 cursor: pointer;
