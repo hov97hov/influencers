@@ -20,12 +20,28 @@
     src: url('/fonts/arnamu_italic_bold.ttf');
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: auto;
+    scrollbar-color: #9e9df1 #c9c9c9;
 }
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #c9c9c9;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #9e9df1;
+    border-radius: 10px;
+    border: 0px solid #cdbcd7;
+}
+
 
 .container {
     max-width: 1160px !important;
