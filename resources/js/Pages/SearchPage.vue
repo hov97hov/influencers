@@ -89,7 +89,7 @@
                                 <v-select
                                     v-model="defaultData.platform"
                                     :options="platforms"
-                                    @input="filter(page)"
+                                    @input="filter"
                                 ></v-select>
                             </div>
                             <div v-if="isShowElement">
@@ -139,7 +139,7 @@
                                     v-model="defaultData.accountType"
                                     :options="accountTypes"
                                     label="name"
-                                    @input="filter(page)"
+                                    @input="filter"
                                 ></v-select>
                             </div>
                             <div v-if="isShowElement">
@@ -147,7 +147,7 @@
                                 <v-select
                                     v-model="defaultData.location"
                                     :options="locations"
-                                    @input="filter(page)"
+                                    @input="filter"
                                 ></v-select>
                             </div>
                             <div v-if="isShowElement">
@@ -155,7 +155,7 @@
                                 <v-select
                                     v-model="defaultData.gender"
                                     :options="gender"
-                                    @input="filter(page)"
+                                    @input="filter"
                                 ></v-select>
                             </div>
                             <div v-if="isShowElement">
@@ -211,19 +211,19 @@
                                     <img :class="{active : numberFollowers}" src="/images/icons/dropdown.svg" alt="">
                                 </button>
                                 <transition name="slide">
-                                    <div class="transition-select" v-click-outside="hideNmberFollowers"
+                                    <div class="transition-select" v-click-outside="hideNumberFollowers"
                                          v-if="numberFollowers">
                                         <div class="transition-search-content">
                                             <input
                                                 v-model="defaultData.searchFollowerCountLeft"
-                                                @input="filter(page)"
+                                                @input="filter"
                                                 class="search-input"
                                                 type="text"
                                             >
                                             <span>-</span>
                                             <input
                                                 v-model="defaultData.searchFollowerCountRight"
-                                                @input="filter(page)"
+                                                @input="filter"
                                                 class="search-input"
                                                 type="text"
                                             >
@@ -308,7 +308,7 @@
                                 <v-select
                                     v-model="defaultData.numberPosts"
                                     :options="numberPosts"
-                                    @input="filter(page)"
+                                    @input="filter"
                                 ></v-select>
                             </div>
                             <div v-if="isShowElement">
@@ -366,7 +366,7 @@
                        <img src="/images/iconUp.png" alt="">
                        <select
                            v-model="defaultData.paginateCountNumber"
-                           @change="filter(page)"
+                           @change="filter"
                            id="selectPaginate"
                        >
                            <option v-for="item in paginateCount" :value="item">{{item}}</option>
@@ -494,26 +494,40 @@ export default {
 
     methods: {
         search() {
-            this.filter(null)
+            this.filter()
         },
+
         resetField(fieldName) {
             this.defaultData[fieldName] = '';
-            this.filter(null)
+            this.filter()
         },
+
         resetFieldAge(item) {
-            this.selectedAges.splice(item, 1);
+            let index = this.selectedAges.indexOf(item);
+
+            if (index !== -1) {
+                this.selectedAges.splice(index, 1);
+            }
+
             this.notSelectedAges.push(item)
-            this.filter(null)
+            this.filter()
         },
+
         resetFieldCategories(item) {
-            this.selectedCategories.splice(item, 1);
+            let index = this.selectedCategories.indexOf(item);
+
+            if (index !== -1) {
+                this.selectedCategories.splice(index, 1);
+            }
+
             this.notSelectedCategories.push(item)
-            this.filter(null)
+            this.filter()
         },
+
         resetFiledDate(data) {
             data.searchFollowerCountLeft = ''
             data.searchFollowerCountRight = ''
-            this.filter(null)
+            this.filter()
         },
 
         hideTransitionAge() {
@@ -528,7 +542,7 @@ export default {
             this.transitionCategory = false
         },
 
-        hideNmberFollowers() {
+        hideNumberFollowers() {
             this.numberFollowers = false
         },
 
@@ -557,7 +571,7 @@ export default {
                 this.defaultData.searchFollowerCountLeft = 1000000
             }
 
-            this.filter(null)
+            this.filter()
         },
 
         followerCountRight(count) {
@@ -586,7 +600,7 @@ export default {
                 this.defaultData.searchFollowerCountRight = 1000000
             }
 
-            this.filter(null)
+            this.filter()
         },
 
         selectedCategory(value) {
@@ -609,7 +623,7 @@ export default {
                 this.selectedCategories.push(value);
                 this.selectedCategories.sort();
             }
-            this.filter(null)
+            this.filter()
         },
 
         notSelectedCategory(value) {
@@ -632,7 +646,7 @@ export default {
                 this.notSelectedCategories.push(value);
                 this.notSelectedCategories.sort()
             }
-            this.filter(null)
+            this.filter()
         },
 
         selectedAge(value) {
@@ -642,7 +656,7 @@ export default {
                 this.selectedAges.push(value);
                 this.selectedAges.sort();
             }
-            this.filter(null)
+            this.filter()
         },
 
         notSelectedAge(value) {
@@ -652,7 +666,7 @@ export default {
                 this.notSelectedAges.push(value);
                 this.notSelectedAges.sort()
             }
-            this.filter(null)
+            this.filter()
         },
 
         getUsers(page) {
@@ -697,7 +711,7 @@ export default {
             }, 300);
         },
 
-        filter(page) {
+        filter() {
             if (!this.defaultData.platform) {
                 this.isLoader = true
                 this.isShowElement = false

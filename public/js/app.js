@@ -6271,26 +6271,36 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     search: function search() {
-      this.filter(null);
+      this.filter();
     },
     resetField: function resetField(fieldName) {
       this.defaultData[fieldName] = '';
-      this.filter(null);
+      this.filter();
     },
     resetFieldAge: function resetFieldAge(item) {
-      this.selectedAges.splice(item, 1);
+      var index = this.selectedAges.indexOf(item);
+
+      if (index !== -1) {
+        this.selectedAges.splice(index, 1);
+      }
+
       this.notSelectedAges.push(item);
-      this.filter(null);
+      this.filter();
     },
     resetFieldCategories: function resetFieldCategories(item) {
-      this.selectedCategories.splice(item, 1);
+      var index = this.selectedCategories.indexOf(item);
+
+      if (index !== -1) {
+        this.selectedCategories.splice(index, 1);
+      }
+
       this.notSelectedCategories.push(item);
-      this.filter(null);
+      this.filter();
     },
     resetFiledDate: function resetFiledDate(data) {
       data.searchFollowerCountLeft = '';
       data.searchFollowerCountRight = '';
-      this.filter(null);
+      this.filter();
     },
     hideTransitionAge: function hideTransitionAge() {
       this.isSelectedAge = false;
@@ -6301,7 +6311,7 @@ __webpack_require__.r(__webpack_exports__);
     hideTransitionCategory: function hideTransitionCategory() {
       this.transitionCategory = false;
     },
-    hideNmberFollowers: function hideNmberFollowers() {
+    hideNumberFollowers: function hideNumberFollowers() {
       this.numberFollowers = false;
     },
     followerCountLeft: function followerCountLeft(count) {
@@ -6336,7 +6346,7 @@ __webpack_require__.r(__webpack_exports__);
         this.defaultData.searchFollowerCountLeft = 1000000;
       }
 
-      this.filter(null);
+      this.filter();
     },
     followerCountRight: function followerCountRight(count) {
       this.defaultData.searchFollowerCountRight = '';
@@ -6370,7 +6380,7 @@ __webpack_require__.r(__webpack_exports__);
         this.defaultData.searchFollowerCountRight = 1000000;
       }
 
-      this.filter(null);
+      this.filter();
     },
     selectedCategory: function selectedCategory(value) {
       var categoryMap = {
@@ -6395,7 +6405,7 @@ __webpack_require__.r(__webpack_exports__);
         this.selectedCategories.sort();
       }
 
-      this.filter(null);
+      this.filter();
     },
     notSelectedCategory: function notSelectedCategory(value) {
       var categoryMap = {
@@ -6420,7 +6430,7 @@ __webpack_require__.r(__webpack_exports__);
         this.notSelectedCategories.sort();
       }
 
-      this.filter(null);
+      this.filter();
     },
     selectedAge: function selectedAge(value) {
       var index = this.notSelectedAges.indexOf(value);
@@ -6431,7 +6441,7 @@ __webpack_require__.r(__webpack_exports__);
         this.selectedAges.sort();
       }
 
-      this.filter(null);
+      this.filter();
     },
     notSelectedAge: function notSelectedAge(value) {
       var index = this.selectedAges.indexOf(value);
@@ -6442,7 +6452,7 @@ __webpack_require__.r(__webpack_exports__);
         this.notSelectedAges.sort();
       }
 
-      this.filter(null);
+      this.filter();
     },
     getUsers: function getUsers(page) {
       var _this3 = this;
@@ -6485,7 +6495,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }, 300);
     },
-    filter: function filter(page) {
+    filter: function filter() {
       var _this4 = this;
 
       if (!this.defaultData.platform) {
@@ -43119,11 +43129,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("v-select", {
                           attrs: { options: _vm.platforms },
-                          on: {
-                            input: function ($event) {
-                              return _vm.filter(_vm.page)
-                            },
-                          },
+                          on: { input: _vm.filter },
                           model: {
                             value: _vm.defaultData.platform,
                             callback: function ($$v) {
@@ -43368,11 +43374,7 @@ var render = function () {
                                 options: _vm.accountTypes,
                                 label: "name",
                               },
-                              on: {
-                                input: function ($event) {
-                                  return _vm.filter(_vm.page)
-                                },
-                              },
+                              on: { input: _vm.filter },
                               model: {
                                 value: _vm.defaultData.accountType,
                                 callback: function ($$v) {
@@ -43394,11 +43396,7 @@ var render = function () {
                             _vm._v(" "),
                             _c("v-select", {
                               attrs: { options: _vm.locations },
-                              on: {
-                                input: function ($event) {
-                                  return _vm.filter(_vm.page)
-                                },
-                              },
+                              on: { input: _vm.filter },
                               model: {
                                 value: _vm.defaultData.location,
                                 callback: function ($$v) {
@@ -43420,11 +43418,7 @@ var render = function () {
                             _vm._v(" "),
                             _c("v-select", {
                               attrs: { options: _vm.gender },
-                              on: {
-                                input: function ($event) {
-                                  return _vm.filter(_vm.page)
-                                },
-                              },
+                              on: { input: _vm.filter },
                               model: {
                                 value: _vm.defaultData.gender,
                                 callback: function ($$v) {
@@ -43706,8 +43700,8 @@ var render = function () {
                                         {
                                           name: "click-outside",
                                           rawName: "v-click-outside",
-                                          value: _vm.hideNmberFollowers,
-                                          expression: "hideNmberFollowers",
+                                          value: _vm.hideNumberFollowers,
+                                          expression: "hideNumberFollowers",
                                         },
                                       ],
                                       staticClass: "transition-select",
@@ -43751,9 +43745,7 @@ var render = function () {
                                                     $event.target.value
                                                   )
                                                 },
-                                                function ($event) {
-                                                  return _vm.filter(_vm.page)
-                                                },
+                                                _vm.filter,
                                               ],
                                             },
                                           }),
@@ -43791,9 +43783,7 @@ var render = function () {
                                                     $event.target.value
                                                   )
                                                 },
-                                                function ($event) {
-                                                  return _vm.filter(_vm.page)
-                                                },
+                                                _vm.filter,
                                               ],
                                             },
                                           }),
@@ -44146,11 +44136,7 @@ var render = function () {
                             _vm._v(" "),
                             _c("v-select", {
                               attrs: { options: _vm.numberPosts },
-                              on: {
-                                input: function ($event) {
-                                  return _vm.filter(_vm.page)
-                                },
-                              },
+                              on: { input: _vm.filter },
                               model: {
                                 value: _vm.defaultData.numberPosts,
                                 callback: function ($$v) {
@@ -44284,9 +44270,7 @@ var render = function () {
                                       : $$selectedVal[0]
                                   )
                                 },
-                                function ($event) {
-                                  return _vm.filter(_vm.page)
-                                },
+                                _vm.filter,
                               ],
                             },
                           },
