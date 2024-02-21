@@ -623,7 +623,7 @@ export default {
             this.filter(this.page)
         },
 
-        getUsers(page = 1) {
+        getUsers(page) {
             this.page = page
 
             const requestParams = {
@@ -640,7 +640,7 @@ export default {
                 searchFollowerCountRight: this.defaultData.searchFollowerCountRight,
                 search: this.defaultData.search,
                 categories: this.selectedCategoryIds,
-                paginateCount: this.defaultData.paginateCountNumber,
+                per_page: this.defaultData.paginateCountNumber,
             }
 
             const filteredParams = {};
@@ -668,7 +668,7 @@ export default {
                 return
             }
             this.isShowElement = true
-            this.getUsers(page)
+            this.getUsers(null)
         }
     },
     directives: {

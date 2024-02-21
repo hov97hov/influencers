@@ -6409,10 +6409,9 @@ __webpack_require__.r(__webpack_exports__);
 
       this.filter(this.page);
     },
-    getUsers: function getUsers() {
+    getUsers: function getUsers(page) {
       var _this3 = this;
 
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.page = page;
       var requestParams = {
         page: this.page,
@@ -6428,7 +6427,7 @@ __webpack_require__.r(__webpack_exports__);
         searchFollowerCountRight: this.defaultData.searchFollowerCountRight,
         search: this.defaultData.search,
         categories: this.selectedCategoryIds,
-        paginateCount: this.defaultData.paginateCountNumber
+        per_page: this.defaultData.paginateCountNumber
       };
       var filteredParams = {};
 
@@ -6455,7 +6454,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.isShowElement = true;
-      this.getUsers(page);
+      this.getUsers(null);
     }
   },
   directives: {
