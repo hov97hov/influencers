@@ -5706,53 +5706,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       this.isLoader = true;
-      axios.post('/register/user', this.defaultData).then(function (response) {
-        _this.isLoader = false;
+      setTimeout(function () {
+        axios.post('/register/user', _this.defaultData).then(function (response) {
+          _this.isLoader = false;
 
-        _this.$notify({
-          group: 'foo',
-          title: _this.$t('success_title'),
-          text: _this.$t('success_text'),
-          type: 'success',
-          duration: 1000,
-          speed: 1000
+          _this.$notify({
+            group: 'foo',
+            title: _this.$t('success_title'),
+            text: _this.$t('success_text'),
+            type: 'success',
+            duration: 1000,
+            speed: 1000
+          });
+
+          _this.defaultData = _objectSpread(_objectSpread({}, _this.defaultData), {}, {
+            first_name: '',
+            last_name: '',
+            phone: '',
+            influencer_name: '',
+            facebook: '',
+            instagram: '',
+            tiktok: '',
+            youtube: '',
+            twitter: '',
+            telegram: '',
+            account_type: '',
+            gender: '',
+            birthday: '',
+            language: '',
+            additional_information: '',
+            email: ''
+          });
+          setTimeout(function () {
+            location.href = '/';
+          }, 3000);
+        })["catch"](function (error) {
+          _this.isLoader = false;
+
+          _this.$notify({
+            group: 'foo',
+            title: _this.$t('error_title'),
+            text: _this.$t('error_text'),
+            type: 'error',
+            duration: 1000,
+            speed: 1000
+          });
+
+          _this.errors.defaultErrorData = Object.assign(_this.errors.defaultErrorData, error.response.data.errors);
         });
-
-        _this.defaultData = _objectSpread(_objectSpread({}, _this.defaultData), {}, {
-          first_name: '',
-          last_name: '',
-          phone: '',
-          influencer_name: '',
-          facebook: '',
-          instagram: '',
-          tiktok: '',
-          youtube: '',
-          twitter: '',
-          telegram: '',
-          account_type: '',
-          gender: '',
-          birthday: '',
-          language: '',
-          additional_information: '',
-          email: ''
-        });
-        setTimeout(function () {
-          location.href = '/';
-        }, 3000);
-      })["catch"](function (error) {
-        _this.isLoader = false;
-
-        _this.$notify({
-          group: 'foo',
-          title: _this.$t('error_title'),
-          text: _this.$t('error_text'),
-          type: 'error',
-          duration: 1000,
-          speed: 1000
-        });
-
-        _this.errors.defaultErrorData = Object.assign(_this.errors.defaultErrorData, error.response.data.errors);
-      });
+      }, 300);
     }
   },
   directives: {

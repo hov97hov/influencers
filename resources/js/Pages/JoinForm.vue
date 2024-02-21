@@ -339,53 +339,55 @@ export default {
         registerUser() {
             this.isLoader = true
 
-            axios.post('/register/user', this.defaultData).then(response => {
-                this.isLoader = false
-                this.$notify({
-                    group: 'foo',
-                    title: this.$t('success_title'),
-                    text: this.$t('success_text'),
-                    type: 'success',
-                    duration: 1000,
-                    speed: 1000,
+            setTimeout(() => {
+                axios.post('/register/user', this.defaultData).then(response => {
+                    this.isLoader = false
+                    this.$notify({
+                        group: 'foo',
+                        title: this.$t('success_title'),
+                        text: this.$t('success_text'),
+                        type: 'success',
+                        duration: 1000,
+                        speed: 1000,
+                    })
+
+                    this.defaultData = {
+                        ...this.defaultData,
+                        first_name: '',
+                        last_name: '',
+                        phone: '',
+                        influencer_name: '',
+                        facebook: '',
+                        instagram: '',
+                        tiktok: '',
+                        youtube: '',
+                        twitter: '',
+                        telegram: '',
+                        account_type: '',
+                        gender: '',
+                        birthday: '',
+                        language: '',
+                        additional_information: '',
+                        email: ''
+                    };
+
+                    setTimeout(function () {
+                        location.href = '/'
+                    },3000)
+
+                }).catch(error => {
+                    this.isLoader = false
+                    this.$notify({
+                        group: 'foo',
+                        title: this.$t('error_title'),
+                        text: this.$t('error_text'),
+                        type: 'error',
+                        duration: 1000,
+                        speed: 1000,
+                    })
+                    this.errors.defaultErrorData = Object.assign(this.errors.defaultErrorData, error.response.data.errors)
                 })
-
-                this.defaultData = {
-                    ...this.defaultData,
-                    first_name: '',
-                    last_name: '',
-                    phone: '',
-                    influencer_name: '',
-                    facebook: '',
-                    instagram: '',
-                    tiktok: '',
-                    youtube: '',
-                    twitter: '',
-                    telegram: '',
-                    account_type: '',
-                    gender: '',
-                    birthday: '',
-                    language: '',
-                    additional_information: '',
-                    email: ''
-                };
-
-                setTimeout(function () {
-                    location.href = '/'
-                },3000)
-
-            }).catch(error => {
-                this.isLoader = false
-                this.$notify({
-                    group: 'foo',
-                    title: this.$t('error_title'),
-                    text: this.$t('error_text'),
-                    type: 'error',
-                    duration: 1000,
-                    speed: 1000,
-                })
-                this.errors.defaultErrorData = Object.assign(this.errors.defaultErrorData, error.response.data.errors)
-            })
+            }, 300);
         },
 
     },
