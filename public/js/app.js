@@ -42765,6 +42765,21 @@ var render = function () {
                       },
                       domProps: { value: _vm.defaultData.search },
                       on: {
+                        keyup: function ($event) {
+                          if (
+                            !$event.type.indexOf("key") &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.search.apply(null, arguments)
+                        },
                         input: function ($event) {
                           if ($event.target.composing) {
                             return

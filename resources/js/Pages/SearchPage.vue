@@ -7,7 +7,7 @@
         >
             <div class="container">
                 <div class="search-content" v-if="isShowElement">
-                    <input v-model="defaultData.search" type="text" placeholder="Keywords: fashion, design, marketing">
+                    <input v-model="defaultData.search" v-on:keyup.enter="search" type="text" placeholder="Keywords: fashion, design, marketing">
                     <button @click="search">{{ $t('search') }}</button>
                 </div>
 
