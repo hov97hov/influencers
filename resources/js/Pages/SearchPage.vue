@@ -364,6 +364,10 @@
                 </div>
             </div>
         </div>
+        <div v-if="isLoader" class="loader-overly">
+            <div class="lds-dual-ring"></div>
+        </div>
+
         <Footer/>
     </div>
 </template>
@@ -395,6 +399,7 @@ export default {
             paginate: [],
             selectedAges: [],
             isShowElement: false,
+            isLoader: false,
             isSelectedAge: false,
             currentPage: 1,
             page: '',
@@ -627,6 +632,7 @@ export default {
         },
 
         getUsers(page) {
+            this.isLoader = true
             this.page = page
 
             const requestParams = {
@@ -657,11 +663,14 @@ export default {
                 params: filteredParams
             };
 
-            axios.get(`/users`, request).then(response => {
-                this.users = response.data.data;
-                this.currentPage = response.data.pagination.current_page;
-                this.lastPage = response.data.pagination.last_page;
-            });
+            setTimeout(() => {
+                axios.get(`/users`, request).then((response) => {
+                    this.users = response.data.data;
+                    this.currentPage = response.data.pagination.current_page;
+                    this.lastPage = response.data.pagination.last_page;
+                    this.isLoader = false;
+                });
+            }, 300);
         },
 
         filter(page) {
@@ -681,6 +690,43 @@ export default {
 </script>
 
 <style lang="scss">
+.loader-overly {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background: #00000069;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .lds-dual-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
+    @keyframes lds-dual-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
 .not-found-user {
     text-align: center;
     font-size: 36px;
