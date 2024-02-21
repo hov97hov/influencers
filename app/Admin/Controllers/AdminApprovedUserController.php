@@ -70,7 +70,7 @@ class AdminApprovedUserController extends AdminController
         $show->field('userDetail.last_name', __('Last Name'));
         $show->field('userDetail.phone', __('Phone'));
         $show->field('email', __('Email'));
-        $show->field('userDetail.influencer_name', __('Influencer name'));
+        $show->field('userDetail.location', __('location'));
         $show->field('userDetail.facebook', __('Facebook username'));
         $show->field('userDetail.instagram', __('Instagram username'));
         $show->field('userDetail.tiktok', __('Tiktok username'));
@@ -111,18 +111,23 @@ class AdminApprovedUserController extends AdminController
         $form->text('userDetail.last_name', __('Last Name'))->required();
         $form->mobile('userDetail.phone', __('Phone'))->required();
         $form->email('email', __('Email'))->required();
-        $form->text('userDetail.influencer_name', __('Influencer name'))->required();
         $form->text('userDetail.facebook', __('Facebook username'));
         $form->text('userDetail.instagram', __('Instagram username'));
         $form->text('userDetail.tiktok', __('Tiktok username'));
         $form->text('userDetail.youtube', __('Youtube channel ID'));
         $form->text('userDetail.twitter', __('Twitter username'));
         $form->text('userDetail.telegram', __('Telegram username'));
+
         $form->multipleSelect('categories')
             ->options(Category::all()
                 ->pluck('name', 'id'))->required();
+
         $form->select('userDetail.account_type', __('Account type'))
             ->options([0 => 'Not verifed', 1 => 'Verifed'])->required();
+
+        $form->select('userDetail.location', __('Location'))
+            ->options(['Armenia' => 'Armenia', 'Russia' => 'Russia', 'USD' => 'USD'])->required();
+
         $form->text('userDetail.gender', __('Gender'))->required();
         $form->date('userDetail.birthday', __('Birthday'))->required();
         $form->text('userDetail.language', __('Language'))->required();

@@ -131,7 +131,7 @@ class LoginService implements LoginInterface
             'first_name' => Arr::get($data, 'first_name'),
             'last_name' => Arr::get($data, 'last_name'),
             'phone' => Arr::get($data, 'phone'),
-            'influencer_name' => Arr::get($data, 'influencer_name'),
+            'location' => Arr::get($data, 'location'),
             'facebook' => Arr::get($data, 'facebook'),
             'instagram' => Arr::get($data, 'instagram'),
             'tiktok' => Arr::get($data, 'tiktok'),

@@ -28,7 +28,7 @@ class RegisterUserRequest extends FormRequest
             'last_name' => 'required',
             'email' => 'required|email|unique:users',
             'selectCategories' => 'required',
-            'influencer_name' => 'required',
+            'location' => 'required',
             'gender' => 'required',
             'birthday' => 'required',
             'language' => 'required',

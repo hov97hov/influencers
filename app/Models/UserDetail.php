@@ -15,7 +15,7 @@ class UserDetail extends Model
         'first_name',
         'last_name',
         'phone',
-        'influencer_name',
+        'location',
         'facebook',
         'instagram',
         'tiktok',

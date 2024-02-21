@@ -15,7 +15,18 @@ class UserRepository
     public function getUsers($filter): LengthAwarePaginator
     {
         return User::query()
-
+            ->when($filter->requiredKeywords, function ($requiredKeywords) use ($filter) {
+                return $requiredKeywords->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
+                    $query->where('full_name', 'like', "%{$filter->requiredKeywords}%")
+                        ->orWhere('username', 'like', "%{$filter->requiredKeywords}%");
+                });
+            })
+            ->when($filter->negativeKeywords, function ($negativeKeywords) use ($filter) {
+                return $negativeKeywords->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
+                    $query->where('full_name', 'not like', "%{$filter->negativeKeywords}%")
+                        ->where('username', 'not like', "%{$filter->negativeKeywords}%");
+                });
+            })
             ->when($filter->search != "", function ($search) use ($filter) {
                 return $search->whereHas(strtolower($filter->platform), function ($query) use ($filter){
                     $query->where('full_name', 'like', "%{$filter->search}%");
@@ -38,7 +49,7 @@ class UserRepository
             })
             ->when($filter->location, function ($location) use ($filter) {
                 return $location->whereHas('userDetail', function ($query) use ($filter) {
-                    $query->where('language', $filter->location);
+                    $query->where('location', $filter->location);
                 });
             })
             ->when($filter->gender, function ($gender) use ($filter) {

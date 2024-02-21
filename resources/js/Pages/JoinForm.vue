@@ -52,18 +52,6 @@
                                 <span class="field-error-message">{{errors.defaultErrorData.phone ? errors.defaultErrorData.phone[0] : ''}}</span>
                             </div>
                         </div>
-                        <div class="field">
-                            <div>
-                                <p>{{ $t('influencer_name') }} *</p>
-                                <input
-                                    v-model="defaultData.influencer_name"
-                                    type="text"
-                                    :placeholder="$t('this_will_be_shown_on_your_profile')"
-                                    @input="checkErrors('defaultErrorData', 'influencer_name')"
-                                >
-                                <span class="field-error-message">{{errors.defaultErrorData.influencer_name ? errors.defaultErrorData.influencer_name[0] : ''}}</span>
-                            </div>
-                        </div>
                         <div class="form-title">{{ $t('choose_your_social_media_profiles') }} </div>
                         <div class="fields">
                             <div>
@@ -153,6 +141,18 @@
                                     @input="checkErrors('defaultErrorData', 'account_type')"
                                 ></v-select>
                                 <span class="field-error-message">{{errors.defaultErrorData.account_type ? errors.defaultErrorData.account_type[0] : ''}}</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div>
+                                <p>{{ $t('location') }} *</p>
+                                <v-select
+                                    v-model="defaultData.location"
+                                    :options="locations"
+                                    label="name"
+                                    @input="checkErrors('defaultErrorData', 'location')"
+                                ></v-select>
+                                <span class="field-error-message">{{errors.defaultErrorData.location ? errors.defaultErrorData.location[0] : ''}}</span>
                             </div>
                         </div>
                         <div class="field">
@@ -275,12 +275,12 @@ export default {
                 },
             ],
             genderOption: ["Male", "Famele"],
+            locations: ["Armenia", "Russian", 'USD'],
             defaultData: {
                 first_name: '',
                 last_name: '',
                 phone: '',
                 selectCategories: [],
-                influencer_name: '',
                 facebook: '',
                 instagram: '',
                 tiktok: '',
@@ -288,6 +288,7 @@ export default {
                 twitter: '',
                 telegram: '',
                 account_type: '',
+                location: '',
                 gender: '',
                 birthday: '',
                 language: '',
@@ -300,7 +301,6 @@ export default {
                     last_name: '',
                     phone: '',
                     category: '',
-                    influencer_name: '',
                     facebook: '',
                     instagram: '',
                     tiktok: '',
@@ -308,6 +308,7 @@ export default {
                     twitter: '',
                     telegram: '',
                     account_type: '',
+                    location: '',
                     gender: '',
                     birthday: '',
                     language: '',
@@ -356,13 +357,13 @@ export default {
                         first_name: '',
                         last_name: '',
                         phone: '',
-                        influencer_name: '',
                         facebook: '',
                         instagram: '',
                         tiktok: '',
                         youtube: '',
                         twitter: '',
                         telegram: '',
+                        location: '',
                         account_type: '',
                         gender: '',
                         birthday: '',

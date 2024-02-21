@@ -5643,12 +5643,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         name: 'Public figure'
       }],
       genderOption: ["Male", "Famele"],
+      locations: ["Armenia", "Russian", 'USD'],
       defaultData: {
         first_name: '',
         last_name: '',
         phone: '',
         selectCategories: [],
-        influencer_name: '',
         facebook: '',
         instagram: '',
         tiktok: '',
@@ -5656,6 +5656,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         twitter: '',
         telegram: '',
         account_type: '',
+        location: '',
         gender: '',
         birthday: '',
         language: '',
@@ -5668,7 +5669,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           last_name: '',
           phone: '',
           category: '',
-          influencer_name: '',
           facebook: '',
           instagram: '',
           tiktok: '',
@@ -5676,6 +5676,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           twitter: '',
           telegram: '',
           account_type: '',
+          location: '',
           gender: '',
           birthday: '',
           language: '',
@@ -5723,13 +5724,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             first_name: '',
             last_name: '',
             phone: '',
-            influencer_name: '',
             facebook: '',
             instagram: '',
             tiktok: '',
             youtube: '',
             twitter: '',
             telegram: '',
+            location: '',
             account_type: '',
             gender: '',
             birthday: '',
@@ -5787,6 +5788,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SearchResultYoutubeComponent_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/SearchResultYoutubeComponent.vue */ "./resources/js/components/SearchResultYoutubeComponent.vue");
 /* harmony import */ var _components_SearchResultTikTokComponent_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/SearchResultTikTokComponent.vue */ "./resources/js/components/SearchResultTikTokComponent.vue");
 /* harmony import */ var _components_SearchResultTelegramComponent_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/SearchResultTelegramComponent.vue */ "./resources/js/components/SearchResultTelegramComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6237,7 +6248,9 @@ __webpack_require__.r(__webpack_exports__);
         searchFollowerCountLeft: '',
         searchFollowerCountRight: '',
         search: '',
-        paginateCountNumber: '10'
+        paginateCountNumber: '10',
+        requiredKeywords: '',
+        negativeKeywords: ''
       },
       notSelectedCategories: ['Artist', 'Blogger', 'Digital creator', 'Photoghraper', 'Entrepreneur', 'Public figure'],
       notSelectedAges: ['< 21', '21 - 30', '31 - 40', '40+'],
@@ -6471,7 +6484,9 @@ __webpack_require__.r(__webpack_exports__);
         searchFollowerCountRight: this.defaultData.searchFollowerCountRight,
         search: this.defaultData.search,
         categories: this.selectedCategoryIds,
-        per_page: this.defaultData.paginateCountNumber
+        per_page: this.defaultData.paginateCountNumber,
+        requiredKeywords: this.defaultData.requiredKeywords,
+        negativeKeywords: this.defaultData.negativeKeywords
       };
       var filteredParams = {};
 
@@ -42136,58 +42151,6 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "field" }, [
-                _c("div", [
-                  _c("p", [_vm._v(_vm._s(_vm.$t("influencer_name")) + " *")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.defaultData.influencer_name,
-                        expression: "defaultData.influencer_name",
-                      },
-                    ],
-                    attrs: {
-                      type: "text",
-                      placeholder: _vm.$t("this_will_be_shown_on_your_profile"),
-                    },
-                    domProps: { value: _vm.defaultData.influencer_name },
-                    on: {
-                      input: [
-                        function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.defaultData,
-                            "influencer_name",
-                            $event.target.value
-                          )
-                        },
-                        function ($event) {
-                          return _vm.checkErrors(
-                            "defaultErrorData",
-                            "influencer_name"
-                          )
-                        },
-                      ],
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "field-error-message" }, [
-                    _vm._v(
-                      _vm._s(
-                        _vm.errors.defaultErrorData.influencer_name
-                          ? _vm.errors.defaultErrorData.influencer_name[0]
-                          : ""
-                      )
-                    ),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
               _c("div", { staticClass: "form-title" }, [
                 _vm._v(
                   _vm._s(_vm.$t("choose_your_social_media_profiles")) + " "
@@ -42558,6 +42521,42 @@ var render = function () {
                         _vm._s(
                           _vm.errors.defaultErrorData.account_type
                             ? _vm.errors.defaultErrorData.account_type[0]
+                            : ""
+                        )
+                      ),
+                    ]),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field" }, [
+                _c(
+                  "div",
+                  [
+                    _c("p", [_vm._v(_vm._s(_vm.$t("location")) + " *")]),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: { options: _vm.locations, label: "name" },
+                      on: {
+                        input: function ($event) {
+                          return _vm.checkErrors("defaultErrorData", "location")
+                        },
+                      },
+                      model: {
+                        value: _vm.defaultData.location,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.defaultData, "location", $$v)
+                        },
+                        expression: "defaultData.location",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "field-error-message" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm.errors.defaultErrorData.location
+                            ? _vm.errors.defaultErrorData.location[0]
                             : ""
                         )
                       ),
@@ -44154,7 +44153,48 @@ var render = function () {
                             _vm._v(_vm._s(_vm.$t("required_keywords"))),
                           ]),
                           _vm._v(" "),
-                          _c("input", { attrs: { type: "text" } }),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.defaultData.requiredKeywords,
+                                expression: "defaultData.requiredKeywords",
+                              },
+                            ],
+                            attrs: { type: "text" },
+                            domProps: {
+                              value: _vm.defaultData.requiredKeywords,
+                            },
+                            on: {
+                              keyup: function ($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.filter.apply(null, arguments)
+                              },
+                              change: _vm.filter,
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.defaultData,
+                                  "requiredKeywords",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -44164,7 +44204,48 @@ var render = function () {
                             _vm._v(_vm._s(_vm.$t("negative_keywords"))),
                           ]),
                           _vm._v(" "),
-                          _c("input", { attrs: { type: "text" } }),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.defaultData.negativeKeywords,
+                                expression: "defaultData.negativeKeywords",
+                              },
+                            ],
+                            attrs: { type: "text" },
+                            domProps: {
+                              value: _vm.defaultData.negativeKeywords,
+                            },
+                            on: {
+                              keyup: function ($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.filter.apply(null, arguments)
+                              },
+                              change: _vm.filter,
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.defaultData,
+                                  "negativeKeywords",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
                         ])
                       : _vm._e(),
                   ]),
@@ -65015,7 +65096,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('["Armenia","Russia","English"]');
+module.exports = JSON.parse('["Armenia","Russia","USD"]');
 
 /***/ })
 

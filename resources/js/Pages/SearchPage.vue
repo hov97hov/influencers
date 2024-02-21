@@ -311,11 +311,21 @@
                             </div>
                             <div v-if="isShowElement">
                                 <p>{{ $t('required_keywords') }}</p>
-                                <input type="text">
+                                <input
+                                    v-model="defaultData.requiredKeywords"
+                                    v-on:keyup.enter="filter"
+                                    @change="filter"
+                                    type="text"
+                                >
                             </div>
                             <div v-if="isShowElement">
                                 <p>{{ $t('negative_keywords') }}</p>
-                                <input type="text">
+                                <input
+                                    v-model="defaultData.negativeKeywords"
+                                    v-on:keyup.enter="filter"
+                                    @change="filter"
+                                    type="text"
+                                >
                             </div>
                         </div>
                     </div>
@@ -463,6 +473,8 @@ export default {
                 searchFollowerCountRight: '',
                 search: '',
                 paginateCountNumber: '10',
+                requiredKeywords: '',
+                negativeKeywords: '',
             },
             notSelectedCategories: ['Artist', 'Blogger', 'Digital creator', 'Photoghraper', 'Entrepreneur', 'Public figure'],
             notSelectedAges: ['< 21', '21 - 30', '31 - 40', '40+'],
@@ -686,6 +698,8 @@ export default {
                 search: this.defaultData.search,
                 categories: this.selectedCategoryIds,
                 per_page: this.defaultData.paginateCountNumber,
+                requiredKeywords: this.defaultData.requiredKeywords,
+                negativeKeywords: this.defaultData.negativeKeywords,
             }
 
             const filteredParams = {};
