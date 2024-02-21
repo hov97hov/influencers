@@ -509,6 +509,25 @@ export default {
 
         resetField(fieldName) {
             this.defaultData[fieldName] = '';
+
+            if (fieldName === 'platform') {
+                this.defaultData = {
+                    ...this.defaultData,
+                    accountType: '',
+                    location: '',
+                    gender: '',
+                    age: '',
+                    numberFollowers: '',
+                    numberPosts: '',
+                    lastPost: '',
+                    searchFollowerCountLeft: '',
+                    searchFollowerCountRight: '',
+                    search: '',
+                    paginateCountNumber: '10',
+                    requiredKeywords: '',
+                    negativeKeywords: '',
+                };
+            }
             this.filter()
         },
 
@@ -756,6 +775,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 99999999999;
     .lds-dual-ring {
         display: inline-block;
         width: 80px;
