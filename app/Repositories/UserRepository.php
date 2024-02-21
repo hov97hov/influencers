@@ -49,12 +49,12 @@ class UserRepository
             ->when($filter->age, function ($query) use ($filter) {
                 return $query->where(function ($query) use ($filter) {
                     foreach ($filter->age as $ageRange) {
-                        if (strpos($ageRange, '<') !== false) {
+                        if (str_contains($ageRange, '<')) {
                             $isTrue = true;
                             $maxAge = (int)trim(str_replace('<', '', $ageRange));
-                            $toDate = Carbon::now()->subYears($maxAge + 1); // Adjusted for "<"
-                            $fromDate = Carbon::now();
-                        } elseif (strpos($ageRange, '+') !== false) {
+                            $fromDate = Carbon::now()->subYears($maxAge + 1);
+                            $toDate = Carbon::now();
+                        } elseif (str_contains($ageRange, '+')) {
                             $isTrue = false;
                             $minAge = (int)trim(str_replace('+', '', $ageRange));
                             $toDate = Carbon::now()->subYears(40);

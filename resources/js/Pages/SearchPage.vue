@@ -467,7 +467,7 @@ export default {
                 paginateCountNumber: '10',
             },
             notSelectedCategories: ['Artist', 'Blogger', 'Digital creator', 'Photoghraper', 'Entrepreneur', 'Public figure'],
-            notSelectedAges: ['< 20', '21 - 30', '31 - 40', '40+'],
+            notSelectedAges: ['< 21', '21 - 30', '31 - 40', '40+'],
             selectedCategories: [],
             selectedCategoryIds: [],
             numberFollowers: false,
