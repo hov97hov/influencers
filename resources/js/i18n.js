@@ -49,7 +49,7 @@ export const i18n = new VueI18n({
             your_telegram: 'Your Telegram URL',
             choose_your_account_category : 'Choose your account category',
             additional_information_placeholder: 'Provide additional information about your activity and contact information',
-            category: 'Categories',
+            category: 'Category',
             platform: 'Platform',
             location: 'Location',
             age: 'Age',
@@ -58,6 +58,8 @@ export const i18n = new VueI18n({
             last_post: 'Last post',
             required_keywords: 'Required keywords',
             negative_keywords: 'Negative keywords',
+            minimum: 'Minimum',
+            maximum: 'Maximum',
         },
         ru: {
             join_influencer: 'Присоединяйтесь в качестве влиятельного человека',
@@ -111,6 +113,8 @@ export const i18n = new VueI18n({
             required_keywords: 'Обязательные ключевые слова',
             negative_keywords: 'Отрицательные ключевые слова',
             no_users_found: 'Пользователи не найдены',
+            minimum: 'Минимум',
+            maximum: 'Максимум',
         },
         am: {
             join_influencer: 'Միացեք որպես ազդեցիկ',
@@ -165,6 +169,8 @@ export const i18n = new VueI18n({
             required_keywords: 'Պարտադիր հիմնաբառեր',
             negative_keywords: 'Բացասական հիմնաբառեր',
             no_users_found: 'Օգտատերեր չեն գտնվել',
+            minimum: 'Նվազագույնը',
+            maximum: 'Առավելագույնը',
         },
     }
 })

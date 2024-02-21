@@ -14,52 +14,67 @@
                 <div class="filter-vars">
                     <div v-if="defaultData.platform">
                         <div>
-                            {{ defaultData.platform }}
+                            {{ $t('platform') }}: {{ defaultData.platform }}
                             <img @click="resetField('platform')" src="/images/icons/close-icon.png">
                         </div>
                     </div>
+                    <div
+                        v-if="selectedAges.length"
+                        v-for="item in selectedAges"
+                    >
+                        {{ $t('age') }}: {{ item }}
+                        <img @click="resetFieldAge(item)" src="/images/icons/close-icon.png">
+                    </div>
+
+                    <div
+                        v-if="selectedCategories.length"
+                        v-for="item in selectedCategories"
+                    >
+                        {{ $t('category') }}: {{ item }}
+                        <img @click="resetFieldCategories(item)" src="/images/icons/close-icon.png">
+                    </div>
                     <div v-if="defaultData.accountType">
                         <div>
-                            {{ defaultData.accountType.name }}
+                            {{ $t('account_type') }}: {{ defaultData.accountType.name }}
                             <img @click="resetField('accountType')" src="/images/icons/close-icon.png">
                         </div>
                     </div>
                     <div v-if="defaultData.location">
                         <div>
-                            {{ defaultData.location }}
+                            {{ $t('location') }}: {{ defaultData.location }}
                             <img @click="resetField('location')" src="/images/icons/close-icon.png">
                         </div>
                     </div>
                     <div v-if="defaultData.gender">
                         <div>
-                            {{ defaultData.gender }}
+                            {{ $t('gender') }}: {{ defaultData.gender }}
                             <img @click="resetField('gender')" src="/images/icons/close-icon.png">
                         </div>
                     </div>
                     <div v-if="defaultData.age">
                         <div>
-                            {{ defaultData.age }}
+                            {{ $t('age') }}: {{ defaultData.age }}
                             <img @click="resetField('age')" src="/images/icons/close-icon.png">
                         </div>
                     </div>
                     <div v-if="defaultData.searchFollowerCountLeft || defaultData.searchFollowerCountRight">
                         <div>
                             <span style="margin-right: 5px">Followers count</span>
-                            <span v-if="defaultData.searchFollowerCountLeft">{{ defaultData.searchFollowerCountLeft }}</span>
+                            <span v-if="defaultData.searchFollowerCountLeft">{{ $t('minimum') }}: {{ defaultData.searchFollowerCountLeft }}</span>
                             <span style="margin: 0 5px" v-if="defaultData.searchFollowerCountLeft && defaultData.searchFollowerCountRight">></span>
-                            <span v-if="defaultData.searchFollowerCountRight">{{ defaultData.searchFollowerCountRight }}</span>
+                            <span v-if="defaultData.searchFollowerCountRight">{{ $t('maximum') }}: {{ defaultData.searchFollowerCountRight }}</span>
                             <img @click="resetFiledDate(defaultData)" src="/images/icons/close-icon.png" alt="">
                         </div>
                     </div>
                     <div v-if="defaultData.numberPosts">
                         <div>
-                            {{ defaultData.numberPosts }}
+                            {{ $t('number_of_posts') }}: {{ defaultData.numberPosts }}
                             <img @click="resetField('numberPosts')" src="/images/icons/close-icon.png" alt="">
                         </div>
                     </div>
                     <div v-if="defaultData.lastPost">
                         <div>
-                            {{ defaultData.lastPost }}
+                            {{ $t('last_post') }}: {{ defaultData.lastPost }}
                             <img @click="resetField('lastPost')" src="/images/icons/close-icon.png" alt="">
                         </div>
                     </div>
@@ -479,17 +494,26 @@ export default {
 
     methods: {
         search() {
-            this.filter(this.page)
+            this.filter(null)
         },
         resetField(fieldName) {
             this.defaultData[fieldName] = '';
-            this.filter(this.page)
+            this.filter(null)
         },
-
+        resetFieldAge(item) {
+            this.selectedAges.splice(item, 1);
+            this.notSelectedAges.push(item)
+            this.filter(null)
+        },
+        resetFieldCategories(item) {
+            this.selectedCategories.splice(item, 1);
+            this.notSelectedCategories.push(item)
+            this.filter(null)
+        },
         resetFiledDate(data) {
             data.searchFollowerCountLeft = ''
             data.searchFollowerCountRight = ''
-            this.filter(this.page)
+            this.filter(null)
         },
 
         hideTransitionAge() {
@@ -533,7 +557,7 @@ export default {
                 this.defaultData.searchFollowerCountLeft = 1000000
             }
 
-            this.filter(this.page)
+            this.filter(null)
         },
 
         followerCountRight(count) {
@@ -562,7 +586,7 @@ export default {
                 this.defaultData.searchFollowerCountRight = 1000000
             }
 
-            this.filter(this.page)
+            this.filter(null)
         },
 
         selectedCategory(value) {
@@ -585,7 +609,7 @@ export default {
                 this.selectedCategories.push(value);
                 this.selectedCategories.sort();
             }
-            this.filter(this.page)
+            this.filter(null)
         },
 
         notSelectedCategory(value) {
@@ -608,7 +632,7 @@ export default {
                 this.notSelectedCategories.push(value);
                 this.notSelectedCategories.sort()
             }
-            this.filter(this.page)
+            this.filter(null)
         },
 
         selectedAge(value) {
@@ -618,7 +642,7 @@ export default {
                 this.selectedAges.push(value);
                 this.selectedAges.sort();
             }
-            this.filter(this.page)
+            this.filter(null)
         },
 
         notSelectedAge(value) {
@@ -628,7 +652,7 @@ export default {
                 this.notSelectedAges.push(value);
                 this.notSelectedAges.sort()
             }
-            this.filter(this.page)
+            this.filter(null)
         },
 
         getUsers(page) {
@@ -675,8 +699,13 @@ export default {
 
         filter(page) {
             if (!this.defaultData.platform) {
-                this.defaultData = []
+                this.isLoader = true
                 this.isShowElement = false
+
+                setTimeout(()=> {
+                    this.isLoader = false
+                },300)
+
                 return
             }
             this.isShowElement = true
