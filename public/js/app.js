@@ -6988,6 +6988,17 @@ __webpack_require__.r(__webpack_exports__);
         return b.instagram.follow - a.instagram.follow;
       });
     }
+  },
+  filters: {
+    formatNumber: function formatNumber(number) {
+      if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M';
+      } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K';
+      } else {
+        return number.toString();
+      }
+    }
   }
 });
 
@@ -7186,7 +7197,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SearchResultTelegramComponent",
   props: ['users', 'platform'],
@@ -7195,6 +7205,17 @@ __webpack_require__.r(__webpack_exports__);
       return this.users.slice().sort(function (a, b) {
         return b.telegram.follow - a.telegram.follow;
       });
+    }
+  },
+  filters: {
+    formatNumber: function formatNumber(number) {
+      if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M';
+      } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K';
+      } else {
+        return number.toString();
+      }
     }
   }
 });
@@ -7407,6 +7428,17 @@ __webpack_require__.r(__webpack_exports__);
       return this.users.slice().sort(function (a, b) {
         return b.tiktok.follow - a.tiktok.follow;
       });
+    }
+  },
+  filters: {
+    formatNumber: function formatNumber(number) {
+      if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M';
+      } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K';
+      } else {
+        return number.toString();
+      }
     }
   }
 });
@@ -7621,6 +7653,17 @@ __webpack_require__.r(__webpack_exports__);
         return b.twitter.follow - a.twitter.follow;
       });
     }
+  },
+  filters: {
+    formatNumber: function formatNumber(number) {
+      if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M';
+      } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K';
+      } else {
+        return number.toString();
+      }
+    }
   }
 });
 
@@ -7834,6 +7877,17 @@ __webpack_require__.r(__webpack_exports__);
       return this.users.slice().sort(function (a, b) {
         return b.youtube.follow - a.youtube.follow;
       });
+    }
+  },
+  filters: {
+    formatNumber: function formatNumber(number) {
+      if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M';
+      } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K';
+      } else {
+        return number.toString();
+      }
     }
   }
 });
@@ -44827,9 +44881,13 @@ var render = function () {
               2
             ),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.instagram.follow))]),
+            _c("div", [
+              _vm._v(_vm._s(_vm._f("formatNumber")(user.instagram.follow))),
+            ]),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.instagram.post_count))]),
+            _c("div", [
+              _vm._v(_vm._s(_vm._f("formatNumber")(user.instagram.post_count))),
+            ]),
             _vm._v(" "),
             _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
           ]),
@@ -45134,14 +45192,20 @@ var render = function () {
               _c("img", {
                 attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
               }),
-              _c("span", [_vm._v(_vm._s(user.instagram.follow))]),
+              _c("span", [
+                _vm._v(_vm._s(_vm._f("formatNumber")(user.instagram.follow))),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", [
               _c("img", {
                 attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
               }),
-              _c("span", [_vm._v(_vm._s(user.instagram.post_count))]),
+              _c("span", [
+                _vm._v(
+                  _vm._s(_vm._f("formatNumber")(user.instagram.post_count))
+                ),
+              ]),
             ]),
           ]),
           _vm._v(" "),
@@ -45404,9 +45468,9 @@ var render = function () {
                 _c("div", [
                   _c("div", { staticClass: "name" }, [
                     _vm._v(
-                      "\n                                " +
+                      "\n                            " +
                         _vm._s(user.telegram.full_name) +
-                        "\n                                "
+                        "\n                            "
                     ),
                     user.user_detail.account_type
                       ? _c("img", {
@@ -45438,6 +45502,10 @@ var render = function () {
             ),
             _vm._v(" "),
             _c("div", [_vm._v(_vm._s(user.telegram.follow))]),
+            _vm._v(" "),
+            _c("div", [
+              _vm._v(_vm._s(_vm._f("formatNumber")(user.telegram.follow))),
+            ]),
             _vm._v(" "),
             _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
           ]),
@@ -45584,7 +45652,7 @@ var render = function () {
                   _c("div", { staticClass: "name" }, [
                     _vm._v(
                       _vm._s(user.telegram.full_name) +
-                        "\n                                "
+                        "\n                            "
                     ),
                     user.user_detail.account_type
                       ? _c("img", {
@@ -45742,14 +45810,9 @@ var render = function () {
               _c("img", {
                 attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
               }),
-              _c("span", [_vm._v(_vm._s(user.telegram.follow))]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
-              }),
-              _c("span", [_vm._v(_vm._s(user.telegram.post_count))]),
+              _c("span", [
+                _vm._v(_vm._s(_vm._f("formatNumber")(user.telegram.follow))),
+              ]),
             ]),
           ]),
           _vm._v(" "),
@@ -46036,9 +46099,13 @@ var render = function () {
               2
             ),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.tiktok.follow))]),
+            _c("div", [
+              _vm._v(_vm._s(_vm._f("formatNumber")(user.tiktok.follow))),
+            ]),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.tiktok.post_count))]),
+            _c("div", [
+              _vm._v(_vm._s(_vm._f("formatNumber")(user.tiktok.post_count))),
+            ]),
             _vm._v(" "),
             _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
           ]),
@@ -46340,14 +46407,18 @@ var render = function () {
               _c("img", {
                 attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
               }),
-              _c("span", [_vm._v(_vm._s(user.tiktok.follow))]),
+              _c("span", [
+                _vm._v(_vm._s(_vm._f("formatNumber")(user.tiktok.follow))),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", [
               _c("img", {
                 attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
               }),
-              _c("span", [_vm._v(_vm._s(user.tiktok.post_count))]),
+              _c("span", [
+                _vm._v(_vm._s(_vm._f("formatNumber")(user.tiktok.post_count))),
+              ]),
             ]),
           ]),
           _vm._v(" "),
@@ -46643,9 +46714,13 @@ var render = function () {
               2
             ),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.twitter.follow))]),
+            _c("div", [
+              _vm._v(_vm._s(_vm._f("formatNumber")(user.twitter.follow))),
+            ]),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(user.twitter.post_count))]),
+            _c("div", [
+              _vm._v(_vm._s(_vm._f("formatNumber")(user.twitter.post_count))),
+            ]),
             _vm._v(" "),
             _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
           ]),
@@ -46950,14 +47025,18 @@ var render = function () {
               _c("img", {
                 attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
               }),
-              _c("span", [_vm._v(_vm._s(user.twitter.follow))]),
+              _c("span", [
+                _vm._v(_vm._s(_vm._f("formatNumber")(user.twitter.follow))),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", [
               _c("img", {
                 attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
               }),
-              _c("span", [_vm._v(_vm._s(user.twitter.post_count))]),
+              _c("span", [
+                _vm._v(_vm._s(_vm._f("formatNumber")(user.twitter.post_count))),
+              ]),
             ]),
           ]),
           _vm._v(" "),
@@ -47254,9 +47333,15 @@ var render = function () {
                   2
                 ),
                 _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(user.youtube.follow))]),
+                _c("div", [
+                  _vm._v(_vm._s(_vm._f("formatNumber")(user.youtube.follow))),
+                ]),
                 _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(user.youtube.post_count))]),
+                _c("div", [
+                  _vm._v(
+                    _vm._s(_vm._f("formatNumber")(user.youtube.post_count))
+                  ),
+                ]),
                 _vm._v(" "),
                 _c("div", [_vm._v(_vm._s(user.user_detail.language))]),
               ]),
@@ -47563,14 +47648,20 @@ var render = function () {
                   _c("img", {
                     attrs: { src: "/images/icons/Icon-color3.png", alt: "" },
                   }),
-                  _c("span", [_vm._v(_vm._s(user.youtube.follow))]),
+                  _c("span", [
+                    _vm._v(_vm._s(_vm._f("formatNumber")(user.youtube.follow))),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", [
                   _c("img", {
                     attrs: { src: "/images/icons/Icon-color5.png", alt: "" },
                   }),
-                  _c("span", [_vm._v(_vm._s(user.youtube.post_count))]),
+                  _c("span", [
+                    _vm._v(
+                      _vm._s(_vm._f("formatNumber")(user.youtube.post_count))
+                    ),
+                  ]),
                 ]),
               ]),
               _vm._v(" "),

@@ -52,8 +52,8 @@
                     <div class="categories">
                         <span v-for="item in user.categories">{{item.name}}</span> <br>
                     </div>
-                    <div>{{ user.instagram.follow }}</div>
-                    <div>{{ user.instagram.post_count }}</div>
+                    <div>{{ user.instagram.follow | formatNumber  }}</div>
+                    <div>{{ user.instagram.post_count | formatNumber }}</div>
                     <div>{{user.user_detail.language}}</div>
                 </div>
                 <div class="right-section">
@@ -148,8 +148,8 @@
                        </div>
                     </div>
                     <div><img src="/images/icons/Icon-color2.png" alt=""><span>{{ user.user_detail.language }}</span></div>
-                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.instagram.follow }}</span></div>
-                    <div><img src="/images/icons/Icon-color5.png" alt=""><span>{{ user.instagram.post_count }}</span></div>
+                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.instagram.follow | formatNumber  }}</span></div>
+                    <div><img src="/images/icons/Icon-color5.png" alt=""><span>{{ user.instagram.post_count | formatNumber }}</span></div>
                 </div>
                 <div class="icon-section">
                     <div v-if="user.facebook">
@@ -195,6 +195,17 @@ export default {
     computed: {
         sortedUsers() {
             return this.users.slice().sort((a, b) => b.instagram.follow - a.instagram.follow);
+        },
+    },
+    filters: {
+        formatNumber(number) {
+            if (number >= 1000000) {
+                return (number / 1000000).toFixed(1) + 'M';
+            } else if (number >= 1000) {
+                return (number / 1000).toFixed(1) + 'K';
+            } else {
+                return number.toString();
+            }
         }
     }
 }

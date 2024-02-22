@@ -48,7 +48,7 @@
                         <span v-for="item in user.categories">{{item.name}}</span> <br>
                     </div>
                     <div>{{ user.telegram.follow }}</div>
-<!--                    <div>{{ user.telegram.post_count }}</div>-->
+                    <div>{{ user.telegram.follow | formatNumber }}</div>
                     <div>{{user.user_detail.language}}</div>
                 </div>
                 <div class="right-section">
@@ -141,8 +141,7 @@
                        </div>
                     </div>
                     <div><img src="/images/icons/Icon-color2.png" alt=""><span>{{ user.user_detail.language }}</span></div>
-                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.telegram.follow }}</span></div>
-                    <div><img src="/images/icons/Icon-color5.png" alt=""><span>{{ user.telegram.post_count }}</span></div>
+                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.telegram.follow | formatNumber  }}</span></div>
                 </div>
                 <div class="icon-section">
                     <div v-if="user.facebook">
@@ -188,6 +187,17 @@ export default {
     computed: {
         sortedUsers() {
             return this.users.slice().sort((a, b) => b.telegram.follow - a.telegram.follow);
+        }
+    },
+    filters: {
+        formatNumber(number) {
+            if (number >= 1000000) {
+                return (number / 1000000).toFixed(1) + 'M';
+            } else if (number >= 1000) {
+                return (number / 1000).toFixed(1) + 'K';
+            } else {
+                return number.toString();
+            }
         }
     }
 }
