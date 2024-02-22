@@ -45,7 +45,7 @@ class RegisterUserRequest extends FormRequest
         return [
             'first_name.required' => __('validation.required'),
             'last_name.required' => __('validation.required'),
-            'influencer_name.required' => __('validation.required'),
+            'location.required' => __('validation.required'),
             'gender.required' => __('validation.required'),
             'birthday.required' => __('validation.required'),
             'email.required' => __('validation.required'),
