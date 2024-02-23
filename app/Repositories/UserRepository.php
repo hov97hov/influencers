@@ -2,8 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\Instagram;
-use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
 
@@ -21,6 +19,7 @@ class UserRepository
             ->whereHas('user', function ($user) use ($filter) {
                 $user->where('status', true)->with('categories', 'userDetail');
             })
+
             ->when($filter->categories, function ($categories) use ($filter) {
                 return $categories->whereHas('user', function ($user) use ($filter) {
                     $user->whereHas('categories', function ($query) use ($filter) {
@@ -99,14 +98,17 @@ class UserRepository
             ->when($filter->search != "", function ($search) use ($filter) {
                 $search->where('full_name', 'like', "%{$filter->search}%");
             })
+
             ->when($filter->negativeKeywords, function ($negativeKeywords) use ($filter) {
                 $negativeKeywords->where('full_name', 'not like', "%{$filter->negativeKeywords}%")
                     ->where('username', 'not like', "%{$filter->negativeKeywords}%");
             })
+
             ->when($filter->requiredKeywords, function ($requiredKeywords) use ($filter) {
                 $requiredKeywords->where('full_name', 'like', "%{$filter->requiredKeywords}%")
                     ->orWhere('username', 'like', "%{$filter->requiredKeywords}%");
             })
+
             ->orderBy('follow', 'desc')
             ->paginate($filter->per_page, ['*'], 'users', $filter->page);
     }

@@ -2,7 +2,6 @@
 
 namespace App\Admin\Controllers;
 
-use App\Http\Controllers\JoinController;
 use App\Interface\RapidApiInterface;
 use App\Models\Category;
 use App\Models\User;
