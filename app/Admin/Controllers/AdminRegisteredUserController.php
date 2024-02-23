@@ -110,7 +110,6 @@ class AdminRegisteredUserController extends AdminController
         $form->text('userDetail.last_name', __('Last Name'))->required();
         $form->mobile('userDetail.phone', __('Phone'))->required();
         $form->email('email', __('Email'))->required();
-        $form->text('userDetail.influencer_name', __('Influencer name'))->required();
         $form->text('userDetail.facebook', __('Facebook username'));
         $form->text('userDetail.instagram', __('Instagram username'));
         $form->text('userDetail.tiktok', __('Tiktok username'));

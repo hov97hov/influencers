@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Instagram;
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
@@ -14,49 +15,32 @@ class UserRepository
      */
     public function getUsers($filter): LengthAwarePaginator
     {
-        return User::query()
-            ->when($filter->requiredKeywords, function ($requiredKeywords) use ($filter) {
-                return $requiredKeywords->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $query->where('full_name', 'like', "%{$filter->requiredKeywords}%")
-                        ->orWhere('username', 'like', "%{$filter->requiredKeywords}%");
-                });
-            })
-            ->when($filter->negativeKeywords, function ($negativeKeywords) use ($filter) {
-                return $negativeKeywords->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $query->where('full_name', 'not like', "%{$filter->negativeKeywords}%")
-                        ->where('username', 'not like', "%{$filter->negativeKeywords}%");
-                });
-            })
-            ->when($filter->search != "", function ($search) use ($filter) {
-                return $search->whereHas(strtolower($filter->platform), function ($query) use ($filter){
-                    $query->where('full_name', 'like', "%{$filter->search}%");
-                });
-            })
-            ->when($filter->platform, function ($platform) use ($filter) {
-                return $platform->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $query->with(strtolower($filter->platform));
-                });
+        $modelClass = 'App\\Models\\' . $filter->platform;
+
+        return $modelClass::query()
+            ->whereHas('user', function ($user) use ($filter) {
+                $user->where('status', true)->with('categories', 'userDetail');
             })
             ->when($filter->categories, function ($categories) use ($filter) {
-                return $categories->whereHas('categories', function ($query) use ($filter) {
-                    $query->whereIn('category_id', $filter->categories);
+                return $categories->whereHas('user', function ($user) use ($filter) {
+                    $user->whereHas('categories', function ($query) use ($filter) {
+                        $query->whereIn('category_id', $filter->categories);
+                    });
                 });
             })
+
+            ->when($filter->gender, function ($gender) use ($filter) {
+                return $gender->whereHas('user.userDetail', function ($query) use ($filter) {
+                    $query->where('gender', (string)$filter->gender);
+                });
+            })
+
             ->when(isset($filter->accountType), function ($accountType) use ($filter) {
-                return $accountType->whereHas('userDetail', function ($query) use ($filter) {
+                return $accountType->whereHas('user.userDetail', function ($query) use ($filter) {
                     $query->where('account_type', (bool)$filter->accountType);
                 });
             })
-            ->when($filter->location, function ($location) use ($filter) {
-                return $location->whereHas('userDetail', function ($query) use ($filter) {
-                    $query->where('location', $filter->location);
-                });
-            })
-            ->when($filter->gender, function ($gender) use ($filter) {
-                return $gender->whereHas('userDetail', function ($query) use ($filter) {
-                    $query->where('gender', $filter->gender);
-                });
-            })
+
             ->when($filter->age, function ($query) use ($filter) {
                 return $query->where(function ($query) use ($filter) {
                     foreach ($filter->age as $ageRange) {
@@ -81,36 +65,49 @@ class UserRepository
                         }
 
                         if ($isTrue) {
-                            $query->orWhereHas('userDetail', function ($query) use ($fromDate, $toDate) {
+                            $query->orWhereHas('user.userDetail', function ($query) use ($fromDate, $toDate) {
                                 $query->whereBetween('birthday', [$fromDate, $toDate]);
                             });
                         } else {
-                            $query->orWhereHas('userDetail', function ($query) use ($fromDate, $toDate) {
+                            $query->orWhereHas('user.userDetail', function ($query) use ($fromDate, $toDate) {
                                 $query->where('birthday', '<=', $toDate);
                             });
                         }
                     }
                 });
             })
-            ->when($filter->searchFollowerCountLeft, function ($platform) use ($filter) {
-                return $platform->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $query->where('follow', '>=', $filter->searchFollowerCountLeft);
-                });
-            })
-            ->when($filter->searchFollowerCountRight, function ($platform) use ($filter) {
-                return $platform->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $query->where('follow', '<=', $filter->searchFollowerCountRight);
-                });
-            })
-            ->when($filter->numberPosts, function ($platform) use ($filter) {
-                return $platform->whereHas(strtolower($filter->platform), function ($query) use ($filter) {
-                    $count = (int)trim(str_replace('>', '', $filter->numberPosts));
-                    $query->where('post_count', '>=', $count);
+
+            ->when($filter->location, function ($location) use ($filter) {
+                return $location->whereHas('user.userDetail', function ($query) use ($filter) {
+                    $query->where('location', $filter->location);
                 });
             })
 
-            ->with('categories', 'userDetail')
-            ->where('status', true)
+            ->when($filter->numberPosts, function ($numberPosts) use ($filter) {
+                $count = (int)trim(str_replace('>', '', $filter->numberPosts));
+                $numberPosts->where('post_count', '>=', $count);
+            })
+
+            ->when($filter->searchFollowerCountRight, function ($searchFollowerCountRight) use ($filter) {
+                $searchFollowerCountRight->where('follow', '<=', $filter->searchFollowerCountRight);
+            })
+
+            ->when($filter->searchFollowerCountLeft, function ($searchFollowerCountLeft) use ($filter) {
+                $searchFollowerCountLeft->where('follow', '>=', $filter->searchFollowerCountLeft);
+            })
+
+            ->when($filter->search != "", function ($search) use ($filter) {
+                $search->where('full_name', 'like', "%{$filter->search}%");
+            })
+            ->when($filter->negativeKeywords, function ($negativeKeywords) use ($filter) {
+                $negativeKeywords->where('full_name', 'not like', "%{$filter->negativeKeywords}%")
+                    ->where('username', 'not like', "%{$filter->negativeKeywords}%");
+            })
+            ->when($filter->requiredKeywords, function ($requiredKeywords) use ($filter) {
+                $requiredKeywords->where('full_name', 'like', "%{$filter->requiredKeywords}%")
+                    ->orWhere('username', 'like', "%{$filter->requiredKeywords}%");
+            })
+            ->orderBy('follow', 'desc')
             ->paginate($filter->per_page, ['*'], 'users', $filter->page);
     }
 }

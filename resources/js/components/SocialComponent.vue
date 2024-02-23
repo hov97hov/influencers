@@ -2,7 +2,7 @@
     <div class="search-result">
         <div class="title">
             <div>{{ $t('search_result') }}</div>
-            <div>{{ $t('found') }} {{users.length}} {{ $t('account') }} </div>
+            <div>{{ $t('found') }} {{socialUsers.length}} {{ $t('account') }} </div>
         </div>
         <div class="search-result-header">
             <div>
@@ -17,7 +17,7 @@
                 <span>Influencer</span>
                 <span>followers</span>
             </div>
-            <div>
+            <div v-if="platform !== `Telegram`">
                 <span>Influencer</span>
                 <span>posts</span>
             </div>
@@ -33,170 +33,166 @@
         <div class="items">
             <div
                 class="item"
-                v-for="(user, index) in sortedUsers"
+                v-for="(socialUser, index) in socialUsers"
             >
-                <a :href="user.instagram.profile_url" target="_blank" class="text-decoration-none">
+                <a :href="socialUser.profile_url" target="_blank" class="text-decoration-none">
                     <div class="left-section">
-                        <img :src="user.instagram.image" :alt="user.instagram.full_name">
+                        <img :src="socialUser.image" :alt="socialUser.full_name">
                         <div>
                             <div class="name">
-                                {{user.instagram.full_name}}
-                                <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">
+                                {{socialUser.full_name}}
+                                <img v-if="socialUser.user.user_detail.account_type" src="/images/icons/done.png" alt="">
                             </div>
-                            <div class="sub-name">{{user.instagram.username}}</div>
+                            <div class="sub-name">{{socialUser.username}}</div>
                         </div>
                     </div>
                 </a>
 
                 <div class="center-section">
                     <div class="categories">
-                        <span v-for="item in user.categories">{{item.name}}</span> <br>
+                        <span v-for="item in socialUser.user.categories">{{item.name}}</span> <br>
                     </div>
-                    <div>{{ user.instagram.follow | formatNumber  }}</div>
-                    <div>{{ user.instagram.post_count | formatNumber }}</div>
-                    <div>{{user.user_detail.language}}</div>
+                    <div>{{ socialUser.follow | formatNumber  }}</div>
+                    <div v-if="platform !== `Telegram`">{{ socialUser.post_count | formatNumber }}</div>
+                    <div>{{socialUser.user.user_detail.language}}</div>
                 </div>
+
                 <div class="right-section">
-                    <div v-if="user.facebook">
+                    <div v-if="socialUser.user.facebook">
                         <a href="#">
                             <img src="/images/icons/small/facebook.png" alt="">
                         </a>
                     </div>
-                    <div v-if="user.youtube">
-                        <a :href="user.youtube.profile_url" target="__block">
+                    <div v-if="socialUser.user.youtube">
+                        <a :href="socialUser.user.youtube" target="__block">
                             <img src="/images/icons/small/Subtract.png" alt="">
                         </a>
                     </div>
-                    <div v-if="user.instagram">
-                        <a :href="user.instagram.profile_url" target="__block">
+                    <div v-if="socialUser.user.instagram">
+                        <a :href="socialUser.user.instagram.profile_url" target="__block">
                             <img src="/images/icons/small/Vector.png" alt="">
                         </a>
                     </div>
-                    <div v-if="user.twitter">
-                        <a :href="user.twitter.profile_url" target="__block">
+                    <div v-if="socialUser.user.twitter">
+                        <a :href="socialUser.user.twitter.profile_url" target="__block">
                             <img src="/images/icons/small/twitter.png" alt="">
                         </a>
                     </div>
-                    <div v-if="user.tiktok">
-                        <a :href="user.tiktok.profile_url" target="__block">
+                    <div v-if="socialUser.user.tiktok">
+                        <a :href="socialUser.user.tiktok.profile_url" target="__block">
                             <img src="/images/icons/small/TikTok.png" alt="">
                         </a>
                     </div>
-                    <div v-if="user.telegram">
-                        <a :href="user.telegram.profile_url" target="__block">
+                    <div v-if="socialUser.user.telegram">
+                        <a :href="socialUser.user.telegram.profile_url" target="__block">
                             <img src="/images/icons/small/telegram.png" alt="">
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="items-mobile">
-            <div
-                class="item"
-                v-for="(user, index) in sortedUsers"
-            >
-                <div class="left-section">
-                    <a :href="user.instagram.profile_url" target="_blank" class="text-decoration-none">
-                        <img :src="user.instagram.image" :alt="user.instagram.full_name">
-                        <div>
-                            <div class="name">{{user.instagram.full_name}}
-                                <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">
-                            </div>
-                            <div class="sub-name">{{user.instagram.username}}</div>
-                        </div>
-                    </a>
-                </div>
+<!--        <div class="items-mobile">-->
+<!--            <div-->
+<!--                class="item"-->
+<!--                v-for="(user, index) in users"-->
+<!--            >-->
+<!--                <div class="left-section">-->
+<!--                    <a :href="user.instagram.profile_url" target="_blank" class="text-decoration-none">-->
+<!--                        <img :src="user.instagram.image" :alt="user.instagram.full_name">-->
+<!--                        <div>-->
+<!--                            <div class="name">{{user.instagram.full_name}}-->
+<!--                                <img v-if="user.user_detail.account_type" src="/images/icons/done.png" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="sub-name">{{user.instagram.username}}</div>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </div>-->
 
 
-                <div class="right-section">
-                    <div v-if="user.facebook">
-                        <a href="#">
-                            <img src="/images/icons/small/facebook.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.youtube">
-                        <a :href="user.youtube.profile_url" target="__block">
-                            <img src="/images/icons/small/Subtract.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.instagram">
-                        <a :href="user.instagram.profile_url" target="__block">
-                            <img src="/images/icons/small/Vector.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.twitter">
-                        <a :href="user.twitter.profile_url" target="__block">
-                            <img src="/images/icons/small/twitter.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.tiktok">
-                        <a :href="user.tiktok.profile_url" target="__block">
-                            <img src="/images/icons/small/TikTok.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.telegram">
-                        <a :href="user.telegram.profile_url" target="__block">
-                            <img src="/images/icons/small/telegram.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="center-section">
-                    <div>
-                        <img src="/images/icons/Icon-color.png" alt="">
-                       <div class="category-list">
-                           <span v-for="item in user.categories">{{item.name}}</span>
-                       </div>
-                    </div>
-                    <div><img src="/images/icons/Icon-color2.png" alt=""><span>{{ user.user_detail.language }}</span></div>
-                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.instagram.follow | formatNumber  }}</span></div>
-                    <div><img src="/images/icons/Icon-color5.png" alt=""><span>{{ user.instagram.post_count | formatNumber }}</span></div>
-                </div>
-                <div class="icon-section">
-                    <div v-if="user.facebook">
-                        <a href="#">
-                            <img src="/images/icons/small/facebook.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.youtube">
-                        <a :href="user.youtube.profile_url" target="__block">
-                            <img src="/images/icons/small/fb-small.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.instagram">
-                        <a :href="user.instagram.profile_url" target="__block">
-                            <img src="/images/icons/small/Vector-small.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.twitter">
-                        <a :href="user.twitter.profile_url" target="__block">
-                            <img src="/images/icons/small/twitter-small.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.tiktok">
-                        <a :href="user.tiktok.profile_url" target="__block">
-                            <img src="/images/icons/small/tiktok-small.png" alt="">
-                        </a>
-                    </div>
-                    <div v-if="user.telegram">
-                        <a :href="user.telegram.profile_url" target="__block">
-                            <div><img src="/images/icons/small/telegram-small.png" alt=""></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--                <div class="right-section">-->
+<!--                    <div v-if="user.facebook">-->
+<!--                        <a href="#">-->
+<!--                            <img src="/images/icons/small/facebook.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.youtube">-->
+<!--                        <a :href="user.youtube.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/Subtract.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.instagram">-->
+<!--                        <a :href="user.instagram.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/Vector.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.twitter">-->
+<!--                        <a :href="user.twitter.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/twitter.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.tiktok">-->
+<!--                        <a :href="user.tiktok.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/TikTok.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.telegram">-->
+<!--                        <a :href="user.telegram.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/telegram.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="center-section">-->
+<!--                    <div>-->
+<!--                        <img src="/images/icons/Icon-color.png" alt="">-->
+<!--                       <div class="category-list">-->
+<!--                           <span v-for="item in user.categories">{{item.name}}</span>-->
+<!--                       </div>-->
+<!--                    </div>-->
+<!--                    <div><img src="/images/icons/Icon-color2.png" alt=""><span>{{ user.user_detail.language }}</span></div>-->
+<!--                    <div><img src="/images/icons/Icon-color3.png" alt=""><span>{{ user.instagram.follow | formatNumber  }}</span></div>-->
+<!--                    <div><img src="/images/icons/Icon-color5.png" alt=""><span>{{ user.instagram.post_count | formatNumber }}</span></div>-->
+<!--                </div>-->
+<!--                <div class="icon-section">-->
+<!--                    <div v-if="user.facebook">-->
+<!--                        <a href="#">-->
+<!--                            <img src="/images/icons/small/facebook.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.youtube">-->
+<!--                        <a :href="user.youtube.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/fb-small.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.instagram">-->
+<!--                        <a :href="user.instagram.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/Vector-small.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.twitter">-->
+<!--                        <a :href="user.twitter.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/twitter-small.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.tiktok">-->
+<!--                        <a :href="user.tiktok.profile_url" target="__block">-->
+<!--                            <img src="/images/icons/small/tiktok-small.png" alt="">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div v-if="user.telegram">-->
+<!--                        <a :href="user.telegram.profile_url" target="__block">-->
+<!--                            <div><img src="/images/icons/small/telegram-small.png" alt=""></div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </template>
 
 <script>
 export default {
-    name: "SearchResultComponent",
-    props: ['users', 'platform'],
-    computed: {
-        sortedUsers() {
-            return this.users.slice().sort((a, b) => b.instagram.follow - a.instagram.follow);
-        },
-    },
+    name: "SocialComponent",
+    props: ['socialUsers', 'platform'],
     filters: {
         formatNumber(number) {
             if (number >= 1000000) {

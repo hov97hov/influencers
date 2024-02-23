@@ -331,37 +331,13 @@
                     </div>
                 </div>
 
-                <SearchResultInstagramComponent
-                    v-if="defaultData.platform === `Instagram` && users.length"
-                    :users="users"
+                <SocialComponent
+                    v-if="socialUsers.length"
+                    :socialUsers="socialUsers"
                     :platform="defaultData.platform"
                 />
 
-                <SearchResultTwitterComponent
-                    v-if="defaultData.platform === `Twitter` && users.length"
-                    :users="users"
-                    :platform="defaultData.platform"
-                />
-
-                <SearchResultYoutubeComponent
-                    v-if="defaultData.platform === `Youtube` && users.length"
-                    :users="users"
-                    :platform="defaultData.platform"
-                />
-
-                <SearchResultTikTokComponent
-                    v-if="defaultData.platform === `TikTok` && users.length"
-                    :users="users"
-                    :platform="defaultData.platform"
-                />
-
-                <SearchResultTelegramComponent
-                    v-if="defaultData.platform === `Telegram` && users.length"
-                    :users="users"
-                    :platform="defaultData.platform"
-                />
-
-               <div class="paginate" v-if="defaultData.platform && users.length">
+               <div class="paginate" v-if="defaultData.platform && socialUsers.length">
                    <paginate
                        :page-count="lastPage"
                        :click-handler="getUsers"
@@ -382,7 +358,7 @@
                    </div>
                </div>
 
-                <div class="not-found-user" v-if="defaultData.platform && !users.length">
+                <div class="not-found-user" v-if="defaultData.platform && !socialUsers.length">
                     {{ $t('no_users_found') }}
                 </div>
             </div>
@@ -402,23 +378,20 @@ import Header from "../components/Header.vue";
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
 import json from '../../../public/files/countries.json'
-import SearchResultInstagramComponent from '../components/SearchResultInstagramComponent'
-import SearchResultTwitterComponent from "../components/SearchResultTwitterComponent.vue";
-import SearchResultYoutubeComponent from "../components/SearchResultYoutubeComponent.vue";
-import SearchResultTikTokComponent from "../components/SearchResultTikTokComponent.vue";
-import SearchResultTelegramComponent from "../components/SearchResultTelegramComponent.vue";
+import SocialComponent from "../components/SocialComponent.vue";
 
 export default {
     name: "SearchPage",
     components: {
-        SearchResultTelegramComponent,
-        SearchResultTikTokComponent,
-        SearchResultYoutubeComponent,
-        SearchResultTwitterComponent, Header, Footer, DatePicker, SearchResultInstagramComponent},
+        SocialComponent,
+        Header,
+        Footer,
+        DatePicker
+    },
     data() {
         return {
             paginateCount: ['10', '20', '30', '50', '100', '150', '200'],
-            users: [],
+            socialUsers: [],
             paginate: [],
             selectedAges: [],
             isShowElement: false,
@@ -734,7 +707,7 @@ export default {
 
             setTimeout(() => {
                 axios.get(`/users`, request).then((response) => {
-                    this.users = response.data.data;
+                    this.socialUsers = response.data.data;
                     this.currentPage = response.data.pagination.current_page;
                     this.lastPage = response.data.pagination.last_page;
                     this.isLoader = false;

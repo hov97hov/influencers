@@ -15,7 +15,7 @@ class UserCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'data' => UserResource::collection($this->items()),
+            'data' => SocialResource::collection($this->items()),
             'pagination' => [
                 'total' => $this->total(),
                 'per_page' => $this->perPage(),
